@@ -1,11 +1,14 @@
-class ApplicationController < ActionController::Base
+class LoginController < ApplicationController
 
-	layout: "login"
+	layout "login"
 
 	def register
+
 	end
 
 	def login
+		render "login"
+		#render layout: 'login'
 	end
 
 
