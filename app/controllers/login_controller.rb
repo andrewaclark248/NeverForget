@@ -1,14 +1,15 @@
-class LoginController < ApplicationController
+class LoginController < Devise::SessionsController
 
 	layout "login"
 
 	def register
-
 	end
 
 	def login
-		render "login"
-		#render layout: 'login'
+	end
+
+	def login_params
+		params.require(:user).permit(:email, :password)
 	end
 
 

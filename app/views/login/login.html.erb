@@ -14,6 +14,11 @@
     <div class="col-5">
 
       <form>
+      	<%= simple_form_for @user do |f| %>
+    		  <%= f.input :username %>
+    		  <%= f.input :password %>
+    		  <%= f.button :submit %>
+    		<% end %>
         <!-- Email input -->
         <div class="form-outline mb-4">
           <input type="email" id="form2Example1" class="form-control" />
