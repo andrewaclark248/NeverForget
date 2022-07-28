@@ -4,5 +4,17 @@ class Login < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  belongs_to :user, optional: true
+
+  after_create :set_user
+
+  attr_accessor :user_type
+
+  def set_user
+		user = Bronze.new(first: "TBD", last: "TBD")
+    user.save!
+    self.update!(user: user)
+  end
+
          
 end

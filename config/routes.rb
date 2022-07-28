@@ -13,6 +13,7 @@ Rails.application.routes.draw do
 
 
 	resources :dashboard
+	resources :passwords
 	#devise_for :users, controllers: { sessions: 'users/sessions' }
 
   
