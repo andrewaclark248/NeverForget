@@ -1,0 +1,25 @@
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+  <div class="container-fluid">
+
+    <ul class="navbar-nav">
+  		<a class="navbar-brand pe-5" href="#">Never Forget</a>
+		<li class="nav-item">
+			<a class="nav-link active" href="#">Passwords</a>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link active" href="#">Auto Fill</a>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link active" href="#">Stats</a>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link active" href="#">API</a>
+		</li>
+    </ul>
+	<div class="navbar-nav ms-auto">
+	    <%= link_to 'Log Out', destroy_login_session_path, :method => :delete,  class: 'nav-item nav-link active'%>
+
+	</div>
+
+  </div>
+</nav>
