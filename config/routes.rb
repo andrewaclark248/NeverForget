@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :logins
+  devise_for :logins, controllers: {sessions: "sessions"}
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
 
@@ -13,7 +13,7 @@ Rails.application.routes.draw do
 
 
 	resources :dashboard
-	resources :passwords
+	#resources :passwords
 	#devise_for :users, controllers: { sessions: 'users/sessions' }
 
   
