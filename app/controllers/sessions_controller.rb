@@ -3,18 +3,17 @@ class SessionsController < Devise::SessionsController
 
 	def new
 		binding.pry
+
+		x = 2
 		super
 		@login = Login.new
 	end
 
   	def create
+  		x = 1
+  		binding.pry
   		super
   	end
-
-
-	def login_params
-		params.require(:login).permit(:email, :password)
-	end
 
 
 end
