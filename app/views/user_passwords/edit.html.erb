@@ -8,7 +8,9 @@
 		<div class="form-group">
 			<%= f.input :encrypted_password, wrapper_html: {class: "col-6"}, input_html: { value: @user_password.password }, as: :string %>
 	  		<%= f.input :get_urls, wrapper_html: {class: "col-12"}, input_html: { value: @user_password.list_urls }, as: :string %>
-	  		<span><small>* Comma Seperated List of URL's</small></span>
+	  		<span>
+	  			<small>* Comma Seperated List of URL's</small>
+	  		</span>
 	  		<button type="button" class="add-url btn btn-primary">Primary</button>
 
 	  		<br>

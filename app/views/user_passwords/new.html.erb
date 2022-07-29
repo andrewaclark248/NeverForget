@@ -7,18 +7,23 @@
 	<%= simple_form_for @password, url: user_passwords_path(@password) do |password| %>
 		<div class="form-group">
 			<%= password.input :password, wrapper_html: {class: "col-6"} %>
+	  		<br>
 
-	  		<%= password.input :get_urls, wrapper_html: {class: "col-12"} %>
-	  		<span><small>* Comma Seperated List of URL's</small></span>
+	  		<%= password.fields_for :urls do |u| %>
+	  			<div class="user-password-form">
+	  				<%= u.input :url, wrapper_html: {class: "col-12 input-copy"} %>
+	  			</div>
 
+	  		<% end %>
+	  		<br>
+	  		<button type="button" class="add-url btn btn-primary">Add</button>
+	  		<button type="button" class="remove-url btn btn-primary">Remove</button>
 	  		<br>
 	  		<br>
 	  		<center>
 	  			<%= password.button :submit, class: "btn btn-primary" %>
 	  		<center>
 		</div>
-
 	<% end %>
-
   </div>
 </div>
