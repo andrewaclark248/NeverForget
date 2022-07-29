@@ -1,0 +1,24 @@
+
+<h4>Edit Password</h4>
+
+<div class="card">
+  <div class="card-body">
+
+	<%= simple_form_for @user_password, url: user_passwords_path(@user_password) do |f| %>
+		<div class="form-group">
+			<%= f.input :encrypted_password, wrapper_html: {class: "col-6"}, input_html: { value: @user_password.password }, as: :string %>
+	  		<%= f.input :get_urls, wrapper_html: {class: "col-12"}, input_html: { value: @user_password.list_urls }, as: :string %>
+	  		<span><small>* Comma Seperated List of URL's</small></span>
+	  		<button type="button" class="add-url btn btn-primary">Primary</button>
+
+	  		<br>
+	  		<br>
+	  		<center>
+	  			<%= f.button :submit, class: "btn btn-primary" %>
+	  		<center>
+		</div>
+
+	<% end %>
+
+  </div>
+</div>

@@ -1,0 +1,24 @@
+
+<h4>New Password</h4>
+
+<div class="card">
+  <div class="card-body">
+
+	<%= simple_form_for @password, url: user_passwords_path(@password) do |password| %>
+		<div class="form-group">
+			<%= password.input :password, wrapper_html: {class: "col-6"} %>
+
+	  		<%= password.input :get_urls, wrapper_html: {class: "col-12"} %>
+	  		<span><small>* Comma Seperated List of URL's</small></span>
+
+	  		<br>
+	  		<br>
+	  		<center>
+	  			<%= password.button :submit, class: "btn btn-primary" %>
+	  		<center>
+		</div>
+
+	<% end %>
+
+  </div>
+</div>

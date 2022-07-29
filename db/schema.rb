@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_07_28_014643) do
+ActiveRecord::Schema.define(version: 2022_07_28_135025) do
 
   create_table "logins", charset: "utf8", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -24,6 +24,23 @@ ActiveRecord::Schema.define(version: 2022_07_28_014643) do
     t.index ["email"], name: "index_logins_on_email", unique: true
     t.index ["reset_password_token"], name: "index_logins_on_reset_password_token", unique: true
     t.index ["user_id"], name: "index_logins_on_user_id"
+  end
+
+  create_table "passwords", charset: "utf8", force: :cascade do |t|
+    t.string "encrypted_password"
+    t.string "expiration_date"
+    t.bigint "user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_passwords_on_user_id"
+  end
+
+  create_table "urls", charset: "utf8", force: :cascade do |t|
+    t.string "url"
+    t.bigint "password_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["password_id"], name: "index_urls_on_password_id"
   end
 
   create_table "users", charset: "utf8", force: :cascade do |t|
