@@ -23,20 +23,24 @@ class UserPasswordsController < ApplicationController
 	end
 
 	def edit
-		@user_password = Password.find_by(id: params[:id])
+		@password = Password.find_by(id: params[:id])
 	end
 
 	def update
-		password = Password.find_by(id: params[:id])
-		#password.update!(password: password_params[:password])
-		#if
+		@password = Password.find_by(id: params[:id])
+		if @password.update(password_params)
+			flash[:notice] = "Password was updated."
+			redirect_to user_passwords_path
+		else
+      		flash[:error] = password.errors.full_messages.to_sentence
+      		render :new
+		end
 	end
-
 
 	private
 
 		def password_params
-			params.require(:password).permit(:password, urls_attributes: [:url])
+			params.require(:password).permit(:password, urls_attributes: [:url, :id, :_destroy])
 		end
 
 end

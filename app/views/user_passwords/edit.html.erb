@@ -1,26 +1,28 @@
 
-<h4>Edit Password</h4>
+<h4>New Password</h4>
 
 <div class="card">
   <div class="card-body">
 
-	<%= simple_form_for @user_password, url: user_passwords_path(@user_password) do |f| %>
+	<%= simple_form_for @password, url: user_password_path(@password), method: :put do |password| %>
 		<div class="form-group">
-			<%= f.input :encrypted_password, wrapper_html: {class: "col-6"}, input_html: { value: @user_password.password }, as: :string %>
-	  		<%= f.input :get_urls, wrapper_html: {class: "col-12"}, input_html: { value: @user_password.list_urls }, as: :string %>
-	  		<span>
-	  			<small>* Comma Seperated List of URL's</small>
-	  		</span>
-	  		<button type="button" class="add-url btn btn-primary">Primary</button>
+			<%= password.input :password, wrapper_html: {class: "col-6"}, as: :string  %>
+	  		<br>
+
+			<%= password.simple_fields_for :urls do |u| %>
+			    <%= render "url_fields", f: u %>
+			<% end %>
+			<div class="links form-actions">
+				<%= link_to_add_association " Add URL", password, :urls, class: "btn btn-primary" %>
+			</div>
+	  		<br>
 
 	  		<br>
 	  		<br>
 	  		<center>
-	  			<%= f.button :submit, class: "btn btn-primary" %>
+	  			<%= password.button :submit, class: "btn btn-primary" %>
 	  		<center>
 		</div>
-
 	<% end %>
-
   </div>
 </div>
