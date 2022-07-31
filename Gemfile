@@ -54,6 +54,16 @@ gem "interactor", "~> 3.0"
 
 gem "attr_encrypted", "~> 3.1.0"
 
+#dynamic nested forms
+gem "cocoon"
+
+gem 'jquery-rails'
+
+
+gem 'nested_form_fields'
+
+
+gem 'sprockets', '~> 4.0'
 
 
 

@@ -6,6 +6,7 @@ class UserPasswordsController < ApplicationController
 
 	def new
 		@password = Password.new
+		@password.urls.build
 	end
 
 	def create
@@ -35,7 +36,7 @@ class UserPasswordsController < ApplicationController
 	private
 
 		def password_params
-			params.require(:password).permit(:password, :get_urls)
+			params.require(:password).permit(:password, urls_attributes: [:url])
 		end
 
 end

@@ -16,7 +16,6 @@
 	      <tr>
 	        <th>Password</th>
 	        <th>Unencrypte Password</th>
-	        <th>Urls</th>
 	        <th>Edit</th>
 	      </tr>
 	    </thead>
@@ -30,8 +29,6 @@
 		        	<td>
 		        		<%= password.password %>
 		        	</td>
-		        	<td>
-		        		<%= password.urls.pluck(:url).join(", ") %></td>
 		        	<td>
 		        		<%= link_to "Edit", edit_user_password_path(password), class: "link-primary"%>
 		        	</td>
