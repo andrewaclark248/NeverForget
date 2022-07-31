@@ -1,0 +1,28 @@
+
+<h4>New Password</h4>
+
+<div class="card">
+  <div class="card-body">
+
+	<%= simple_form_for @password, url: user_passwords_path(@password) do |password| %>
+		<div class="form-group">
+			<%= password.input :password, wrapper_html: {class: "col-6"}, as: :string  %>
+	  		<br>
+
+			<%= password.simple_fields_for :urls do |u| %>
+			    <%= render "url_fields", f: u %>
+			<% end %>
+			<div class="links">
+				<%= link_to_add_association " Add URL", password, :urls, class: "btn btn-primary" %>
+			</div>
+	  		<br>
+
+	  		<br>
+	  		<br>
+	  		<center>
+	  			<%= password.button :submit, class: "btn btn-primary" %>
+	  		<center>
+		</div>
+	<% end %>
+  </div>
+</div>
