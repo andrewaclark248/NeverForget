@@ -40,7 +40,7 @@ class UserPasswordsController < ApplicationController
 	private
 
 		def password_params
-			params.require(:password).permit(:password, urls_attributes: [:url, :id, :_destroy])
+			params.require(:password).permit(:password, :username, urls_attributes: [:url, :id, :_destroy])
 		end
 
 end
