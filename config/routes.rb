@@ -9,6 +9,12 @@ Rails.application.routes.draw do
 	resources :dashboard
 	resources :user_passwords
 
+
+  	namespace :api do
+		namespace :v1 do
+    		get 'get_credentials', to: 'credentials#get_credentials'
+		end
+	  end
   
 
 end

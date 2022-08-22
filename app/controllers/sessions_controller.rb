@@ -17,6 +17,7 @@ class SessionsController < Devise::SessionsController
   		payload = { data: user_name }
 		token = JWT.encode payload, nil, 'none'
 		cookies[:auth_token] = token
+		current_login.update(auth_token: token)
   	end
 
 end
