@@ -1,13 +1,20 @@
 module Api
-  class ApplicationController < ActionController::Base
+  class  Api::V1::ApplicationController < ActionController::Base
 
   	before_action :authenticate
 
 
   	def authenticate
-		@current_login = Login.find_by(auth_token: api_params[:auth_token])
+		auth_token = request.headers['Authorization'].split(" ").second
+
+		if auth_token.nil?
+			render json: {error: "Invalid Login"}
+			return
+		end
+
+		@current_login = Login.find_by(auth_token: auth_token)
 		if @current_login.nil?
-			render json {error: "Invalid Login"}
+			render json: {error: "Invalid Login"}
 		end
   	end
 
