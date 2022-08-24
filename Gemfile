@@ -65,7 +65,9 @@ gem 'nested_form_fields'
 
 gem 'sprockets', '~> 4.0'
 
+gem 'twilio-ruby', '~> 5.70.1'
 
+gem 'httparty'
 
 
 group :development, :test do
