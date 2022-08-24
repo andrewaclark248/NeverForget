@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_08_22_160703) do
+ActiveRecord::Schema.define(version: 2022_08_23_222922) do
 
   create_table "logins", charset: "utf8", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -37,6 +37,14 @@ ActiveRecord::Schema.define(version: 2022_08_22_160703) do
     t.index ["user_id"], name: "index_passwords_on_user_id"
   end
 
+  create_table "phones", charset: "utf8", force: :cascade do |t|
+    t.string "phone_number"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_phones_on_user_id"
+  end
+
   create_table "urls", charset: "utf8", force: :cascade do |t|
     t.string "url"
     t.bigint "password_id"
@@ -49,6 +57,8 @@ ActiveRecord::Schema.define(version: 2022_08_22_160703) do
     t.string "first"
     t.string "last"
     t.string "type"
+    t.string "sid"
+    t.string "auth_token"
   end
 
 end

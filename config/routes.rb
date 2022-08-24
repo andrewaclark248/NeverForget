@@ -8,6 +8,15 @@ Rails.application.routes.draw do
 
 	resources :dashboard
 	resources :user_passwords
+	resources :phones do
+		member do
+			get 'manage', to: "phones#manage"
+		end
+		collection do
+			get 'purchase', to: "phones#purchase"
+
+		end
+	end
 
 
   	namespace :api do
