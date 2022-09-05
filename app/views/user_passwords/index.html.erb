@@ -20,7 +20,7 @@
 	      </tr>
 	    </thead>
 	    <tbody>
-		    <% @passwords.each do |password| %>
+		    <% @passwords&.each do |password| %>
 		    	<tr>
 		        	<td>
 		        		<%= password.encrypted_password.squish.truncate(26) %>

@@ -81,4 +81,6 @@ Rails.application.configure do
   config.action_mailer.perform_deliveries = true
 
 
+  config.hosts << "261d1b4bdc58.ngrok.io"
+
 end

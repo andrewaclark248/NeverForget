@@ -1,0 +1,29 @@
+<h3>Purchase Product</h3>
+<br>
+<div class="card">
+  <div class="card-header">
+    Subscription
+  </div>
+  <div class="card-body">
+    <p class="card-title">Bronze Plan</p>
+    <p class="card-title">Price: $5.00/month</p>
+    <p class="card-title">Payment Gateway: Stripe</p>
+  </div>
+</div>
+
+<br>
+<div class="card">
+  <div class="card-header">
+    Payment Method
+  </div>
+  <div class="card-body">
+  	<%= simple_form_for @order, url: checkout_index_path, input_html: { id: "order-details" } do |f| %>
+        <div id="card-element"></div>
+        <div id="card-errors"></div>
+        <%= f.button :submit, class: "btn btn-danger"  %>
+
+    <% end %>
+
+  </div>
+</div>
+
