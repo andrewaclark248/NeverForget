@@ -16,11 +16,18 @@
     
   </head>
 
-  <body>
-    <div class="container-fluid" >
+  <body class="my-class" style="background-color: #E0E0E0;">
+    <div class="container-fluid my-class" >
       <div style="padding-top: 5%">
       </div>
       <%= yield %>
     </div>
   </body>
 </html>
+
+<style>
+  .my-class {
+    height: 100vh
+
+}
+</style>

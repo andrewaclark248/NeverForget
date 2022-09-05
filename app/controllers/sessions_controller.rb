@@ -1,6 +1,7 @@
 require 'jwt'
 
 class SessionsController < Devise::SessionsController
+	layout "login"
 
 	
 	def new
