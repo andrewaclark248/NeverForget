@@ -22,7 +22,13 @@ development:
 test:
   <<: *default
 
+staging:
+  url: <%= ENV['DATABASE_URL'] %>
+  <<: *default
+
 
 
 production:
+  url: <%= ENV['DATABASE_URL'] %>
   <<: *default
+
