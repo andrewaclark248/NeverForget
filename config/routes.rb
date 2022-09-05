@@ -1,9 +1,16 @@
 Rails.application.routes.draw do
 
-  	devise_for :logins, controllers: {sessions: "sessions"}
+	root to: 'home#index'
+
+  	devise_for :logins, controllers: {sessions: "sessions"}#,
+	  #:path => '',
+	  #:path_names => {
+	#	sign_in: 'login',
+	#	sign_out: 'logout',
+	#	sign_up: 'register'
+	#  }
   	# For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
-	root to: 'home#index'
 
 
 	resources :dashboard
@@ -13,10 +20,11 @@ Rails.application.routes.draw do
 	resources :phones do
 		member do
 			get 'manage', to: "phones#manage"
+			post 'send_message', to: "phones#send_message"
+			get 'new_message', to: "phones#new_message"
 		end
 		collection do
 			get 'purchase', to: "phones#purchase"
-
 		end
 	end
 
