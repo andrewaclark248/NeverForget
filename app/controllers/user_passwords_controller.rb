@@ -1,7 +1,7 @@
 class UserPasswordsController < ApplicationController
 
 	def index
-		@passwords = current_login.user.passwords
+		@passwords = current_login.user&.passwords
 	end
 
 	def new

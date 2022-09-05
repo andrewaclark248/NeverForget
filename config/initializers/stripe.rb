@@ -1,0 +1,7 @@
+#STRIPE_SECRET_KEY = "sk_test_51LbWEiET8lfOTwqGPX2kxAhl8qtZlDGlqjOf7oSaZkGHvpaiVTgscsI7axMy2PAqu1eUJyUdqHMRuSDndIQg66HX003A05RA4P"
+#STRIPE_PUBLISHABLE_KEY = "pk_test_51LbWEiET8lfOTwqGi6jo6UfpciSNE50rhZ1hUiqDjAAPR4gGMK5VixMGSbpwcffWwf5TzoMFHYPojb3ymbh4mOpQ00fzL6Qz99"
+
+Rails.application.configure do
+    config.stripe.secret_key = "sk_test_51LbWEiET8lfOTwqGPX2kxAhl8qtZlDGlqjOf7oSaZkGHvpaiVTgscsI7axMy2PAqu1eUJyUdqHMRuSDndIQg66HX003A05RA4P"
+    config.stripe.publishable_key = "pk_test_51LbWEiET8lfOTwqGi6jo6UfpciSNE50rhZ1hUiqDjAAPR4gGMK5VixMGSbpwcffWwf5TzoMFHYPojb3ymbh4mOpQ00fzL6Qz99"
+end

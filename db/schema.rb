@@ -10,9 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_08_23_222922) do
+ActiveRecord::Schema.define(version: 2022_09_05_144532) do
 
-  create_table "logins", charset: "utf8", force: :cascade do |t|
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "logins", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
@@ -27,7 +30,22 @@ ActiveRecord::Schema.define(version: 2022_08_23_222922) do
     t.index ["user_id"], name: "index_logins_on_user_id"
   end
 
-  create_table "passwords", charset: "utf8", force: :cascade do |t|
+  create_table "orders", force: :cascade do |t|
+    t.string "status"
+    t.bigint "user_id"
+    t.string "token"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "product_id"
+    t.integer "price_cents", default: 0, null: false
+    t.bigint "charge_id_id"
+    t.string "error_message"
+    t.index ["charge_id_id"], name: "index_orders_on_charge_id_id"
+    t.index ["product_id"], name: "index_orders_on_product_id"
+    t.index ["user_id"], name: "index_orders_on_user_id"
+  end
+
+  create_table "passwords", force: :cascade do |t|
     t.string "encrypted_password"
     t.string "expiration_date"
     t.bigint "user_id"
@@ -37,7 +55,7 @@ ActiveRecord::Schema.define(version: 2022_08_23_222922) do
     t.index ["user_id"], name: "index_passwords_on_user_id"
   end
 
-  create_table "phones", charset: "utf8", force: :cascade do |t|
+  create_table "phones", force: :cascade do |t|
     t.string "phone_number"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -45,7 +63,16 @@ ActiveRecord::Schema.define(version: 2022_08_23_222922) do
     t.index ["user_id"], name: "index_phones_on_user_id"
   end
 
-  create_table "urls", charset: "utf8", force: :cascade do |t|
+  create_table "products", force: :cascade do |t|
+    t.string "name"
+    t.integer "price_cents"
+    t.string "stripe_plan_name"
+    t.string "paypal_plan_name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "urls", force: :cascade do |t|
     t.string "url"
     t.bigint "password_id"
     t.datetime "created_at", precision: 6, null: false
@@ -53,12 +80,16 @@ ActiveRecord::Schema.define(version: 2022_08_23_222922) do
     t.index ["password_id"], name: "index_urls_on_password_id"
   end
 
-  create_table "users", charset: "utf8", force: :cascade do |t|
+  create_table "users", force: :cascade do |t|
     t.string "first"
     t.string "last"
     t.string "type"
     t.string "sid"
     t.string "auth_token"
+    t.string "stripe_customer_id"
+    t.string "subscription_status"
+    t.string "plan"
+    t.string "current_period_end"
   end
 
 end

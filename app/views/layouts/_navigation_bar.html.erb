@@ -10,13 +10,15 @@
 	    	<%= link_to 'Phone Management', phones_path, class: 'nav-item nav-link active'%>
 		</li>
 		<li class="nav-item">
-	    	<%= link_to 'Profile', nil, class: 'nav-item nav-link active'%>
+	    	<%= link_to 'Payments', new_checkout_path, class: 'nav-item nav-link active'%>
+		</li>
+		<li class="nav-item">
+	    	<%= link_to 'Bill Portal', billing_portal_index_path, :method => :post, class: 'nav-item nav-link active'%>
 		</li>
     </ul>
 	<div class="navbar-nav ms-auto">
 	    <%= link_to 'Log Out', destroy_login_session_path, :method => :delete,  class: 'nav-item nav-link active'%>
 	</div>
-
   </div>
 </nav>
 

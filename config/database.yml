@@ -5,14 +5,14 @@
 #   gem 'sqlite3'
 #
 default: &default
-  adapter: sqlite3
-  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   timeout: 5000
+  pool: 5
 
 development:
-  adapter: mysql2
+  adapter: postgresql
+  encoding: unicode
   database: never_forget_development
-  username: root
+  username: aclark
   password:
 
 
@@ -21,12 +21,8 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  adapter: mysql
-  database: never_forget_development
-  username: root
-  password:
+
 
 
 production:
   <<: *default
-  database: db/production.sqlite3

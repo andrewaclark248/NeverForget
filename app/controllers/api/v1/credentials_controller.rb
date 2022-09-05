@@ -18,7 +18,6 @@ module Api
                 render json: {error: "Could Not Find Credentials"}
             else 
                 render json: {username: password_to_ref.username, password: password_to_ref.password}
-
             end
         end
         

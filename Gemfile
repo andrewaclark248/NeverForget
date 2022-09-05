@@ -5,8 +5,7 @@ ruby '2.6.3'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem 'rails', '~> 6.1.6'
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3', '~> 1.4'
+
 # Use Puma as the app server
 gem 'puma', '~> 5.0'
 # Use SCSS for stylesheets
@@ -35,7 +34,7 @@ gem 'devise'
 #devise dependency
 gem 'nokogiri', '1.13.8'
 
-gem 'mysql2'
+gem 'pg'
 
 gem 'pry', '~> 0.13.1'
 
@@ -69,10 +68,18 @@ gem 'twilio-ruby', '~> 5.70.1'
 
 gem 'httparty'
 
+gem 'stripe-rails'
+
+gem "money-rails"
+
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+
+  gem 'dotenv-rails', groups: [:development, :test]
+
 end
 
 group :development do
