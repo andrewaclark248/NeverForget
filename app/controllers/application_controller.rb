@@ -8,7 +8,6 @@ class ApplicationController < ActionController::Base
 	end
 
 	def authenticate_user
-		binding.pry
 		if current_user.blank?
 			redirect_to new_login_session_path and return
 		end
