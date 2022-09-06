@@ -1,6 +1,6 @@
 class DashboardController < ApplicationController
 
-	before_action :authenticate_user
+	before_action :authenticate_user!
 
 	def index
 		@number_of_passwords = current_user.passwords.count
