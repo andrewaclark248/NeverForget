@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
 		return current_login&.user
 	end
 
-	def authenticate_user
+	def authenticate_user!
 		if current_user.blank?
 			redirect_to new_login_session_path and return
 		end
