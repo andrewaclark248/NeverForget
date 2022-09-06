@@ -6,14 +6,16 @@ module Api
         def get_credentials
             domain = params[:domain]
             password_to_ref = nil
+
             @current_login.user.passwords.each do |password|
                 password.urls.each do |url|
-                    if domain[url.url].present?
+                    if domain == url.url
                         password_to_ref = password
                         break
                     end
                 end
             end
+
             if password_to_ref.nil?
                 render json: {error: "Could Not Find Credentials"}
             else 
