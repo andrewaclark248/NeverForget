@@ -1,16 +1,7 @@
-<% if notice %>
-  <div class="alert alert-success" role="alert">
-    <%= notice %>
-    <button type="button" class="btn-close float-end" data-bs-dismiss="alert" aria-label="Close"></button>
-
-  </div>
-<% end %>
 
 
-<% if error %>
-  <div class="alert alert-danger" role="alert">
-    <%= alert %>
-    <button type="button" class="btn-close float-end" data-bs-dismiss="alert" aria-label="Close"></button>
-
-  </div>
-<% end %>
+  <% flash.each do |key, value| %>
+        <div class="<%= flash_class(key) %>">
+              <%= value %>
+        </div>
+  <% end %>

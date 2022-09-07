@@ -9,7 +9,7 @@ module Api
 
             @current_login.user.passwords.each do |password|
                 password.urls.each do |url|
-                    if domain == url.url
+                    if domain[url.name]
                         password_to_ref = password
                         break
                     end
