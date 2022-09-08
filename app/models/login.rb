@@ -11,11 +11,10 @@ class Login < ApplicationRecord
   attr_accessor :user_type
 
   def set_user
-		user = Bronze.new(first: "TBD", last: "TBD")
+		user = Bronze.new(first: "N/A", last: "N/A")
     user.save!
     self.update!(user: user)
-    customer = Stripe::Customer.create(email: self.email)
-    self.user.update(stripe_customer_id: customer.id, plan: "Bronze")
+
   end
 
          
