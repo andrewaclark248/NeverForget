@@ -35,9 +35,8 @@
           </div>
         </div>
         <br>
-        <%= link_to "Want to cancel your plan?", nil %><br /><br />
-        <%= link_to "Want to upgrade your plan?", nil %><br />
-
+        <hr>
+        <%= link_to "Want to cancel your plan?", billing_portal_index_path %><br /><br />
       </div>
     </div>
   </div>
@@ -52,8 +51,9 @@
           <li>Need to upgrade your payment method?</li>
           <li>Want to view you invoice/payment history?</li>
         </ul> 
+        <hr>
         <center>
-          <%= link_to "Go To Our Billing Portal!", nil %><br />
+          <%= link_to "Go To Our Billing Portal!", billing_portal_index_path %><br />
         </center>
       </div>
     </div>
@@ -89,25 +89,20 @@
             <span><strong>Selected Plan</strong></span>
           </div>
           <div class="col-4">
-            <%= simple_form_for :payment, url: nil, input_html: { id: "order-details" } do |f| %>
-              <%= f.collection_select :plan, Plan.all, :name, :name, include_blank: true %>
+            <%= simple_form_for :payment, url: payments_path, input_html: { id: "order-details" } do |f| %>
+              <%= f.collection_select :plan, @plans, :name, :name, include_blank: true %>
               <br>
               <br>
-              <br>
-              <%= f.submit "Update Plan", class: "btn btn-danger" %>
+              <%= f.submit "Update Plan", data: { confirm: "Are you sure you wannt to update your plan?" }, class: "btn btn-danger" %>
             <% end %>
           </div>
           <div class="col-4">
             <span id="upgraded-plan">
-              <%= "#{Money.new(@current_plan).format}/Month" %>
+              <%= "No Plan Selected!" %>
             </span>
           </div>
         </div>
         <br>
-        <br>
-        <%= link_to "Want to cancel your plan?", nil %><br /><br />
-        <%= link_to "Want to upgrade your plan?", nil %><br />
-
       </div>
     </div>
   </div>

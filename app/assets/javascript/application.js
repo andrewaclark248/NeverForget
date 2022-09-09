@@ -1,4 +1,6 @@
 $(document).ready(function(){
+
+    //payment panel
     $("#payment_plan").on('change', function() {
         var selectedPlan = this.value 
         var updatedValue = null;
@@ -14,7 +16,7 @@ $(document).ready(function(){
         } else if (selectedPlan == "Adamantium") {
             updatedValue = "$16.00/Month"
         } else {
-            updatedValue = "Error: Try refreshing the page!"
+            updatedValue = "No Plan Selected!"
         }
         $("#upgraded-plan").text(updatedValue);
 
