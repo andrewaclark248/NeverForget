@@ -15,7 +15,7 @@ Rails.application.routes.draw do
 
 	resources :dashboard
 	resources :user_passwords
-	resources :checkout, only: [:new, :create]
+	resources :payments, only: [:new, :create]
 	resources :billing_portal, only: [:create]
 	resources :phones do
 		member do

@@ -1,0 +1,121 @@
+<h3>Purchase Product</h3>
+<br>
+
+<div class="row">
+  <div class="col-6">
+    <div class="card">
+      <div class="card-header">
+        Your Plan
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-4">
+            <span><strong>Current Plan</strong></span>
+          </div>
+          <div class="col-4">
+            <%= @current_plan %>
+          </div>
+        </div>
+        <br>
+        <div class="row">
+          <div class="col-4">
+            <span><strong>Price/Month</strong></span>
+          </div>
+          <div class="col-4">
+            <%= Money.new(@price_per_month).format %>
+          </div>
+        </div>
+        <br>
+        <div class="row">
+          <div class="col-4">
+            <span><strong>Balance</strong></span>
+          </div>
+          <div class="col-4">
+            <%= Money.new(@balance).format %>
+          </div>
+        </div>
+        <br>
+        <%= link_to "Want to cancel your plan?", nil %><br /><br />
+        <%= link_to "Want to upgrade your plan?", nil %><br />
+
+      </div>
+    </div>
+  </div>
+  <div class="col-6">
+    <div class="card">
+      <div class="card-header">
+        Billing Portal
+      </div>
+      <div class="card-body">
+        <ul>
+          <li>Need to cancel your plan?</li>
+          <li>Need to upgrade your payment method?</li>
+          <li>Want to view you invoice/payment history?</li>
+        </ul> 
+        <center>
+          <%= link_to "Go To Our Billing Portal!", nil %><br />
+        </center>
+      </div>
+    </div>
+  </div>
+</div>
+<br>
+<br>
+
+
+
+<div class="row">
+  <div class="col-8">
+    <div class="card">
+      <div class="card-header">
+        Upgrade/Change Your Plan
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-4">
+            <span><strong>Current Plan</strong></span>
+          </div>
+          <div class="col-4">
+            <%= @current_plan %>
+          </div>
+          <div class="col-4">
+            <%= "#{Money.new(@current_plan).format}/Month" %>
+          </div>
+        </div>
+        <hr>
+        <br>
+        <div class="row">
+          <div class="col-4">
+            <span><strong>Selected Plan</strong></span>
+          </div>
+          <div class="col-4">
+            <%= simple_form_for :payment, url: nil, input_html: { id: "order-details" } do |f| %>
+              <%= f.collection_select :plan, Plan.all, :name, :name, include_blank: true %>
+              <br>
+              <br>
+              <br>
+              <%= f.submit "Update Plan", class: "btn btn-danger" %>
+            <% end %>
+          </div>
+          <div class="col-4">
+            <span id="upgraded-plan">
+              <%= "#{Money.new(@current_plan).format}/Month" %>
+            </span>
+          </div>
+        </div>
+        <br>
+        <br>
+        <%= link_to "Want to cancel your plan?", nil %><br /><br />
+        <%= link_to "Want to upgrade your plan?", nil %><br />
+
+      </div>
+    </div>
+  </div>
+</div>
+<br>
+<br>
+
+
+
+
+

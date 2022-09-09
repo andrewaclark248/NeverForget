@@ -1,9 +1,19 @@
-class CheckoutController < ApplicationController
+class PaymentsController < ApplicationController
 
+
+    #payments page
     def new
-        @order = Order.new
+        @current_plan = current_user.type
+        @balance = 0
+        @price_per_month = current_user.price_per_month
     end
 
+    #cancel plan/update payment mehtod
+    def billing_portal
+
+    end
+
+    #create/upgrade plan
     def create
         @session = Stripe::Checkout::Session.create({
             customer: current_user.stripe_customer_id,
@@ -17,6 +27,7 @@ class CheckoutController < ApplicationController
           })
           redirect_to @session.url
     end
+
 
     private
 

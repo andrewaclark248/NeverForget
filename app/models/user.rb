@@ -7,7 +7,15 @@ class User < ApplicationRecord
   SILVER_USER = "Silver"      #1 phone  -> $5
   PLATNIUM_USER = "Platnium"  #2 phones -> $7
   GOLD_USER = "Gold"          #3 phones -> $9
-  ADAMANTIUM_USER = "Titanium"  #4 phones -> $11
+  ADAMANTIUM_USER = "Adamantium"  #4 phones -> $11
+
+  SILVER_PRICE = "price_1LbWYwET8lfOTwqGkD94DDnX"
+  PLATNIUM_PRICE = "price_1LftW1ET8lfOTwqGjTjZKC7x"
+  GOLD_PRICE = "price_1LftWdET8lfOTwqGXEqZnoNx"
+  ADAMANTIUM_PRICE = "price_1LftXIET8lfOTwqGvCdEYP4O"
+
+  STRIPE_PRICES = [SILVER_PRICE, PLATNIUM_PRICE, GOLD_PRICE, ADAMANTIUM_PRICE]
+
 
   PLANS = [BRONZE_USER, SILVER_USER, PLATNIUM_USER, GOLD_USER, ADAMANTIUM_USER]
 
@@ -28,6 +36,14 @@ class User < ApplicationRecord
 
   def friendly_name
     "user-#{self.id}"
+  end
+
+  def price_per_month
+    return 0 if self.type == BRONZE_USER
+    return 5 if self.type == SILVER_USER
+    return 8 if self.type == PLATNIUM_USER
+    return 12 if self.type == GOLD_USER
+    return 16 if self.type == ADAMANTIUM_USER
   end
 
 end

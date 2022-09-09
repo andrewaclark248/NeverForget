@@ -1,18 +1,23 @@
 $(document).ready(function(){
+    $("#payment_plan").on('change', function() {
+        var selectedPlan = this.value 
+        var updatedValue = null;
 
-	var input = "<div class='form-group col-12 input-copy'><label>Url</label><input class='form-control'></input></div>"
+        if (selectedPlan == "Bronze") {
+            updatedValue = "$0.00/Month"
+        } else if (selectedPlan == "Silver") {
+            updatedValue = "$5.00/Month"
+        } else if (selectedPlan == "Platnium") {
+            updatedValue = "$8.00/Month"
+        } else if (selectedPlan == "Gold") {
+            updatedValue = "$12.00/Month"
+        } else if (selectedPlan == "Adamantium") {
+            updatedValue = "$16.00/Month"
+        } else {
+            updatedValue = "Error: Try refreshing the page!"
+        }
+        $("#upgraded-plan").text(updatedValue);
 
-	$(".add-url").click(function(){
-		$( ".user-password-form" ).append(input);
-	});
-	$(".remove-url").click(function(){
-		//$(".input-copy").last().forEach(myFunction);
-		$(".input-copy").last().remove();
-		//var inputLength = $(".input-copy").length
-		//for (let i = 0; i < inputLength; i++) {
-		//}
-		//console.log($(".input-copy")[0].remove());
-	});
-
+    });
 });
 
