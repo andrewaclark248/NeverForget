@@ -1,5 +1,5 @@
 $(document).ready(function(){
-
+    console.log("app.js was loaded hahah")
     //payment panel
     $("#payment_plan").on('change', function() {
         var selectedPlan = this.value 
