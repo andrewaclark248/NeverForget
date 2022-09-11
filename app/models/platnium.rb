@@ -1,0 +1,4 @@
+class Platnium < User
+
+    
+end

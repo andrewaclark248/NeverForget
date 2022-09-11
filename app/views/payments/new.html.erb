@@ -65,18 +65,37 @@
 
 
 <div class="row">
-  <div class="col-8">
+  <div class="col-10">
     <div class="card">
       <div class="card-header">
         Upgrade/Change Your Plan
       </div>
       <div class="card-body">
         <div class="row">
-          <div class="col-4">
-            <span><strong>Current Plan</strong></span>
+          <div class="col-5">
+            <span><strong>Plan</strong></span>
+          </div>
+          <div class="col-3">
+            <span><strong># of Phones</strong></span>
           </div>
           <div class="col-4">
-            <%= @current_plan %>
+            <span><strong>Price/Month</strong></span>
+          </div>
+        </div>
+        <hr>
+        <div class="row">
+          <div class="col-5">
+            <div class="row">
+              <div class="col-6">
+                <span>Current Plan:</span>
+              </div>
+              <div class="col-6">
+                <span><strong class="text-primary"><%= @current_plan %></strong></span>
+              </div>
+            </div>
+          </div>
+          <div class="col-3">
+            <%= "#{get_phones_based_on_plan(@current_plan)}" %>
           </div>
           <div class="col-4">
             <%= "#{Money.new(@current_plan).format}/Month" %>
@@ -85,19 +104,28 @@
         <hr>
         <br>
         <div class="row">
-          <div class="col-4">
-            <span><strong>Selected Plan</strong></span>
+          <div class="col-5">
+            <div class="row">
+              <div class="col-6">
+                <span>Selected Plan:</span>
+              </div>
+              <div class="col-6">
+                <%= simple_form_for :payment, url: payments_path, input_html: { id: "order-details" } do |f| %>
+                  <%= f.collection_select :plan, @plans, :name, :name, include_blank: true %>
+                  <br>
+                  <br>
+                  <br>
+                  <br>
+                  <%= f.submit "Update Plan", data: { confirm: "Are you sure you wannt to update your plan?" }, class: "btn btn-danger" %>
+                <% end %>
+              </div>
+            </div>
+          </div>
+          <div class="col-3">
+            <span id="phone-count">0 Phones</span>
           </div>
           <div class="col-4">
-            <%= simple_form_for :payment, url: payments_path, input_html: { id: "order-details" } do |f| %>
-              <%= f.collection_select :plan, @plans, :name, :name, include_blank: true %>
-              <br>
-              <br>
-              <%= f.submit "Update Plan", data: { confirm: "Are you sure you wannt to update your plan?" }, class: "btn btn-danger" %>
-            <% end %>
-          </div>
-          <div class="col-4">
-            <span id="upgraded-plan">
+            <span id="upgraded-plan" class="text-danger">
               <%= "No Plan Selected!" %>
             </span>
           </div>

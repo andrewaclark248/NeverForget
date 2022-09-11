@@ -2,6 +2,8 @@ class User < ApplicationRecord
   has_one :login
   has_many :passwords
   has_many :phones
+  belongs_to :plan
+
 
   BRONZE_USER = "Bronze"      #no phone -> $0
   SILVER_USER = "Silver"      #1 phone  -> $5

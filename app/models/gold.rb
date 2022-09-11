@@ -1,0 +1,4 @@
+class Gold < User
+
+
+end

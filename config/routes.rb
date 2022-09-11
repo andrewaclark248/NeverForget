@@ -28,6 +28,8 @@ Rails.application.routes.draw do
 		end
 	end
 
+	resources :webhooks, only: [:create]
+
 
   	namespace :api do
 		namespace :v1 do

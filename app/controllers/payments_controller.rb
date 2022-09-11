@@ -11,16 +11,25 @@ class PaymentsController < ApplicationController
 
     #cancel plan/update payment mehtod
     def billing_portal
-
     end
 
     #create/upgrade plan
     def create
+        #purchase phone in webhook
+
+        #create stripe customer if one does not exist
+        find_or_create_stripe_customer
+
+        #if no plan selected error
         if payment_params[:plan].blank?
             flash[:error] = "Please provide a plan!"
             redirect_to new_payment_path
+
+        elsif payment_params[:plan] == current_user.plan
+            flash[:error] = "No change in plan!"
+            redirect_to new_payment_path
         else
-            #execute stripe api
+            #get current plan for stripe payment
             plan = Plan.find_by(name: payment_params[:plan])
 
             @session = Stripe::Checkout::Session.create({
@@ -34,6 +43,20 @@ class PaymentsController < ApplicationController
                 mode: 'subscription',
             })
             redirect_to @session.url
+        end
+    end
+
+    #stripe callback_url
+    def success_payment
+    end
+
+    def failure_payment
+    end
+
+    def find_or_create_stripe_customer
+        if !current_user.has_phone_plan?
+            customer = Stripe::Customer.create(email: current_user.login.email)
+            current_user.update(stripe_customer_id: customer.id)
         end
     end
 
