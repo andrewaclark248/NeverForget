@@ -10,4 +10,19 @@ module ApplicationHelper
         end
 
     end
+
+    def get_phones_based_on_plan plan_type
+        if plan_type == "Bronze"
+            return "0 Phones"
+        elsif plan_type == "Silver"
+            return "1 Phone"
+        elsif plan_type == "Platnium"
+            return "2 Phones"
+        elsif plan_type == "Gold"
+            return "3 Phones"
+        elsif plan_type == "Adamantium"
+            return "4 Phones"
+        end
+    end
+
 end

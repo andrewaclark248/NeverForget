@@ -1,6 +1,7 @@
 //= link_tree ../images
-//= link_directory ../stylesheets .css
-//= link_directory ../javascript
-//= require jquery3
+//= require jquery
 //= require jquery_ujs
+//= link_directory ../stylesheets .css
+//= link_directory ../javascripts .js
 //= require cocoon
+

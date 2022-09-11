@@ -15,8 +15,8 @@ Rails.application.routes.draw do
 
 	resources :dashboard
 	resources :user_passwords
-	resources :checkout, only: [:new, :create]
-	resources :billing_portal, only: [:create]
+	resources :payments, only: [:new, :create]
+	resources :billing_portal, only: [:index]
 	resources :phones do
 		member do
 			get 'manage', to: "phones#manage"
@@ -27,6 +27,8 @@ Rails.application.routes.draw do
 			get 'purchase', to: "phones#purchase"
 		end
 	end
+
+	resources :webhooks, only: [:create]
 
 
   	namespace :api do

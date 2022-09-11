@@ -1,6 +1,6 @@
 class BillingPortalController < ApplicationController
 
-    def create
+    def index
         portal_session = Stripe::BillingPortal::Session.create({
             customer: current_user.stripe_customer_id,
             return_url: root_url,

@@ -1,7 +1,7 @@
 class PhonesController < ApplicationController
 
     def index
-        @phones = current_user.phones
+        @phones = current_user.phones.where(active: true)
     end
 
     def manage
@@ -39,6 +39,16 @@ class PhonesController < ApplicationController
     end
 
     def purchase
+        result = PurchasePhone.call(current_user: current_user)
+
+        if result.success?
+            customer = Stripe::Customer.create(email: self.email)
+            self.user.update(stripe_customer_id: customer.id, plan: SILVER_USER)
+        else
+            flash[:error] = result.error
+            render :manage
+        end
+
         @client = Twilio::REST::Client.new("ACe94efa4a5bccafbcd7bf3d2d2f9166df", "829e5fa9183a5cce3c9b54c25aab5058")
         friendly_name = "user-#{current_user.id}"
 
@@ -70,22 +80,24 @@ class PhonesController < ApplicationController
     end
 
     def get_sub_account
-        @client = Twilio::REST::Client.new("ACe94efa4a5bccafbcd7bf3d2d2f9166df", "829e5fa9183a5cce3c9b54c25aab5058")
+        user_has_account_client = Twilio::REST::Client.new(ACCOUNT_SID, AUTH_TOKEN)
         friendly_name = "user-#{current_user.id}"
 
-        accounts = @client.api.v2010.accounts.list(
+        accounts = user_has_account_client.api.v2010.accounts.list(
             friendly_name: friendly_name,
             limit: 20
           )
 
+        #user already signed up and cant upgrade
         if accounts.blank?
-            sub_account = @client.api.v2010.accounts.create(friendly_name: friendly_name)
+            client = Twilio::REST::Client.new(current_user.sid, current_user.auth_token)
+
+        else #not signed up
+            sub_account = client.api.v2010.accounts.create(friendly_name: friendly_name)
             current_user.update(sid: sub_account.sid, auth_token: sub_account.auth_token)
-            @sub_account_client = Twilio::REST::Client.new(sub_account.sid, sub_account.auth_token)
-        else
-            @sub_account_client = Twilio::REST::Client.new(current_user.sid, current_user.auth_token)
+            client = Twilio::REST::Client.new(sub_account.sid, sub_account.auth_token)
         end
-        return @sub_account_client
+        return client
     end
 
 
