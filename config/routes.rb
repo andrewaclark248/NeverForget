@@ -19,7 +19,7 @@ Rails.application.routes.draw do
 	resources :billing_portal, only: [:index]
 	resources :phones do
 		member do
-			get 'manage', to: "phones#manage"
+			get 'messages', to: "phones#messages"
 			post 'send_message', to: "phones#send_message"
 			get 'new_message', to: "phones#new_message"
 		end
