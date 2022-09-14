@@ -30,6 +30,9 @@ $(document).ready(function(){
         $("#phone-count").text(phoneCount)
 
     });
+
+    $('.toast').toast('show');
+
     
 });
 

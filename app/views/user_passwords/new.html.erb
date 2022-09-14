@@ -1,4 +1,4 @@
-<h3>New Password</h3>
+<h3 class="text-white">New Password</h3>
 <br>
 <br>
 <div class="card">
@@ -7,7 +7,7 @@
 	<%= simple_form_for @password, url: user_passwords_path(@password) do |password| %>
 		<center>
 			<div class="d-grid gap-2">
-				<%= password.button :submit, class: "btn btn-primary btn-lg" %>
+				<%= password.button :submit, class: "btn btn-danger btn-lg" %>
 			</div>
 		</center>
 		<br>
@@ -35,7 +35,7 @@
 			    <%= render "url_fields", f: u %>
 			<% end %>
 			<div class="links">
-				<%= link_to_add_association "Add URL", password, :urls, class: "btn btn-primary" %>
+				<%= link_to_add_association "Add URL", password, :urls, class: "btn btn-danger" %>
 			</div>
 	  		<br>
 		</div>

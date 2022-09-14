@@ -98,7 +98,7 @@
             <%= "#{get_phones_based_on_plan(@current_plan)}" %>
           </div>
           <div class="col-4">
-            <%= "#{Money.new(@current_plan).format}/Month" %>
+            <%= "#{Money.new(@price_per_month).format}/Month" %>
           </div>
         </div>
         <hr>
