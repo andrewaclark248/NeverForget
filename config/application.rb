@@ -18,6 +18,8 @@ module NeverForget
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
-    config.hosts << "cffac692ce1f.ngrok.io"
+    if Rails.env == "development"
+      config.hosts << "cffac692ce1f.ngrok.io"
+    end
   end
 end
