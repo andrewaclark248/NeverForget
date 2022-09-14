@@ -42,10 +42,10 @@ class User < ApplicationRecord
 
   def price_per_month
     return 0 if self.type == BRONZE_USER
-    return 5 if self.type == SILVER_USER
-    return 8 if self.type == PLATNIUM_USER
-    return 12 if self.type == GOLD_USER
-    return 16 if self.type == ADAMANTIUM_USER
+    return 500 if self.type == SILVER_USER
+    return 800 if self.type == PLATNIUM_USER
+    return 1200 if self.type == GOLD_USER
+    return 1600 if self.type == ADAMANTIUM_USER
   end
 
 end
