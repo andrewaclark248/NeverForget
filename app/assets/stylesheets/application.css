@@ -14,13 +14,3 @@
  *= require_tree .
  *= require_self
  */
-
- .hideModal {
-    display: none;
-    visibility: hidden;
- }
-
- .showModal {
-    display: none;
-    visibility: hidden;
- }
