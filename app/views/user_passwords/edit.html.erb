@@ -28,8 +28,8 @@
 				<%= password.label "Password:", class: "col-2" %>
 				<%= password.input :password, wrapper_html: {class: "col-4"}, as: :string, label: false %>
 				<div class="col-4 ps-4">
-					<button type="button" class="btn btn-primary manually-rotate-password" data-bs-toggle="modal" data-bs-target="#myModal">
-						Open modal
+					<button type="button" class="btn btn-warning manually-rotate-password" data-bs-toggle="modal" data-bs-target="#myModal">
+						Manually Rotate Password
 					</button>
   					<i class="fa-solid fa fa-info-circle fa-lg" data-bs-toggle="tooltip" title="<%=@rotate_password_text%>" ></i>
 				</div>

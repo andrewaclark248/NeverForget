@@ -21,7 +21,6 @@ module NeverForget
     if Rails.env == "development"
       config.hosts << "cffac692ce1f.ngrok.io"
     end
-    config.assets.paths << Rails.root.join("app", "assets", "fonts")
 
   end
 end
