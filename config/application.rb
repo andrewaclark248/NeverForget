@@ -21,5 +21,6 @@ module NeverForget
     if Rails.env == "development"
       config.hosts << "cffac692ce1f.ngrok.io"
     end
+
   end
 end

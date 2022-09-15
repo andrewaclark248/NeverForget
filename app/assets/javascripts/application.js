@@ -33,6 +33,42 @@ $(document).ready(function(){
 
     $('.toast').toast('show');
 
-    
+
+    // Initialize tooltips
+    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+    var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+    return new bootstrap.Tooltip(tooltipTriggerEl)
+    })
+
+
+    //auto rotate button
+    $( ".manually-rotate-password" ).click(function() {
+        getNewPassword();
+    });
+
+
+
 });
+
+
+function getNewPassword()
+{
+    console.log($(".new-password"))
+    //$(".new-password").val("Glenn Quagmire"); 
+    var data2 = null;
+    $.ajax({
+
+        url : '/ajax/get_new_password',
+        type : 'GET',
+        dataType:'json',
+        success : function(data) { 
+            $(".new-password").text(data.password);  
+            $("#password_password").val(data.password)
+        },
+        error : function(request,error)
+        {
+            alert("Request: "+JSON.stringify(request));
+        }
+    });
+}
 

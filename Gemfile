@@ -72,6 +72,9 @@ gem 'stripe-rails'
 
 gem "money-rails"
 
+gem "font-awesome-rails"
+
+gem "passgen"
 
 
 group :development, :test do
