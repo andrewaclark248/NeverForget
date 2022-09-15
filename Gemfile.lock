@@ -110,6 +110,8 @@ GEM
       ruby2_keywords (>= 0.0.4)
     faraday-net_http (3.0.0)
     ffi (1.15.5)
+    font-awesome-rails (4.7.0.8)
+      railties (>= 3.2, < 8.0)
     globalid (1.0.0)
       activesupport (>= 5.0)
     httparty (0.20.0)
@@ -169,6 +171,7 @@ GEM
     nokogiri (1.13.8-x86_64-linux)
       racc (~> 1.4)
     orm_adapter (0.5.0)
+    passgen (1.2.0)
     pg (1.4.3)
     pry (0.13.1)
       coderay (~> 1.1)
@@ -302,6 +305,7 @@ DEPENDENCIES
   devise
   dotenv-rails
   encryption
+  font-awesome-rails
   httparty
   interactor (~> 3.0)
   jbuilder (~> 2.7)
@@ -313,6 +317,7 @@ DEPENDENCIES
   money-rails
   nested_form_fields
   nokogiri (= 1.13.8)
+  passgen
   pg
   pry (~> 0.13.1)
   puma (~> 5.0)

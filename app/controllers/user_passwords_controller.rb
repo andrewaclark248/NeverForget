@@ -24,6 +24,7 @@ class UserPasswordsController < ApplicationController
 
 	def edit
 		@password = Password.find_by(id: params[:id])
+		@rotate_password_text = "The 'Manually Rotate Password' button rotates your current password."
 	end
 
 	def update

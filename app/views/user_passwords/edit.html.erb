@@ -21,12 +21,18 @@
 		<div class="form-group">
 			<div class="row">
 				<%= password.label "Username:", class: "col-2" %>
-				<%= password.input :username, wrapper_html: {class: "col-6"}, as: :string, label: false %>
+				<%= password.input :username, wrapper_html: {class: "col-4"}, as: :string, label: false %>
 			</div>
 			<br>
 			<div class="row">
 				<%= password.label "Password:", class: "col-2" %>
-				<%= password.input :password, wrapper_html: {class: "col-6"}, as: :string, label: false %>
+				<%= password.input :password, wrapper_html: {class: "col-4"}, as: :string, label: false %>
+				<div class="col-4 ps-4">
+					<button type="button" class="btn btn-primary manually-rotate-password" data-bs-toggle="modal" data-bs-target="#myModal">
+						Open modal
+					</button>
+  					<i class="fa-solid fa fa-info-circle fa-lg" data-bs-toggle="tooltip" title="<%=@rotate_password_text%>" ></i>
+				</div>
 			</div>
 
 	  		<br>
@@ -46,5 +52,33 @@
 
 		</div>
 	<% end %>
+  </div>
+</div>
+
+<div class="modal fade" id="myModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Password Generation</h4>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        Suggested Password:
+		<strong><span class="new-password text-danger"></span></strong>
+		<br>
+		<br>
+		<span class="text-warning">Generated password has been added to form. Just click the 'Update Password' button!</span>
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+      </div>
+
+    </div>
   </div>
 </div>
