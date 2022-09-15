@@ -17,20 +17,23 @@
 	  <table class="table table-striped">
 	    <thead>
 	      <tr>
+	        <th>Username</th>
+			<th>URL's</th>
 	        <th>Password</th>
-	        <th>Unencrypte Password</th>
 	        <th>Edit</th>
 	      </tr>
 	    </thead>
 	    <tbody>
 		    <% @passwords&.each do |password| %>
 		    	<tr>
-		        	<td>
-		        		<%= password.encrypted_password.squish.truncate(26) %>
-		        			
+					<td>
+		        		<%= password.username %>
+		        	</td>
+					<td>
+		        		<%= password.urls.pluck(:name).join(", ") %>
 		        	</td>
 		        	<td>
-		        		<%= password.password %>
+		        		<%= password.password ? "Encrypted" : "NONE" %>
 		        	</td>
 		        	<td>
 		        		<%= link_to "Edit", edit_user_password_path(password), class: "link-primary"%>
