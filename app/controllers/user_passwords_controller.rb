@@ -38,6 +38,17 @@ class UserPasswordsController < ApplicationController
 		end
 	end
 
+	def destroy
+		password = Password.find_by(id: params[:id])
+		if password.destroy
+			flash[:notice] = "Password was updated."
+			redirect_to user_passwords_path
+		else
+			flash[:error] = password.errors.full_messages.to_sentence
+			redirect_to edit_user_password_path
+	  end
+	end
+
 	private
 
 		def password_params

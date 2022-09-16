@@ -19,8 +19,8 @@
 	      <tr>
 	        <th>Username</th>
 			<th>URL's</th>
-	        <th>Password</th>
 	        <th>Edit</th>
+			<th>Delete</th>
 	      </tr>
 	    </thead>
 	    <tbody>
@@ -33,11 +33,13 @@
 		        		<%= password.urls.pluck(:name).join(", ") %>
 		        	</td>
 		        	<td>
-		        		<%= password.password ? "Encrypted" : "NONE" %>
-		        	</td>
-		        	<td>
 		        		<%= link_to "Edit", edit_user_password_path(password), class: "link-primary"%>
 		        	</td>
+					<td>
+						<a type="button" name="someDamnName" class="link-primary delete-password" data-bs-toggle="modal" data-bs-target="#myModal" value=<%=password.id%>>
+							Delete
+						</a>		        	
+					</td>
 		      	</tr>
 		   	<% end %>
 	  	</tbody>
@@ -45,3 +47,42 @@
 
   </div>
 </div>
+
+<div class="modal fade" id="myModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Password Generation</h4>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        Are you sure you want to delete the following Username & Password?
+		<br>
+		<br>
+		<span>Username: </span><strong><span class="current-username text-danger"></span></strong><br>
+		<span>Password: </span><strong><span class="current-password text-danger"></span></strong>
+        <br>
+        <br>
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+	  		<div class="row w-100">
+			  	<div class="col-6">
+					<%= link_to "Yes", user_password_path(12), method: :delete, class: "btn btn-primary btn-lg btn-block w-100 delete-password-accept",:data => { "data-bs-dismiss": "modal"} %>
+			    </div>
+				<div class="col-6">
+					<button type="button" class="btn btn-danger btn-lg btn-block w-100" data-bs-dismiss="modal">No</button>
+				</div>
+			</div>
+
+	  </div>
+
+    </div>
+  </div>
+</div>
+
