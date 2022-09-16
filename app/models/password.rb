@@ -1,6 +1,6 @@
 class Password < ApplicationRecord
  	belongs_to :user
-	has_many :urls
+	has_many :urls, dependent: :destroy
   
     attr_encrypted :password, key: ENV["ENCRYPTION_KEY"], mode: :single_iv_and_salt, salt: "somesalthahaha", iv: "7yHHhFVMldds"
 

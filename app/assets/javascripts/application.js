@@ -46,6 +46,16 @@ $(document).ready(function(){
         getNewPassword();
     });
 
+    //delete password
+    $( ".delete-password" ).click(function(e) {
+        var passwordId = e.currentTarget.getAttribute('value')
+        var deletePasswordUrl = "/user_passwords/" + passwordId.toString()
+        
+        $(".delete-password-accept").attr("href", deletePasswordUrl);
+        getCurrentPassword(passwordId)
+
+    });
+    
 
 
 });
@@ -53,9 +63,6 @@ $(document).ready(function(){
 
 function getNewPassword()
 {
-    console.log($(".new-password"))
-    //$(".new-password").val("Glenn Quagmire"); 
-    var data2 = null;
     $.ajax({
 
         url : '/ajax/get_new_password',
@@ -64,6 +71,7 @@ function getNewPassword()
         success : function(data) { 
             $(".new-password").text(data.password);  
             $("#password_password").val(data.password)
+            $(".current-username").text("some text haha"); 
         },
         error : function(request,error)
         {
@@ -72,3 +80,20 @@ function getNewPassword()
     });
 }
 
+function getCurrentPassword(passwordId) {
+    var url = '/ajax/get_password/' + passwordId.toString()
+    $.ajax({
+        
+        url : url,
+        type : 'GET',
+        dataType:'json',
+        success : function(data) { 
+            $(".current-username").text(data.username); 
+            $(".current-password").text(data.password); 
+        },
+        error : function(request,error)
+        {
+            alert("Request: "+JSON.stringify(request));
+        }
+    });
+}
