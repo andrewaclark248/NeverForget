@@ -2,17 +2,17 @@ class Url < ApplicationRecord
   belongs_to :password, optional: true
 
 
-  validate :parse_url
+  before_save :parse_url
+
+  before_update :parse_url
 
 
   def parse_url
-    if self.name["http"].present?
-      self.errors.add(:name, "cannot contain 'http'")
-    end
+    #remove www
+    self.name = name.sub(/\Awww\./, '')
 
-    if self.name["www"].present?
-      self.errors.add(:name, "cannot contain 'www'")
-    end
+    #remove http
+    self.name = name.sub(/^https?\:\/\/(www.)?/,'')
   end
 
 end

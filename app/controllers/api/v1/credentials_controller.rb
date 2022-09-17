@@ -22,6 +22,23 @@ module Api
                 render json: {username: password_to_ref.username, password: password_to_ref.password}
             end
         end
+
+        def add_credentials
+            domain = params[:domain]
+            username = params[:username]
+            password = params[:password]
+
+            password = Password.new(password: password, username: username, user: @current_login.user)
+            url = Url.new(name: domain, password: password)
+
+            if password.save && url.save
+                render json: {success: "Added credentials and url"}
+            else 
+                render json: {error: "Error adding credentials and url"}
+            end
+            
+
+        end
         
 
     end

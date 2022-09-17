@@ -36,6 +36,7 @@ Rails.application.routes.draw do
   	namespace :api do
 		namespace :v1 do
     		get 'get_credentials', to: 'credentials#get_credentials'
+			post 'add_credentials', to: 'credentials#add_credentials'
 		end
 	  end
   

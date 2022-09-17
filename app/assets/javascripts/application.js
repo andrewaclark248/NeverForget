@@ -60,7 +60,7 @@ $(document).ready(function(){
 
 });
 
-
+//manually generate password
 function getNewPassword()
 {
     $.ajax({
@@ -80,6 +80,7 @@ function getNewPassword()
     });
 }
 
+//get current password (for delete)
 function getCurrentPassword(passwordId) {
     var url = '/ajax/get_password/' + passwordId.toString()
     $.ajax({
