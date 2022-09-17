@@ -3,6 +3,9 @@ module Api
 
   	before_action :authenticate
 
+	skip_before_action :verify_authenticity_token  
+
+
 
   	def authenticate
 		auth_token = request.headers['Authorization'].split(" ").second
