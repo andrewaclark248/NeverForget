@@ -20,5 +20,14 @@ class AjaxController < ApplicationController
         end
     end
 
+    def get_key
+        key = Key.find_by(id: params[:id])
+        if key.present?
+            render json: {key: key.key, value: key.value}
+        else 
+            Rails.logger.error("Some error")
+        end
+    end
+
 
 end

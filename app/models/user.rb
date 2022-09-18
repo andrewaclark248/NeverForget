@@ -3,6 +3,7 @@ class User < ApplicationRecord
   has_many :passwords
   has_many :phones
   belongs_to :plan
+  has_many :keys
 
 
   BRONZE_USER = "Bronze"      #no phone -> $0
