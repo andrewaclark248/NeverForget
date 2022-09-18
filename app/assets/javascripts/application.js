@@ -254,8 +254,40 @@ function changePasswordStatusText(passwordStrength) {
 
 }
 
-function changePasswordStatusBar() {
-    
+function changePasswordStatusBar(passwordStrength) {
+    removeStatusBar()
+
+    if(passwordStrength == 0) {
+        //change color
+        //change width
+        $( ".password-strength-status-bar" ).addClass("width-quarter")
+        $( ".password-strength-status-bar" ).addClass("bg-danger")
+    } else if (passwordStrength == 1) {
+        $( ".password-strength-status-bar" ).addClass("width-quarter")
+        $( ".password-strength-status-bar" ).addClass("bg-danger")
+    } else if (passwordStrength == 2) {
+        $( ".password-strength-status-bar" ).addClass("width-half")
+        $( ".password-strength-status-bar" ).addClass("bg-warning")
+    } else if (passwordStrength == 3) {
+        $( ".password-strength-status-bar" ).addClass("width-half")
+        $( ".password-strength-status-bar" ).addClass("bg-warning")
+
+    } else if (passwordStrength == 4) {
+        $( ".password-strength-status-bar" ).addClass("width-full")
+        $( ".password-strength-status-bar" ).addClass("bg-success")
+    }
 }
 
+function removeStatusBar() {
+    //remove width class
+    $( ".password-strength-status-bar" ).removeClass("width-quarter")
+    $( ".password-strength-status-bar" ).removeClass("width-half")
+    $( ".password-strength-status-bar" ).removeClass("width-tres")
+    $( ".password-strength-status-bar" ).removeClass("width-full")
+
+    //remove color class
+    $( ".password-strength-status-bar" ).removeClass("bg-success")
+    $( ".password-strength-status-bar" ).removeClass("bg-warning")
+    $( ".password-strength-status-bar" ).removeClass("bg-danger")
+}
 
