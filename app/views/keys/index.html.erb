@@ -1,0 +1,87 @@
+
+<center>
+	<div class="d-grid gap-2">
+		<%= link_to "Create Key & Value", new_key_path,class: "btn btn-danger btn-lg"%>
+	</div>
+</center>
+
+<br>
+<br>
+
+<div class="card">
+  <div class="card-header">
+    <h3>Your Key & Values</h3>
+  </div>
+  <div class="card-body">
+	  <table class="table table-striped">
+	    <thead>
+	      <tr>
+	        <th>Key</th>
+			<th>Value</th>
+	        <th>Edit</th>
+			<th>Delete</th>
+	      </tr>
+	    </thead>
+	    <tbody>
+		    <% @keys&.each do |key| %>
+		    	<tr>
+					<td>
+		        		<%= key.key %>
+		        	</td>
+					<td>
+		        		<%= key.value %>
+		        	</td>
+		        	<td>
+		        		<%= link_to "Edit", edit_key_path(key), class: "link-primary"%>
+		        	</td>
+					<td>
+						<a type="button" name="someDamnName" class="link-primary delete-password" data-bs-toggle="modal" data-bs-target="#myModal" value=<%=key.id%>>
+							Delete
+						</a>		        	
+					</td>
+		      	</tr>
+		   	<% end %>
+	  	</tbody>
+	  </table>
+
+  </div>
+</div>
+
+<div class="modal fade" id="myModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Password Generation</h4>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        Are you sure you want to delete the following Username & Password?
+		<br>
+		<br>
+		<span>Username: </span><strong><span class="current-username text-danger"></span></strong><br>
+		<span>Password: </span><strong><span class="current-password text-danger"></span></strong>
+        <br>
+        <br>
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+	  		<div class="row w-100">
+			  	<div class="col-6">
+					<%= link_to "Yes", user_password_path(12), method: :delete, class: "btn btn-primary btn-lg btn-block w-100 delete-password-accept",:data => { "data-bs-dismiss": "modal"} %>
+			    </div>
+				<div class="col-6">
+					<button type="button" class="btn btn-danger btn-lg btn-block w-100" data-bs-dismiss="modal">No</button>
+				</div>
+			</div>
+
+	  </div>
+
+    </div>
+  </div>
+</div>
+

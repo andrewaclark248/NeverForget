@@ -41,7 +41,7 @@ class UserPasswordsController < ApplicationController
 	def destroy
 		password = Password.find_by(id: params[:id])
 		if password.destroy
-			flash[:notice] = "Password was updated."
+			flash[:notice] = "Password was deleted."
 			redirect_to user_passwords_path
 		else
 			flash[:error] = password.errors.full_messages.to_sentence
