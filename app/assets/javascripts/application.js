@@ -61,7 +61,17 @@ $(document).ready(function(){
     $( "#password_password" ).focus(function(e) {
         var password = e.currentTarget.value
        if (password?.length > 0) {
+            //show password progress bar
             $( ".password-strength-analyzer" ).show();
+
+            //analyze password
+            getPasswordStength(password)
+
+            var passwordStrength = getPasswordStatus(password)
+            //console.log("strenght = " + (passwordStrength == 3))
+            removeTextClasses()
+            changePasswordStatusText(passwordStrength)
+            changePasswordStatusBar(passwordStrength)
        } else {
             $( ".password-strength-analyzer" ).hide();
        }
