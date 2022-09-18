@@ -55,6 +55,16 @@ $(document).ready(function(){
         getCurrentPassword(passwordId)
     });
 
+    //delete key value
+    $( ".delete-key-value" ).click(function(e) {
+        var keyId = e.currentTarget.getAttribute('value')
+        var deleteKeyValueUrl = "/keys/" + keyId.toString()
+        
+        $(".delete-key-value-accept").attr("href", deleteKeyValueUrl);
+        getCurrentKeyValue(keyId)
+    });
+
+
     $( ".password-strength-analyzer" ).hide();
 
     //password strength progress bar
@@ -149,6 +159,25 @@ function getCurrentPassword(passwordId) {
         success : function(data) { 
             $(".current-username").text(data.username); 
             $(".current-password").text(data.password); 
+        },
+        error : function(request,error)
+        {
+            console.log("error")
+        }
+    });
+}
+
+//get current key (for delete)
+function getCurrentKeyValue(keyId) {
+    var url = '/ajax/get_key/' + keyId.toString()
+    $.ajax({
+        
+        url : url,
+        type : 'GET',
+        dataType:'json',
+        success : function(data) { 
+            $(".current-key").text(data.key); 
+            $(".current-value").text(data.value); 
         },
         error : function(request,error)
         {

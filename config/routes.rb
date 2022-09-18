@@ -14,6 +14,7 @@ Rails.application.routes.draw do
 	#ajax request
 	get '/ajax/get_new_password', to: 'ajax#get_new_password'
 	get 'ajax/get_password/:id', to: 'ajax#get_password'
+	get 'ajax/get_key/:id', to: 'ajax#get_key'
 
 	#CRUD controllers
 	resources :dashboard
