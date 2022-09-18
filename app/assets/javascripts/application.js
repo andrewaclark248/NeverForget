@@ -53,10 +53,68 @@ $(document).ready(function(){
         
         $(".delete-password-accept").attr("href", deletePasswordUrl);
         getCurrentPassword(passwordId)
-
     });
-    
 
+    $( ".password-strength-analyzer" ).hide();
+
+    //password strength progress bar
+    $( "#password_password" ).focus(function(e) {
+        var password = e.currentTarget.value
+       if (password?.length > 0) {
+            //show password progress bar
+            $( ".password-strength-analyzer" ).show();
+
+            //analyze password
+            getPasswordStength(password)
+
+            var passwordStrength = getPasswordStatus(password)
+            //console.log("strenght = " + (passwordStrength == 3))
+            removeTextClasses()
+            changePasswordStatusText(passwordStrength)
+            changePasswordStatusBar(passwordStrength)
+       } else {
+            $( ".password-strength-analyzer" ).hide();
+       }
+    });
+
+    $('#password_password').blur(function(e) {
+        $( ".password-strength-analyzer" ).hide();
+        //auto set text to danger on blur
+        $(".hasUpperAndLower").removeClass("text-success")
+        $(".hasUpperAndLower").addClass("text-danger")
+
+        $(".has12Char").removeClass("text-success")
+        $(".has12Char").addClass("text-danger")
+
+        $(".hasLetterAndNumbers").removeClass("text-success")
+        $(".hasLetterAndNumbers").addClass("text-danger")
+
+        $(".hasSpecialChar").removeClass("text-success")
+        $(".hasSpecialChar").addClass("text-danger")
+     });
+
+    //$( "#password_password" ).change(function() {
+    //    console.log("this is working");
+    //});
+
+    $('#password_password').on('input',function(e){
+        var password = e.target.value;
+        if (password?.length > 0) {
+            //show password progress bar
+            $( ".password-strength-analyzer" ).show();
+
+            //analyze password
+            getPasswordStength(password)
+
+            var passwordStrength = getPasswordStatus(password)
+            //console.log("strenght = " + (passwordStrength == 3))
+            removeTextClasses()
+            changePasswordStatusText(passwordStrength)
+            changePasswordStatusBar(passwordStrength)
+        } else {
+            $( ".password-strength-analyzer" ).hide();
+        }
+    });
 
 });
 
@@ -75,7 +133,7 @@ function getNewPassword()
         },
         error : function(request,error)
         {
-            alert("Request: "+JSON.stringify(request));
+            console.log("error")
         }
     });
 }
@@ -94,7 +152,152 @@ function getCurrentPassword(passwordId) {
         },
         error : function(request,error)
         {
-            alert("Request: "+JSON.stringify(request));
+            console.log("error")
         }
     });
 }
+
+
+function hasLowerCase(str) {
+    return (/[a-z]/.test(str));
+}
+
+function hasUpperCase(str) {
+    return (/[A-Z]/.test(str));
+}
+
+function hasTwelveChar(password) {
+    if(password.length >= 12) {
+        return true
+    } else {
+        return false
+    }
+}
+
+function hasLettersAndNumbers(password) {
+    return (/^(?=.*[a-zA-Z])(?=.*[0-9])/.test(password));
+}
+
+function hasSpecialChar(password) {
+    const specialChars = /[`!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
+    return specialChars.test(password);
+}
+  
+
+function getPasswordStength(password) {
+    //has upper and lower
+    if(hasLowerCase(password) && hasUpperCase(password)) {
+        
+        $( ".hasUpperAndLower" ).removeClass("text-danger")
+        $( ".hasUpperAndLower" ).addClass("text-success")
+    } else {
+        $( ".hasUpperAndLower" ).addClass("text-danger")
+    }
+    //has 12 characters
+    if (hasTwelveChar(password)) {
+        $( ".has12Char" ).removeClass("text-danger")
+        $( ".has12Char" ).addClass("text-success")  
+    } else {
+        $( ".has12Char" ).addClass("text-danger")
+    }
+
+    //has numbers annd letters
+    if (hasLettersAndNumbers(password)) {
+        $( ".hasLetterAndNumbers" ).removeClass("text-danger")
+        $( ".hasLetterAndNumbers" ).addClass("text-success")  
+    } else {
+        $( ".hasLetterAndNumbers" ).addClass("text-danger")
+    }
+
+    //has special characters
+    if (hasSpecialChar(password)) {
+        $( ".hasSpecialChar" ).removeClass("text-danger")
+        $( ".hasSpecialChar" ).addClass("text-success") 
+    } else {
+        $( ".hasSpecialChar" ).addClass("text-danger")
+    }
+}
+
+function getPasswordStatus(password) {
+    var totalPoints = 0
+    if(hasLowerCase(password) && hasUpperCase(password)) {
+        totalPoints = totalPoints + 1
+    }
+
+    if(hasSpecialChar(password)) {
+        totalPoints = totalPoints + 1
+    }
+
+    if(hasLettersAndNumbers(password)) {
+        totalPoints = totalPoints + 1
+    }
+
+    if(hasTwelveChar(password)) {
+        totalPoints = totalPoints + 1
+    }
+    return totalPoints;
+}
+
+function removeTextClasses() {
+    $(".password-strength-status-text").removeClass("text-success")
+    $(".password-strength-status-text").removeClass("text-warning")
+    $(".password-strength-status-text").removeClass("text-danger")
+}
+
+function changePasswordStatusText(passwordStrength) {
+    if (passwordStrength == 0) {
+        $( ".password-strength-status-text" ).text("POOR");
+        $(".password-strength-status-text").addClass("text-danger")
+    } else if (passwordStrength == 1) {
+        $( ".password-strength-status-text" ).text("POOR");
+        $(".password-strength-status-text").addClass("text-danger")
+    } else if (passwordStrength == 2) {
+        $( ".password-strength-status-text" ).text("OKAY");
+        $(".password-strength-status-text").addClass("text-warning")
+    } else if (passwordStrength == 3) {
+        $( ".password-strength-status-text" ).text("OKAY");
+        $(".password-strength-status-text").addClass("text-warning")
+    } else if (passwordStrength == 4) {
+        $( ".password-strength-status-text" ).text("GREAT!!!");
+        $(".password-strength-status-text").addClass("text-success")
+    }
+
+}
+
+function changePasswordStatusBar(passwordStrength) {
+    removeStatusBar()
+
+    if(passwordStrength == 0) {
+        //change color
+        //change width
+        $( ".password-strength-status-bar" ).addClass("width-quarter")
+        $( ".password-strength-status-bar" ).addClass("bg-danger")
+    } else if (passwordStrength == 1) {
+        $( ".password-strength-status-bar" ).addClass("width-quarter")
+        $( ".password-strength-status-bar" ).addClass("bg-danger")
+    } else if (passwordStrength == 2) {
+        $( ".password-strength-status-bar" ).addClass("width-half")
+        $( ".password-strength-status-bar" ).addClass("bg-warning")
+    } else if (passwordStrength == 3) {
+        $( ".password-strength-status-bar" ).addClass("width-half")
+        $( ".password-strength-status-bar" ).addClass("bg-warning")
+
+    } else if (passwordStrength == 4) {
+        $( ".password-strength-status-bar" ).addClass("width-full")
+        $( ".password-strength-status-bar" ).addClass("bg-success")
+    }
+}
+
+function removeStatusBar() {
+    //remove width class
+    $( ".password-strength-status-bar" ).removeClass("width-quarter")
+    $( ".password-strength-status-bar" ).removeClass("width-half")
+    $( ".password-strength-status-bar" ).removeClass("width-tres")
+    $( ".password-strength-status-bar" ).removeClass("width-full")
+
+    //remove color class
+    $( ".password-strength-status-bar" ).removeClass("bg-success")
+    $( ".password-strength-status-bar" ).removeClass("bg-warning")
+    $( ".password-strength-status-bar" ).removeClass("bg-danger")
+}
+
