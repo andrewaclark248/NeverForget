@@ -53,10 +53,74 @@ $(document).ready(function(){
         
         $(".delete-password-accept").attr("href", deletePasswordUrl);
         getCurrentPassword(passwordId)
+    });
+
+    $( ".password-strength-analyzer" ).hide();
+
+    //password strength progress bar
+    $( "#password_password" ).focus(function(e) {
+        //var getPassword = e.currentTarget.getAttribute('value')
+        //console.log("getPassword =  " + ( getPassword?.length > 0))
+        //if (getPassword?.length > 0) {
+        //    $( ".password-strength-analyzer" ).show();
+        //}
+       //var getPassword = e.currentTarget.getAttribute('value')
 
     });
-    
 
+    $('#password_password').blur(function(e) {
+        $( ".password-strength-analyzer" ).hide();
+
+     });
+
+    //$( "#password_password" ).change(function() {
+    //    console.log("this is working");
+    //});
+
+    $('#password_password').on('input',function(e){
+        var password = e.target.value;
+        if (password?.length > 0) {
+            //show password progress bar
+            $( ".password-strength-analyzer" ).show();
+
+            //analyze password
+            
+            //has upper and lower
+            if(hasLowerCase(password) && hasUpperCase(password)) {
+                
+                $( ".hasUpperAndLower" ).removeClass("text-danger")
+                $( ".hasUpperAndLower" ).addClass("text-success")
+            } else {
+                $( ".hasUpperAndLower" ).addClass("text-danger")
+            }
+            //has 12 characters
+            if (hasTwelveChar(password)) {
+                $( ".has12Char" ).removeClass("text-danger")
+                $( ".has12Char" ).addClass("text-success")  
+            } else {
+                $( ".has12Char" ).addClass("text-danger")
+            }
+
+            //has numbers annd letters
+            if (hasLettersAndNumbers(password)) {
+                $( ".hasLetterAndNumbers" ).removeClass("text-danger")
+                $( ".hasLetterAndNumbers" ).addClass("text-success")  
+            } else {
+                $( ".hasLetterAndNumbers" ).addClass("text-danger")
+            }
+
+            //has special characters
+            if (hasSpecialChar(password)) {
+                $( ".hasSpecialChar" ).removeClass("text-danger")
+                $( ".hasSpecialChar" ).addClass("text-success") 
+            } else {
+                $( ".hasSpecialChar" ).addClass("text-danger")
+            }
+
+        } else {
+            $( ".password-strength-analyzer" ).hide();
+        }
+    });
 
 });
 
@@ -75,7 +139,7 @@ function getNewPassword()
         },
         error : function(request,error)
         {
-            alert("Request: "+JSON.stringify(request));
+            console.log("error")
         }
     });
 }
@@ -94,7 +158,38 @@ function getCurrentPassword(passwordId) {
         },
         error : function(request,error)
         {
-            alert("Request: "+JSON.stringify(request));
+            console.log("error")
         }
     });
+}
+
+
+function hasLowerCase(str) {
+    return (/[a-z]/.test(str));
+}
+
+function hasUpperCase(str) {
+    return (/[A-Z]/.test(str));
+}
+
+function hasTwelveChar(password) {
+    if(password.length >= 12) {
+        return true
+    } else {
+        return false
+    }
+}
+
+function hasLettersAndNumbers(password) {
+    return (/^(?=.*[a-zA-Z])(?=.*[0-9])/.test(password));
+}
+
+function hasSpecialChar(password) {
+    const specialChars = /[`!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
+    return specialChars.test(password);
+}
+  
+
+function getPasswordStength() {
+
 }
