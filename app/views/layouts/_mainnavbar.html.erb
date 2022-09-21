@@ -1,26 +1,8 @@
 <nav class="navbar navbar-expand-sm navbar-light bg-light" >
   <div class="container-fluid">
+  	<%= link_to 'SafeLogins', dashboard_index_path, class: 'navbar-brand ps-5 pe-5 navbar-text fs-3 text-dark'%>
 
-    <ul class="navbar-nav">
-  		<%= link_to 'SafeLogins', dashboard_index_path, class: 'navbar-brand pe-5 navbar-text fs-3 text-dark'%>
-		<li class="nav-item">
-	    	<%= link_to 'Dashboard', dashboard_index_path, class: 'nav-item nav-link active navbar-text pt-3'%>
-		</li>
-		<li class="nav-item">
-	    	<%= link_to 'Passwords', user_passwords_path, class: 'nav-item nav-link active navbar-text pt-3'%>
-		</li>
-		<li class="nav-item">
-	    	<%= link_to 'Keys', keys_path, class: 'nav-item nav-link active navbar-text pt-3'%>
-		</li>
-		<% if false%>
-			<li class="nav-item">
-				<%= link_to 'Phone Management', phones_path, class: 'nav-item nav-link active navbar-text pt-3'%>
-			</li>
-		<% end %>
-		<li class="nav-item">
-	    	<%= link_to 'Payments', new_payment_path, class: 'nav-item nav-link active navbar-text pt-3'%>
-		</li>
-    </ul>
+
 	<div class="navbar-nav ms-auto">
 	    <%= link_to 'Log Out', destroy_login_session_path, :method => :delete,  class: 'nav-item nav-link active navbar-text fw-bold'%>
 	</div>
