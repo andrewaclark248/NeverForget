@@ -9,5 +9,7 @@ class Password < ApplicationRecord
 	accepts_nested_attributes_for :urls, allow_destroy: true
 
 
+	validates :password, :presence => true
+	validates :username, :presence => true
 
 end

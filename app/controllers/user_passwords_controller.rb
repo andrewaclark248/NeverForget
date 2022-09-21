@@ -13,12 +13,12 @@ class UserPasswordsController < ApplicationController
 		password = Password.new(password_params)
 		password.user = current_login.user
 
-		if password.save!
+		if password.save
 			flash[:notice] = "Password was created."
 			redirect_to user_passwords_path
 		else
       		flash[:error] = password.errors.full_messages.to_sentence
-      		render :new
+			  redirect_to new_user_password_path
 		end
 	end
 
