@@ -1,28 +1,28 @@
-<h3 class="text-white">New Key</h3>
-<br>
-<br>
-<div class="card">
-  <div class="card-body">
-
-	<%= simple_form_for @key, url: keys_path(@key) do |f| %>
-		<center>
-			<div class="d-grid gap-2">
-				<%= f.button :submit, class: "btn btn-danger btn-lg" %>
+<%= simple_form_for @key, url: keys_path(@key) do |f| %>
+	<div class="card border-secondary">
+			<div class="card-header bg-white">
+					<center>
+					<h3>New Key & Value</h3>
+					</center>
 			</div>
-		</center>
-		<br>
-		<br>
-		<div class="form-group">
-			<div class="row">
-				<%= f.label "Key:", class: "col-2" %>
-				<%= f.input :key, wrapper_html: {class: "col-4"}, as: :string, label: false %>
-			</div>
-			<br>
-			<div class="row">
-				<%= f.label "Value:", class: "col-2" %>
-				<%= f.input :value, wrapper_html: {class: "col-4"}, as: :string, label: false %>
+		<div class="card-body">
+			<div class="form-group">
+				<div class="row">
+					<%= f.label "Key:", class: "col-2" %>
+					<%= f.input :key, wrapper_html: {class: "col-4"}, as: :string, label: false %>
+				</div>
+				<br>
+				<div class="row">
+					<%= f.label "Value:", class: "col-2" %>
+					<%= f.input :value, wrapper_html: {class: "col-4"}, as: :string, label: false %>
+				</div>
 			</div>
 		</div>
-	<% end %>
-  </div>
-</div>
+	</div>
+	<br>
+	<center>
+		<div class="d-grid gap-2">
+			<%= f.button :submit, class: "btn btn-danger btn-lg" %>
+		</div>
+	</center>
+<% end %>
