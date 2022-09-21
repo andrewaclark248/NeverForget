@@ -10,19 +10,24 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
 
   </head>
-
-  <body class="bg-dark" style="height: 100vh; width: 100vw;">
+    <% if current_login %>
+      <%= render 'layouts/navigation_bar' %>
+    <% end %>
+  <body class="" >
     <%= javascript_include_tag 'manifest' %>
     <%= javascript_include_tag 'application' %>
     <%= stylesheet_link_tag "application", :media => "all" %>
 
-
-    <% if current_login %>
-      <%= render 'layouts/navigation_bar' %>
-    <% end %>
-    <div class="container " style="padding-top: 6%; height: 100vh; width: 100vw;">
-      <%= render 'shared/flash' %>
-      <%= yield %>
+    <div style="margin-left: 200px;">
+      <%= render 'layouts/mainnavbar' %>
+    </div>
+    <div style="margin-left: 200px;">
+      <div class="container" style="padding-top: 10%; ">
+          <%= render 'shared/flash' %>
+          <div style="margin-right: 10%; margin-left: 10%;">
+          <%= yield %>
+          </div>
+      </div>
     </div>
   </body>
 </html>
