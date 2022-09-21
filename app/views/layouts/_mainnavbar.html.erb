@@ -1,10 +1,11 @@
 <nav class="navbar navbar-expand-sm bg-white" >
   <div class="container-fluid">
-  	<%= link_to 'SafeLogins', dashboard_index_path, class: 'navbar-brand ps-5 pe-5 navbar-text fs-3 text-dark'%>
+  	<%= link_to 'SafeLogins', dashboard_index_path, class: 'navbar-brand navbar-text fs-3 text-dark'%>
+	<%= image_tag "vault", style: 'height:60px; width: 60px; border-radius: .25rem;' %>
 
 
 	<div class="navbar-nav ms-auto">
-	    <%= link_to 'Log Out', destroy_login_session_path, :method => :delete,  class: 'nav-item nav-link active navbar-text fw-bold'%>
+	    <%= link_to 'Log Out', destroy_login_session_path, :method => :delete,  class: 'nav-item nav-link active navbar-text fw-bold text-dark'%>
 	</div>
   </div>
 </nav>

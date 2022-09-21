@@ -146,7 +146,19 @@ function getNewPassword()
             console.log("error")
         }
     });
+
+
+    //navbar
+
+
 }
+
+
+$(".nav-btn-elm").hover(function(){
+    console.log("ehahahahahah")
+    }, function(){
+        console.log("ehahahahahah")
+});
 
 //get current password (for delete)
 function getCurrentPassword(passwordId) {
