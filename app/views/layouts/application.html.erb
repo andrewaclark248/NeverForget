@@ -13,15 +13,15 @@
     <% if current_login %>
       <%= render 'layouts/navigation_bar' %>
     <% end %>
-  <body class="" >
+  <body style="background: #E8E8E8">
     <%= javascript_include_tag 'manifest' %>
     <%= javascript_include_tag 'application' %>
     <%= stylesheet_link_tag "application", :media => "all" %>
 
-    <div style="margin-left: 200px;">
+    <div style="margin-left: 200px;" class="">
       <%= render 'layouts/mainnavbar' %>
     </div>
-    <div style="margin-left: 200px;">
+    <div style="margin-left: 200px;" class="">
       <div class="container" style="padding-top: 10%; ">
           <%= render 'shared/flash' %>
           <div style="margin-right: 10%; margin-left: 10%;">
