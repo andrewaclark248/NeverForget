@@ -30,3 +30,16 @@
  .width-full {
     width: 100%;
  }
+
+ .site-background {
+   background: #E8E8E8;
+ }
+
+ .active-tab {
+   background-color: #E8E8E8;
+ }
+
+ .navbar-links {
+   padding-top: 10px; 
+   padding-bottom: 10px;
+ }
