@@ -1,35 +1,46 @@
 <div class="sidenav bg-dark" >
 	<ul>
-		<li class="nav-btn-elm">
-			<h3>
-				<%= link_to 'Dashboard', dashboard_index_path, class: 'text-secondary mx-4 nav-btn-elm', style: "padding-bottom: 15px;"%>
-			</h3>
+		<li class="nav-btn-elm <%= is_active?(dashboard_index_path) %>" style="border-radius: -60px;">
+			<% if is_active2?(dashboard_index_path) %>
+				<%= link_to 'Dashboard', dashboard_index_path, class: 'text-dark mx-4 navbar-links fw-bold navbar-links', style: "font-size: 24px;"%>
+			<% else %>
+				<%= link_to 'Dashboard', dashboard_index_path, class: 'text-secondary mx-4 nav-links-change fw-bold navbar-links', style: "font-size: 24px; "%>
+			<% end %>
 		</li>
-		<li class="nav-btn-elm">
-			<h3>
-				<%= link_to 'Passwords', user_passwords_path, class: 'text-secondary mx-4', style: "padding-bottom: 10px;"%>
-			</h3>
+		<li class="nav-btn-elm <%= is_active?(user_passwords_path) %>">
+			<% if is_active2?(user_passwords_path) %>
+				<%= link_to 'Passwords', user_passwords_path, class: 'text-dark mx-4 nav-links-change fw-bold navbar-links', style: "font-size: 24px;"%>
+			<% else %>
+				<%= link_to 'Passwords', user_passwords_path, class: 'text-secondary mx-4 nav-links-change fw-bold navbar-links', style: "font-size: 24px;"%>
+			<% end %>
 		</li>
-		<li class="nav-btn-elm">
-			<h3>
-	    		<%= link_to 'Keys', keys_path, class: 'text-secondary mx-4', style: "padding-bottom: 10px;"%>
-			</h3>
+		<li class="nav-btn-elm <%= is_active?(keys_path) %>">
+			<% if is_active2?(keys_path) %>
+				<%= link_to 'Keys', keys_path, class: 'text-dark mx-4 nav-links-change fw-bold navbar-links', style: "font-size: 24px;"%>
+			<% else %>
+				<%= link_to 'Keys', keys_path, class: 'text-secondary mx-4 nav-links-change fw-bold navbar-links', style: "font-size: 24px;"%>
+			<% end %>
 		</li>
-		<li class="nav-btn-elm">
-			<h3>
-	    		<%= link_to 'Payments', new_payment_path, class: 'text-secondary mx-4', style: "padding-bottom: 10px;"%>
-			</h3>
+		<li class="nav-btn-elm <%= is_active?(new_payment_path) %>">
+			<% if is_active2?(new_payment_path) %>
+				<%= link_to 'Payments', new_payment_path, class: 'text-dark mx-4 nav-links-change fw-bold navbar-links', style: "font-size: 24px;"%>
+			<% else %>
+				<%= link_to 'Payments', new_payment_path, class: 'text-secondary mx-4 nav-links-change fw-bold navbar-links', style: "font-size: 24px;"%>
+			<% end %>
 		</li>
-		<li class="nav-btn-elm">
-			<h3>
-	    		<%= link_to 'Profile', new_payment_path, class: 'text-secondary mx-4', style: "padding-bottom: 10px;"%>
-			</h3>
+		<li class="nav-btn-elm <%= is_active?("nil") %>">
+			<% if is_active2?("nil") %>
+				<%= link_to 'Profile', nil, class: 'mx-4 nav-links-change fw-bold navbar-links', style: "font-size: 24px;"%>
+			<% else %>
+				<%= link_to 'Profile', nil, class: 'text-secondary mx-4 nav-links-change fw-bold navbar-links', style: "font-size: 24px;"%>
+			<% end %>
 		</li>
-
-		<li style="position: fixed; bottom: 10%; width: 100%;" class="nav-btn-elm">
-			<h3>
-	    		<%= link_to 'Contact Us', new_payment_path, class: 'text-secondary position-absolute mx-4', style: "padding-bottom: 10px;"%>
-			</h3>
+		<li style="position: fixed; bottom: 10%; width: 100%;" class="nav-btn-elm <%= is_active?("nil") %>">
+			<% if is_active2?("nil") %>
+				<%= link_to 'Contact Us', nil, class: 'position-absolute mx-4 nav-links-change fw-bold navbar-links', style: "font-size: 24px;"%>
+			<% else %>
+				<%= link_to 'Contact Us', nil, class: 'text-secondary position-absolute mx-4 nav-links-change fw-bold navbar-links', style: "font-size: 24px;"%>
+			<% end %>
 		</li>
 
 
@@ -68,9 +79,5 @@ li a {
 
 </style>
 <script>
-$(".nav-btn-elm").hover(function(){
-    console.log("ehahahahahah")
-    }, function(){
-        console.log("ehahahahahah")
-});
+
 </script>

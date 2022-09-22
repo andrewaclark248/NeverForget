@@ -1,5 +1,7 @@
 $(document).ready(function(){
 
+    var navBarState = null;
+
     //payment panel
     $("#payment_plan").on('change', function() {
         var selectedPlan = this.value 
@@ -126,7 +128,50 @@ $(document).ready(function(){
         }
     });
 
+       //navbar
+    $(".nav-btn-elm").hover(function(e){
+        //$(this).css({backgroundColor: '#E8E8E8'});
+       
+    });
+    /*** 
+
+    $(".nav-btn-elm").on({
+        mouseenter: function (e) {
+
+            //if (text == text-dark)  (current)
+                    //was current page
+            //else
+                //was not current page
+
+
+            //channge background
+            $( this ).removeClass( "bg-dark" )
+            $( this ).addClass( "site-background" )
+
+            //change text
+            //$( this ).children( ".nav-links-change" )
+            $( this ).children( ".nav-links-change" ).removeClass( "text-secondary" )
+            $( this ).children( ".nav-links-change" ).addClass( "text-dark" )
+
+        },
+        mouseleave: function () {
+            //channge background
+            $( this ).removeClass( "site-background" )
+            $( this ).addClass( "bg-dark" )
+
+            //change text
+            $( this ).children( ".nav-links-change" ).removeClass( "text-dark" )
+            $( this ).children( ".nav-links-change" ).addClass( "text-secondary" )
+
+        }
+    }); */
+    
+
 });
+
+function getNavBarState(cssClass) {
+    //navBarState
+}
 
 //manually generate password
 function getNewPassword()
@@ -148,17 +193,11 @@ function getNewPassword()
     });
 
 
-    //navbar
-
+ 
 
 }
 
 
-$(".nav-btn-elm").hover(function(){
-    console.log("ehahahahahah")
-    }, function(){
-        console.log("ehahahahahah")
-});
 
 //get current password (for delete)
 function getCurrentPassword(passwordId) {
