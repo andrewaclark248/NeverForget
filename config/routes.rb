@@ -22,6 +22,7 @@ Rails.application.routes.draw do
 	resources :payments, only: [:new, :create]
 	resources :billing_portal, only: [:index]
 	resources :keys
+	resources :profiles
 	resources :phones do
 		member do
 			get 'messages', to: "phones#messages"
