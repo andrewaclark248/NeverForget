@@ -19,6 +19,9 @@
     <div class="container-fluid my-class" >
       <div style="padding-top: 5%;">
       </div>
+      <% flash.each do |key, value| %>
+  <%= content_tag :div, value, class: "flash #{key}" %>
+<% end %>
       <%= yield %>
     </div>
   </body>

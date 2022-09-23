@@ -1,53 +1,77 @@
+<div class="row" style="padding-bottom: 7%">
+  <center><h1>SafeLogins</h1> </center>
+</div>
 
 
+<div class="card" >
+  <div class="row g-0">
+    <div class="col-6">
+      <%= image_tag "lock", style: 'height:510px; width: 100%; border-radius: .25rem;' %>
+    </div>
+    <div class="col-6">
+      <div class="card-body">
+        <div class="row">
+          <div class="col-1">
+          </div>
+          <div class="col-11">
+            <h3 class="card-title">Sign Up</h3>
+          </div>
+        </div>
+        <br>
+        <div class="row">
+          <div class="col-1">
+          </div>
+          <div class="col-10">
 
+            <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+              <%= f.error_notification %>
 
-
-
-
-
-<div class="row mb-5">
-  <div class="col">
-    <center>
-      <%= image_tag "security-pic", style:'height:300px' %>
-    </center>
+              <div class="form-inputs">
+                <div class="row">
+                  <div class="col-6">
+                    <%= f.input :first_name,
+                            required: true,
+                            autofocus: true,
+                            input_html: { autocomplete: "first_name" }%>
+                  </div>
+                  <div class="col-6">
+                    <%= f.input :last_name,
+                            required: true,
+                            autofocus: true,
+                            input_html: { autocomplete: "last_name" }%>
+                  </div>
+                </div>
+                <br>
+                <div class="row">
+                  <%= f.input :email,
+                            required: true,
+                            autofocus: true,
+                            input_html: { autocomplete: "email" }%>
+                </div>
+                <br>
+                <div class="row">
+                  <%= f.input :password,
+                            required: true,
+                            hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+                            input_html: { autocomplete: "new-password" } %>
+                </div>
+                <br>
+                <div class="row">
+                  <%= f.input :password_confirmation,
+                            required: true,
+                            input_html: { autocomplete: "new-password" } %>
+                </div>
+              </div>
+              <br>
+              <div class="form-actions">
+                <%= f.button :submit, "Sign up", class: "btn btn-danger w-100" %>
+              </div>
+            <% end %>
+          </div>
+          <div class="col-1">
+          </div>                
+        </div>
+      </div>
+    </div>
   </div>
 </div>
-
-<div class="row">
-
-    <div class="col">
-    </div>
-    <div class="col-5">
-
-      <h2>Sign up</h2>
-
-      <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-        <%= f.error_notification %>
-
-        <div class="form-inputs">
-          <%= f.input :email,
-                      required: true,
-                      autofocus: true,
-                      input_html: { autocomplete: "email" }%>
-          <%= f.input :password,
-                      required: true,
-                      hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                      input_html: { autocomplete: "new-password" } %>
-          <%= f.input :password_confirmation,
-                      required: true,
-                      input_html: { autocomplete: "new-password" } %>
-        </div>
-
-        <div class="form-actions">
-          <%= f.button :submit, "Sign up" %>
-        </div>
-      <% end %>
-
-      <%= render "devise/shared/links" %>
-
-    </div>
-    <div class="col">
-    </div>
-</div>
-
