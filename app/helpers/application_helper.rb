@@ -9,7 +9,6 @@ module ApplicationHelper
         else
             return level
          end
-         binding.pry
     end
 
     def get_phones_based_on_plan plan_type
