@@ -1,5 +1,5 @@
 <div class="sidenav bg-dark" >
-	<ul>
+	<ul class="list-nav">
 		<li class="nav-btn-elm <%= is_active?(dashboard_index_path) %>" style="border-radius: -60px;">
 			<% if is_active2?(dashboard_index_path) %>
 				<%= link_to 'Dashboard', dashboard_index_path, class: 'text-dark mx-4 navbar-links fw-bold navbar-links', style: "font-size: 24px;"%>
@@ -62,7 +62,7 @@
 
 
 
-ul {
+.list-nav {
   list-style-type: none;
   margin-right: 10%;
   padding: 0;
