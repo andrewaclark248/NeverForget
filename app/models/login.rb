@@ -8,12 +8,17 @@ class Login < ApplicationRecord
 
   after_create :set_user
 
+  attr_accessor :first_name, :last_name
+
+  validates :first_name, :presence => true
+	validates :last_name, :presence => true
+
+
   def set_user
     plan = Plan.find_by(name: "Bronze")
-		user = Bronze.new(first: "N/A", last: "N/A", plan: plan)
+		user = Bronze.new(first: first_name, last: last_name, plan: plan)
     user.save!
     self.update!(user: user)
-
   end
 
          

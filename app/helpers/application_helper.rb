@@ -4,11 +4,11 @@ module ApplicationHelper
         
         if level == "notice"
             return "alert alert-success"
-        end
-        if level == "error"
+        elsif level == "error"
             return "alert alert-danger"
-        end
-
+        else
+            return level
+         end
     end
 
     def get_phones_based_on_plan plan_type
