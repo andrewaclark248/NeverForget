@@ -109,9 +109,9 @@
 					<span class="text-muted">*Your Associated URL's</span>
 					<br>
 					<br>
-					<%= password.simple_fields_for :urls do |u| %>
-						<%= render "url_fields", f: u %>
-					<% end %>
+						<%= password.simple_fields_for :urls do |u| %>
+							<%= render "url_fields", f: u %>
+						<% end %>
 					<div class="links form-actions">
 						<%= link_to_add_association "Add URL", password, :urls, class: "btn btn-danger" %>
 					</div>

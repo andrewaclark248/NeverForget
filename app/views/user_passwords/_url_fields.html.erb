@@ -2,7 +2,9 @@
 	<div class="row">
 		<%= f.label "URL" %>
 		<%= f.input :name, wrapper_html: {class: "col-4"}, label: false %>
-		<%= link_to_remove_association "Remove URL", f, class: "btn btn-warning col-2" %>				
+		<div class=" col-3">
+		<%= link_to_remove_association "Remove URL", f, class: "btn btn-warning" %>				
+		</div>
 	</div>
 	<br>
 </div>
