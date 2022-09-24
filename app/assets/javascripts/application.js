@@ -80,7 +80,7 @@ $(document).ready(function(){
             getPasswordStength(password)
 
             var passwordStrength = getPasswordStatus(password)
-            //console.log("strenght = " + (passwordStrength == 3))
+
             removeTextClasses()
             changePasswordStatusText(passwordStrength)
             changePasswordStatusBar(passwordStrength)
@@ -289,31 +289,60 @@ function getPasswordStength(password) {
         
         $( ".hasUpperAndLower" ).removeClass("text-danger")
         $( ".hasUpperAndLower" ).addClass("text-success")
+        //icon
+        $( ".hasUpperAndLowerIcon" ).removeClass("fa-square-o")  
+        $( ".hasUpperAndLowerIcon" ).addClass("fa-check-square") 
     } else {
         $( ".hasUpperAndLower" ).addClass("text-danger")
+
+        //icon
+        $( ".hasUpperAndLowerIcon" ).removeClass("fa-check-square")  
+        $( ".hasUpperAndLowerIcon" ).addClass("fa-square-o") 
     }
+
     //has 12 characters
     if (hasTwelveChar(password)) {
         $( ".has12Char" ).removeClass("text-danger")
         $( ".has12Char" ).addClass("text-success")  
+        //icon
+        $( ".has12CharIcon" ).removeClass("fa-square-o")  
+        $( ".has12CharIcon" ).addClass("fa-check-square")  
+
     } else {
         $( ".has12Char" ).addClass("text-danger")
+
+        //icon
+        $( ".has12CharIcon" ).removeClass("fa-check-square")  
+        $( ".has12CharIcon" ).addClass("fa-square-o")  
     }
 
     //has numbers annd letters
     if (hasLettersAndNumbers(password)) {
         $( ".hasLetterAndNumbers" ).removeClass("text-danger")
         $( ".hasLetterAndNumbers" ).addClass("text-success")  
+        //icon
+        $( ".hasLetterAndNumbersIcon" ).removeClass("fa-square-o")  
+        $( ".hasLetterAndNumbersIcon" ).addClass("fa-check-square")  
     } else {
         $( ".hasLetterAndNumbers" ).addClass("text-danger")
+
+        //icon
+        $( ".hasLetterAndNumbersIcon" ).removeClass("fa-check-square")  
+        $( ".hasLetterAndNumbersIcon" ).addClass("fa-square-o")  
     }
 
     //has special characters
     if (hasSpecialChar(password)) {
         $( ".hasSpecialChar" ).removeClass("text-danger")
         $( ".hasSpecialChar" ).addClass("text-success") 
+        //icon
+        $( ".hasSpecialCharIcon" ).removeClass("fa-square-o")  
+        $( ".hasSpecialCharIcon" ).addClass("fa-check-square")  
     } else {
         $( ".hasSpecialChar" ).addClass("text-danger")
+        //icon
+        $( ".hasSpecialCharIcon" ).removeClass("fa-check-square")  
+        $( ".hasSpecialCharIcon" ).addClass("fa-square-o")  
     }
 }
 

@@ -7,62 +7,106 @@
 		</div>
 		<div class="card-body">
 				<div class="form-group">
-					<span><strong>*Your Credentials</strong></span>
+					<span class="text-muted">*Your Credentials</span>
 					<br>
 					<br>
 					<div class="row">
-						<%= password.label "Username:", class: "col-2" %>
+						<%= password.label "Username" %>
 						<%= password.input :username, wrapper_html: {class: "col-4"}, as: :string, label: false %>
 					</div>
 					<br>
 					<div class="row">
-						<%= password.label "Password:", class: "col-2" %>
+						<%= password.label "Password:" %>
 						<div class="col-4">
 							<%= password.input :password, wrapper_html: {class: ""}, as: :string, label: false %><br>
+						</div>
+						<div class="col-6">
 							<button type="button" class="btn btn-warning manually-rotate-password" data-bs-toggle="modal" data-bs-target="#myModal">
 								Manually Rotate Password
 							</button>
 							<i class="fa-solid fa fa-info-circle fa-lg" data-bs-toggle="tooltip" title="<%=@rotate_password_text%>" ></i>
-
 						</div>
-						<div class="col-6">
+					</div>
+					<div class="row">
+						<div class="col-7">
 							<div class="password-strength-analyzer">
+								<div class="card bg-light mb-3">
+									<div class="card-body">
 
-								<div class="row">
-									<div class="col-2">
-									</div>
-									<div class="col-10">
-										<span>Password Strength: <span class="password-strength-status-text text-danger">POOR</span></span>
-									</div>
-								</div>
-								<div class="row">
-									<div class="col-2">
-									</div>
-									<div class="col-6">
-										<div class="progress">
-											<div class="progress-bar bg-danger password-strength-status-bar width-quarter" role="progressbar" style="" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+										<div class="row pb-2">
+											<div class="col-1">
+											</div>
+											<div class="col-10">
+												<span class="pe-2"><strong>Password Strength:</strong> </span><span class="password-strength-status-text text-danger fw-bold fs-5">POOR</span>
+											</div>
+											<div class="col-1">
+											</div>
 										</div>
-									</div>
-								</div>
-								<br>
-								<div class="row">
-									<div class="col-2">
-									</div>
-									<div class="col-10">
-										<span>Attributes of Strong Passwords</span>
-										<ul>
-											<li><span class="has12Char text-danger">At least 12 characters</span></li>
-											<li><span class="hasUpperAndLower text-danger">A mixture of both uppercase and lowercase letters</span></li>
-											<li><span class="hasLetterAndNumbers text-danger" >Both letters and numbers</span></li>
-											<li><span class="hasSpecialChar text-danger">Inclusion of at least one special character</span></li>
-										</ul>  
+										<div class="row pb-3">
+											<div class="col-1">
+											</div>
+											<div class="col-6">
+												<div class="progress">
+													<div class="progress-bar bg-danger password-strength-status-bar width-quarter" role="progressbar" style="" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+												</div>
+											</div>
+										</div>
+										<div class="row">
+											<div class="col-1">
+											</div>
+											<div class="col-10">
+												<ul style="list-style: none">
+													<li> 
+														<div class="row">
+															<div class="col-1">
+																<i class="has12CharIcon fa fa-check-square" aria-hidden="true"></i>
+															</div>
+															<div class="col-11">
+																<span class="has12Char text-danger">At least 12 characters</span>
+															</div>
+													</li>
+													<li>		
+														<div class="row">
+															<div class="col-1">
+																<i class="hasUpperAndLowerIcon fa fa-check-square" aria-hidden="true"></i>
+															</div>
+															<div class="col-11">
+																<span class="hasUpperAndLower text-danger">A mixture of both uppercase and lowercase letters</span>
+															</div>
+														</div>											
+													</li>
+													<li>
+														<div class="row">
+															<div class="col-1">
+																<i class="hasLetterAndNumbersIcon fa fa-check-square" aria-hidden="true"></i>
+															</div>
+															<div class="col-11">
+																<span class="hasLetterAndNumbers text-danger" >Both letters and numbers</span>
+															</div>
+														</div>
+													</li>
+													<li>	
+														<div class="row">
+															<div class="col-1">
+																<i class="hasSpecialCharIcon fa fa-check-square" aria-hidden="true"></i>
+															</div>
+															<div class="col-11">
+																<span class="hasSpecialChar text-danger">Inclusion of at least one special character</span>
+															</div>
+														</div>												
+													</li>
+												</ul>  
+											</div>
+										</div>
+										
 									</div>
 								</div>
 							</div>
 						</div>
+						<div class="col-2"></div>
 					</div>
 					<hr>
-					<span><strong>Add Associated URL's</strong></span>
+					<span class="text-muted">*Your Associated URL's</span>
 					<br>
 					<br>
 					<%= password.simple_fields_for :urls do |u| %>
