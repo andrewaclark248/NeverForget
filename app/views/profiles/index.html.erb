@@ -15,13 +15,23 @@
             <div class="tab-content">
                 <div class="tab-pane fade show active" id="home">
                     <div class="row">
-                        <%= f.label "First Name", class: "col-2" %>
-                        <%= f.input :first, wrapper_html: {class: "col-4"}, as: :string, label: false %>
+                        <div class="col-4">
+                            <div class="float-start">
+                                <%= f.label "First Name"%>
+                            </div>
+                            <%= f.input :first, wrapper_html: {class: ""}, as: :string, label: false %>
+                        </div>
+                        <div class="col-8">
+                        </div>
                     </div>
                     <br>
                     <div class="row">
-                        <%= f.label "Last Name", class: "col-2" %>
-                        <%= f.input :last, wrapper_html: {class: "col-4"}, as: :string, label: false %>
+                        <div class="col-4">
+                            <div class="float-start">
+                                <%= f.label "Last Name" %>
+                            </div>
+                            <%= f.input :last, wrapper_html: {class: ""}, as: :string, label: false %>
+                        </div>
                     </div>
                 </div>
                 <div class="tab-pane fade" id="profile">
