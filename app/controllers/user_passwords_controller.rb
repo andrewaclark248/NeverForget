@@ -26,6 +26,7 @@ class UserPasswordsController < ApplicationController
 	def edit
 		@password = Password.find_by(id: params[:id])
 		@rotate_password_text = "The 'Manually Rotate Password' button rotates your current password."
+		@share_password_text = "Share your phone number with a contact!"
 	end
 
 	def update
