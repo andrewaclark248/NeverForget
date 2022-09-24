@@ -7,38 +7,35 @@
 		</div>
 		<div class="card-body">
 				<div class="form-group">
-					<span class="text-muted">*Your Credentials</span>
-					<br>
-					<br>
 					<div class="row">
 						<div class="col-6">
-							<%= password.label "Username" %>
+							<%= password.label "Username", class: "text-secondary" %>
 							<%= password.input :username, wrapper_html: {class: ""}, as: :string, label: false %>
 						</div>
 						<div class="col-6">
-							<%= password.label "Password:" %>
+							<%= password.label "Password", class: "text-secondary" %>
 							<%= password.input :password, wrapper_html: {class: ""}, as: :string, label: false %><br>
 						</div>
 					</div>
-
+					<hr>
 					<div class="row">
 						<div class="col-6">
 							<div class="pb-3">
 								<div class="d-inline">
-									<span>Manually Rotate Your Password</span>
+									<span class="text-secondary">Manually Rotate Your Password</span>
 									<i class="fa-solid fa fa-info-circle fa-lg" data-bs-toggle="tooltip" title="<%=@rotate_password_text%>" ></i>
 								</div>
 							</div>
 							<div class="row">
 								<div class="col-6">
-									<button type="button" class="btn btn-warning manually-rotate-password" data-bs-toggle="modal" data-bs-target="#myModal">
+									<button type="button" class="btn btn-secondary manually-rotate-password" data-bs-toggle="modal" data-bs-target="#myModal">
 										Rotate Password
 									</button>
 								</div>
 							</div>
 						</div>
 						<div class="col-6">
-							<span class="pe-2"><strong>Password Strength:</strong> </span><span class="password-strength-status-text text-danger fw-bold fs-5">POOR</span>
+							<span class="pe-2 text-secondary">Password Strength:</span><span class="password-strength-status-text text-danger fw-bold">POOR</span>
 
 							<div class="password-strength-analyzer">
 								<div class="progress">
@@ -104,16 +101,15 @@
 					</div>
 
 					<hr>
-					<span class="text-muted">*Your Associated URL's</span>
-					<br>
-					<br>
+					<div class="pb-3">
+						<span class="text-secondary">*Associated URL's For Credentials</span>
+					</div>
 						<%= password.simple_fields_for :urls do |u| %>
 							<%= render "url_fields", f: u %>
 						<% end %>
 					<div class="links form-actions">
 						<%= link_to_add_association "Add URL", password, :urls, class: "btn btn-danger" %>
 					</div>
-					<br>
 				</div>
 		</div>
 		<div class="card-footer bg-white pt-3 pb-3 text-center " >
@@ -139,7 +135,7 @@
 		<strong><span class="new-password text-danger"></span></strong>
 		<br>
 		<br>
-		<span class="text-warning">Generated password has been added to form. Just click the 'Update Password' button!</span>
+		<span class="text-secondary">Generated password has been added to form. Just click the 'Update Password' button!</span>
       </div>
 
       <!-- Modal footer -->

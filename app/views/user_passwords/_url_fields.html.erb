@@ -1,9 +1,9 @@
 <div class="nested-fields">
 	<div class="row">
-		<%= f.label "URL" %>
+		<%= f.label "URL", class: "text-secondary" %>
 		<%= f.input :name, wrapper_html: {class: "col-4"}, label: false %>
 		<div class=" col-3">
-		<%= link_to_remove_association "Remove URL", f, class: "btn btn-warning" %>				
+		<%= link_to_remove_association "Remove URL", f, class: "btn btn-dark" %>				
 		</div>
 	</div>
 	<br>

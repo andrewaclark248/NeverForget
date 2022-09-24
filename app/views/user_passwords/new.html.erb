@@ -18,9 +18,6 @@
 
 		<div class="card-body">
 			<div class="form-group">
-				<span><strong>*Add Your Credentials</strong></span>
-				<br>
-				<br>
 				<div class="row">
 					<div class="col-6">
 						<%= password.label "Username"%>
@@ -113,9 +110,9 @@
 					</div>
 				</div>
 				<hr>
-				<span><strong>*Add Associated URL's</strong></span>
-				<br>
-				<br>
+				<div class=" pb-3">
+				<span class="text-secondary">*Associated URL's For Credentials</span>
+				</div>
 				<%= password.simple_fields_for :urls do |u| %>
 					<%= render "url_fields", f: u %>
 				<% end %>
