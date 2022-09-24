@@ -4,6 +4,7 @@ class KeysController < ApplicationController
 
 	def index
 		@keys = current_user.keys
+		@current_user = current_user
 	end
 
 	def new
