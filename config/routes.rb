@@ -22,7 +22,11 @@ Rails.application.routes.draw do
 	resources :payments, only: [:new, :create]
 	resources :billing_portal, only: [:index]
 	resources :keys
-	resources :profiles
+	resources :profiles do 
+		member do
+			post 'update_login', to: "profiles#update_login"
+		end
+	end
 	resources :phones do
 		member do
 			get 'messages', to: "phones#messages"
@@ -33,7 +37,7 @@ Rails.application.routes.draw do
 			get 'purchase', to: "phones#purchase"
 		end
 	end
-
+	
 	#stripe webhooks
 	resources :webhooks, only: [:create]
 

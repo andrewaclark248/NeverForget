@@ -6,9 +6,10 @@
 			</center>
 		</div>
 		<div class="card-body">
-
-
 				<div class="form-group">
+					<span><strong>*Your Credentials</strong></span>
+					<br>
+					<br>
 					<div class="row">
 						<%= password.label "Username:", class: "col-2" %>
 						<%= password.input :username, wrapper_html: {class: "col-4"}, as: :string, label: false %>
@@ -24,9 +25,6 @@
 							<i class="fa-solid fa fa-info-circle fa-lg" data-bs-toggle="tooltip" title="<%=@rotate_password_text%>" ></i>
 
 						</div>
-
-
-
 						<div class="col-6">
 							<div class="password-strength-analyzer">
 
@@ -62,36 +60,24 @@
 								</div>
 							</div>
 						</div>
-
-
-
-
 					</div>
-
-					<br>
-					<br>
+					<hr>
 					<span><strong>Add Associated URL's</strong></span>
 					<br>
 					<br>
 					<%= password.simple_fields_for :urls do |u| %>
 						<%= render "url_fields", f: u %>
 					<% end %>
-					<br>
 					<div class="links form-actions">
 						<%= link_to_add_association "Add URL", password, :urls, class: "btn btn-danger" %>
 					</div>
 					<br>
-
-
 				</div>
 		</div>
+		<div class="card-footer bg-white pt-3 pb-3 text-center " >
+            <%= password.submit "Update Password", class: "btn btn-danger w-75 " %>
+        </div>
 	</div>
-	<br>
-	<center>
-		<div class="d-grid gap-2">
-			<%= password.button :submit, class: "btn btn-danger btn-lg" %>
-		</div>
-	</center>
 <% end %>
 
 

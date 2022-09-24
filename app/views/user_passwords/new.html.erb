@@ -14,11 +14,10 @@
 		</div>
 
 		<div class="card-body">
-
-
-
-			<br>
 			<div class="form-group">
+				<span><strong>*Add Your Credentials</strong></span>
+				<br>
+				<br>
 				<div class="row">
 					<%= password.label "Username:", class: "col-2" %>
 					<%= password.input :username, wrapper_html: {class: "col-4"}, as: :string, label: false %>
@@ -63,10 +62,9 @@
 						</div>
 					</div>
 				</div>
-
 				<br>
-				<br>
-				<span><strong>Add Associated URL's</strong></span>
+				<hr>
+				<span><strong>*Add Associated URL's</strong></span>
 				<br>
 				<br>
 				<%= password.simple_fields_for :urls do |u| %>
@@ -77,14 +75,9 @@
 				</div>
 				<br>
 			</div>
-
-
 		</div>
+		<div class="card-footer bg-white pt-3 pb-3 text-center " >
+            <%= password.submit "Create Password", class: "btn btn-danger w-75 " %>
+        </div>
 	</div>
-	<br>
-				<center>
-				<div class="d-grid gap-2">
-					<%= password.button :submit, class: "btn btn-danger btn-lg" %>
-				</div>
-			</center>
 <% end %>

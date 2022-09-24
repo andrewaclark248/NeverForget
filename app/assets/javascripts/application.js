@@ -133,6 +133,25 @@ $(document).ready(function(){
         //$(this).css({backgroundColor: '#E8E8E8'});
        
     });
+
+
+    
+    
+    //profile page
+    $(".profile-tab-creds").click(function(e){
+        $(".profile-tab-creds").removeClass("text-secondary")
+        $(".profile-tab-creds").addClass("text-dark")
+        $(".profile-tab-security").removeClass("text-dark")
+        $(".profile-tab-security").addClass("text-secondary")
+    });
+
+    $(".profile-tab-security").click(function(e){
+        $(".profile-tab-security").removeClass("text-secondary")
+        $(".profile-tab-security").addClass("text-dark")
+        $(".profile-tab-creds").removeClass("text-dark")
+        $(".profile-tab-creds").addClass("text-secondary")
+    });
+
     /*** 
 
     $(".nav-btn-elm").on({
