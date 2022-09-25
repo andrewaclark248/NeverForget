@@ -39,7 +39,18 @@ module Api
         end
 
         def chrome_password_turned_off
-            binding.pry
+            toggleValue = nil
+            if params["toggleValue"] == 'true'
+                toggleValue = true
+            elsif params["toggleValue"]  == 'false'
+                toggleValue = false
+            end
+
+            if @current_login.user.update(chrome_pwd_mng_toggle: toggleValue)
+                render json: {success: "Updated toggleValue"}
+            else 
+                render json: {error: "Error updating toggleValue"}
+            end        
         end
         
 
