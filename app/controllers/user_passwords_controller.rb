@@ -27,12 +27,20 @@ class UserPasswordsController < ApplicationController
 		@password = Password.find_by(id: params[:id])
 		@rotate_password_text = "The 'Manually Rotate Password' button rotates your current password."
 		@share_password_text = "Share your phone number with a contact!"
+		@last_updated_at_text = "The last time your password was updated."
 		render "edit2"
 	end
 
 	def update
 		@password = Password.find_by(id: params[:id])
-		if @password.update(password_params)
+		updated_at = nil
+		if @password.password != params["password"]["password"]
+			updated_at = @password.updated_at
+		else
+			updated_at = DateTime.now
+		end
+
+		if @password.update(username: params["password"]["username"], password: params["password"]["password"], updated_at: updated_at)
 			flash[:notice] = "Password was updated."
 			redirect_to user_passwords_path
 		else
