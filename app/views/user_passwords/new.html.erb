@@ -20,11 +20,11 @@
 			<div class="form-group">
 				<div class="row">
 					<div class="col-6">
-						<%= password.label "Username"%>
+						<%= password.label "Username", class: "text-secondary" %>
 						<%= password.input :username, wrapper_html: {class: ""}, as: :string, label: false %>
 					</div>
 					<div class="col-6">
-						<%= password.label "Password" %>
+						<%= password.label "Password", class: "text-secondary" %>
 						<%= password.input :password, wrapper_html: {class: "password-strength-input"}, as: :string, label: false %>
 					</div>
 				</div>
