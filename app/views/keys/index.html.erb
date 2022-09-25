@@ -52,20 +52,35 @@
     <div class="modal-content">
 
       <!-- Modal Header -->
-      <div class="modal-header">
-        <h4 class="modal-title">Key & Value Deletion</h4>
+      <div class="modal-header bg-light">
+        <h4 class="modal-title">Delete Key</h4>
         <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
       </div>
 
       <!-- Modal body -->
-      <div class="modal-body">
-        Are you sure you want to delete the following Key & Value?
+      <div class="modal-body bg-light">
+	  	<div class="row pb-3">
+		  	<div class="col-12">
+        		Are you sure you want to delete the following <span class="fw-bold">Key</span>?
+			</div>
+		</div>
+		<div class="row pb-2">
+			<div class="col-2">
+				<span>Key: </span>
+			</div>
+			<div class="col-9">
+				<strong><span class="current-key text-danger"></span></strong>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-2">
+				<span>Value: </span>
+			</div>
+			<div class="col-9">
+				<strong><span class="current-value text-danger"></span></strong>
+			</div>
+		</div>
 		<br>
-		<br>
-		<span>Key: </span><strong><span class="current-key text-danger"></span></strong><br>
-		<span>Value: </span><strong><span class="current-value text-danger"></span></strong>
-        <br>
-        <br>
       </div>
 
       <!-- Modal footer -->
