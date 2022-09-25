@@ -1,0 +1,70 @@
+
+<div class="tab-pane fade" id="profile">
+    <div class="row">
+        <div class="col-6">
+            <div class="row">
+                <div class="pb-3">
+                    <div class="d-inline">
+                        <span class="text-secondary pe-3">Multi Factor Authentication</span>
+                        <i class="fa-solid fa fa-info-circle fa-lg" data-bs-toggle="tooltip" title="<%=@rotate_password_text%>" ></i>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-2"></div>
+                <div class="col-10">
+                    <button type="button" class="btn btn-dark manually-rotate-password" data-bs-toggle="modal" data-bs-target="#myModal">
+                        Configure MFA
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-6">
+            <div class="row">
+                <div class="pb-3">
+                    <div class="d-inline">
+                        <span class="text-secondary pe-3">Disable chrome password save</span>
+                        <i class="fa-solid fa fa-info-circle fa-lg" data-bs-toggle="tooltip" title="<%=@rotate_password_text%>" ></i>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <span class="fw-bold">Turned On</span>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-6">
+            <div class="row">
+                <div class="pb-3">
+                    <div class="d-inline">
+                        <span class="text-secondary pe-3">Chrome extension auto logoff</span>
+                        <i class="fa-solid fa fa-info-circle fa-lg" data-bs-toggle="tooltip" title="<%=@rotate_password_text%>" ></i>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+
+
+            <div>
+
+                <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
+                    <input type="checkbox" class="btn-check" id="btncheck1" autocomplete="off">
+                    <label class="btn btn-outline-danger" for="btncheck1">1 Week</label>
+
+                    <input type="checkbox" class="btn-check" id="btncheck2" autocomplete="off">
+                    <label class="btn btn-outline-danger" for="btncheck2">3 Weeks</label>
+
+                    <input type="checkbox" class="btn-check" id="btncheck3" autocomplete="off">
+                    <label class="btn btn-outline-danger" for="btncheck3">2 Months</label>
+                </div>
+            </div>
+
+
+
+            </div>
+        </div>
+    </div>
+</div>
