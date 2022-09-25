@@ -49,4 +49,8 @@ class User < ApplicationRecord
     return 1600 if self.type == ADAMANTIUM_USER
   end
 
+  def full_name
+    self.first + " " + self.last
+  end
+
 end
