@@ -53,4 +53,13 @@ class User < ApplicationRecord
     self.first + " " + self.last
   end
 
+  def chrome_pwd_manager_value
+    if self.chrome_pwd_mng_toggle.nil?
+      return "N/A"
+    else
+      return "Turned On" if self.chrome_pwd_mng_toggle
+      return "Turned Off" if !self.chrome_pwd_mng_toggle
+    end
+  end
+
 end
