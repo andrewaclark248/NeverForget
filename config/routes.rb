@@ -18,10 +18,14 @@ Rails.application.routes.draw do
 
 	#CRUD controllers
 	resources :dashboard
-	resources :user_passwords
 	resources :payments, only: [:new, :create]
 	resources :billing_portal, only: [:index]
 	resources :keys
+	resources :user_passwords do
+		member do
+			get "send_password_to_contact", to: "user_passwords#send_password_to_contact" 
+		end
+	end
 	resources :profiles do 
 		member do
 			post 'update_login', to: "profiles#update_login"

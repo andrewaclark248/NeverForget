@@ -165,41 +165,21 @@ $(document).ready(function(){
         $(".profile-tab-security").addClass("text-secondary")
     });
 
-    
+    //phone format
+    $('.contact_phone').mask('(999)-999-9999'); 
 
-    /*** 
+    //auto rotate button
+    $( ".contact_phone" ).change(function(e) {
 
-    $(".nav-btn-elm").on({
-        mouseenter: function (e) {
+        var phoneNumber = $(".contact_phone").val().replace(/[_\W]+/g, "")
 
-            //if (text == text-dark)  (current)
-                    //was current page
-            //else
-                //was not current page
+        var url = $(".sendPasswordToContact").attr("href")
+        var queryString = "?phoneNumber=" + phoneNumber
+        url = url + queryString
+        $(".sendPasswordToContact").attr("href", url);
 
+    });
 
-            //channge background
-            $( this ).removeClass( "bg-dark" )
-            $( this ).addClass( "site-background" )
-
-            //change text
-            //$( this ).children( ".nav-links-change" )
-            $( this ).children( ".nav-links-change" ).removeClass( "text-secondary" )
-            $( this ).children( ".nav-links-change" ).addClass( "text-dark" )
-
-        },
-        mouseleave: function () {
-            //channge background
-            $( this ).removeClass( "site-background" )
-            $( this ).addClass( "bg-dark" )
-
-            //change text
-            $( this ).children( ".nav-links-change" ).removeClass( "text-dark" )
-            $( this ).children( ".nav-links-change" ).addClass( "text-secondary" )
-
-        }
-    }); */
-    
 
 });
 

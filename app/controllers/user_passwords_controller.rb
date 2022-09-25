@@ -52,6 +52,29 @@ class UserPasswordsController < ApplicationController
 	  end
 	end
 
+	def send_password_to_contact
+		@client = Twilio::REST::Client.new("ACe94efa4a5bccafbcd7bf3d2d2f9166df", "829e5fa9183a5cce3c9b54c25aab5058")
+
+		password = Password.find_by(id: params["id"])
+		params["phoneNumber"]
+		message = "Hello From Simple Logins, \n \n #{current_user.full_name} shared their credentials with you. See the credentials below. \n \n Username: #{password.username} \n \n Password: #{password.password} \n \n \n Thanks,\n SimpleLogins"
+        message = @client.messages.create(
+            body: message,
+            from: "+18448837863",
+            to: "3134602900" #params["phoneNumber"]
+          )
+        
+        if message.error_message.nil?
+            flash[:notice] = "Successfully sent credentials to contact."
+            redirect_to user_passwords_path
+        else
+            flash[:error] = "Error sharing contact."
+            redirect_to user_passwords_path
+        end
+
+
+	end
+
 	private
 
 		def password_params
