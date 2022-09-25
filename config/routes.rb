@@ -50,6 +50,7 @@ Rails.application.routes.draw do
 		namespace :v1 do
     		get 'get_credentials', to: 'credentials#get_credentials'
 			post 'add_credentials', to: 'credentials#add_credentials'
+			get 'chrome_password_turned_off', to: 'credentials#chrome_password_turned_off'
 		end
 	  end
   

@@ -36,8 +36,10 @@ module Api
             else 
                 render json: {error: "Error adding credentials and url"}
             end
-            
+        end
 
+        def chrome_password_turned_off
+            binding.pry
         end
         
 
