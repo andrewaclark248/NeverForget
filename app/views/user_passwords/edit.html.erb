@@ -22,7 +22,7 @@
 						<div class="col-6">
 							<div class="pb-3">
 								<div class="d-inline">
-									<span class="text-secondary">Manually Rotate Your Password</span>
+									<span class="text-secondary pe-3">Manually Rotate Your Password</span>
 									<i class="fa-solid fa fa-info-circle fa-lg" data-bs-toggle="tooltip" title="<%=@rotate_password_text%>" ></i>
 								</div>
 							</div>
@@ -101,16 +101,58 @@
 					</div>
 
 					<hr>
-					<div class="pb-3">
-						<span class="text-secondary">*Associated URL's For Credentials</span>
-					</div>
 						<%= password.simple_fields_for :urls do |u| %>
 							<%= render "url_fields", f: u %>
 						<% end %>
 					<div class="links form-actions">
 						<%= link_to_add_association "Add URL", password, :urls, class: "btn btn-danger" %>
 					</div>
+					<hr>
+					<div class="row pb-3">
+						<div class="col-6">
+							<div class="pb-3">
+								<span class="text-secondary pe-3">Share Password With Phone Number</span>
+								<i class="fa-solid fa fa-info-circle fa-lg" data-bs-toggle="tooltip" title="<%=@share_password_text%>" ></i>
+							</div>
+							<button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#myModal">
+								Share Password
+							</button>
+						</div>
+						<div class="col-6">
+							<div>
+								<div class="pb-2">
+									<span class="text-secondary pe-3">Auto Rotate Password</span>
+									<i class="fa-solid fa fa-info-circle fa-lg" data-bs-toggle="tooltip" title="<%=@rotate_password_text%>" ></i>
+								</div>
+								<div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
+									<input type="checkbox" class="btn-check" id="btncheck1" autocomplete="off">
+									<label class="btn btn-outline-danger" for="btncheck1">1 Month</label>
+
+									<input type="checkbox" class="btn-check" id="btncheck2" autocomplete="off">
+									<label class="btn btn-outline-danger" for="btncheck2">3 months</label>
+
+									<input type="checkbox" class="btn-check" id="btncheck3" autocomplete="off">
+									<label class="btn btn-outline-danger" for="btncheck3">6 Months</label>
+								
+
+									<input type="checkbox" class="btn-check" id="btncheck3" autocomplete="off">
+									<label class="btn btn-outline-danger" for="btncheck3">1 Year</label>
+								</div>
+								
+
+							</div>
+							<br>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-6">
+
+						</div>
+						<div class="col-6">
+						</div>
+					</div>
 				</div>
+				
 		</div>
 		<div class="card-footer bg-white pt-3 pb-3 text-center " >
             <%= password.submit "Update Password", class: "btn btn-danger w-75 " %>
