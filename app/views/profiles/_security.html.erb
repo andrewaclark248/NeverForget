@@ -13,7 +13,7 @@
             <div class="row">
                 <div class="col-2"></div>
                 <div class="col-10">
-                    <button type="button" class="btn btn-dark manually-rotate-password" data-bs-toggle="modal" data-bs-target="#myModal">
+                    <button type="button" class="btn btn-dark manually-rotate-password" data-bs-toggle="modal" data-bs-target="#mfaModal">
                         Configure MFA
                     </button>
                 </div>
@@ -68,3 +68,59 @@
         </div>
     </div>
 </div>
+
+
+
+<div class="modal fade" id="mfaModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header bg-light">
+        <h4 class="modal-title">Delete Password</h4>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body bg-light">
+	  	<div class="row pb-3">
+			<span class="text-dark">
+				Are you sure you want to delete the following <span class="fw-bold">Username</span> & <span class="fw-bold">Password</span>?
+			</span>
+		</div>
+		<div class="row pb-2">
+			<div class="col-3">
+				<span class="text-dark">Username: </span>
+			</div>
+			<div class="col-9">
+				<strong><span class="current-username text-danger"></span></strong>
+			</div>
+		</div>
+		<div class="row ">
+			<div class="col-3">
+				<span class="text-dark">Password: </span>
+			</div>
+			<div class="col-9">
+				<strong><span class="current-password text-danger"></span></strong>
+			</div>
+		</div>
+        <br>
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer bg-light">
+	  		<div class="row w-100">
+			  	<div class="col-6">
+					<%= link_to "Yes", user_password_path(12), method: :delete, class: "btn btn-danger btn-lg btn-block w-100 delete-password-accept",:data => { "data-bs-dismiss": "modal"} %>
+			    </div>
+				<div class="col-6">
+					<button type="button" class="btn btn-primary btn-lg btn-block w-100" data-bs-dismiss="modal">No</button>
+				</div>
+			</div>
+
+	  </div>
+
+    </div>
+  </div>
+</div>
+
