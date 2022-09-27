@@ -5,5 +5,4 @@
 //= link_directory ../javascripts .js
 //= require cocoon
 //= requie font-awesome
-//= require clipboard
 

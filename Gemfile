@@ -76,7 +76,6 @@ gem "font-awesome-rails"
 
 gem "passgen"
 
-gem 'clipboard-rails'
 
 
 
