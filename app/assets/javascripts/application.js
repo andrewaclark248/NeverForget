@@ -36,11 +36,12 @@ $(document).ready(function(){
     $('.toast').toast('show');
 
 
-    // Initialize tooltips
+    /**  Initialize tooltips
     var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
     var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
     return new bootstrap.Tooltip(tooltipTriggerEl)
-    })
+    })*/
+    $('info-tooltip').tooltip();   
 
 
     //auto rotate button
@@ -180,8 +181,31 @@ $(document).ready(function(){
 
     });
 
+                    
+    $( ".copy-username-icon" ).click(function() {
+        $(".username-copy-icon").tooltip('show');
+		copy_input( $('#password_username') );
+        
+        setTimeout(function() {
+            $(".username-copy-icon").tooltip('hide');
+          }, 1000);
+          
+    });
+    
+
+    $( ".copy-password-icon" ).click(function() {
+        $(".password-copy-icon").tooltip('show');
+		copy_input( $('#password_password') );
+        
+        setTimeout(function() {
+            $(".password-copy-icon").tooltip('hide');
+          }, 1000);
+          
+    });
+
 
 });
+
 
 function getNavBarState(cssClass) {
     //navBarState
@@ -207,8 +231,6 @@ function getNewPassword()
     });
 
 
- 
-
 }
 
 
@@ -230,6 +252,7 @@ function getCurrentPassword(passwordId) {
             console.log("error")
         }
     });
+
 }
 
 //get current key (for delete)
@@ -424,3 +447,17 @@ function removeStatusBar() {
     $( ".password-strength-status-bar" ).removeClass("bg-danger")
 }
 
+
+
+// copy function
+function copy_input( $input ) {
+    $input.blur();
+    $input.select();
+    $( ".password-strength-analyzer" ).hide()
+
+    try {  
+        var successful = document.execCommand('copy');  
+    } catch(err) {  
+        console.error('Unable to copy'); 
+    }		
+}
