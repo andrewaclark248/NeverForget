@@ -37,4 +37,8 @@ module ApplicationHelper
         end
     end
 
+    def get_minus_sign
+        return '<i class="fa fa-minus" aria-hidden="true"></i>'.html_safe
+    end
+
 end
