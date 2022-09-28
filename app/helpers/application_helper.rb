@@ -41,4 +41,8 @@ module ApplicationHelper
         return '<i class="fa fa-minus" aria-hidden="true"></i>'.html_safe
     end
 
+    def logo_text
+        "<h3><span class='text-danger'>Safe</span><span class='text-dark'>Logins</span></h3>".html_safe
+    end
+
 end
