@@ -28,7 +28,7 @@ class UserPasswordsController < ApplicationController
 		@rotate_password_text = "The 'Manually Rotate Password' button rotates your current password."
 		@share_password_text = "Share your phone number with a contact!"
 		@last_updated_at_text = "The last time your password was updated."
-		render "edit2"
+		render "edit3"
 	end
 
 	def update

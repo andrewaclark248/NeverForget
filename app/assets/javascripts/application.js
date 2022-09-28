@@ -35,6 +35,10 @@ $(document).ready(function(){
 
     $('.toast').toast('show');
 
+    
+    $( ".add_fields" ).click(function() {
+        $( ".add_fields" ).blur();
+    });
 
     /**  Initialize tooltips
     var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))

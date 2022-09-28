@@ -1,0 +1,33 @@
+<%= simple_form_for @password, url: user_password_path(@password), method: :put do |f| %>
+    <div class="card border-secondary" >
+        <div class="card-header bg-light">
+            <h4 class="text-center text-dark">Update Password</h4>
+            <ul class="nav nav-tabs card-header-tabs">
+                <li class="nav-item bg-light">
+                    <a class="nav-link active profile-tab-creds text-dark" href="#credentials" data-bs-toggle="tab">Credentials</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-secondary profile-tab-security" href="#security" data-bs-toggle="tab">Security</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link  text-secondary profile-tab-other" href="#other" data-bs-toggle="tab">Other</a>
+                </li>
+            </ul>
+        </div>
+
+
+            <div class="tab-content ">
+
+                <%= render "password_main", f: f %>
+                <%= render "password_security", f: f, password: @password %>
+                <%= render "password_other", f: f, password: @password %>
+
+            </div>
+
+
+
+        <div class="card-footer bg-white pt-4 pb-4">
+            <center><%= f.submit "Update Password", class: "btn btn-danger w-75 " %></center>
+        </div>
+    </div>
+<% end %>
