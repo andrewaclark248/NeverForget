@@ -39,8 +39,8 @@ class UserPasswordsController < ApplicationController
 		else
 			updated_at = DateTime.now
 		end
-
-		if @password.update(username: params["password"]["username"], password: params["password"]["password"], updated_at: updated_at)
+		@password.updated_at = updated_at
+		if @password.update(password_params)
 			flash[:notice] = "Password was updated."
 			redirect_to user_passwords_path
 		else
