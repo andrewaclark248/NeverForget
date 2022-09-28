@@ -4,22 +4,45 @@
     <div class="modal-content">
 
       <!-- Modal Header -->
-      <div class="modal-header">
-        <h4 class="modal-title">Password Generation</h4>
+      <div class="modal-header bg-dark">
+        <h4 class="modal-title text-white">Password Generation</h4>
         <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
       </div>
 
       <!-- Modal body -->
       <div class="modal-body">
-        Suggested Password:
-		<strong><span class="new-password text-danger"></span></strong>
-		<br>
-		<br>
-		<span class="text-secondary">Generated password has been added to form. Just click the 'Update Password' button!</span>
+        <div class="pb-3">
+          <span class="fw-bold">
+            A new password has been generated for you! 
+          </span>
+        </div>
+        <div class="pb-4">
+          <span class="text-dark">The generated password has been added to the password field. Just click the <span class="text-danger">Update Password</span> button!</span>
+        </div>
+          <center>
+        	<table class="table table-bordered bg-light w-100 ">
+            <tbody >
+            <tr >
+              <td class="fw-bold" style="width: 35%;" >
+                <center>
+                  Password
+                </center>
+
+              </td>
+              <td>
+                <center>
+		              <strong><span class="new-password text-danger"></span></strong>
+                </center>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+          </center>
+
       </div>
 
       <!-- Modal footer -->
-      <div class="modal-footer">
+      <div class="modal-footer bg-light">
         <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
       </div>
 

@@ -47,40 +47,57 @@
   </div>
 </div>
 
-<div class="modal fade" id="myModal">
+<div class="modal fade " id="myModal">
   <div class="modal-dialog">
     <div class="modal-content">
 
       <!-- Modal Header -->
-      <div class="modal-header bg-light">
-        <h4 class="modal-title">Delete Password</h4>
-        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      <div class="modal-header bg-dark">
+			<span class=""><h4 class="modal-title text-white">Delete Password</h4></span>
+		  	<button type="button" class="btn-close " data-bs-dismiss="modal"></button>
       </div>
 
       <!-- Modal body -->
-      <div class="modal-body bg-light">
+      <div class="modal-body bg-white">
 	  	<div class="row pb-3">
 			<span class="text-dark">
-				Are you sure you want to delete the following <span class="fw-bold">Username</span> & <span class="fw-bold">Password</span>?
+				Are you sure you want to <span class="text-danger">delete</span> the following Username & Password?
 			</span>
 		</div>
-		<div class="row pb-2">
-			<div class="col-3">
-				<span class="text-dark">Username: </span>
-			</div>
-			<div class="col-9">
-				<strong><span class="current-username text-danger"></span></strong>
-			</div>
-		</div>
-		<div class="row ">
-			<div class="col-3">
-				<span class="text-dark">Password: </span>
-			</div>
-			<div class="col-9">
-				<strong><span class="current-password text-danger"></span></strong>
-			</div>
-		</div>
-        <br>
+
+
+		<center>
+		<table class="table table-bordered bg-light w-75 ">
+			<tbody >
+			<tr >
+				<td class="fw-bold" style="width: 35%;" >
+					<center>
+						Username
+					</center>
+
+				</td>
+				<td>
+					<center>
+					<span class="current-username text-danger"></span>
+					</center>
+				</td>
+			</tr>
+			<tr>
+				<td class="fw-bold">
+					<center>
+						Password
+					<center>
+				</td>
+				<td>
+					<center>
+					<span class="current-password text-danger"></span>
+					</center>
+				</td>
+			</tr>
+			</tbody>
+		</table>
+		</center>
+
       </div>
 
       <!-- Modal footer -->
