@@ -4,20 +4,18 @@
             <center><h4>Update Profile</h4></center>
             <ul class="nav nav-tabs card-header-tabs" id="myTab">
                 <li class="nav-item">
-                    <a href="#home" class="nav-link active text-dark profile-tab-creds" data-bs-toggle="tab">Credentials</a>
+                    <a href="#profile-credentials" class="nav-link active text-dark profile-tab-creds" data-bs-toggle="tab">Credentials</a>
                 </li>
                 <li class="nav-item">
-                    <a href="#profile" class="nav-link text-secondary profile-tab-security" data-bs-toggle="tab">Security</a>
+                    <a href="#security-profile" class="nav-link text-secondary profile-tab-security"  data-bs-toggle="tab">Security</a>
                 </li>
             </ul>
         </div>
-        <div class="card-body">
             <div class="tab-content">
                 <%= render "credentials", f: f %>
                 <%= render "security", f: f, user: @user %>
 
             </div>
-        </div>
         <div class="card-footer bg-white pt-3 pb-3">
             <center>
                 <%= f.submit "Update Profile", class: "btn btn-danger w-75 " %>
