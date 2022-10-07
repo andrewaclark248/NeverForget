@@ -72,7 +72,7 @@ gem 'stripe-rails'
 
 gem "money-rails"
 
-gem "font-awesome-rails"
+#gem "font-awesome-rails"
 
 gem "passgen"
 
