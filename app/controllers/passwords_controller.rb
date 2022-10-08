@@ -10,4 +10,5 @@ class PasswordsController < Devise::PasswordsController
         super
     end
     
+
 end

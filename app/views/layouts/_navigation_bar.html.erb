@@ -2,10 +2,10 @@
 	<ul class="list-nav">
 		<li class="roundout nav-btn-elm <%= is_active?(dashboard_index_path) %>" style="border-radius: -60px;">
 			<% if is_active2?(dashboard_index_path) %>
-				<div style="padding-left: 15px;">
+				<div class="ps-2">
 					<div class="d-flex">
-						<div class="flex-fill ">
-							<i class="navbar-links fa fa-tachometer fa-2x" aria-hidden="true"></i>
+						<div class="flex-fill" style="padding-top: 17px; max-width: 30px;">
+							<i class="navbar-links fa fa-tachometer fa-lg" aria-hidden="true" ></i>
 						</div>
 						<div class="flex-fill">
 							<%= link_to 'Dashboard', dashboard_index_path, class: 'text-dark nav-links-change fw-bold navbar-links', style: "font-size: 24px;"%>
@@ -13,13 +13,13 @@
 					</div>
 				</div>
 			<% else %>
-				<div style="padding-left: 15px;">
+				<div style="padding-left: 10px;">
 					<div class="d-flex">
-						<div class="flex-fill ">
-							<i class="navbar-links fa fa-tachometer fa-2x " aria-hidden="true" style="color: #6c757d;"></i>
+						<div class="flex-fill " style="padding-top: 17px; max-width: 30px;">
+							<i class="navbar-links fa fa-tachometer fa-lg" aria-hidden="true" style="color: #6c757d;" style="padding-top: 10px;"></i>
 						</div>
 						<div class="flex-fill">
-							<%= link_to 'Dashboard', dashboard_index_path, class: 'text-secondary mx-4 nav-links-change fw-bold navbar-links', style: "font-size: 24px;"%>
+							<%= link_to 'Dashboard', dashboard_index_path, class: 'text-secondary nav-links-change fw-bold navbar-links', style: "font-size: 24px;"%>
 						</div>
 					</div>
 				</div>
@@ -29,8 +29,8 @@
 			<% if is_active2?(user_passwords_path) %>
 				<div style="padding-left: 15px;">
 					<div class="d-flex">
-						<div class="flex-fill ">
-							<i class="navbar-links fa fa-lock fa-2x" aria-hidden="true"></i>
+						<div class="flex-fill " style="padding-top: 17px; max-width: 30px;">
+							<i class="navbar-links fa fa-lock fa-lg" aria-hidden="true"></i>
 						</div>
 						<div class="flex-fill">
 							<%= link_to 'Passwords', user_passwords_path, class: 'text-dark nav-links-change fw-bold navbar-links', style: "font-size: 24px;"%>
@@ -40,11 +40,11 @@
 			<% else %>
 				<div style="padding-left: 15px;">
 					<div class="d-flex">
-						<div class="flex-fill ">
-							<i class="navbar-links fa fa-lock fa-2x " aria-hidden="true" style="color: #6c757d;"></i>
+						<div class="flex-fill " style="padding-top: 17px; max-width: 30px;">
+							<i class="navbar-links fa fa-lock fa-lg " aria-hidden="true" style="color: #6c757d;"></i>
 						</div>
 						<div class="flex-fill">
-							<%= link_to 'Passwords', user_passwords_path, class: 'text-secondary mx-4 nav-links-change fw-bold navbar-links', style: "font-size: 24px;"%>
+							<%= link_to 'Passwords', user_passwords_path, class: 'text-secondary nav-links-change fw-bold navbar-links', style: "font-size: 24px;"%>
 						</div>
 					</div>
 				</div>
@@ -54,8 +54,8 @@
 			<% if is_active2?(keys_path) %>
 				<div style="padding-left: 15px;">
 					<div class="d-flex">
-						<div style="padding-right: 15px;">
-							<i class="navbar-links fa fa-book fa-2x" aria-hidden="true"></i>
+						<div class="flex-fill " style="padding-top: 17px; max-width: 30px;">
+							<i class="navbar-links fa fa-book fa-lg" aria-hidden="true"></i>
 						</div>
 						<div class="flex-grow-1">
 							<%= link_to 'Keys', keys_path, class: 'text-dark nav-links-change fw-bold navbar-links', style: "font-size: 24px;"%>
@@ -65,8 +65,8 @@
 			<% else %>
 				<div style="padding-left: 15px;">
 					<div class="d-flex">
-						<div style="padding-right: 15px;">
-							<i class="navbar-links fa fa-book fa-2x" aria-hidden="true" style="color: #6c757d;"></i>
+						<div class="flex-fill " style="padding-top: 17px; max-width: 30px;">
+							<i class="navbar-links fa fa-book fa-lg" aria-hidden="true" style="color: #6c757d;"></i>
 						</div>
 						<div class="flex-grow-1">
 							<%= link_to 'Keys', keys_path, class: 'text-secondary nav-links-change fw-bold navbar-links', style: "font-size: 24px;"%>
@@ -80,8 +80,8 @@
 			<% if is_active2?(new_payment_path) %>
 				<div style="padding-left: 15px;">
 					<div class="d-flex">
-						<div style="padding-right: 15px;">
-							<i class="navbar-links fa fa-usd fa-2x" aria-hidden="true"></i>
+						<div class="flex-fill " style="padding-top: 17px; max-width: 30px;">
+							<i class="navbar-links fa fa-usd fa-lg" aria-hidden="true"></i>
 						</div>
 						<div class="flex-grow-1">
 							<%= link_to 'Payments', new_payment_path, class: 'text-dark nav-links-change fw-bold navbar-links', style: "font-size: 24px;"%>
@@ -91,8 +91,8 @@
 			<% else %>
 				<div style="padding-left: 15px;">
 					<div class="d-flex">
-						<div style="padding-right: 15px;">
-							<i class="navbar-links fa fa-usd fa-2x" aria-hidden="true" style="color: #6c757d;"></i>
+						<div class="flex-fill " style="padding-top: 17px; max-width: 30px;">
+							<i class="navbar-links fa fa-usd fa-lg" aria-hidden="true" style="color: #6c757d;"></i>
 						</div>
 						<div class="flex-grow-1">
 							<%= link_to 'Payments', new_payment_path, class: 'text-secondary nav-links-change fw-bold navbar-links', style: "font-size: 24px;"%>
@@ -107,8 +107,8 @@
 			<% if is_active2?(profiles_path) %>
 				<div style="padding-left: 15px;">
 					<div class="d-flex">
-						<div style="padding-right: 15px;">
-							<i class="navbar-links fa fa-user fa-2x" aria-hidden="true"></i>
+						<div class="flex-fill " style="padding-top: 17px; max-width: 30px;">
+							<i class="navbar-links fa fa-user fa-lg" aria-hidden="true"></i>
 						</div>
 						<div class="flex-grow-1">
 							<%= link_to 'Profile', profiles_path, class: 'text-dark nav-links-change fw-bold navbar-links', style: "font-size: 24px;"%>
@@ -118,8 +118,8 @@
 			<% else %>
 				<div style="padding-left: 15px;">
 					<div class="d-flex">
-						<div style="padding-right: 15px;">
-							<i class="navbar-links fa fa-user fa-2x" aria-hidden="true" style="color: #6c757d;"></i>
+						<div class="flex-fill " style="padding-top: 17px; max-width: 30px;">
+							<i class="navbar-links fa fa-user fa-lg" aria-hidden="true" style="color: #6c757d;"></i>
 						</div>
 						<div class="flex-grow-1">
 							<%= link_to 'Profile', profiles_path, class: 'text-secondary nav-links-change fw-bold navbar-links', style: "font-size: 24px;"%>
