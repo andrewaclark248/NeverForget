@@ -10,9 +10,6 @@ class Login < ApplicationRecord
 
   attr_accessor :first_name, :last_name
 
-  validates :first_name, :presence => true
-	validates :last_name, :presence => true
-
 
   def set_user
     plan = Plan.find_by(name: "Bronze")

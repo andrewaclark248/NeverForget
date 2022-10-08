@@ -1,15 +1,14 @@
 class PasswordsController < Devise::PasswordsController
 
+    layout "login"
+
     def edit
         super
-        binding.pry
-
     end
 
-
-    def update
+    def new
         super
-        binding.pry
     end
+    
 
 end
