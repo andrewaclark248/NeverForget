@@ -13,7 +13,7 @@ class Login < ApplicationRecord
 
   def set_user
     plan = Plan.find_by(name: "Bronze")
-		user = Bronze.new(first: first_name, last: last_name, plan: plan)
+		user = Bronze.new(first: first_name, last: last_name, plan: plan, chrome_ext_auto_logoff: EXT_AUTOLOGOFF_2)
     user.save!
     self.update!(user: user)
   end

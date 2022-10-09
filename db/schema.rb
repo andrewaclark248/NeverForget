@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_09_25_225357) do
+ActiveRecord::Schema.define(version: 2022_10_08_234431) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -109,6 +109,7 @@ ActiveRecord::Schema.define(version: 2022_09_25_225357) do
     t.string "current_period_end"
     t.bigint "plan_id"
     t.boolean "chrome_pwd_mng_toggle"
+    t.string "chrome_ext_auto_logoff"
     t.index ["plan_id"], name: "index_users_on_plan_id"
   end
 
