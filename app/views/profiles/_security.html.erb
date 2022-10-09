@@ -41,17 +41,8 @@
         <td class="align-middle border-end-0">
 			<div class="row ">
 				<div class="col-1"></div>
-				<div class="col-8 ">
-                    <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
-                        <input type="checkbox" class="btn-check" id="btncheck1" autocomplete="off">
-                        <label class="btn btn-outline-danger" for="btncheck1">1 Week</label>
-
-                        <input type="checkbox" class="btn-check" id="btncheck2" autocomplete="off">
-                        <label class="btn btn-outline-danger" for="btncheck2">3 Weeks</label>
-
-                        <input type="checkbox" class="btn-check" id="btncheck3" autocomplete="off">
-                        <label class="btn btn-outline-danger" for="btncheck3">2 Months</label>
-                    </div>
+				<div class="col-4 ">
+					<%= f.select :chrome_ext_auto_logoff, [["2 Weeks","2"], ["3 Weeks", "3"], ["4 Weeks", "4"]], {selected: user.chrome_ext_auto_logoff}, {class: "form-select"} %>
                 </div>
 			</div>
 		</td>

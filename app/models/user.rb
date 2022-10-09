@@ -22,6 +22,10 @@ class User < ApplicationRecord
 
   PLANS = [BRONZE_USER, SILVER_USER, PLATNIUM_USER, GOLD_USER, ADAMANTIUM_USER]
 
+  EXT_AUTOLOGOFF_2 = "2"
+  EXT_AUTOLOGOFF_3 = "3"
+  EXT_AUTOLOGOFF_4 = "4"
+
 
   def has_phone_plan?
     self.stripe_customer_id.present?
