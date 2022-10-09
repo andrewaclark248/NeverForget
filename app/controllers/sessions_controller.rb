@@ -15,7 +15,7 @@ class SessionsController < Devise::SessionsController
 
   	def add_jwt
 		num_weeks = current_login.user.chrome_ext_auto_logoff.to_i
-		exp = Time.now.to_i - num_weeks.weeks.to_i
+		exp = Time.now.to_i + num_weeks.weeks.to_i
 		user_name = current_login.email
 		exp_payload = { data: user_name, exp: exp }
 		token = JWT.encode exp_payload, nil, 'none'
