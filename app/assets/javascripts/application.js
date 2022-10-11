@@ -84,11 +84,11 @@ $(document).ready(function(){
             //analyze password
             getPasswordStength(password)
 
-            var passwordStrength = getPasswordStatus(password)
+            //var passwordStrength = getPasswordStatus(password)
 
-            removeTextClasses()
-            changePasswordStatusText(passwordStrength)
-            changePasswordStatusBar(passwordStrength)
+            //removeTextClasses()
+            //changePasswordStatusText(passwordStrength)
+            //changePasswordStatusBar(passwordStrength)
        } else {
             $( ".password-strength-analyzer" ).hide();
        }
@@ -97,17 +97,19 @@ $(document).ready(function(){
     $('#password_password').blur(function(e) {
         $( ".password-strength-analyzer" ).hide();
         //auto set text to danger on blur
-        $(".hasUpperAndLower").removeClass("text-success")
-        $(".hasUpperAndLower").addClass("text-danger")
+        $(".has12CharIcon").removeClass("text-success")
+        $(".has12CharIcon").addClass("text-danger")
 
-        $(".has12Char").removeClass("text-success")
-        $(".has12Char").addClass("text-danger")
+        //$(".hasUpperAndLower").removeClass("text-success")
+        //$(".hasUpperAndLower").addClass("text-danger")
 
-        $(".hasLetterAndNumbers").removeClass("text-success")
-        $(".hasLetterAndNumbers").addClass("text-danger")
 
-        $(".hasSpecialChar").removeClass("text-success")
-        $(".hasSpecialChar").addClass("text-danger")
+
+        //$(".hasLetterAndNumbers").removeClass("text-success")
+        //$(".hasLetterAndNumbers").addClass("text-danger")
+
+        //$(".hasSpecialChar").removeClass("text-success")
+        //$(".hasSpecialChar").addClass("text-danger")
      });
 
     //$( "#password_password" ).change(function() {
@@ -152,7 +154,7 @@ $(document).ready(function(){
         $(".profile-tab-other").addClass("text-secondary")
     });
 
-    $(".profile-tab-security").click(function(e){
+    $(".f").click(function(e){
         $(".profile-tab-security").removeClass("text-secondary")
         $(".profile-tab-security").addClass("text-dark")
         $(".profile-tab-creds").removeClass("text-dark")
@@ -306,65 +308,55 @@ function hasSpecialChar(password) {
   
 
 function getPasswordStength(password) {
-    //has upper and lower
-    if(hasLowerCase(password) && hasUpperCase(password)) {
-        
-        $( ".hasUpperAndLower" ).removeClass("text-danger")
-        $( ".hasUpperAndLower" ).addClass("text-success")
-        //icon
-        $( ".hasUpperAndLowerIcon" ).removeClass("fa-square-o")  
-        $( ".hasUpperAndLowerIcon" ).addClass("fa-check-square") 
-    } else {
-        $( ".hasUpperAndLower" ).addClass("text-danger")
-
-        //icon
-        $( ".hasUpperAndLowerIcon" ).removeClass("fa-check-square")  
-        $( ".hasUpperAndLowerIcon" ).addClass("fa-square-o") 
-    }
 
     //has 12 characters
     if (hasTwelveChar(password)) {
-        $( ".has12Char" ).removeClass("text-danger")
-        $( ".has12Char" ).addClass("text-success")  
         //icon
-        $( ".has12CharIcon" ).removeClass("fa-square-o")  
-        $( ".has12CharIcon" ).addClass("fa-check-square")  
+        $( ".has12CharIcon" ).removeClass("text-danger")  
+        $( ".has12CharIcon" ).addClass("text-success")  
 
     } else {
-        $( ".has12Char" ).addClass("text-danger")
-
         //icon
-        $( ".has12CharIcon" ).removeClass("fa-check-square")  
-        $( ".has12CharIcon" ).addClass("fa-square-o")  
+        $( ".has12CharIcon" ).removeClass("text-success")  
+        $( ".has12CharIcon" ).addClass("text-danger")  
+    }
+    
+
+    //has upper and lower
+    if (hasLowerCase(password) && hasUpperCase(password)) {
+        //icon
+        $( ".hasUpperAndLowerIcon" ).removeClass("text-danger")  
+        $( ".hasUpperAndLowerIcon" ).addClass("text-success")  
+
+    } else {
+        //icon
+        $( ".hasUpperAndLowerIcon" ).removeClass("text-success")  
+        $( ".hasUpperAndLowerIcon" ).addClass("text-danger")  
     }
 
     //has numbers annd letters
     if (hasLettersAndNumbers(password)) {
-        $( ".hasLetterAndNumbers" ).removeClass("text-danger")
-        $( ".hasLetterAndNumbers" ).addClass("text-success")  
         //icon
-        $( ".hasLetterAndNumbersIcon" ).removeClass("fa-square-o")  
-        $( ".hasLetterAndNumbersIcon" ).addClass("fa-check-square")  
-    } else {
-        $( ".hasLetterAndNumbers" ).addClass("text-danger")
+        $( ".hasLetterAndNumbersIcon" ).removeClass("text-danger")  
+        $( ".hasLetterAndNumbersIcon" ).addClass("text-success")  
 
+    } else {
         //icon
-        $( ".hasLetterAndNumbersIcon" ).removeClass("fa-check-square")  
-        $( ".hasLetterAndNumbersIcon" ).addClass("fa-square-o")  
+        $( ".hasLetterAndNumbersIcon" ).removeClass("text-success")  
+        $( ".hasLetterAndNumbersIcon" ).addClass("text-danger")  
     }
+    
 
     //has special characters
     if (hasSpecialChar(password)) {
-        $( ".hasSpecialChar" ).removeClass("text-danger")
-        $( ".hasSpecialChar" ).addClass("text-success") 
         //icon
-        $( ".hasSpecialCharIcon" ).removeClass("fa-square-o")  
-        $( ".hasSpecialCharIcon" ).addClass("fa-check-square")  
+        $( ".hasSpecialCharIcon" ).removeClass("text-danger")  
+        $( ".hasSpecialCharIcon" ).addClass("text-success")  
+
     } else {
-        $( ".hasSpecialChar" ).addClass("text-danger")
         //icon
-        $( ".hasSpecialCharIcon" ).removeClass("fa-check-square")  
-        $( ".hasSpecialCharIcon" ).addClass("fa-square-o")  
+        $( ".hasSpecialCharIcon" ).removeClass("text-success")  
+        $( ".hasSpecialCharIcon" ).addClass("text-danger")  
     }
 }
 
