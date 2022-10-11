@@ -72,49 +72,45 @@ $(document).ready(function(){
     });
 
 
+
+
+
+    //PASSWORD ANALYZER----------------------
+    //on page load hide analyzer
     $( ".password-strength-analyzer" ).hide();
 
-    //password strength progress bar
+    //on page load show text
+    if($('#password_password').val()) {
+        removeTextClasses();
+        var passwordStrength = getPasswordStatus($('#password_password').val());
+        changePasswordStatusText(passwordStrength)
+    }
+
+
+
     $( "#password_password" ).focus(function(e) {
         var password = e.currentTarget.value
-       if (password?.length > 0) {
-            //show password progress bar
-            $( ".password-strength-analyzer" ).show();
+        $( ".password-strength-text" ).hide();
+        $( ".password-strength-analyzer" ).show();
 
-            //analyze password
-            getPasswordStength(password)
+        //analyze password
+        getPasswordStength(password)
 
-            //var passwordStrength = getPasswordStatus(password)
-
-            //removeTextClasses()
-            //changePasswordStatusText(passwordStrength)
-            //changePasswordStatusBar(passwordStrength)
-       } else {
-            $( ".password-strength-analyzer" ).hide();
-       }
     });
 
     $('#password_password').blur(function(e) {
+        var password = e.currentTarget.value
+        //show password analyzer
         $( ".password-strength-analyzer" ).hide();
-        //auto set text to danger on blur
-        $(".has12CharIcon").removeClass("text-success")
-        $(".has12CharIcon").addClass("text-danger")
 
-        //$(".hasUpperAndLower").removeClass("text-success")
-        //$(".hasUpperAndLower").addClass("text-danger")
+        //update password status text
+        removeTextClasses();
+        var passwordStrength = getPasswordStatus(password);
+        changePasswordStatusText(passwordStrength)
 
-
-
-        //$(".hasLetterAndNumbers").removeClass("text-success")
-        //$(".hasLetterAndNumbers").addClass("text-danger")
-
-        //$(".hasSpecialChar").removeClass("text-success")
-        //$(".hasSpecialChar").addClass("text-danger")
+        //show password status text
+        $( ".password-strength-text" ).show();
      });
-
-    //$( "#password_password" ).change(function() {
-    //    console.log("this is working");
-    //});
 
     $('#password_password').on('input',function(e){
         var password = e.target.value;
@@ -122,18 +118,15 @@ $(document).ready(function(){
             //show password progress bar
             $( ".password-strength-analyzer" ).show();
 
-            //analyze password
+            //change varius rows of controls
             getPasswordStength(password)
-
-            var passwordStrength = getPasswordStatus(password)
-            //console.log("strenght = " + (passwordStrength == 3))
-            removeTextClasses()
-            changePasswordStatusText(passwordStrength)
-            changePasswordStatusBar(passwordStrength)
         } else {
             $( ".password-strength-analyzer" ).hide();
         }
     });
+    //PASSWORD ANALYZER----------------------
+
+
 
        //navbar
     $(".nav-btn-elm").hover(function(e){
@@ -400,7 +393,7 @@ function changePasswordStatusText(passwordStrength) {
         $( ".password-strength-status-text" ).text("OKAY");
         $(".password-strength-status-text").addClass("text-warning")
     } else if (passwordStrength == 4) {
-        $( ".password-strength-status-text" ).text("GREAT!!!");
+        $( ".password-strength-status-text" ).text("STRONG");
         $(".password-strength-status-text").addClass("text-success")
     }
 

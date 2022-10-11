@@ -36,15 +36,17 @@
       </tr>
 	  <tr style="background: #F1F2F1;" class="">
         <td  class="border-start-0 align-middle table-row-height" style="width:30%">
-			<span class="fw-bold " >Password</span>
+			<span class="fw-bold ">Password</span>
 		</td>
         <td class="align-middle border-end-0">
 			<div class="row">
 				<div class="col-1"></div>
 				<div class="col-8 ">
-					<%= password.input :password, input_html: { class: 'inputPassword ' }, as: :string, label: false %>
+					<div class="pb-2">
+						<%= password.input :password, input_html: { class: '' }, as: :string, label: false %>
+					</div>
 					<div class="password-strength-analyzer">
-						<div class="card cardPwd" >
+						<div class="card " >
 							<div class="card-body">
 								<%= render "password_strength_v2" %>
 							</div>
