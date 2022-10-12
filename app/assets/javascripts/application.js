@@ -84,6 +84,8 @@ $(document).ready(function(){
         removeTextClasses();
         var passwordStrength = getPasswordStatus($('#password_password').val());
         changePasswordStatusText(passwordStrength)
+        setStrengthHiddenField($('#password_password').val())
+  
     }
 
 
@@ -120,6 +122,7 @@ $(document).ready(function(){
 
             //change varius rows of controls
             getPasswordStength(password)
+            setStrengthHiddenField(password)
         } else {
             $( ".password-strength-analyzer" ).hide();
         }
@@ -206,9 +209,22 @@ $(document).ready(function(){
 });
 
 
-function getNavBarState(cssClass) {
-    //navBarState
+function setStrengthHiddenField(password) {
+    console.log("wnet to this new method")
+    var status = getPasswordStatus(password)
+    if (status == 0) {
+        $("#password_pwd_strength").val("poor")
+    } else if (status == 1) {
+        $("#password_pwd_strength").val("poor")
+    } else if (status == 2) {
+        $("#password_pwd_strength").val("okay")
+    } else if (status == 3) {
+        $("#password_pwd_strength").val("okay")
+    } else if (status == 4) {
+        $("#password_pwd_strength").val("strong")
+    }
 }
+
 
 //manually generate password
 function getNewPassword()
@@ -380,6 +396,8 @@ function removeTextClasses() {
 }
 
 function changePasswordStatusText(passwordStrength) {
+
+    
     if (passwordStrength == 0) {
         $( ".password-strength-status-text" ).text("POOR");
         $(".password-strength-status-text").addClass("text-danger")

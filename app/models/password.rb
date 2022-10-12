@@ -12,4 +12,9 @@ class Password < ApplicationRecord
 	validates :password, :presence => true
 	validates :username, :presence => true
 
+	STRENGTH_POOR = "poor"
+	STRENGTH_OKAY = "okay"
+	STRENGTH_STRONG = "strong"
+	
+
 end
