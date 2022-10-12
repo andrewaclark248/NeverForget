@@ -45,6 +45,9 @@
 					<div class="pb-2">
 						<%= password.input :password, input_html: { class: '' }, as: :string, label: false %>
 					</div>
+					<%= password.hidden_field :pwd_strength, :value => "" %>
+
+
 					<div class="password-strength-analyzer">
 						<div class="card " >
 							<div class="card-body">
