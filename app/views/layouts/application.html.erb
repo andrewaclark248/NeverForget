@@ -9,24 +9,22 @@
    <script src="https://kit.fontawesome.com/8142b3c685.js" crossorigin="anonymous"></script>
    <%= javascript_include_tag 'manifest' %>
     <%= javascript_include_tag 'application' %>
+    <%= javascript_include_tag 'progressBar' %>
     <%= stylesheet_link_tag "application" %>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js" integrity="sha512-pHVGpX7F/27yZ0ISY+VVjyULApbDlD0/X0rgGbTqCE7WFW5MezNTWG/dnhtbBuICzsd0WQPgpE4REBLv+UqChw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
   </head>
       <!--  side nav bar -->
   <body  style="background: #E8E8E8	;">
-      <%= render 'layouts/navigation_bar' %>
-
+    <%= render 'layouts/sidenav_bar' %>
      <!-- top nav bar -->
     <div style="margin-left: 200px;" class="">
-            <%= render 'layouts/mainnavbar' %>
-
-
+      <%= render 'layouts/topnavbar' %>
       <!-- flashes -->
       <%= render 'shared/flash' %>
     </div>
     <div style="margin-left: 200px;" class="">
-      <div class="container" style="padding-top: 5%; ">
+      <div class="container" style=" ">
           <div style="margin-right: 10%; margin-left: 10%;">
             <%= yield %>
           </div>

@@ -1,10 +1,8 @@
-<div class="" style="padding-bottom: 50px;">
-  <span class="fs-3">Dashboard</span>
-</div>
-<div class="card-group pb-5">
+
+<div class="card-group" style="padding-bottom: 50px;">
   <div class="card pt-3" style="max-width:35%;">
       <center>
-        <span class="fs-5">Password Security Score</span>
+        <span class="fs-5">Account Security Score</span>
       </center>
     <div class="card-body">
 
@@ -25,27 +23,27 @@
   </div>
 
   <div class="card">
-    <div class="card-header bg-white">
-        <span class="fs-5">Password Score Breakdown</span>
-    </div>
+        <div class="card-header bg-white">
+          <span class="fs-5">Account Score Breakdown</span>
+      </div>
     <div class="card-body">
       <div class="row pb-3">
         <div class="col-8">
-          <span class="pe-2">Number of Weak Passwords:</span>
+          <span class="pe-2">MFA Enabled:</span>
         </div>
         <div class="col-4">
           <span>
-            <a href="#" class="link-danger">12</a>
+            <a href="#" class="link-danger">NO</a>
           </span>
         </div>
       </div>
       <div class="row">
         <div class="col-8">
-          <span class="pe-2"># of Passwords that are the same:</span>
+          <span class="pe-2">Password Security:</span>
         </div>
         <div class="col-4">
           <span>
-            <a href="#" class="link-danger">8</a>
+            <a href="#" class="link-danger">Poor</a>
           </span>        
         </div>
       </div>
@@ -53,7 +51,3 @@
     </div>
   </div>
 </div>
-
-<%= render "account_dash"%>
-
-<%= render "account_optomization"%>
