@@ -35,7 +35,11 @@
  }
 
  .active-tab {
-   background-color: #E8E8E8;
+  background-color: #E8E8E8 !important;
+ }
+
+ .active-list-item {
+  background-color: #E8E8E8 !important;
  }
 
  .navbar-linkssssss {
