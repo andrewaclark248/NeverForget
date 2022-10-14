@@ -1,4 +1,4 @@
-<div class="row pb-5 ps-4 pe-4">
+<div class="row ps-3 pe-3 mb-4 mt-4">
 	<div class="col-6">
 		<span class="fs-4 fw-bold"><%= @current_user.first %>'s Passwords</span>
 	</div>
@@ -13,7 +13,7 @@
 <div class="list-group rounded-0 ">
 
 	<div class="list-group-item bg-danger">
-		<div class="row">
+		<div class="row pb-1 pt-1">
 			<div class="col-4">
 				<span class="fw-bold">Username</span>
 			</div>
@@ -30,8 +30,8 @@
 	</div>
 
 	<% @passwords&.each do |password| %>
-		<div class="list-group-item bg-light border border-secondary border-1 active-password-table">
-			<div class="row">
+		<div class="list-group-item bg-light border border-1 active-password-table">
+			<div class="row pb-1 pt-1">
 				<div class="col-4">
 					<span class="fw-bold"><%= password.username %></span>
 				</div>
