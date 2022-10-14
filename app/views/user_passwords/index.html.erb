@@ -1,10 +1,10 @@
 <div class="row ps-3 pe-3 mb-4 mt-4">
 	<div class="col-6">
-		<span class="fs-4 fw-bold"><%= @current_user.first %>'s Passwords</span>
+		<span class="fs-5 fw-bold"><%= @current_user.first %>'s Passwords</span>
 	</div>
 	<div class="col-6 ">
 		<div class="float-end">
-			<%= link_to "Create New Password", new_user_password_path,class: "btn btn-danger "%>
+			<%= link_to "Create New Password", new_user_password_path,class: "btn btn-dark "%>
 		</div>
 	</div>
 </div>
@@ -12,38 +12,43 @@
 
 <div class="list-group rounded-0 ">
 
-	<div class="list-group-item bg-danger">
+	<div class="list-group-item bg-danger border-dark border-top-0 border-start-0 border-end-0">
 		<div class="row pb-1 pt-1">
-			<div class="col-4">
-				<span class="fw-bold">Username</span>
+			<div class="col-5">
+				<span class="fw-bold ps-3">Username</span>
 			</div>
-			<div class="col-4">
+			<div class="col-5">
 				<span class="fw-bold">URL's</span>
 			</div>
-			<div class="col-2">
+			<div class="col-1">
 				<span class="fw-bold">Edit</span>
 			</div>
-			<div class="col-2">
+			<div class="col-1">
 				<span class="fw-bold">Delete</span>
 			</div>
 		</div>
 	</div>
 
 	<% @passwords&.each do |password| %>
-		<div class="list-group-item bg-light border border-1 active-password-table">
+		<div class="list-group-item bg-white border border-1 active-password-table">
 			<div class="row pb-1 pt-1">
-				<div class="col-4">
-					<span class="fw-bold"><%= password.username %></span>
+				<div class="col-5">
+					<span class="fw-bold ps-3"><%= password.username %></span>
 				</div>
-				<div class="col-4">
+				<div class="col-5">
 					<span class="fw-bold"><%= password.urls.pluck(:name).join(", ") %></span>
 				</div>
-				<div class="col-2">
-					<%= link_to "Edit", edit_user_password_path(password), class: "link-primary"%>
+				<div class="col-1">
+					<%= link_to edit_user_password_path(password) do %>
+						<button class="btn btn-light">
+							<i class="fa fa-pen-to-square"></i>
+							Edit
+						</button>
+					<% end %>
 				</div>
-				<div class="col-2">
-                    <a type="button" name="someDamnName" class="link-danger delete-password" data-bs-toggle="modal" data-bs-target="#myModal" value=<%=password.id%>>
-                        Delete
+				<div class="col-1">
+                    <a type="button" name="someDamnName" class="btn btn-danger delete-password" data-bs-toggle="modal" data-bs-target="#myModal" value=<%=password.id%>>
+                        <i class="fa fa-trash-can"></i>
                     </a> 				
 				</div>
 			</div>
@@ -115,9 +120,7 @@
 					<button type="button" class="btn btn-primary btn-lg btn-block w-100" data-bs-dismiss="modal">No</button>
 				</div>
 			</div>
-
 	  </div>
-
     </div>
   </div>
 </div>
