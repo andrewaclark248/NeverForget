@@ -27,12 +27,6 @@ module ApplicationHelper
 
     def is_active?(path)
         if request.path.include?(path)
-            "active-tab"
-        end
-    end
-
-    def is_active2?(path)
-        if request.path.include?(path)
             "text-dark"
         end
     end
