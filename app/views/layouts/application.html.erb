@@ -9,28 +9,26 @@
    <script src="https://kit.fontawesome.com/8142b3c685.js" crossorigin="anonymous"></script>
    <%= javascript_include_tag 'manifest' %>
     <%= javascript_include_tag 'application' %>
+    <%= javascript_include_tag 'password' %>
     <%= stylesheet_link_tag "application" %>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js" integrity="sha512-pHVGpX7F/27yZ0ISY+VVjyULApbDlD0/X0rgGbTqCE7WFW5MezNTWG/dnhtbBuICzsd0WQPgpE4REBLv+UqChw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
   </head>
-      <!--  side nav bar -->
-  <body  style="background: #E8E8E8	;">
-      <%= render 'layouts/navigation_bar' %>
-
-     <!-- top nav bar -->
+  <body  style="background: 	#F0F0F0	;">
+    <%= render 'layouts/sidenav_bar' %>
     <div style="margin-left: 200px;" class="">
-            <%= render 'layouts/mainnavbar' %>
-
-
-      <!-- flashes -->
+      <%= render 'layouts/topnav_bar' %>
       <%= render 'shared/flash' %>
     </div>
     <div style="margin-left: 200px;" class="">
-      <div class="container" style="padding-top: 5%; ">
-          <div style="margin-right: 10%; margin-left: 10%;">
+      <div class="" >
+          <div style=" ">
             <%= yield %>
           </div>
       </div>
     </div>
   </body>
 </html>
+
+
+<!-- style="margin-right: 10%; margin-left: 10%;">>

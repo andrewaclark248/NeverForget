@@ -35,14 +35,23 @@
  }
 
  .active-tab {
-   background-color: #E8E8E8;
+  background-color: #C0C0C0 !important;
  }
 
- .navbar-links {
+
+ .active-list-item {
+  background-color: #B8B8B8 !important;
+ }
+
+ .navbar-linkssssss {
    padding-top: 10px; 
    padding-bottom: 10px;
  }
 
  .table-row-height {
    height: 70px;
+ }
+
+ .password-table {
+    background-color: #F1F2F1;
  }

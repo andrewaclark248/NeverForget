@@ -132,10 +132,7 @@ $(document).ready(function(){
 
 
        //navbar
-    $(".nav-btn-elm").hover(function(e){
-        //$(this).css({backgroundColor: '#E8E8E8'});
-       
-    });
+
 
 
     

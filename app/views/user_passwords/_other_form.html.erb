@@ -1,0 +1,35 @@
+<table class="table border-1 table-bordered" style="margin-bottom: 0rem; ">
+    <tbody>
+        <tr class="border-top-0" style="background: #F1F2F1;">
+            <td  class="border-start-0 align-middle table-row-height" style="width:40%">
+                <span class="fw-bold " >Share Your Password With a Contact</span>
+                <i class="ps-2 fa-solid fa fa-info-circle fa-lg" data-bs-toggle="tooltip" title="<%=@last_updated_at_text%>" ></i>
+            </td>
+            <td class="align-middle border-end-0">
+                <div class="row ">
+                    <div class="col-1"></div>
+                    <div class="col-8 ">
+                        <button type="button" class="btn btn-dark " data-bs-toggle="modal" data-bs-target="#sharePasswordWithContact">
+                            Share Your Password Via Phone
+                        </button>
+                    </div>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td  class="border-start-0 align-middle table-row-height" style="width:30%">
+                <span class="fw-bold " >Share Your Password With a Contact</span>
+            </td>
+            <td class="align-middle border-end-0">
+                <div class="row ">
+                    <div class="col-1"></div>
+                    <div class="col-8 ">
+                        <%= mail_to "", "Send Credentials Via Email", class: "btn btn-dark",  subject: "SimpleLogins - #{password.user.full_name} Is Sending Your Credentails", body: "Hi From SimpleLogins, \n \n #{password.user.full_name} wants to share their credentials with you. Please see below. \n \n Username: #{password.username} \n \n Password: #{password.password} \n \n \n Thanks, \n SimpleLogins" %>
+                    </div>
+                </div>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<%= render "share_password_modal", f: f, password: @password %>

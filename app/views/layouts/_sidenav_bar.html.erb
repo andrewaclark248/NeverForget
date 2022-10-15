@@ -1,0 +1,245 @@
+<div class="sidenav bg-dark" >
+	<ul class="list-nav">
+		<li class="pb-2">
+			<% if is_active?(dashboard_index_path) %>
+				<center>
+					<%= link_to dashboard_index_path do %>
+						<div class="btn active-tab" style="width: 85%;">
+							<div class="float-start">
+								<div class="d-inline pe-2">
+									<i class="fa fa-tachometer fa-lg text-dark align-middle" aria-hidden="true" ></i>
+								</div>
+								<div class="d-inline">
+									<span class="fs-5 fw-bold align-middle text-dark">Dashboard</span>
+								</div>
+							</div>
+						</div>
+					<% end %>
+				</center>
+			<% else %>
+				<center>
+					<%= link_to dashboard_index_path do %>
+						<div class="btn btn-dark" style="width: 85%;">
+							<div class="float-start">
+								<div class="d-inline pe-2">
+									<i class="fa fa-tachometer fa-lg text-secondary align-middle" aria-hidden="true" ></i>
+								</div>
+								<div class="d-inline">
+									<span class="fs-5 fw-bold align-middle text-secondary">Dashboard</span>
+								</div>
+							</div>
+						</div>
+					<% end %>
+				</center>
+			<% end %>
+		</li>
+		<li class="pb-2">
+			<% if is_active?(user_passwords_path) %>
+				<center>
+					<%= link_to user_passwords_path do %>
+						<div class="btn active-tab" style="width: 85%;">
+							<div class="float-start">
+								<div class="d-inline pe-2">
+									<i class="fa fa-lock fa-lg text-dark align-middle" aria-hidden="true" ></i>
+								</div>
+								<div class="d-inline">
+									<span class="fs-5 fw-bold align-middle">Passwords</span>
+								</div>
+							</div>
+						</div>
+					<% end %>
+				</center>
+			<% else %>
+				<center>
+					<%= link_to user_passwords_path do %>
+						<div class="btn btn-dark" style="width: 85%;">
+							<div class="float-start">
+								<div class="d-inline pe-2">
+									<i class="fa fa-lock fa-lg text-secondary align-middle" aria-hidden="true" ></i>
+								</div>
+								<div class="d-inline">
+									<span class="fs-5 fw-bold align-middle text-secondary">Passwords</span>
+								</div>
+							</div>
+						</div>
+					<% end %>
+				</center>
+			<% end %>
+		</li>
+		<li class="pb-2">
+			<% if is_active?(keys_path) %>
+				<center>
+					<%= link_to keys_path do %>
+						<div class="btn active-tab" style="width: 85%;">
+							<div class="float-start">
+								<div class="d-inline pe-2">
+									<i class="fa fa-floppy-disk fa-lg text-dark align-middle" aria-hidden="true" ></i>
+								</div>
+								<div class="d-inline">
+									<span class="fs-5 fw-bold align-middle">Keys</span>
+								</div>
+							</div>
+						</div>
+					<% end %>
+				</center>
+			<% else %>
+				<center>
+					<%= link_to keys_path do %>
+						<div class="btn btn-dark " style="width: 85%;">
+							<div class="float-start">
+								<div class="d-inline pe-2">
+									<i class="fa fa-floppy-disk fa-lg text-secondary align-middle" aria-hidden="true" ></i>
+								</div>
+								<div class="d-inline">
+									<span class="fs-5 fw-bold align-middle text-secondary">Keys</span>
+								</div>
+							</div>
+						</div>
+					<% end %>
+				</center>
+			<% end %>
+		</li>  
+		<li class="pb-2">
+			<% if is_active?(new_payment_path) %>
+				<center>
+					<%= link_to new_payment_path do %>
+						<div class="btn active-tab" style="width: 85%;">
+							<div class="float-start">
+								<div class="d-inline pe-2">
+									<i class="fa fa-usd fa-lg text-dark align-middle" aria-hidden="true" ></i>
+								</div>
+								<div class="d-inline">
+									<span class="fs-5 fw-bold align-middle">Payments</span>
+								</div>
+							</div>
+						</div>
+					<% end %>
+				</center>
+			<% else %>
+				<center>
+					<%= link_to new_payment_path do %>
+						<div class="btn btn-dark " style="width: 85%;">
+							<div class="float-start">
+								<div class="d-inline pe-2">
+									<i class="fa fa-usd fa-lg text-secondary align-middle" aria-hidden="true" ></i>
+								</div>
+								<div class="d-inline">
+									<span class="fs-5 fw-bold align-middle text-secondary">Payments</span>
+								</div>
+							</div>
+						</div>
+					<% end %>
+				</center>
+			<% end %>
+		</li>  
+		<li>
+			<% if is_active?(profiles_path) %>
+				<center>
+					<%= link_to profiles_path do %>
+						<div class="btn active-tab" style="width: 85%;">
+							<div class="float-start">
+								<div class="d-inline pe-2">
+									<i class="fa fa-user fa-lg text-dark align-middle" aria-hidden="true" ></i>
+								</div>
+								<div class="d-inline">
+									<span class="fs-5 fw-bold align-middle">Profile</span>
+								</div>
+							</div>
+						</div>
+					<% end %>
+				</center>
+			<% else %>
+				<center>
+					<%= link_to profiles_path do %>
+						<div class="btn btn-dark " style="width: 85%;">
+							<div class="float-start">
+								<div class="d-inline pe-2">
+									<i class="fa fa-user fa-lg text-secondary align-middle" aria-hidden="true" ></i>
+								</div>
+								<div class="d-inline">
+									<span class="fs-5 fw-bold align-middle text-secondary">Profile</span>
+								</div>
+							</div>
+						</div>
+					<% end %>
+				</center>
+			<% end %>
+		</li>
+		<li style="bottom: 50px; position: absolute; width: 100%;">
+			<% if is_active?("notactive") %>
+				<center>
+					<%= link_to nil do %>
+						<div class="btn active-tab" style="width: 85%;">
+							<div class="float-start">
+								<div class="d-inline pe-2">
+									<i class="fa fa-envelope fa-lg text-dark align-middle" aria-hidden="true" ></i>
+								</div>
+								<div class="d-inline">
+									<span class="fs-5 fw-bold align-middle">Contact Us</span>
+								</div>
+							</div>
+						</div>
+					<% end %>
+				</center>
+			<% else %>
+				<center>
+					<%= link_to nil do %>
+						<div class="btn btn-dark " style="width: 85%;">
+							<div class="float-start">
+								<div class="d-inline pe-2">
+									<i class="fa fa-envelope fa-lg text-secondary align-middle" aria-hidden="true" ></i>
+								</div>
+								<div class="d-inline">
+									<span class="fs-5 fw-bold align-middle text-secondary">Contact Us</span>
+								</div>
+							</div>
+						</div>
+					<% end %>
+				</center>
+			<% end %>
+		</li>
+
+
+	</ul>
+</div>
+
+
+
+
+
+
+<style>
+
+.sidenav {
+  height: 100%;
+  width: 200px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  overflow-x: hidden;
+  padding-top: 130px;
+  overflow: hidden; 
+}
+
+
+
+.list-nav {
+  list-style-type: none;
+  margin-right: 10%;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+}
+
+li a {
+  display: block;
+  text-decoration: none;
+}
+
+
+
+</style>
+<script>
+
+</script>
