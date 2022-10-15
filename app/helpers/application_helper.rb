@@ -3,9 +3,9 @@ module ApplicationHelper
     def flash_class(level)
         
         if level == "notice"
-            return "alert alert-success"
+            return "alert alert-success bg-success"
         elsif level == "error"
-            return "alert alert-danger"
+            return "alert alert-danger bg-danger"
         else
             return level
          end
