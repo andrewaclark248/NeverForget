@@ -1,102 +1,35 @@
-<div class="row">
+<div class="row ps-3 pe-3 mb-4 mt-4 pb-3">
 	<div class="col-6">
+		<span class="fs-5 fw-bold">Edit Password</span>
 	</div>
 	<div class="col-6 ">
-
 	</div>
 </div>
-<div class="row">
-<div class="col-1"></div>
-<div class="col-10">
-<%= simple_form_for @password, url: user_passwords_path(@password) do |password| %>
-	<div class="card border-secondary ">
-		<div class="card-header border-bottom-0 bg-white" >
-				<center>
-				<h3 class="text-dark">New Password</h3>
-				</center>
-		</div>
 
-			<div class="form-group">
+<%= simple_form_for @password, url: user_passwords_path(@password) do |f| %>
 
-  <table class="table border-1 table-bordered " style=" margin-bottom: 0rem; ">
-
-    <tbody>
-      <tr class="" >
-        <td  class="border-start-0 align-middle table-row-height" style="width:30%">
-			<span class="fw-bold " >Username</span>
-		</td>
-        <td class="align-middle border-end-0">
-			<div class="row ">
-				<div class="col-1"></div>
-				<div class="col-8 ">
-					<%= password.input :username, wrapper_html: {class: ""}, as: :string, label: false, placeholder: "name@example.com" %>
-				</div>
-			</div>
-		</td>
-      </tr>
-	  <tr style="background: #F1F2F1;" class="">
-        <td  class="border-start-0 align-middle table-row-height" style="width:30%">
-			<span class="fw-bold ">Password</span>
-		</td>
-        <td class="align-middle border-end-0">
-			<div class="row">
-				<div class="col-1"></div>
-				<div class="col-8 ">
-					<div class="pb-2">
-						<%= password.input :password, input_html: { class: '' }, as: :string, label: false %>
-					</div>
-					<%= password.hidden_field :pwd_strength, :value => "" %>
-
-
-					<div class="password-strength-analyzer">
-						<div class="card " >
-							<div class="card-body">
-								<%= render "password_strength_v2" %>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</td>
-      </tr>
-      <tr class="table-row-height" > 
-        <td class="border-start-0">
-			<span class="fw-bold">URL's</span>
-		</td>
-        <td class="border-end-0">
-			<%= password.simple_fields_for :urls do |u| %>
-				<%= render "url_fields", f: u %>
-			<% end %>
-			<div class="row">
-				<div class="col-1"></div>
-					<div class="links form-actions" style="padding-left: 10%;">
-						<%= link_to_add_association "Add URL", password, :urls, class: "btn btn-danger rounded-pill" %>
-					</div>
-			</div>
-		</td>
-      </tr>
-    </tbody>
-  </table>
-
-
-
-
-			</div>
-		<div class="card-footer bg-light pt-4 pb-4 text-center border-top-0" style="" >
-            <%= password.submit "Create Password", class: "btn btn-danger w-75 " %>
+    <div class="accordion " id="accordionExample">
+        <div class="accordion-item">
+            <h2 class=" " id=""  style="margin-bottom: 0px;">
+            <button class="accordion-button bg-danger collapsed"  style="	" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                <span class="text-dark fw-bold">Credentials</span>
+            </button>
+            </h2>
+            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                <%= render "credentials_form", f: f %>
+            </div>
         </div>
-	</div>
+    </div>
+
 <% end %>
+<div class="row ps-3 pe-3 mb-4 mt-4 pb-3">
+    <div class="col-2"></div>
+	<div class="col-8 ">
+        <center>
+            <div class="d-grid gap-2">
+			    <%= link_to "Update Password", new_user_password_path,class: "btn btn-danger"%>
+            </div>
+        </center>
+    </div>
+    <div class="col-2"></div>
 </div>
-<div class="col-1"></div>
-</div>
-
-<style>
-.inputPassword {
-	border-radius:  .25em .25em 0px 0px; !important;
-}
-
-.cardPwd {
-	border-radius:  .0px .0px .25em .25em; !important;
-}
-</style>
