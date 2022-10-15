@@ -1,0 +1,54 @@
+<div class="row ps-3 pe-3 mb-4 mt-4 pb-3">
+	<div class="col-6">
+		<span class="fs-5 fw-bold">Edit Password</span>
+	</div>
+	<div class="col-6 ">
+	</div>
+</div>
+
+<%= simple_form_for @password, url: user_password_path(@password), method: :put do |f| %>
+
+    <div class="accordion " id="accordionExample">
+        <div class="accordion-item ">
+            <h2 class=" " id=""  style="margin-bottom: 0px;">
+            <button class="accordion-button bg-danger collapsed rounded-0"  style="	" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                <span class="text-dark fw-bold">Credentials</span>
+            </button>
+            </h2>
+            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                <%= render "credentials_form", f: f %>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingTwo">
+            <button class="accordion-button collapsed rounded-0" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                <span class="fw-bold text-dark">Security</span>
+            </button>
+            </h2>
+            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                <%= render "security_form", f: f, password: @password %>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingThree">
+            <button class="accordion-button collapsed rounded-0" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                <span class="fw-bold text-dark">Other</span>
+            </button>
+            </h2>
+            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                <%= render "other_form", f: f, password: @password %>
+            </div>
+        </div>
+    </div>
+    <div class="row ps-3 pe-3 mb-4 mt-4 pb-3">
+        <div class="col-2"></div>
+        <div class="col-8 ">
+            <center>
+                <div class="d-grid gap-2">
+					<%=f.submit "Update Password",class: "btn btn-danger"%>
+                </div>
+            </center>
+        </div>
+        <div class="col-2"></div>
+    </div>
+<% end %>

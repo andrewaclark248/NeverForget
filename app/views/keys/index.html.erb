@@ -1,102 +1,70 @@
-<div class="row">
+<div class="row  mb-4 mt-4">
 	<div class="col-6">
-		<h3><%= @current_user.first %>'s Keys</h3>
+		<div style="padding-left: 30px;">
+		<span class="fs-5 fw-bold"><%= @current_user.first %>'s Keys</span>
+		</div>
 	</div>
 	<div class="col-6 ">
 		<div class="float-end">
-			<%= link_to "Create Key & Value", new_key_path,class: "btn btn-danger btn-lg"%>
+			<%= link_to new_key_path do %>
+				<div style="padding-right: 50px;">
+				<button class="btn btn-danger ">
+					<i class="fa-solid fa-plus pe-2 text-dark"></i><span class="text-dark fw-bold">New Key</span>
+				</button>
+				</div>
+			<% end %>
 		</div>
 	</div>
 </div>
-<br>
-<br>
 
-<div class="card border-secondary">
-  <div class="card-body">
-	  <table class="table table-striped">
-	    <thead>
-	      <tr>
-	        <th>Key</th>
-			<th>Value</th>
-	        <th>Edit</th>
-			<th>Delete</th>
-	      </tr>
-	    </thead>
-	    <tbody>
-		    <% @keys&.each do |key| %>
-		    	<tr>
-					<td>
-		        		<%= key.key %>
-		        	</td>
-					<td>
-		        		<%= key.value %>
-		        	</td>
-		        	<td>
-		        		<%= link_to "Edit", edit_key_path(key), class: "link-primary"%>
-		        	</td>
-					<td>
-						<a type="button" class="link-primary delete-key-value text-danger" data-bs-toggle="modal" data-bs-target="#myModal" value=<%=key.id%>>
-							Delete
-						</a>		        	
-					</td>
-		      	</tr>
-		   	<% end %>
-	  	</tbody>
-	  </table>
 
-  </div>
-</div>
+<div class="list-group rounded-0 ">
 
-<div class="modal fade" id="myModal">
-  <div class="modal-dialog">
-    <div class="modal-content">
-
-      <!-- Modal Header -->
-      <div class="modal-header bg-light">
-        <h4 class="modal-title">Delete Key</h4>
-        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-      </div>
-
-      <!-- Modal body -->
-      <div class="modal-body bg-light">
-	  	<div class="row pb-3">
-		  	<div class="col-12">
-        		Are you sure you want to delete the following <span class="fw-bold">Key</span>?
+	<div class="list-group-item bg-danger ">
+		<div class="row pb-1 pt-1">
+			<div class="col-3">
+				<span class="fw-bold ps-3">Key</span>
+			</div>
+			<div class="col-7">
+				<span class="fw-bold">Value</span>
+			</div>
+			<div class="col-1">
+				<span class="fw-bold">Edit</span>
+			</div>
+			<div class="col-1">
+				<span class="fw-bold">Delete</span>
 			</div>
 		</div>
-		<div class="row pb-2">
-			<div class="col-2">
-				<span>Key: </span>
-			</div>
-			<div class="col-9">
-				<strong><span class="current-key text-danger"></span></strong>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-2">
-				<span>Value: </span>
-			</div>
-			<div class="col-9">
-				<strong><span class="current-value text-danger"></span></strong>
-			</div>
-		</div>
-		<br>
-      </div>
+	</div>
 
-      <!-- Modal footer -->
-      <div class="modal-footer">
-	  		<div class="row w-100">
-			  	<div class="col-6">
-					<%= link_to "Yes", key_path(12), method: :delete, class: "btn btn-danger btn-lg btn-block w-100 delete-key-value-accept",:data => { "data-bs-dismiss": "modal"} %>
-			    </div>
-				<div class="col-6">
-					<button type="button" class="btn btn-primary btn-lg btn-block w-100" data-bs-dismiss="modal">No</button>
+	<% @keys&.each_with_index do |key, index| %>
+		<div class="list-group-item border border-1 active-password-table bg-white">
+			<div class="row pb-1 pt-1">
+				<div class="col-3">
+					<span class="fw-bold ps-3"><%= key.key %></span>
+				</div>
+				<div class="col-7">
+					<span class="fw-bold"><%= key.value %></span>
+				</div>
+				<div class="col-1">
+					<%= link_to edit_key_path(key) do %>
+						<button class="btn btn-light">
+							<i class="fa fa-pen-to-square"></i>
+							Edit
+						</button>
+					<% end %>
+				</div>
+				<div class="col-1">
+					<a type="button" name="someDamnName" class="btn btn-danger delete-key-value" data-bs-toggle="modal" data-bs-target="#myModal" value=<%=key.id%>   >                
+						<i class="fa fa-trash-can text-dark"></i>
+					</a> 				
 				</div>
 			</div>
-
-	  </div>
-
-    </div>
-  </div>
+		</div>
+    <% end %>
 </div>
+
+
+<%= render "delete_key_modal" %>
+
 

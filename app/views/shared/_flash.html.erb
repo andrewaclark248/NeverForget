@@ -1,9 +1,7 @@
-      <div style="padding-top: 20px; margin-right: 10%; margin-left: 10%;">
-
-
-  <% flash.each do |key, value| %>
-        <div class="<%= flash_class(key) %>">
-              <%= value %>
-        </div>
-  <% end %>
-      </div>
+<div style=" ">
+      <% flash.each do |key, value| %>
+            <div class="<%= flash_class(key) %> rounded-0">
+                  <span class="text-white"><%= value %></span>
+            </div>
+      <% end %>
+</div>
