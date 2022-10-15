@@ -1,4 +1,4 @@
-<div class="row ps-3 pe-3 mb-4 mt-4 pb-3">
+<div class="row ps-3 pe-3 pb-4 pt-4 pb-3 bg-white"  style="border-bottom: solid #B8B8B8	;">
 	<div class="col-6">
 		<span class="fs-5 fw-bold">Edit Password</span>
 	</div>
@@ -8,10 +8,10 @@
 
 <%= simple_form_for @password, url: user_password_path(@password), method: :put do |f| %>
 
-    <div class="accordion " id="accordionExample">
+    <div class="accordion accordion-flush" id="accordionExample">
         <div class="accordion-item ">
             <h2 class=" " id=""  style="margin-bottom: 0px;">
-            <button class="accordion-button bg-danger collapsed rounded-0"  style="	" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+            <button class="accordion-button bg-danger collapsed "  style="	" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                 <span class="text-dark fw-bold">Credentials</span>
             </button>
             </h2>
@@ -21,7 +21,7 @@
         </div>
         <div class="accordion-item">
             <h2 class="accordion-header" id="headingTwo">
-            <button class="accordion-button collapsed rounded-0" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+            <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                 <span class="fw-bold text-dark">Security</span>
             </button>
             </h2>
@@ -29,7 +29,7 @@
                 <%= render "security_form", f: f, password: @password %>
             </div>
         </div>
-        <div class="accordion-item">
+        <div class="accordion-item border-bottom-0 ">
             <h2 class="accordion-header" id="headingThree">
             <button class="accordion-button collapsed rounded-0" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
                 <span class="fw-bold text-dark">Other</span>
@@ -40,7 +40,7 @@
             </div>
         </div>
     </div>
-    <div class="row ps-3 pe-3 mb-4 mt-4 pb-3">
+    <div class="row bg-white pb-4 pt-4" style="  border-top: solid #C0C0C0; border-bottom: solid #C0C0C0;">
         <div class="col-2"></div>
         <div class="col-8 ">
             <center>

@@ -36,7 +36,7 @@ module ApplicationHelper
     end
 
     def logo_text
-        "<h3><span class='text-danger'>Safe</span><span class='text-dark'>Logins</span></h3>".html_safe
+        "<h3><span class='text-dark'>Safe</span><span class='text-danger'>Logins</span></h3>".html_safe
     end
 
     def striped_table index
