@@ -40,7 +40,7 @@
 
 
  .active-list-item {
-  background-color: #E8E8E8 !important;
+  background-color: #B8B8B8 !important;
  }
 
  .navbar-linkssssss {
@@ -50,4 +50,8 @@
 
  .table-row-height {
    height: 70px;
+ }
+
+ .password-table {
+    background-color: #F1F2F1;
  }

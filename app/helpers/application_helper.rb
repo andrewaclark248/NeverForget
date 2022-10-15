@@ -39,4 +39,16 @@ module ApplicationHelper
         "<h3><span class='text-danger'>Safe</span><span class='text-dark'>Logins</span></h3>".html_safe
     end
 
+    def striped_table index
+        if index%2 == 0
+            "password-table"
+        else
+            "bg-white"
+        end
+    end
+
+    def add_url_btn
+        "<div><i class='fa-solid fa-plus pe-2 text-dark'><span>Add U R L</span></div>".html_safe
+    end
+
 end
