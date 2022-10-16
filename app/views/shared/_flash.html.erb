@@ -1,7 +1,9 @@
-<div style=" ">
+<div class=" pe-4 ps-4 pt-3">
       <% flash.each do |key, value| %>
-            <div class="<%= flash_class(key) %> rounded-0 border-0" style="margin-bottom: 0px">
+            <div class="alert-dismissible show <%= flash_class(key) %>  border-0 " style="margin-bottom: 0px" role="alert">
                   <span class="text-white"><%= value %></span>
+                  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+
             </div>
       <% end %>
 </div>
