@@ -11,17 +11,17 @@
     <div class="accordion accordion-flush border-bottom border-dark" id="accordionExample">
         <div class="accordion-item ">
             <h2 class=" " id=""  style="margin-bottom: 0px;">
-            <button class="accordion-button bg-danger collapsed pt-4 pb-4"  style="	" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+            <button class="accordion-button bg-danger collapsed pt-4 pb-4 shadow"  style="	" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                 <span class="text-dark fw-bold">Password Credentials</span>
             </button>
             </h2>
             <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                <%= render "credentials_form", f: f %>
+                <%= render "credentials_form", f: f, password: @password %>
             </div>
         </div>
         <div class="accordion-item">
             <h2 class="accordion-header" id="headingTwo">
-            <button class="accordion-button collapsed bg-secondary  pt-4 pb-4" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+            <button class="accordion-button collapsed bg-secondary  pt-4 pb-4 shadow" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                 <span class="fw-bold text-dark">Password Security Options</span>
             </button>
             </h2>
@@ -31,7 +31,7 @@
         </div>
         <div class="accordion-item border-bottom-0 ">
             <h2 class="accordion-header" id="headingThree">
-            <button class="accordion-button collapsed rounded-0 bg-secondary pt-4 pb-4" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+            <button class="accordion-button collapsed rounded-0 bg-secondary pt-4 pb-4 shadow" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
                 <span class="fw-bold text-dark">Other</span>
             </button>
             </h2>
