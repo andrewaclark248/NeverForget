@@ -18,6 +18,9 @@ $(document).ready(function(){
 
     $(".showHideWeakPasswords").click(function(){
         if ($(".weakPasswordsPanel").hasClass("d-none")) {
+            if (!$(".samePasswordPanel").hasClass("d-none")) {
+                $(".samePasswordPanel").addClass("d-none");
+            }
             $(".weakPasswordsPanel").removeClass("d-none");
         } else {
             $(".weakPasswordsPanel").addClass("d-none");
@@ -26,6 +29,25 @@ $(document).ready(function(){
             $(".showHideWeakPasswords").blur(); 
         }, 100)
     });
+
+    $(".showDuplicatePasswords").click(function(){
+        if ($(".samePasswordPanel").hasClass("d-none")) {
+            if (!$(".weakPasswordsPanel").hasClass("d-none")) {
+                $(".weakPasswordsPanel").addClass("d-none");
+            }
+            $(".samePasswordPanel").removeClass("d-none");
+  
+        } else {
+            $(".samePasswordPanel").addClass("d-none");
+        }
+        setInterval(function() {
+            $(".showDuplicatePasswords").blur(); 
+        }, 100)
+    });
+
+    samePasswordPanel
+
+    
 
 })
 
