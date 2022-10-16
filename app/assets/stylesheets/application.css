@@ -56,3 +56,10 @@
     background-color: #F1F2F1;
  }
 
+.active-panel {
+   background: #E0E0E0;
+}
+
+.currentPageColor {
+   background: #F0F0F0;
+}

@@ -1,4 +1,4 @@
-<div class="row ps-3 pe-3 pb-4 pt-4 pb-3 bg-white"  style="border-bottom: solid #B8B8B8	;">
+<div class="row ps-3 pe-3 pt-4 pb-4 currentPageColor border-bottom border-dark"  style="border-bottom: solid #B8B8B8	;">
 	<div class="col-6">
 		<span class="fs-5 fw-bold">Edit Password</span>
 	</div>
@@ -8,11 +8,11 @@
 
 <%= simple_form_for @password, url: user_password_path(@password), method: :put do |f| %>
 
-    <div class="accordion accordion-flush" id="accordionExample">
+    <div class="accordion accordion-flush border-bottom border-dark" id="accordionExample">
         <div class="accordion-item ">
             <h2 class=" " id=""  style="margin-bottom: 0px;">
-            <button class="accordion-button bg-danger collapsed "  style="	" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                <span class="text-dark fw-bold">Credentials</span>
+            <button class="accordion-button bg-danger collapsed pt-4 pb-4"  style="	" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                <span class="text-dark fw-bold">Password Credentials</span>
             </button>
             </h2>
             <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
@@ -21,8 +21,8 @@
         </div>
         <div class="accordion-item">
             <h2 class="accordion-header" id="headingTwo">
-            <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                <span class="fw-bold text-dark">Security</span>
+            <button class="accordion-button collapsed bg-secondary  pt-4 pb-4" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                <span class="fw-bold text-dark">Password Security Options</span>
             </button>
             </h2>
             <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
@@ -31,7 +31,7 @@
         </div>
         <div class="accordion-item border-bottom-0 ">
             <h2 class="accordion-header" id="headingThree">
-            <button class="accordion-button collapsed rounded-0" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+            <button class="accordion-button collapsed rounded-0 bg-secondary pt-4 pb-4" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
                 <span class="fw-bold text-dark">Other</span>
             </button>
             </h2>
@@ -40,12 +40,14 @@
             </div>
         </div>
     </div>
-    <div class="row bg-white pb-4 pt-4" style="  border-top: solid #C0C0C0; border-bottom: solid #C0C0C0;">
+    <div class="row currentPageColor" style="  ">
         <div class="col-2"></div>
         <div class="col-8 ">
             <center>
                 <div class="d-grid gap-2">
-					<%=f.submit "Update Password",class: "btn btn-danger"%>
+                    <div class="pb-4 pt-5">
+					<%=f.submit "Update Password",class: "btn btn-danger w-100"%>
+                    </div>
                 </div>
             </center>
         </div>

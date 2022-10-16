@@ -22,9 +22,10 @@ $(document).ready(function(){
 
     $(".accordion-button").click(function(e){
         $(".accordion-button").removeClass("bg-danger")
-        $(".accordion-button").removeClass("bg-white")
+        $(".accordion-button").addClass("bg-secondary")
+        $(e.currentTarget).removeClass("bg-secondary")
         $(e.currentTarget).addClass("bg-danger")
-
     })
+
 
 });
