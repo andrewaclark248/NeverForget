@@ -1,25 +1,46 @@
-<%= simple_form_for @user, url: update_login_profile_path(@user), method: :post do |f| %>
-    <div class="card border-secondary" >
-        <div class="card-header">
-            <center><h4>Update Profile</h4></center>
-            <ul class="nav nav-tabs card-header-tabs" id="myTab">
-                <li class="nav-item">
-                    <a href="#profile-credentials" class="nav-link active text-dark profile-tab-creds" data-bs-toggle="tab">Credentials</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#security-profile" class="nav-link text-secondary profile-tab-security"  data-bs-toggle="tab">Security</a>
-                </li>
-            </ul>
-        </div>
-            <div class="tab-content">
-                <%= render "credentials", f: f %>
-                <%= render "security", f: f, user: @user %>
+<div class="row ps-3 pe-3 pb-4 pt-4 pb-3 bg-white"  style="border-bottom: solid #B8B8B8	;">
+	<div class="col-6">
+		<span class="fs-5 fw-bold">Profile</span>
+	</div>
+	<div class="col-6 ">
+	</div>
+</div>
 
+<%= simple_form_for @user, url: update_login_profile_path(@user), method: :post do |f| %>
+    <div class="accordion accordion-flush" id="accordionExample">
+        <div class="accordion-item ">
+            <h2 class=" " id=""  style="margin-bottom: 0px;">
+            <button class="accordion-button bg-danger collapsed "  style="	" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                <span class="text-dark fw-bold">Credentials</span>
+            </button>
+            </h2>
+            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                <%= render "credentials", f: f%>
             </div>
-        <div class="card-footer bg-white pt-3 pb-3">
+        </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingTwo">
+            <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                <span class="fw-bold text-dark">Security</span>
+            </button>
+            </h2>
+            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                <%= render "security", user: @user, f: f %>
+            </div>
+        </div>
+
+    </div>
+    <div class="row bg-white pb-4 pt-4" style="  border-top: solid #C0C0C0; border-bottom: solid #C0C0C0;">
+        <div class="col-2"></div>
+        <div class="col-8 ">
             <center>
-                <%= f.submit "Update Profile", class: "btn btn-danger w-75 " %>
+                <div class="d-grid gap-2">
+					<%=f.submit "Update Profile",class: "btn btn-danger"%>
+                </div>
             </center>
         </div>
+        <div class="col-2"></div>
     </div>
 <% end %>
+
+
