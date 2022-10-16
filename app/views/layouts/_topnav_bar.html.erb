@@ -1,11 +1,11 @@
-<nav class="navbar navbar-expand-sm bg-white" >
+<nav class="navbar navbar-expand-sm " style="  border-bottom: solid #B8B8B8; background: #E0E0E0;">
   <div class="container-fluid">
   	<%= link_to logo_text, dashboard_index_path, class: 'navbar-brand navbar-text' %>
 	<%= image_tag "key", style: 'height:70px; width: 80px;' %>
 
 
 	<div class="navbar-nav ms-auto">
-	    <%= link_to 'Log Out', destroy_login_session_path, :method => :delete,  class: 'nav-item nav-link active navbar-text fw-bold text-dark'%>
+	    <%= link_to 'Log Out', destroy_login_session_path, :method => :delete,  class: 'nav-item nav-link active navbar-text fw-bold text-dark fs-5'%>
 	</div>
   </div>
 </nav>

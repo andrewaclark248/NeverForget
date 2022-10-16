@@ -66,4 +66,9 @@ class User < ApplicationRecord
     end
   end
 
+  def number_of_passwords_that_are_same user
+		#user.passwords.group(:encrypted_password).having("count(*) > 1").load_records
+		#binding.pry
+	end
+
 end
