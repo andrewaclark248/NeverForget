@@ -397,19 +397,19 @@ function changePasswordStatusText(passwordStrength) {
     
     if (passwordStrength == 0) {
         $( ".password-strength-status-text" ).text("POOR");
-        $(".password-strength-status-text").addClass("text-danger")
+        $(".password-strength-status-text").addClass("bg-danger")
     } else if (passwordStrength == 1) {
         $( ".password-strength-status-text" ).text("POOR");
-        $(".password-strength-status-text").addClass("text-danger")
+        $(".password-strength-status-text").addClass("bg-danger")
     } else if (passwordStrength == 2) {
         $( ".password-strength-status-text" ).text("OKAY");
-        $(".password-strength-status-text").addClass("text-warning")
+        $(".password-strength-status-text").addClass("bg-warning")
     } else if (passwordStrength == 3) {
         $( ".password-strength-status-text" ).text("OKAY");
-        $(".password-strength-status-text").addClass("text-warning")
+        $(".password-strength-status-text").addClass("bg-warning")
     } else if (passwordStrength == 4) {
         $( ".password-strength-status-text" ).text("STRONG");
-        $(".password-strength-status-text").addClass("text-success")
+        $(".password-strength-status-text").addClass("bg-success")
     }
 
 }
