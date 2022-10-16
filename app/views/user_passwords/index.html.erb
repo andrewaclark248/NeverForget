@@ -50,7 +50,7 @@
 					<span class="fw-bold"><%= password.urls.pluck(:name).join(", ") %></span>
 				</div>
 				<div class="col-3">
-					<span class="fw-bold <%= get_pwd_color(password.pwd_strength) %>"><%= password.pwd_strength&.upcase %></span>
+					<span class="badge <%= get_pwd_color(password.pwd_strength) %>"><%= password.pwd_strength&.upcase %></span>
 				</div>
 				<div class="col-1">
 					<%= link_to edit_user_password_path(password) do %>

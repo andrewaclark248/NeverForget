@@ -53,11 +53,11 @@ module ApplicationHelper
 
     def get_pwd_color pwd_strength
         if pwd_strength == "poor"
-            "text-danger"
+            "bg-danger"
         elsif pwd_strength == "okay"
-            "text-warning"
+            "bg-warning"
         elsif pwd_strength == "strong"
-            "text-success"
+            "bg-success"
         end
     end
 
