@@ -1,14 +1,21 @@
-<div class="row  mb-4 mt-4">
-	<div class="col-6">
+<div class="row  pb-4 pt-4 bg-white" style="  border-bottom: solid #B8B8B8;">
+	<div class="col-2">
 		<div style="padding-left: 30px;">
-		<span class="fs-5 fw-bold">Dashboard</span>
+		  <span class="fs-5 fw-bold">Dashboard</span>
 		</div>
 	</div>
-	<div class="col-6 ">
-	</div>
+	<div class="col-10">
+    <div class="float-end " style="padding-right: 50px;">
+      <div class="btn-group" role="group" aria-label="Basic outlined example">
+        <button type="button" class="btn btn-outline-danger">Password Security</button>
+        <button type="button" class="btn btn-outline-danger">Account Security</button>
+        <button type="button" class="btn btn-outline-danger">Dark Web Monitoring</button>
+      </div>	
+    </div>
+  </div>
 </div>
-<div class="card-group border-top border-bottom border-secondary">
-  <div class="card pt-3" style="max-width:35%;">
+<div class="card-group  border-top-0 ">
+  <div class="card pt-3 rounded-0" style="max-width:35%;">
       <center>
         <span class="fs-5">Password Security Score</span>
       </center>
@@ -30,7 +37,7 @@
     </div>
   </div>
 
-  <div class="card">
+  <div class="card rounded-0">
     <div class="card-header bg-white">
         <span class="fs-5">Password Score Breakdown</span>
     </div>
@@ -39,22 +46,31 @@
         <div class="col-5">
           <span class="pe-2">Number of Weak Passwords:</span>
         </div>
-        <div class="col-7">
+        <div class="col-2">
           <span>
-            <a href="#" class="link-danger">12</a>
+            <span class="text-danger">12</span>
           </span>
         </div>
+        <div class="col-4">
+          <button class="btn btn-danger">Show Weak Passwords</span>
+        </div>
       </div>
-      <div class="row">
+      <div class="row pb-3">
         <div class="col-5">
-          <span class="pe-2"># of Passwords that are the same:</span>
+          <span class="pe-2">No. of Passwords that are the same::</span>
         </div>
-        <div class="col-7">
+        <div class="col-2">
           <span>
-            <a href="#" class="link-danger">8</a>
-          </span>        
+            <span class="text-danger">12</span>
+          </span>
+        </div>
+        <div class="col-4">
+          <button class="btn btn-danger">Show Duplicate Passwords</span>
         </div>
       </div>
+      
+
+
 
     </div>
   </div>
