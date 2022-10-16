@@ -36,7 +36,6 @@
 
     </div>
   </div>
-
   <div class="card rounded-0">
     <div class="card-header bg-white">
         <span class="fs-5">Password Score Breakdown</span>
@@ -48,11 +47,11 @@
         </div>
         <div class="col-2">
           <span>
-            <span class="text-danger">12</span>
+            <span class="text-danger"><%= @num_weak_passwords %></span>
           </span>
         </div>
         <div class="col-4">
-          <button class="btn btn-danger">Show Weak Passwords</span>
+          <button class="btn btn-danger showHideWeakPasswords">Show Weak Passwords</span>
         </div>
       </div>
       <div class="row pb-3">
@@ -68,11 +67,38 @@
           <button class="btn btn-danger">Show Duplicate Passwords</span>
         </div>
       </div>
-      
-
-
-
     </div>
   </div>
 </div>
 
+<div class="card rounded-0  weakPasswordsPanel d-none">
+  <div class="card-header bg-white">
+    <span class="fw-bold">Weak Passwords</span>
+  </div>
+
+	<% @weak_passwords&.each_with_index do |password, index| %>
+    <div class="list-group-item border border-1 active-password-table bg-white">
+      <div class="row pb-1 pt-1">
+        <div class="col-5">
+          <span class="fw-bold ps-3"><%= password.username %></span>
+        </div>
+        <div class="col-2">
+          <span class="fw-bold"><%= password.urls.pluck(:name).join(", ") %></span>
+        </div>
+        <div class="col-4">
+          <span class="fw-bold <%= get_pwd_color(password.pwd_strength) %>"><%= password.pwd_strength&.upcase %></span>
+        </div>
+        <div class="col-1">
+          <%= link_to edit_user_password_path(password) do %>
+            <button class="btn btn-light">
+              <i class="fa fa-pen-to-square"></i>
+              Edit
+            </button>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+
+
+</div>

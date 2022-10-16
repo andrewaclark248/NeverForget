@@ -16,6 +16,17 @@ $(document).ready(function(){
         }
     })
 
+    $(".showHideWeakPasswords").click(function(){
+        if ($(".weakPasswordsPanel").hasClass("d-none")) {
+            $(".weakPasswordsPanel").removeClass("d-none");
+        } else {
+            $(".weakPasswordsPanel").addClass("d-none");
+        }
+        setInterval(function() {
+            $(".showHideWeakPasswords").blur(); 
+        }, 100)
+    });
+
 })
 
 function percentageToDegrees(percentage) {
