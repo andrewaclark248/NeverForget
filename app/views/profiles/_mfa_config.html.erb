@@ -1,0 +1,95 @@
+<div class="modal fade" id="mfaModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header bg-dark">
+        <h4 class="modal-title text-white">Configure Multi-Factor-Auth</h4>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+
+      <!-- Modal body -->
+      <div class=" bg-light">
+		<table class="table table-bordered" style="margin-bottom: 0px;">
+			<tbody>
+                <tr class="table-height">
+                    <td class="align-middle">
+                        <center>
+                            <span class="fw-bold">MFA Enabled</span>
+                        </center>
+                    </td>
+                    <td class="align-middle">
+                        <center>
+                            <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                                <%= f.radio_button :mfa_enabled, 'mfa_enabled', class: "btn-check", id: "mfaEnabled" %> 
+                                <label class="btn btn-outline-danger" for="mfaEnabled">Enabled</label>
+                                
+                                <%= f.radio_button :mfa_enabled, 'mfa_disabled', class: "btn-check", id: "mfaDisabled", checked: true %> 
+                                <label class="btn btn-outline-danger" for="mfaDisabled">Disabled</label>
+                            </div>
+                        </center>
+                    </td>
+                </tr>
+                <tr class="table-height">
+                    <td class="align-middle">
+                        <center>
+                            <span class="fw-bold">Get Code Via Phone or Email</span>
+                        </center>
+                    </td>
+                    <td>
+                        <center>
+                            <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                                <%= f.radio_button :mfa_send_option, 'phone', class: "btn-check", id: "mfaPhone" %> 
+                                <label class="btn btn-outline-danger" for="mfaPhone">Phone</label>
+                                
+                                <%= f.radio_button :mfa_send_option, 'email', class: "btn-check", id: "mfaEmail" %> 
+                                <label class="btn btn-outline-danger" for="mfaEmail">Email</label>
+                            </div>
+                        </center>
+                    </td>
+                </tr>
+                <tr class="table-height d-none mfaEmail">
+                    <td class="align-middle">
+                        <center>
+                            <span class="fw-bold">Email</span>
+                        </center>
+                    </td>
+                    <td>
+                        <center>
+                            <%= f.input :mfa_phone, label: false %>
+                        </center>
+                    </td>
+                </tr>
+                <tr class="table-height d-none mfaPhone">
+                    <td class="align-middle">
+                        <center>
+                            <span class="fw-bold">Phone</span>
+                        </center>
+                    </td>
+                    <td class="align-middle">
+                        <center>
+                            <%= f.input :mfa_email, label: false %>
+                        </center>
+                    </td>
+                </tr>
+			</tbody>
+		</table>
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer bg-light">
+	  		<div class="row w-100">
+			  	<div class="col-6">
+					<%= link_to "Yes", user_password_path(12), method: :delete, class: "btn btn-danger btn-lg btn-block w-100 delete-password-accept",:data => { "data-bs-dismiss": "modal"} %>
+			    </div>
+				<div class="col-6">
+					<button type="button" class="btn btn-primary btn-lg btn-block w-100" data-bs-dismiss="modal">No</button>
+				</div>
+			</div>
+
+	  </div>
+
+    </div>
+  </div>
+</div>
+

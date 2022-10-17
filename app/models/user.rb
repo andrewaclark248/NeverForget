@@ -6,6 +6,13 @@ class User < ApplicationRecord
   has_many :keys
 
 
+  attr_accessor :mfa_enabled
+  attr_accessor :mfa_send_option
+  attr_accessor :mfa_phone
+  attr_accessor :mfa_email
+
+  
+
   BRONZE_USER = "Bronze"      #no phone -> $0
   SILVER_USER = "Silver"      #1 phone  -> $5
   PLATNIUM_USER = "Platnium"  #2 phones -> $7

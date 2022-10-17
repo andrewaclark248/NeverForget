@@ -7,6 +7,7 @@ class ProfilesController < ApplicationController
     end
 
     def update_login
+        binding.pry
         first = params[current_user.type.downcase]["first"]
         last = params[current_user.type.downcase]["last"]
         chrome_ext_auto_logoff = params[current_user.type.downcase]["chrome_ext_auto_logoff"]
