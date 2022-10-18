@@ -39,8 +39,11 @@ class Password < ApplicationRecord
 		weak_passwords = user.passwords.where(pwd_strength: ["weak", "okay"]).count
 		same_passwords = self.get_password_v2(user).flatten.count
 		num_of_passwords = user.passwords.count
+		return 100 if num_of_passwords == 0
+
 		total_errors = weak_passwords + same_passwords
 		number_correct = num_of_passwords - total_errors
+		#binding.pry
 		security_score = ((number_correct.to_f/num_of_passwords.to_f)*100).to_i
 		return security_score
 	end

@@ -76,6 +76,11 @@ gem "money-rails"
 
 gem "passgen"
 
+gem 'devise-two-factor'
+
+
+gem 'rqrcode'
+
 
 
 

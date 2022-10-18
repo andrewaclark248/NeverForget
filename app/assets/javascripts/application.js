@@ -165,8 +165,7 @@ $(document).ready(function(){
         $(".profile-tab-security").addClass("text-secondary")
     });
 
-    //phone format
-    $('.contact_phone').mask('(999)-999-9999'); 
+
 
     //auto rotate button
     $( ".contact_phone" ).change(function(e) {
