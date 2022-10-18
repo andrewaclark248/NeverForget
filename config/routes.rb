@@ -29,6 +29,8 @@ Rails.application.routes.draw do
 	resources :profiles do 
 		member do
 			post 'update_login', to: "profiles#update_login"
+			post 'configure_mfa', to: "profiles#configure_mfa"
+
 		end
 	end
 	resources :phones do

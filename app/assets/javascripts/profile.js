@@ -19,6 +19,13 @@ $(document).ready(function(){
         }
     }) */
 
+    $('#mfaEnabled').change(function() {
+        $(".mfaSendMethod").removeClass("d-none")
+    });
+    
+    $('#mfaDisabled').change(function() {
+        $(".mfaSendMethod").addClass("d-none")
+    });
 
     $('#mfaEmail').change(function() {
         $(".mfaEmail").removeClass("d-none")
@@ -29,6 +36,12 @@ $(document).ready(function(){
         $(".mfaPhone").removeClass("d-none")
         $(".mfaEmail").addClass("d-none")
     });
-    
+
+
+    //phone format
+    $('#bronze_mfa_phone').mask('(999)-999-9999'); 
+    $('#silver_mfa_phone').mask('(999)-999-9999'); 
+    $('#gold_mfa_phone').mask('(999)-999-9999'); 
+
 
 });
