@@ -3,8 +3,6 @@ class SendMfaCode
     include Interactor
 
     def call 
-        context.login
-        binding.pry
         if context.login.mfa_send_option == "phone"
             send_via_phone(context.login)
         else
