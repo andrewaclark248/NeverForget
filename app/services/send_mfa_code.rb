@@ -4,10 +4,11 @@ class SendMfaCode
 
     def call 
         context.login
-
+        binding.pry
         if context.login.mfa_send_option == "phone"
             send_via_phone(context.login)
         else
+            ApplicationMailer.send_mfa_code(context.login).deliver_now!
         end
 
 

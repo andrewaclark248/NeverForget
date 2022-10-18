@@ -6,4 +6,15 @@ class ApplicationMailer < ActionMailer::Base
     # This overrides any "to" recipients
     ActionMailer::Base.register_interceptor(OverrideMailRecipient)
   end
+
+
+  def send_mfa_code login
+    @code = login.current_otp
+
+    mail(
+      to: login.mfa_email,
+      subject: "Simple Logins - MFA Code"
+    )
+  end
+
 end
