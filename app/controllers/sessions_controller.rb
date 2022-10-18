@@ -2,8 +2,11 @@ require 'jwt'
 
 class SessionsController < Devise::SessionsController
 	layout "login"
+	include AuthenticateWithOtpTwoFactor
 
-	
+	prepend_before_action :authenticate_with_otp_two_factor,
+	if: -> { action_name == 'create' && otp_two_factor_enabled? }
+
 	def new
 		super
 	end
@@ -11,6 +14,7 @@ class SessionsController < Devise::SessionsController
   	def create
   		super
   		add_jwt
+		binding.pry
   	end
 
   	def add_jwt
@@ -22,5 +26,10 @@ class SessionsController < Devise::SessionsController
 		cookies[:auth_token] = token
 		current_login.update(auth_token: token)
   	end
+
+
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.permit(:sign_in, keys: [:otp_attempt])
+  end
 
 end

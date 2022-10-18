@@ -4,7 +4,11 @@ class Login < ApplicationRecord
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  devise :registerable, :recoverable, :rememberable, :validatable, :two_factor_authenticatable
+  devise :registerable, :recoverable, :rememberable, :validatable
+
+
+  #attr_encrypted :otp_secret, key: ENV["ENCRYPTION_KEY"], mode: :single_iv_and_salt, salt: "somesalthahaha", iv: "7yHHhFVMldds"
+
 
   belongs_to :user, optional: true
 

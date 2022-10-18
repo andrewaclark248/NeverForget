@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
 
   	add_flash_types :info, :error, :success
 	
-	  before_action :configure_permitted_parameters, if: :devise_controller?
+	#before_action :configure_permitted_parameters, if: :devise_controller?
 
 	def current_user
 		return current_login&.user
@@ -17,7 +17,7 @@ class ApplicationController < ActionController::Base
 
 
 	def configure_permitted_parameters
-		devise_parameter_sanitizer.permit(:sign_in, keys: [:otp_attempt])
+		#devise_parameter_sanitizer.permit(:sign_in, keys: [:otp_attempt])
 	  end
 
 end

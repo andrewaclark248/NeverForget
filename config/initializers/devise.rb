@@ -13,6 +13,8 @@ Devise.setup do |config|
     manager.default_strategies(:scope => :login).unshift :two_factor_authenticatable
   end
 
+  config.otp_allowed_drift = 240
+
   # The secret key used by Devise. Devise uses this key to generate
   # random tokens. Changing this key will render invalid all existing
   # confirmation, reset password and unlock tokens in the database.
@@ -50,7 +52,7 @@ Devise.setup do |config|
   # session. If you need permissions, you should implement that in a before filter.
   # You can also supply a hash where the value is a boolean determining whether
   # or not authentication should be aborted when the value is not present.
-  # config.authentication_keys = [:email]
+  config.authentication_keys = [:email]
 
   # Configure parameters from the request object used for authentication. Each entry
   # given should be a request method and it will automatically be passed to the
@@ -283,10 +285,10 @@ Devise.setup do |config|
   #
   # 
   
-  config.warden do |manager|
-     manager.intercept_401 = false
-     manager.default_strategies(scope: :user).unshift :some_external_strategy
-  end
+  #config.warden do |manager|
+  #   manager.intercept_401 = false
+  #   manager.default_strategies(scope: :user).unshift :some_external_strategy
+  #end
 
   # ==> Mountable engine configurations
   # When using Devise inside an engine, let's call it `MyEngine`, and this engine

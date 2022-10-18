@@ -33,6 +33,8 @@ class ProfilesController < ApplicationController
         
         current_login.otp_required_for_login = mfa_enabled
         current_login.mfa_send_option = mfa_send_option
+        current_login.otp_secret = Login.generate_otp_secret
+
         if mfa_send_option == "email"
             current_login.mfa_email = mfa_email
         else
