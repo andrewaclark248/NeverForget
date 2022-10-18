@@ -1,10 +1,10 @@
 class Login < ApplicationRecord
-  devise :two_factor_authenticatable,
-         :otp_secret_encryption_key => ENV['OTP_SECRET_KEY']
+  #devise 
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  devise :registerable, :recoverable, :rememberable, :validatable
+  devise :registerable, :recoverable, :rememberable, :validatable, :two_factor_authenticatable,
+  :otp_secret_encryption_key => ENV['OTP_SECRET_KEY']
 
 
   #attr_encrypted :otp_secret, key: ENV["ENCRYPTION_KEY"], mode: :single_iv_and_salt, salt: "somesalthahaha", iv: "7yHHhFVMldds"
