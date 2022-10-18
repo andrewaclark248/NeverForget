@@ -14,7 +14,6 @@ class SessionsController < Devise::SessionsController
   	def create
   		super
   		add_jwt
-		binding.pry
   	end
 
   	def add_jwt
