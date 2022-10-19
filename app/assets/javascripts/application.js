@@ -75,60 +75,7 @@ $(document).ready(function(){
 
 
 
-    //PASSWORD ANALYZER----------------------
-    //on page load hide analyzer
-    $( ".password-strength-analyzer" ).hide();
-    //on page load set hidden field
-    setStrengthHiddenField($('#password_password').val())
 
-    //on page load show text
-    //if($('#password_password').val()) {
-    //    removeTextClasses();
-    //    var passwordStrength = getPasswordStatus($('#password_password').val());
-    //    changePasswordStatusText(passwordStrength)
-    //    setStrengthHiddenField($('#password_password').val())
-  
-    //}
-
-
-
-    $( "#password_password" ).on('input',function(e) {
-
-        var password = e.currentTarget.value
-        //$( ".password-strength-text" ).hide();
-        //$( ".password-strength-analyzer" ).show();
-
-        //analyze password
-        //getPasswordStength(password)
-
-    });
-
-    $('#password_password').blur(function(e) {
-        //hide password strength box on blur
-        $( ".password-strength-analyzer" ).hide();
-
-        var password = e.currentTarget.value
-        //show password analyzer
-
-        //update password status text
-        removeTextClasses();
-        var passwordStrength = getPasswordStatus(password);
-        changePasswordStatusText(passwordStrength)
-
-        //show password status text
-        $( ".password-strength-text" ).show();
-     });
-
-    $('#password_password').on('input',function(e){
-        $( ".password-strength-text" ).hide();
-
-        //show password strength box on change
-        $( ".password-strength-analyzer" ).show();
-        var password = e.target.value;
-        getPasswordStength(password)
-        setStrengthHiddenField(password)
-    });
-    //PASSWORD ANALYZER----------------------
 
 
 
@@ -172,18 +119,21 @@ $(document).ready(function(){
 
 
 function setStrengthHiddenField(password) {
-    var status = getPasswordStatus(password)
-    if (status == 0) {
-        $("#password_pwd_strength").val("poor")
-    } else if (status == 1) {
-        $("#password_pwd_strength").val("poor")
-    } else if (status == 2) {
-        $("#password_pwd_strength").val("okay")
-    } else if (status == 3) {
-        $("#password_pwd_strength").val("okay")
-    } else if (status == 4) {
-        $("#password_pwd_strength").val("strong")
+    if (password) {
+        var status = getPasswordStatus(password)
+        if (status == 0) {
+            $("#password_pwd_strength").val("poor")
+        } else if (status == 1) {
+            $("#password_pwd_strength").val("poor")
+        } else if (status == 2) {
+            $("#password_pwd_strength").val("okay")
+        } else if (status == 3) {
+            $("#password_pwd_strength").val("okay")
+        } else if (status == 4) {
+            $("#password_pwd_strength").val("strong")
+        }
     }
+
 }
 
 

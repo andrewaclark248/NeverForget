@@ -1,8 +1,9 @@
 $(document).ready(function(){
-
+    
     $(".progress").each(function() {
 
         var value = $(this).attr('data-value');
+        console.log("value = " + value)
         var left = $(this).find('.progress-left .progress-bar');
         var right = $(this).find('.progress-right .progress-bar');
 
@@ -45,8 +46,7 @@ $(document).ready(function(){
         }, 100)
     });
 
-    samePasswordPanel
-
+ /*****/
     
 
 })

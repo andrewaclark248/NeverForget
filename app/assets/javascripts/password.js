@@ -62,6 +62,40 @@ $(document).ready(function(){
       });**/
 
 
+
+    //PASSWORD ANALYZER----------------------
+    //on page load hide analyzer
+    $( ".password-strength-analyzer" ).hide();
+    //on page load set hidden field
+    setStrengthHiddenField($('#password_password').val())
+
+
+    $('#password_password').blur(function(e) {
+        //hide password strength box on blur
+        $( ".password-strength-analyzer" ).hide();
+
+        var password = e.currentTarget.value
+        //show password analyzer
+
+        //update password status text
+        removeTextClasses();
+        var passwordStrength = getPasswordStatus(password);
+        changePasswordStatusText(passwordStrength)
+
+        //show password status text
+        $( ".password-strength-text" ).show();
+     });
+
+    $('#password_password').on('input',function(e){
+        $( ".password-strength-text" ).hide();
+
+        //show password strength box on change
+        $( ".password-strength-analyzer" ).show();
+        var password = e.target.value;
+        getPasswordStength(password)
+        setStrengthHiddenField(password)
+    });
+    //PASSWORD ANALYZER----------------------
       
 
 
