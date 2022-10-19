@@ -78,32 +78,37 @@ $(document).ready(function(){
     //PASSWORD ANALYZER----------------------
     //on page load hide analyzer
     $( ".password-strength-analyzer" ).hide();
+    //on page load set hidden field
+    setStrengthHiddenField($('#password_password').val())
 
     //on page load show text
-    if($('#password_password').val()) {
-        removeTextClasses();
-        var passwordStrength = getPasswordStatus($('#password_password').val());
-        changePasswordStatusText(passwordStrength)
-        setStrengthHiddenField($('#password_password').val())
+    //if($('#password_password').val()) {
+    //    removeTextClasses();
+    //    var passwordStrength = getPasswordStatus($('#password_password').val());
+    //    changePasswordStatusText(passwordStrength)
+    //    setStrengthHiddenField($('#password_password').val())
   
-    }
+    //}
 
 
 
-    $( "#password_password" ).change(function(e) {
+    $( "#password_password" ).on('input',function(e) {
+
         var password = e.currentTarget.value
-        $( ".password-strength-text" ).hide();
-        $( ".password-strength-analyzer" ).show();
+        //$( ".password-strength-text" ).hide();
+        //$( ".password-strength-analyzer" ).show();
 
         //analyze password
-        getPasswordStength(password)
+        //getPasswordStength(password)
 
     });
 
     $('#password_password').blur(function(e) {
+        //hide password strength box on blur
+        $( ".password-strength-analyzer" ).hide();
+
         var password = e.currentTarget.value
         //show password analyzer
-        $( ".password-strength-analyzer" ).hide();
 
         //update password status text
         removeTextClasses();
@@ -115,55 +120,16 @@ $(document).ready(function(){
      });
 
     $('#password_password').on('input',function(e){
-        var password = e.target.value;
-        if (password?.length > 0) {
-            //show password progress bar
-            $( ".password-strength-analyzer" ).show();
+        $( ".password-strength-text" ).hide();
 
-            //change varius rows of controls
-            getPasswordStength(password)
-            setStrengthHiddenField(password)
-        } else {
-            $( ".password-strength-analyzer" ).hide();
-        }
+        //show password strength box on change
+        $( ".password-strength-analyzer" ).show();
+        var password = e.target.value;
+        getPasswordStength(password)
+        setStrengthHiddenField(password)
     });
     //PASSWORD ANALYZER----------------------
 
-
-
-       //navbar
-
-
-
-    
-    
-    //profile page
-    $(".profile-tab-creds").click(function(e){
-        $(".profile-tab-creds").removeClass("text-secondary")
-        $(".profile-tab-creds").addClass("text-dark")
-        $(".profile-tab-security").removeClass("text-dark")
-        $(".profile-tab-security").addClass("text-secondary")
-        $(".profile-tab-other").removeClass("text-dark")
-        $(".profile-tab-other").addClass("text-secondary")
-    });
-
-    $(".f").click(function(e){
-        $(".profile-tab-security").removeClass("text-secondary")
-        $(".profile-tab-security").addClass("text-dark")
-        $(".profile-tab-creds").removeClass("text-dark")
-        $(".profile-tab-creds").addClass("text-secondary")
-        $(".profile-tab-other").removeClass("text-dark")
-        $(".profile-tab-other").addClass("text-secondary")
-    });
-
-    $(".profile-tab-other").click(function(e){
-        $(".profile-tab-other").removeClass("text-secondary")
-        $(".profile-tab-other").addClass("text-dark")
-        $(".profile-tab-creds").removeClass("text-dark")
-        $(".profile-tab-creds").addClass("text-secondary")
-        $(".profile-tab-security").removeClass("text-dark")
-        $(".profile-tab-security").addClass("text-secondary")
-    });
 
 
 
@@ -206,7 +172,6 @@ $(document).ready(function(){
 
 
 function setStrengthHiddenField(password) {
-    console.log("wnet to this new method")
     var status = getPasswordStatus(password)
     if (status == 0) {
         $("#password_pwd_strength").val("poor")
@@ -389,6 +354,9 @@ function removeTextClasses() {
     $(".password-strength-status-text").removeClass("text-success")
     $(".password-strength-status-text").removeClass("text-warning")
     $(".password-strength-status-text").removeClass("text-danger")
+    $(".password-strength-status-text").removeClass("bg-success")
+    $(".password-strength-status-text").removeClass("bg-warning")
+    $(".password-strength-status-text").removeClass("bg-danger")
 }
 
 function changePasswordStatusText(passwordStrength) {

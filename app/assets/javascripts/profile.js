@@ -1,7 +1,5 @@
 $(document).ready(function(){
 
-    console.log("went here")
-    console.log("went here")
     /***
     $("#mfaPhone").click(function(e){
         $("#mfaPhone").removeClass("d-none")
