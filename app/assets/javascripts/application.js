@@ -40,11 +40,11 @@ $(document).ready(function(){
         $( ".add_fields" ).blur();
     });
 
-    /**  Initialize tooltips
+    /**  Initialize tooltips */
     var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
     var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
     return new bootstrap.Tooltip(tooltipTriggerEl)
-    })*/
+    })
     $('info-tooltip').tooltip();   
 
 
@@ -90,7 +90,7 @@ $(document).ready(function(){
 
 
 
-    $( "#password_password" ).focus(function(e) {
+    $( "#password_password" ).change(function(e) {
         var password = e.currentTarget.value
         $( ".password-strength-text" ).hide();
         $( ".password-strength-analyzer" ).show();
