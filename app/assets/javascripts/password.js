@@ -30,7 +30,6 @@ $(document).ready(function(){
     var clipboard = new ClipboardJS('.copyIcon');
 
     clipboard.on('success', function (e) {
-        console.log("went here")
         let trigger_button = e.trigger;
     
         // update the tooltip title, get the tooltip instance, and show it
