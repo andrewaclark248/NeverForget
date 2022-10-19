@@ -81,6 +81,9 @@ gem 'devise-two-factor'
 
 gem 'rqrcode'
 
+gem 'devise-security'
+
+gem 'email_address'
 
 
 

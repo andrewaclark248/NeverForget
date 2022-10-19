@@ -98,6 +98,8 @@ GEM
       railties (>= 4.1.0)
       responders
       warden (~> 1.2.3)
+    devise-security (0.17.0)
+      devise (>= 4.3.0)
     devise-two-factor (4.0.2)
       activesupport (< 7.1)
       attr_encrypted (>= 1.3, < 4, != 2)
@@ -108,6 +110,8 @@ GEM
     dotenv-rails (2.8.1)
       dotenv (= 2.8.1)
       railties (>= 3.2)
+    email_address (0.2.4)
+      simpleidn
     encryption (1.1.8)
     encryptor (3.0.0)
     erubi (1.11.0)
@@ -241,6 +245,8 @@ GEM
     simple_form (5.1.0)
       actionpack (>= 5.2)
       activemodel (>= 5.2)
+    simpleidn (0.2.1)
+      unf (~> 0.1.4)
     spring (4.0.0)
     sprockets (4.1.1)
       concurrent-ruby (~> 1.0)
@@ -261,6 +267,9 @@ GEM
       nokogiri (>= 1.6, < 2.0)
     tzinfo (2.0.5)
       concurrent-ruby (~> 1.0)
+    unf (0.1.4)
+      unf_ext
+    unf_ext (0.0.8.2)
     warden (1.2.9)
       rack (>= 2.0.9)
     web-console (4.2.0)
@@ -291,8 +300,10 @@ DEPENDENCIES
   capybara (>= 3.26)
   cocoon
   devise
+  devise-security
   devise-two-factor
   dotenv-rails
+  email_address
   encryption
   httparty
   interactor (~> 3.0)
