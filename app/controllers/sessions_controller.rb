@@ -12,6 +12,14 @@ class SessionsController < Devise::SessionsController
 	end
 
   	def create
+		if true#Rails.env.production? || Rails.env.staging?
+			result = BlockTorIpAddress.call(ip_address: request.remote_ip)
+			if result.failure?
+				flash[:error] = "You have logged in from a invalid devise. Please adjust your settings if you would like to fix this."
+				redirect_to root_path
+				return
+			end
+		end
   		super
   		add_jwt
   	end
