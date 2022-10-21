@@ -13,7 +13,7 @@
           <div class="col-10">
 
             <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-              <%= f.error_notification %>
+              <%= f.error_notification  class: "alert-dismissible show bg-danger bg-gradient text-dark"  %>
 
               <div class="form-inputs">
                 <div class="row">

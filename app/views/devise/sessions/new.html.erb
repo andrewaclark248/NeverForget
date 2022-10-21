@@ -1,17 +1,15 @@
 
   
     <div class="row">
-      <div class="col-1">
-      </div>
-      <div class="col-11">
+      <div class="col-12">
+        <center>
         <h3 class="card-title">Login</h3>
+        </center>
       </div>
     </div>
     <br>
     <div class="row">
-      <div class="col-1">
-      </div>
-      <div class="col-10">
+      <div class="col-12">
         <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
           <%= f.error_notification %>
 
@@ -34,25 +32,19 @@
           </center>
         <% end %>
       </div>
-      <div class="col-1">
-      </div>                
     </div>
     <br>
     <br>
     <br>
     <div class="row">
-      <div class="col-1">
-      </div>
-      <div class="col-5">
+      <div class="col-6">
         <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
           <%= link_to "Sign up", new_registration_path(resource_name), class: "btn btn-outline-danger w-100" %><br />
         <% end %>                
       </div>
-      <div class="col-5">
+      <div class="col-6">
         <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
           <%= link_to "Forgot your password?", new_password_path(resource_name) %><br />
         <% end %>
-      </div>
-      <div class="col-1">
       </div>
     </div>
