@@ -23,7 +23,7 @@ class Login < ApplicationRecord
     plan = Plan.find_by(name: "Bronze")
 		user = Bronze.new(first: first_name, last: last_name, plan: plan, chrome_ext_auto_logoff: "2")
     user.save!
-    self.update!(user: user, otp_required_for_login: false)
+    self.update!(user: user, otp_required_for_login: false, enable_tor: true)
   end
 
 
