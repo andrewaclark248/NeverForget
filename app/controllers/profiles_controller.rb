@@ -10,8 +10,9 @@ class ProfilesController < ApplicationController
         first = params[current_user.type.downcase]["first"]
         last = params[current_user.type.downcase]["last"]
         chrome_ext_auto_logoff = params[current_user.type.downcase]["chrome_ext_auto_logoff"]
+        enable_tor = (params[current_user.type.downcase]["enable_tor"] == "enable_tor") ? true : false
 
-        if current_user.update(first: first, last: last, chrome_ext_auto_logoff: chrome_ext_auto_logoff)
+        if current_user.update(first: first, last: last, chrome_ext_auto_logoff: chrome_ext_auto_logoff) && current_login.update(enable_tor: enable_tor)
             flash[:notice] = "Profile was updated."
             redirect_to profiles_path  
         else

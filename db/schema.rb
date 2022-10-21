@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_10_18_004743) do
+ActiveRecord::Schema.define(version: 2022_10_21_034314) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,6 +42,7 @@ ActiveRecord::Schema.define(version: 2022_10_18_004743) do
     t.string "mfa_email"
     t.string "mfa_phone"
     t.string "mfa_send_option"
+    t.boolean "enable_tor"
     t.index ["email"], name: "index_logins_on_email", unique: true
     t.index ["reset_password_token"], name: "index_logins_on_reset_password_token", unique: true
     t.index ["user_id"], name: "index_logins_on_user_id"
