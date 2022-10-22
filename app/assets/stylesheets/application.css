@@ -71,3 +71,12 @@
 .copyPassword {
    padding-left: 0px;
 }
+
+.errspan {    
+   float: right;
+   top: 24px;
+   right: 6px;
+   position: relative;
+   z-index: 2;
+   color: grey;
+ }
