@@ -1,0 +1,76 @@
+<%= simple_form_for password, url: send_password_to_contact_via_email_user_password_path(password), method: :post do |f| %>
+
+  <div class="modal fade " id="sharePasswordViaEmail">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+
+        <!-- Modal Header -->
+        <div class="modal-header bg-dark">
+        <span class=""><h4 class="modal-title text-white">Share Your Password Via Email</h4></span>
+          <button type="button" class="btn-close " data-bs-dismiss="modal"></button>
+        </div>
+
+        <!-- Modal body -->
+        <div class=" bg-white">
+        
+
+          <table class="table table-bordered " style="margin-bottom: 0rem; ">
+            <tr class="border-bottom-0">
+              <td  class="border-start-0 align-middle table-row-height" >
+                <span class="fw-bold">Credentials You Are Sharing</span>
+              </td>
+              <td class="align-middle border-end-0">
+                <div class="row ">
+                  <div class="col-1"></div>
+                  <div class="col-3 ">
+                    <span>Username:</span>
+                  </div>
+                  <div class="col-4 ">
+                    <span><%= password.username %></span>
+                  </div>
+                </div>
+                <div class="row ">
+                  <div class="col-1"></div>
+                  <div class="col-3 ">
+                    <span>Password:</span>
+                  </div>
+                  <div class="col-4 ">
+                    <span><%= password.password %></span>
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <tr class="border-bottom-0">
+              <td  class="border-start-0 align-middle table-row-height">
+                <span class="fw-bold">Email To Send Credentials To</span>
+              </td>
+              <td class="align-middle border-end-0">
+                <div class="row ">
+                  <div class="col-1"></div>
+                  <div class="col-8 ">
+                    <%= f.input :share_password_email, wrapper_html: {class: ""}, as: :string, label: false, placeholder: "name@example.com" %>
+                  </div>
+                </div>
+              </td>
+            </tr>
+          </table>
+
+
+        </div>
+
+        <!-- Modal footer -->
+        <div class="modal-footer bg-white">
+          <div class="row w-100">
+            <div class="col-6">
+            <%= f.submit "Send Email", class: "btn btn-danger btn-lg btn-block w-100 delete-password-accept",:data => { "data-bs-dismiss": "modal"} %>
+            </div>
+          <div class="col-6">
+            <button type="button" class="btn btn-primary btn-lg btn-block w-100" data-bs-dismiss="modal">Cancel</button>
+          </div>
+        </div>
+      </div>
+      </div>
+    </div>
+  </div>
+
+<% end %>

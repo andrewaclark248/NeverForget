@@ -17,7 +17,7 @@ class SessionsController < Devise::SessionsController
 			result = BlockTorIpAddress.call(ip_address: request.remote_ip)
 			cookies["_never_forget_session"] = ""
 			if result.failure? 
-				flash[:error] = "You have logged in from a invalid devise. Please adjust your settings if you would like to fix this."
+				flash[:error] = "You have logged in from a invalid device. Please adjust your settings if you would like to fix this."
 				redirect_to root_path
 				return
 			end
