@@ -27,23 +27,19 @@ $(document).ready(function(){
         $(e.currentTarget).addClass("bg-danger")
     })
 
+    $(".copyIcon").click(function(e){
+        navigator.clipboard.writeText($('#password_password').val());
+    })
     var clipboard = new ClipboardJS('.copyIcon');
 
     clipboard.on('success', function (e) {
         let trigger_button = e.trigger;
-    
         // update the tooltip title, get the tooltip instance, and show it
-     
         trigger_button.setAttribute('data-bs-original-title', 'Copied!');
-     
         let btn_tooltip = bootstrap.Tooltip.getInstance(trigger_button);
-     
         btn_tooltip.show();
-    
         // reset the tooltip title
-     
         trigger_button.setAttribute('data-bs-original-title', 'Copy to clipboard');
-        
     });
 
     /**$('.copyPasswordBtn').click(function(e){
@@ -96,7 +92,28 @@ $(document).ready(function(){
         setStrengthHiddenField(password)
     });
     //PASSWORD ANALYZER----------------------
-      
+    $(".eyeIconCursor").on('click',function() {
+        if ($("#password_password").attr('type') === 'password') {
+            $(".eyeIconCursor").removeClass("fa-eye")
+            $(".eyeIconCursor").addClass("fa-eye-slash")
+            $("#password_password").attr('type', 'text');
+        } else {
+            $(".eyeIconCursor").removeClass("fa-eye-slash")
+            $(".eyeIconCursor").addClass("fa-eye")
+            $("#password_password").attr('type', 'password');
+        }
+    });
 
+    /****
+    $(".eyeIconCursor").on({
+        mouseenter: function () {
+            $(".eyeIconCursor").removeClass("text-secondary")
+            $(".eyeIconCursor").addClass("text-dark")
+        },
+        mouseleave: function () {
+            $(".eyeIconCursor").removeClass("text-dark")
+            $(".eyeIconCursor").addClass("text-secondary")
+        }
+    }); */
 
 });

@@ -69,5 +69,37 @@
 }
 
 .copyPassword {
+   padding-top: 12px;
    padding-left: 0px;
 }
+.errspan {    
+   float: right;
+   top: 26px;
+   right: 10px;
+   position: relative;
+   z-index: 2;
+ }
+
+ .form-control.is-invalid, .was-validated .form-control:invalid {
+   background-image: none !important;
+   border-color: #ced4da;
+   padding-right: 0.75em;
+}
+
+.form-control.is-valid, .was-validated .form-control:valid {
+   background-image: none !important;
+   border-color: #ced4da;
+   padding-right: 0.75em;
+}
+
+.eyeIconCursor {
+   cursor: pointer;
+}
+
+.errspan2 {    
+   float: right;
+   top: 34px;
+   right: 10px;
+   position: relative;
+   z-index: 2;
+ }
