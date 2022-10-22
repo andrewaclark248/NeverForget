@@ -17,4 +17,15 @@ class ApplicationMailer < ActionMailer::Base
     )
   end
 
+  def send_password recipient_email, password, current_user
+    @email = password.username
+    @password = password.password
+    @sender = current_user.full_name
+
+    mail(
+      to: recipient_email,
+      subject: "Simple Logins - Shared Password"
+    )
+  end
+
 end

@@ -24,7 +24,9 @@
                 <div class="row ">
                     <div class="col-1"></div>
                     <div class="col-8 ">
-                        <%= mail_to "", "Send Credentials Via Email", class: "btn btn-dark",  subject: "SimpleLogins - #{password.user.full_name} Is Sending Your Credentails", body: "Hi From SimpleLogins, \n \n #{password.user.full_name} wants to share their credentials with you. Please see below. \n \n Username: #{password.username} \n \n Password: #{password.password} \n \n \n Thanks, \n SimpleLogins" %>
+                    	<a type="button" name="someDamnName" class="btn btn-dark text-white" data-bs-toggle="modal" data-bs-target="#sharePasswordViaEmail" >                
+                            Send Credentials Via Email
+                        </a> 
                     </div>
                 </div>
             </td>

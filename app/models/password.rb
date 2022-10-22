@@ -12,6 +12,9 @@ class Password < ApplicationRecord
 	validates :password, :presence => true
 	validates :username, :presence => true
 
+	attr_accessor :share_password_email
+
+
 	STRENGTH_POOR = "poor"
 	STRENGTH_OKAY = "okay"
 	STRENGTH_STRONG = "strong"

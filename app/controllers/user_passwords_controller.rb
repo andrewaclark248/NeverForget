@@ -79,7 +79,20 @@ class UserPasswordsController < ApplicationController
             flash[:error] = "Error sharing contact."
             redirect_to user_passwords_path
         end
+	end
 
+
+	def send_password_to_contact_via_email
+		password = Password.find_by(id: params["id"].to_i)
+		if password.present?
+			recipient_email = params["password"]["share_password_email"]
+			ApplicationMailer.send_password(recipient_email, password, current_user).deliver_now!
+			flash[:notice] = "Password was sent to #{recipient_email}."
+			redirect_to user_passwords_path
+		else
+      		flash[:error] = "Error sending password please contact support!"
+      		redirect_to edit_user_password_path(password)
+		end
 
 	end
 

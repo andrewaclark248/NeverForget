@@ -24,6 +24,7 @@ Rails.application.routes.draw do
 	resources :user_passwords do
 		member do
 			get "send_password_to_contact", to: "user_passwords#send_password_to_contact" 
+			post "send_password_to_contact_via_email", to: "user_passwords#send_password_to_contact_via_email"
 		end
 	end
 	resources :profiles do 
