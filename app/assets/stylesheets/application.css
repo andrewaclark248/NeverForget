@@ -69,14 +69,29 @@
 }
 
 .copyPassword {
+   padding-top: 12px;
    padding-left: 0px;
 }
-
 .errspan {    
    float: right;
-   top: 24px;
-   right: 6px;
+   top: 26px;
+   right: 10px;
    position: relative;
    z-index: 2;
-   color: grey;
  }
+
+ .form-control.is-invalid, .was-validated .form-control:invalid {
+   background-image: none !important;
+   border-color: #ced4da;
+   padding-right: 0.75em;
+}
+
+.form-control.is-valid, .was-validated .form-control:valid {
+   background-image: none !important;
+   border-color: #ced4da;
+   padding-right: 0.75em;
+}
+
+.eyeIconCursor {
+   cursor: pointer;
+}
