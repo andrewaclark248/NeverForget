@@ -95,3 +95,11 @@
 .eyeIconCursor {
    cursor: pointer;
 }
+
+.errspan2 {    
+   float: right;
+   top: 34px;
+   right: 10px;
+   position: relative;
+   z-index: 2;
+ }

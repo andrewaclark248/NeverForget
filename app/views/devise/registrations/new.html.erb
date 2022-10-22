@@ -38,14 +38,16 @@
                             input_html: { autocomplete: "email" }%>
                 </div>
                 <br>
-                <div class="row">
+                <div class="">
+                  <i class="fa-solid fa-eye errspan2 eyeIconCursor text-dark"></i>
                   <%= f.input :password,
                             required: true,
                             hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
                             input_html: { autocomplete: "new-password" } %>
                 </div>
                 <br>
-                <div class="row">
+                <div class="">
+                  <i class="fa-solid fa-eye errspan2 eyeIconCursorConfirm text-dark"></i>
                   <%= f.input :password_confirmation,
                             required: true,
                             input_html: { autocomplete: "new-password" } %>
