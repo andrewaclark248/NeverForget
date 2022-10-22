@@ -29,5 +29,14 @@ class AjaxController < ApplicationController
         end
     end
 
+    def send_test_email
+        if params["email"].present?
+            ApplicationMailer.email_change(params["email"]).deliver_now!
+            render json: {success: "true"}
+        else 
+            Rails.logger.error("Some error")
+        end
+    end
+
 
 end

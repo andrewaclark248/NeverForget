@@ -11,6 +11,7 @@ class User < ApplicationRecord
   attr_accessor :mfa_phone
   attr_accessor :mfa_email
   attr_accessor :enable_tor #enable tor feature
+  attr_accessor :email
 
   
 

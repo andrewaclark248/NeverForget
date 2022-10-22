@@ -28,4 +28,13 @@ class ApplicationMailer < ActionMailer::Base
     )
   end
 
+  def email_change email
+    @email = email
+
+    mail(
+      to: email,
+      subject: "Simple Logins - Email Change"
+    )
+  end
+
 end

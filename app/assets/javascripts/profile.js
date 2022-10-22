@@ -42,4 +42,28 @@ $(document).ready(function(){
     $('#gold_mfa_phone').mask('(999)-999-9999'); 
 
 
+
+    $(".sendTestEmail").click(function(e){
+        $(".bronze_email").val()
+        var email = null
+        if ($("#bronze_email").val() != undefined) {
+            email = $("#bronze_email").val() 
+        } else if ($("#platnium_email").val() != undefined) {
+            email = $("#platnium_email").val() 
+        }
+        sendTestEmail(email)
+
+    })
+
+    
 });
+
+function sendTestEmail(email) {
+    var url = '/ajax/send_test_email/'
+    $.ajax({
+        method: "POST",
+        url: url,
+        data: { email: email }
+    })
+
+}
