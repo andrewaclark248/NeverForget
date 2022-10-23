@@ -4,9 +4,24 @@ class ProfilesController < ApplicationController
 
     def index
         @user = current_user
-        @mfa_enabled = current_login.otp_required_for_login ? "" : "d-none"
+        @mfa_enabled = current_login.otp_required_for_login
+        @mfa_phone_value = current_login.mfa_phone
+        @mfa_email_value = current_login.mfa_email
+        @show_send_option = @mfa_enabled ? true : false
         @mfa_send_option_is_phone = (current_login.mfa_send_option == "phone") ? true : false
-        
+
+        if current_login.mfa_send_option == "phone"
+            @show_phone_field = ""
+            @show_email_field = "d-none"
+        elsif current_login.mfa_send_option == "email"
+            @show_phone_field = "d-none"
+            @show_email_field = ""
+
+        else
+            @show_phone_field = "d-none"
+            @show_email_field = "d-none"
+        end
+
     end
 
     def update_login
@@ -48,7 +63,7 @@ class ProfilesController < ApplicationController
         if !mfa_enabled &&  
             current_login.update(otp_required_for_login: mfa_enabled)
             flash[:notice] = "MFA was set to disabled for your profile!"
-            redirect_to profiles_path  
+            return redirect_to profiles_path  
         end
         mfa_send_option = params[current_user.type.downcase]["mfa_send_option"]
         mfa_email = params[current_user.type.downcase]["mfa_email"]
@@ -63,7 +78,7 @@ class ProfilesController < ApplicationController
         else
             current_login.mfa_phone = mfa_phone
         end
-
+        binding.pry
         if current_login.save
             flash[:notice] = "MFA Options were udpated."
             redirect_to profiles_path  

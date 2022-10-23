@@ -12,10 +12,15 @@
 			<td class="align-middle border-end-0">
 				<div class="row ">
 					<div class="col-1"></div>
-					<div class="col-8 ">
-						<button type="button" class="btn btn-dark " data-bs-toggle="modal" data-bs-target="#mfaModal">
+					<div class="col-3">
+						<span class="fw-bold text-danger"><%= user.login.otp_required_for_login ? "Enabled" : "Disabled" %>
+					</div>
+					<div class="col-4 ">
+						<center>
+						<button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#mfaModal">
 							Configure MFA
-						</button>				
+						</button>
+						</center>				
 					</div>
 				</div>
 			</td>

@@ -79,7 +79,7 @@
                                     </center>
                                 </td>
                             </tr>
-                            <tr class="table-height mfaSendMethod <%= @mfa_enabled%>">
+                            <tr class="table-height mfaSendMethod ">
                                 <td class="align-middle">
                                     <center>
                                         <span class="fw-bold">Get Code Via Phone or Email</span>
@@ -97,7 +97,7 @@
                                     </center>
                                 </td>
                             </tr>
-                            <tr class="table-height mfaEmail <%= @mfa_send_option_is_phone ? "d-none" : "" %>">
+                            <tr class="table-height mfaEmail <%= @show_email_field %>">
                                 <td class="align-middle">
                                     <center>
                                         <span class="fw-bold">Email</span>
@@ -105,11 +105,11 @@
                                 </td>
                                 <td>
                                     <center>
-                                        <%= f.input :mfa_email, label: false, :input_html => { value: @user.login.mfa_email } %>
+                                        <%= f.input :mfa_email, label: false, :input_html => { value: @mfa_email_value } %>
                                     </center>
                                 </td>
                             </tr>
-                            <tr class="table-height mfaPhone <%= @mfa_send_option_is_phone ? "" : "d-none" %>">
+                            <tr class="table-height mfaPhone <%= @show_phone_field  %>">
                                 <td class="align-middle">
                                     <center>
                                         <span class="fw-bold">Phone</span>
@@ -117,7 +117,7 @@
                                 </td>
                                 <td class="align-middle">
                                     <center>
-                                        <%= f.input :mfa_phone, label: false, :input_html => { value: @user.login.mfa_phone } %>
+                                        <%= f.input :mfa_phone, label: false, :input_html => { value: @mfa_phone_value } %>
                                     </center>
                                 </td>
                             </tr>

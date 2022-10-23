@@ -15,16 +15,20 @@ $(document).ready(function(){
         if (!$("#mfaPhone").hasClass("d-none")) {
             $("#mfaPhone").addClass("d-none");
         }
-    }) */
-
+    }) mfaSendMethod
+    
+   
     $('#mfaEnabled').change(function() {
         $(".mfaSendMethod").removeClass("d-none")
     });
     
     $('#mfaDisabled').change(function() {
         $(".mfaSendMethod").addClass("d-none")
-    });
+        $(".mfaEmail").addClass("d-none")
+        $(".mfaPhone").addClass("d-none")
 
+    });*/
+    
     $('#mfaEmail').change(function() {
         $(".mfaEmail").removeClass("d-none")
         $(".mfaPhone").addClass("d-none")
