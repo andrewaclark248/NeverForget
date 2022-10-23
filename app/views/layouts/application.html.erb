@@ -16,6 +16,9 @@
     <%= javascript_include_tag 'password' %>
     <%= javascript_include_tag 'dashboard' %>
 
+    <script src="https://cdn.rawgit.com/kimmobrunfeldt/progressbar.js/0.5.6/dist/progressbar.js"></script>
+    <%= javascript_include_tag 'progressBarUse' %>
+
     <%= stylesheet_link_tag "application" %>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js" integrity="sha512-pHVGpX7F/27yZ0ISY+VVjyULApbDlD0/X0rgGbTqCE7WFW5MezNTWG/dnhtbBuICzsd0WQPgpE4REBLv+UqChw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
@@ -28,7 +31,7 @@
     </div>
     <div style="margin-left: 200px;" class="">
       <div class="" >
-          <div style=" ">
+          <div>
             <%= yield %>
           </div>
       </div>
