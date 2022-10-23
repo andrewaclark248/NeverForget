@@ -123,7 +123,7 @@ Rails.application.configure do
     :address        => ENV['MAILGUN_SMTP_SERVER'],
     :user_name      => ENV['MAILGUN_SMTP_LOGIN'],
     :password       => ENV['MAILGUN_SMTP_PASSWORD'],
-    :domain         => 'never-forget-andrew.herokuapp.com',
+    :domain         => 'safelogins.com',
     :authentication => :plain,
   }
   ActionMailer::Base.delivery_method = :smtp
