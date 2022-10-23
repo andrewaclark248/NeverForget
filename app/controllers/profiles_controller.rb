@@ -12,7 +12,6 @@ class ProfilesController < ApplicationController
         chrome_ext_auto_logoff = params[current_user.type.downcase]["chrome_ext_auto_logoff"]
         enable_tor = (params[current_user.type.downcase]["enable_tor"] == "enable_tor") ? true : false
         email = params[current_user.type.downcase]["email"] 
-        email_change(email)
 
         if current_user.update(first: first, last: last, chrome_ext_auto_logoff: chrome_ext_auto_logoff) && current_login.update(email: email, enable_tor: enable_tor)
             flash[:notice] = "Profile was updated."
@@ -22,11 +21,22 @@ class ProfilesController < ApplicationController
             redirect_to profiles_path  
         end
     end
-    def email_change email
-        if current_login.email != email
-            #SendConfirmationEmail.call(current_login: current_login)
-            #Devise::Mailer.confirmation_instructions(current_login).deliver_now!
 
+    def reset_password
+        password = params[current_user.type.downcase]["password"]
+        password_confirmation = params[current_user.type.downcase]["password_confirmation"]
+        
+        if password != password_confirmation
+            flash[:error] = "Password and Password Confirmation did not match."
+            redirect_to profiles_path 
+        else
+            if current_login.update(password: password)
+                flash[:notice] = "Password was updated."
+                redirect_to profiles_path  
+            else
+                flash[:error] = current_login.errors.full_messages.to_sentence
+                redirect_to profiles_path  
+            end
         end
     end
 
