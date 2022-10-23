@@ -22,16 +22,16 @@
                                 <td class="align-middle">
                                     <center>
                                         <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
-                                            <%= f.radio_button :mfa_enabled, 'mfa_enabled', class: "btn-check", id: "mfaEnabled" %> 
+                                            <%= f.radio_button :mfa_enabled, 'mfa_enabled', class: "btn-check", id: "mfaEnabled", checked: user.login.otp_required_for_login %> 
                                             <label class="btn btn-outline-danger" for="mfaEnabled">Enabled</label>
                                             
-                                            <%= f.radio_button :mfa_enabled, 'mfa_disabled', class: "btn-check", id: "mfaDisabled", checked: true %> 
+                                            <%= f.radio_button :mfa_enabled, 'mfa_disabled', class: "btn-check", id: "mfaDisabled", checked: !user.login.otp_required_for_login %> 
                                             <label class="btn btn-outline-danger" for="mfaDisabled">Disabled</label>
                                         </div>
                                     </center>
                                 </td>
                             </tr>
-                            <tr class="table-height mfaSendMethod">
+                            <tr class="table-height mfaSendMethod <%= @show_send_option %>">
                                 <td class="align-middle">
                                     <center>
                                         <span class="fw-bold">Get Code Via Phone or Email</span>
@@ -49,7 +49,7 @@
                                     </center>
                                 </td>
                             </tr>
-                            <tr class="table-height d-none mfaEmail">
+                            <tr class="table-height d-none mfaEmail <%= @show_email_field %>">
                                 <td class="align-middle">
                                     <center>
                                         <span class="fw-bold">Email</span>
@@ -61,7 +61,7 @@
                                     </center>
                                 </td>
                             </tr>
-                            <tr class="table-height d-none mfaPhone">
+                            <tr class="table-height d-none mfaPhone <%= @show_phone_field %>">
                                 <td class="align-middle">
                                     <center>
                                         <span class="fw-bold">Phone</span>

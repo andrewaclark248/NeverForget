@@ -47,8 +47,6 @@
 
 <%= simple_form_for @user, url: configure_mfa_profile_path(@user), method: :post do |f| %>
 
-
-
     <div class="modal fade" id="mfaModal">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
@@ -72,16 +70,16 @@
                                 <td class="align-middle">
                                     <center>
                                         <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
-                                            <%= f.radio_button :mfa_enabled, 'mfa_enabled', class: "btn-check", id: "mfaEnabled" %> 
+                                            <%= f.radio_button :mfa_enabled, 'mfa_enabled', class: "btn-check", id: "mfaEnabled", checked: @user.login.otp_required_for_login %> 
                                             <label class="btn btn-outline-danger" for="mfaEnabled">Enabled</label>
                                             
-                                            <%= f.radio_button :mfa_enabled, 'mfa_disabled', class: "btn-check", id: "mfaDisabled", checked: true %> 
+                                            <%= f.radio_button :mfa_enabled, 'mfa_disabled', class: "btn-check", id: "mfaDisabled", checked: !@user.login.otp_required_for_login %> 
                                             <label class="btn btn-outline-danger" for="mfaDisabled">Disabled</label>
                                         </div>
                                     </center>
                                 </td>
                             </tr>
-                            <tr class="table-height d-none mfaSendMethod">
+                            <tr class="table-height mfaSendMethod <%= @show_send_option %>">
                                 <td class="align-middle">
                                     <center>
                                         <span class="fw-bold">Get Code Via Phone or Email</span>
@@ -90,16 +88,16 @@
                                 <td>
                                     <center>
                                         <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
-                                            <%= f.radio_button :mfa_send_option, 'phone', class: "btn-check", id: "mfaPhone" %> 
+                                            <%= f.radio_button :mfa_send_option, 'phone', class: "btn-check", id: "mfaPhone", checked: @mfa_send_option_is_phone %> 
                                             <label class="btn btn-outline-danger" for="mfaPhone">Phone</label>
                                             
-                                            <%= f.radio_button :mfa_send_option, 'email', class: "btn-check", id: "mfaEmail" %> 
+                                            <%= f.radio_button :mfa_send_option, 'email', class: "btn-check", id: "mfaEmail", checked: !@mfa_send_option_is_phone %> 
                                             <label class="btn btn-outline-danger" for="mfaEmail">Email</label>
                                         </div>
                                     </center>
                                 </td>
                             </tr>
-                            <tr class="table-height d-none mfaEmail">
+                            <tr class="table-height mfaEmail <%= @show_email_field %>">
                                 <td class="align-middle">
                                     <center>
                                         <span class="fw-bold">Email</span>
@@ -107,11 +105,11 @@
                                 </td>
                                 <td>
                                     <center>
-                                        <%= f.input :mfa_email, label: false %>
+                                        <%= f.input :mfa_email, label: false, :input_html => { value: @mfa_email_value } %>
                                     </center>
                                 </td>
                             </tr>
-                            <tr class="table-height d-none mfaPhone">
+                            <tr class="table-height mfaPhone <%= @show_phone_field  %>">
                                 <td class="align-middle">
                                     <center>
                                         <span class="fw-bold">Phone</span>
@@ -119,7 +117,7 @@
                                 </td>
                                 <td class="align-middle">
                                     <center>
-                                        <%= f.input :mfa_phone, label: false %>
+                                        <%= f.input :mfa_phone, label: false, :input_html => { value: @mfa_phone_value } %>
                                     </center>
                                 </td>
                             </tr>
