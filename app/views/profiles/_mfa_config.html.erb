@@ -22,10 +22,10 @@
                                 <td class="align-middle">
                                     <center>
                                         <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
-                                            <%= f.radio_button :mfa_enabled, 'mfa_enabled', class: "btn-check", id: "mfaEnabled" %> 
+                                            <%= f.radio_button :mfa_enabled, 'mfa_enabled', class: "btn-check", id: "mfaEnabled", checked: user.login.otp_required_for_login %> 
                                             <label class="btn btn-outline-danger" for="mfaEnabled">Enabled</label>
                                             
-                                            <%= f.radio_button :mfa_enabled, 'mfa_disabled', class: "btn-check", id: "mfaDisabled", checked: true %> 
+                                            <%= f.radio_button :mfa_enabled, 'mfa_disabled', class: "btn-check", id: "mfaDisabled", checked: !user.login.otp_required_for_login %> 
                                             <label class="btn btn-outline-danger" for="mfaDisabled">Disabled</label>
                                         </div>
                                     </center>

@@ -4,6 +4,9 @@ class ProfilesController < ApplicationController
 
     def index
         @user = current_user
+        @mfa_enabled = current_login.otp_required_for_login ? "" : "d-none"
+        @mfa_send_option_is_phone = (current_login.mfa_send_option == "phone") ? true : false
+        
     end
 
     def update_login
