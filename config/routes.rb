@@ -15,6 +15,7 @@ Rails.application.routes.draw do
 	get '/ajax/get_new_password', to: 'ajax#get_new_password'
 	get 'ajax/get_password/:id', to: 'ajax#get_password'
 	get 'ajax/get_key/:id', to: 'ajax#get_key'
+	post '/ajax/send_test_email', to: "ajax#send_test_email"
 
 	#CRUD controllers
 	resources :dashboard
@@ -31,7 +32,7 @@ Rails.application.routes.draw do
 		member do
 			post 'update_login', to: "profiles#update_login"
 			post 'configure_mfa', to: "profiles#configure_mfa"
-
+			post 'reset_password', to: "profiles#reset_password"
 		end
 	end
 	resources :phones do

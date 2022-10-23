@@ -103,3 +103,11 @@
    position: relative;
    z-index: 2;
  }
+
+ .errspan3 {    
+   float: right;
+   top: 26px;
+   right: 10px;
+   position: relative;
+   z-index: 2;
+ }

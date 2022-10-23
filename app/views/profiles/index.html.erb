@@ -15,7 +15,7 @@
             </button>
             </h2>
             <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                <%= render "credentials", f: f%>
+                <%= render "credentials", f: f, user: @user%>
             </div>
         </div>
         <div class="accordion-item">
@@ -43,13 +43,14 @@
     </div>
 <% end %>
 
+<%= render "reset_password_modal", user: @user %>
 
 <%= simple_form_for @user, url: configure_mfa_profile_path(@user), method: :post do |f| %>
 
 
 
     <div class="modal fade" id="mfaModal">
-        <div class="modal-dialog">
+        <div class="modal-dialog modal-lg">
             <div class="modal-content">
 
                 <!-- Modal Header -->
