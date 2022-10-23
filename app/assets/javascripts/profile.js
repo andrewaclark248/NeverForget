@@ -1,24 +1,9 @@
 $(document).ready(function(){
 
-    /***
-    $("#mfaPhone").click(function(e){
-        $("#mfaPhone").removeClass("d-none")
 
-        if (!$("#mfaEmail").hasClass("d-none")) {
-            $("#mfaEmail").addClass("d-none");
-        }
-    })
-
-    $("#mfaEmail").click(function(e){
-        $("#mfaEmail").removeClass("d-none")
-
-        if (!$("#mfaPhone").hasClass("d-none")) {
-            $("#mfaPhone").addClass("d-none");
-        }
-    }) mfaSendMethod
-    
-   
     $('#mfaEnabled').change(function() {
+        $(".mfaPhone").addClass("d-none")
+        $(".mfaEmail").removeClass("d-none")
         $(".mfaSendMethod").removeClass("d-none")
     });
     
@@ -27,7 +12,7 @@ $(document).ready(function(){
         $(".mfaEmail").addClass("d-none")
         $(".mfaPhone").addClass("d-none")
 
-    });*/
+    });
     
     $('#mfaEmail').change(function() {
         $(".mfaEmail").removeClass("d-none")

@@ -7,13 +7,13 @@ class ProfilesController < ApplicationController
         @mfa_enabled = current_login.otp_required_for_login
         @mfa_phone_value = current_login.mfa_phone
         @mfa_email_value = current_login.mfa_email
-        @show_send_option = @mfa_enabled ? true : false
+        @show_send_option = @mfa_enabled ? "" : "d-none"
         @mfa_send_option_is_phone = (current_login.mfa_send_option == "phone") ? true : false
 
-        if current_login.mfa_send_option == "phone"
+        if current_login.mfa_send_option == "phone" && @mfa_enabled
             @show_phone_field = ""
             @show_email_field = "d-none"
-        elsif current_login.mfa_send_option == "email"
+        elsif current_login.mfa_send_option == "email" && @mfa_enabled
             @show_phone_field = "d-none"
             @show_email_field = ""
 
@@ -78,7 +78,7 @@ class ProfilesController < ApplicationController
         else
             current_login.mfa_phone = mfa_phone
         end
-        binding.pry
+
         if current_login.save
             flash[:notice] = "MFA Options were udpated."
             redirect_to profiles_path  
