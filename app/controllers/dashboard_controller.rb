@@ -9,6 +9,12 @@ class DashboardController < ApplicationController
 		@same_passwords_count = @same_passwords.count
 		@security_score = Password.get_security_score(current_user)
 		@progress_bar_color = progress_bar_color(@security_score)
+		if current_user.passwords.count == 0
+			@show_security_score = false
+			@password
+		else
+			@show_security_score = true
+		end
 	end
 
 	def progress_bar_color security_score

@@ -18,55 +18,61 @@
   <div class="card-header bg-primary rounded-0 ">
     <span class="fs-5 text-white">Password Security Score</span>
   </div>
-  <div class="row">
-    <div class="col-4">
-      <div class="pt-3 pb-3">
-        <div class="progress mx-auto" data-value='<%= @security_score.to_s %>'>
-          <span class="progress-left">
-            <span class="progress-bar <%= @progress_bar_color %>"></span>
-          </span>
-          <span class="progress-right">
-            <span class="progress-bar <%= @progress_bar_color %>"></span>
-          </span>
-          <div class="progress-value w-100 h-100 rounded-circle d-flex align-items-center justify-content-center">
-            <div class="h2 font-weight-bold"><%= @security_score %><span class="small">%</span></div>
+  <% if @show_security_score %>
+    <div class="row">
+      <div class="col-2"></div>
+      <div class="col-4">
+        <div class=" pt-4">
+          <div class="ldBar label-center" data-value=<%=@security_score%> data-preset="circle" data-stroke-width="8" data-pattern-size="200" style="width: 170px; height: 170px;">
           </div>
-        </div>
-      </div>    
-    </div>
-
-    
-    <div class="col-7">
-      <div class=" ">
-        <div class="row pb-3 pt-5">
-          <div class="col-4">
-            <span class="pe-2 "><small>Number of Weak Passwords:</small></span>
+        </div>    
+      </div>
+      <div class="col-6">
+        <div class=" ">
+          <div class="row pb-3 pt-5">
+            <div class="col-4">
+              <span class="pe-2 "><small>Number of Weak Passwords:</small></span>
+            </div>
+            <div class="col-1">
+              <span>
+                <span class="text-danger fw-bold"><%= @num_weak_passwords %></span>
+              </span>
+            </div>
+            <div class="col-4">
+              <button class="btn btn-dark btn-sm showHideWeakPasswords">Show Weak Passwords</span>
+            </div>
           </div>
-          <div class="col-1">
-            <span>
-              <span class="text-danger fw-bold"><%= @num_weak_passwords %></span>
-            </span>
-          </div>
-          <div class="col-4">
-            <button class="btn btn-dark btn-sm showHideWeakPasswords">Show Weak Passwords</span>
-          </div>
-        </div>
-        <div class="row pb-3">
-          <div class="col-4">
-            <span class="pe-2"><small>No. of Passwords that are the same:</small></span>
-          </div>
-          <div class="col-1">
-            <span>
-              <span class="text-danger fw-bold"><%= @same_passwords_count %></span>
-            </span>
-          </div>
-          <div class="col-4">
-            <button class="btn btn-dark btn-sm showDuplicatePasswords">Show Duplicate Passwords</span>
+          <div class="row pb-3">
+            <div class="col-4">
+              <span class="pe-2"><small>No. of Passwords that are the same:</small></span>
+            </div>
+            <div class="col-1">
+              <span>
+                <span class="text-danger fw-bold"><%= @same_passwords_count %></span>
+              </span>
+            </div>
+            <div class="col-4">
+              <button class="btn btn-dark btn-sm showDuplicatePasswords">Show Duplicate Passwords</span>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
+  <% else %>
+    <div class="row">
+      <div class="col-12"> 
+        <center>
+          <div class="pt-3 pb-3"> 
+            <div class="pb-3">
+              <span class="fw-bold text-dark">Add A Password To See Your Security Score</span><br>
+            </div>
+            <%= link_to "Create Password", new_user_password_path, class: "btn btn-danger" %>
+
+          </div>
+        </center>
+      </div>
+    </div>
+  <% end %>
 </div>
 
 <div class="card rounded-0  weakPasswordsPanel d-none border-0 border-bottom border-dark">
