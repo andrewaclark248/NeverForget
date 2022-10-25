@@ -1,6 +1,6 @@
 class AjaxController < ApplicationController
 
-	#before_action :authenticate_user!
+	before_action :authenticate_user!
 
 	def get_new_password
 		password = Passgen::generate(:length => 25, symbols: true)

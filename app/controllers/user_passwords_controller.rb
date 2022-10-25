@@ -1,5 +1,8 @@
 class UserPasswordsController < ApplicationController
 
+	before_action :authenticate_user!
+
+
 	def index
 		@passwords = current_login.user&.passwords
 		@current_user = current_user
