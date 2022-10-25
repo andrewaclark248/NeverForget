@@ -35,16 +35,6 @@ Rails.application.routes.draw do
 			post 'reset_password', to: "profiles#reset_password"
 		end
 	end
-	resources :phones do
-		member do
-			get 'messages', to: "phones#messages"
-			post 'send_message', to: "phones#send_message"
-			get 'new_message', to: "phones#new_message"
-		end
-		collection do
-			get 'purchase', to: "phones#purchase"
-		end
-	end
 	
 	#stripe webhooks
 	resources :webhooks, only: [:create]

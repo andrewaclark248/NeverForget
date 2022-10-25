@@ -23,21 +23,31 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js" integrity="sha512-pHVGpX7F/27yZ0ISY+VVjyULApbDlD0/X0rgGbTqCE7WFW5MezNTWG/dnhtbBuICzsd0WQPgpE4REBLv+UqChw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
   </head>
-  <body  style="" class="currentPageColor">
-    <%= render 'layouts/sidenav_bar' %>
-    <div style="margin-left: 200px;" class="">
-      <%= render 'layouts/topnav_bar' %>
-      <%= render 'shared/flash' %>
-    </div>
-    <div style="margin-left: 200px;" class="">
-      <div class="" >
-          <div style=" ">
-            <%= yield %>
-          </div>
-      </div>
-    </div>
+  <body  style="" class="">
+
+<div class="w3-sidebar" style="width:25%; background: red;">
+  <a href="#" class="w3-bar-item w3-button">Link 1</a>
+  <a href="#" class="w3-bar-item w3-button">Link 2</a>
+  <a href="#" class="w3-bar-item w3-button">Link 3</a>
+</div>
+
+<div style="margin-left:25%">
+
+<div class="w3-container w3-dark-grey">
+  <h1>My Page</h1>
+</div>
+
+<div class="w3-container">
+  <p>Use the w3-color class to change the background color of the sidebar.</p>
+  <p>If you want an active/current link, to let the user know which page he/she is on, add the w3-color class to one of the links as well.</p>
+</div>
+
+</div>
+
   </body>
 </html>
 
-
-<!-- style="margin-right: 10%; margin-left: 10%;">>
+<style>
+.w3-sidebar{height:100%;width:200px;background-color:#fff;position:fixed!important;z-index:1;overflow:visible;}
+.w3-container,.w3-panel{padding:0.01em 16px}
+</style>

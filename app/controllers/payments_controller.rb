@@ -1,5 +1,6 @@
 class PaymentsController < ApplicationController
 
+    before_action :authenticate_user!
 
     #payments page
     def new

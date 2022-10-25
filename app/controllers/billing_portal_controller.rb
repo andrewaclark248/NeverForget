@@ -1,5 +1,8 @@
 class BillingPortalController < ApplicationController
 
+	before_action :authenticate_user!
+
+
     def index
         portal_session = Stripe::BillingPortal::Session.create({
             customer: current_user.stripe_customer_id,
