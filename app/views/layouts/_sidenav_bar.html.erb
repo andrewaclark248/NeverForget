@@ -4,7 +4,7 @@
 			<% if is_active?(dashboard_index_path) %>
 				<center>
 					<%= link_to dashboard_index_path do %>
-						<div class="btn active-tab" style="width: 85%;">
+						<div class="btn active-tab sideNavBtnWidth">
 							<div class="float-start">
 								<div class="d-inline pe-2">
 									<i class="fa fa-tachometer fa-lg text-dark align-middle" aria-hidden="true" ></i>
@@ -19,7 +19,7 @@
 			<% else %>
 				<center>
 					<%= link_to dashboard_index_path do %>
-						<div class="btn btn-dark" style="width: 85%;">
+						<div class="btn btn-dark sideNavBtnWidth" >
 							<div class="float-start">
 								<div class="d-inline pe-2">
 									<i class="fa fa-tachometer fa-lg text-secondary align-middle" aria-hidden="true" ></i>
@@ -37,7 +37,7 @@
 			<% if is_active?(user_passwords_path) %>
 				<center>
 					<%= link_to user_passwords_path do %>
-						<div class="btn active-tab" style="width: 85%;">
+						<div class="btn active-tab sideNavBtnWidth">
 							<div class="float-start">
 								<div class="d-inline pe-2">
 									<i class="fa fa-lock fa-lg text-dark align-middle" aria-hidden="true" ></i>
@@ -52,7 +52,7 @@
 			<% else %>
 				<center>
 					<%= link_to user_passwords_path do %>
-						<div class="btn btn-dark" style="width: 85%;">
+						<div class="btn btn-dark sideNavBtnWidth" >
 							<div class="float-start">
 								<div class="d-inline pe-2">
 									<i class="fa fa-lock fa-lg text-secondary align-middle" aria-hidden="true" ></i>
@@ -70,7 +70,7 @@
 			<% if is_active?(keys_path) %>
 				<center>
 					<%= link_to keys_path do %>
-						<div class="btn active-tab" style="width: 85%;">
+						<div class="btn active-tab sideNavBtnWidth" >
 							<div class="float-start">
 								<div class="d-inline pe-2">
 									<i class="fa fa-floppy-disk fa-lg text-dark align-middle" aria-hidden="true" ></i>
@@ -85,7 +85,7 @@
 			<% else %>
 				<center>
 					<%= link_to keys_path do %>
-						<div class="btn btn-dark " style="width: 85%;">
+						<div class="btn btn-dark sideNavBtnWidth">
 							<div class="float-start">
 								<div class="d-inline pe-2">
 									<i class="fa fa-floppy-disk fa-lg text-secondary align-middle" aria-hidden="true" ></i>
@@ -103,7 +103,7 @@
 			<% if is_active?(new_payment_path) %>
 				<center>
 					<%= link_to new_payment_path do %>
-						<div class="btn active-tab" style="width: 85%;">
+						<div class="btn active-tab sideNavBtnWidth" >
 							<div class="float-start">
 								<div class="d-inline pe-2">
 									<i class="fa fa-usd fa-lg text-dark align-middle" aria-hidden="true" ></i>
@@ -118,7 +118,7 @@
 			<% else %>
 				<center>
 					<%= link_to new_payment_path do %>
-						<div class="btn btn-dark " style="width: 85%;">
+						<div class="btn btn-dark sideNavBtnWidth">
 							<div class="float-start">
 								<div class="d-inline pe-2">
 									<i class="fa fa-usd fa-lg text-secondary align-middle" aria-hidden="true" ></i>
@@ -136,7 +136,7 @@
 			<% if is_active?(profiles_path) %>
 				<center>
 					<%= link_to profiles_path do %>
-						<div class="btn active-tab" style="width: 85%;">
+						<div class="btn active-tab sideNavBtnWidth" >
 							<div class="float-start">
 								<div class="d-inline pe-2">
 									<i class="fa fa-user fa-lg text-dark align-middle" aria-hidden="true" ></i>
@@ -151,7 +151,7 @@
 			<% else %>
 				<center>
 					<%= link_to profiles_path do %>
-						<div class="btn btn-dark " style="width: 85%;">
+						<div class="btn btn-dark sideNavBtnWidth">
 							<div class="float-start">
 								<div class="d-inline pe-2">
 									<i class="fa fa-user fa-lg text-secondary align-middle" aria-hidden="true" ></i>
@@ -165,11 +165,11 @@
 				</center>
 			<% end %>
 		</li>
-		<li style="bottom: 50px; position: absolute; width: 100%;">
+		<li class="contactUsBtn">
 			<% if is_active?("notactive") %>
 				<center>
 					<%= link_to nil do %>
-						<div class="btn active-tab" style="width: 85%;">
+						<div class="btn active-tab sideNavBtnWidth" >
 							<div class="float-start">
 								<div class="d-inline pe-2">
 									<i class="fa fa-envelope fa-lg text-dark align-middle" aria-hidden="true" ></i>
@@ -184,7 +184,7 @@
 			<% else %>
 				<center>
 					<%= link_to nil do %>
-						<div class="btn btn-dark " style="width: 85%;">
+						<div class="btn btn-dark sideNavBtnWidth" >
 							<div class="float-start">
 								<div class="d-inline pe-2">
 									<i class="fa fa-envelope fa-lg text-secondary align-middle" aria-hidden="true" ></i>

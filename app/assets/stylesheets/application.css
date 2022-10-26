@@ -140,4 +140,24 @@
    display: block;
    text-decoration: none;
  }
+
+ .sideNavBtnWidth {
+   width: 85%;
+ }
+
+ .contactUsBtn {
+   bottom: 50px; 
+   position: absolute; 
+   width: 100%;
+ }
+
+ .sideNavAndFlash {
+   margin-left: 200px;
+ }
+
+ .yieldClass {
+   margin-left: 200px;
+ }
+
+
  /***Sidenav Bar**/
