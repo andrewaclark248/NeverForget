@@ -167,6 +167,10 @@
    margin-bottom: 0px;
  }
 
+.progressBarCircle {
+  width: 170px !important; 
+  height: 170px !important;
+}
 
  /***Sidenav Bar**/
 
@@ -202,3 +206,4 @@
   width: 100%; 
   border-radius: .25rem;
  }
+ 
