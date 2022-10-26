@@ -7,10 +7,10 @@
 Rails.application.config.content_security_policy do |policy|
    #policy.default_src :self#, :https
    #policy.font_src    :self, :https, :data
-   policy.img_src     :self, :https, :data
+   #policy.img_src     :self, :https, :data
    #policy.object_src  :none
-   policy.script_src  :self#, :https
-   policy.style_src   :self, :https, :data
+   policy.script_src  :self, "https://kit.fontawesome.com/8142b3c685.js"
+   policy.style_src   :self, "'sha256-prH0YYPGcaWqMavuVeLAOHuwmEiAxnEbf1hXCiI5DmU='", "'sha256-YiAoY/iLhrv71MsPpBIb+P7dvB9UyTg/BPmcwYMZqAs='", "'sha256-xsFlEpG9vur3YCO/deqeAkrOzIUkSQXfhqW9mOKU48A='", "'sha256-tqj7Ke8qONxsuNQ56V9tmUtGobavuWa9Kgsw/Gr2Zg4='"
    # If you are using webpack-dev-server then specify webpack-dev-server host
    #policy.connect_src :self, :https, "http://localhost:3000", "ws://localhost:3000" if Rails.env.development?
 

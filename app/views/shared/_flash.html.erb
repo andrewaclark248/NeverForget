@@ -1,7 +1,7 @@
 <% if flash.present? %>
       <div class=" pe-4 ps-4 pt-3">
             <% flash.each do |key, value| %>
-                  <div class="alert-dismissible show <%= flash_class(key) %>  border-0 " style="margin-bottom: 0px" role="alert">
+                  <div class="alert-dismissible show <%= flash_class(key) %>  border-0 "  role="alert">
                         <span class="text-white"><%= value %></span>
                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 
