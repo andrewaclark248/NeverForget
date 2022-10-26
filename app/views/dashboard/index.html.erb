@@ -1,11 +1,11 @@
-<div class="row  pb-5 pt-4 bg-white border-bottom border-dark">
+<div class="row  pb-5 pt-4 bg-white border-bottom border-dark pe-3 ps-3">
 	<div class="col-2">
-		<div style="padding-left: 30px;">
+		<div > 
 		  <span class="fs-5 fw-bold">Dashboard</span>
 		</div>
 	</div>
 	<div class="col-10">
-    <div class="float-end " style="padding-right: 50px;">
+    <div class="float-end " >
       <div class="btn-group" role="group" aria-label="Basic outlined example">
         <button type="button" class="btn btn-outline-dark bg-dark text-white">Password Security</button>
         <button type="button" class="btn btn-outline-dark">Account Security</button>
@@ -23,7 +23,7 @@
       <div class="col-2"></div>
       <div class="col-4">
         <div class=" pt-4">
-          <div class="ldBar label-center" data-value=<%=@security_score%> data-preset="circle" data-stroke-width="8" data-pattern-size="200" style="width: 170px; height: 170px;">
+          <div class="ldBar label-center progressBarCircle" data-value=<%=@security_score%> data-preset="circle" data-stroke-width="8" data-pattern-size="200" > 
           </div>
         </div>    
       </div>
@@ -64,7 +64,7 @@
         <center>
           <div class="pt-3 pb-3"> 
             <div class="pb-3">
-              <span class="fw-bold text-dark">Add A Password To See Your Security Score</span><br>
+              <span class="fw-bold text-dark">Add A Password To See Your Securty Score</span><br>
             </div>
             <%= link_to "Create Password", new_user_password_path, class: "btn btn-danger" %>
 
@@ -79,7 +79,7 @@
   <div class="card-header bg-white">
     <span class="fw-bold">Weak Passwords</span>
   </div>
-	<div class="list-group-item" style="background: #E8E8E8;">
+	<div class="list-group-item" > 
 		<div class="row pb-1 pt-1">
 			<div class="col-5">
 				<span class="fw-bold ps-3">Username</span>
@@ -125,7 +125,7 @@
     <span class="fw-bold">Duplicate Passwords</span>
   </div>
 
-	<div class="list-group-item " style="background: #E8E8E8;">
+	<div class="list-group-item " >
 		<div class="row pb-1 pt-1">
 			<div class="col-5">
 				<span class="fw-bold ps-3">Username</span>
