@@ -21,6 +21,8 @@ module NeverForget
     if Rails.env == "development"
       config.hosts << "cffac692ce1f.ngrok.io"
     end
+    config.ssl_options = { hsts: { preload: true, expires: 1.year, subdomains: true } }
+
 
   end
 end
