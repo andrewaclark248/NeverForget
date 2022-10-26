@@ -59,4 +59,13 @@ module ApplicationHelper
         end
     end
 
+    def flash_background
+        is_dashboard = request.url.include?("dashboard")
+        if is_dashboard
+            "bg-white"
+        else
+            "currentPageColor"
+        end
+    end
+
 end

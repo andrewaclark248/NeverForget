@@ -112,6 +112,10 @@
    z-index: 2;
  }
 
+ .flashDiv {
+   margin-bottom: 0px;
+ }
+
  
 /***Sidenav Bar**/
  .sidenav {
@@ -186,3 +190,15 @@
 }
 
  /****************/
+
+ /****login page***/
+ .bodyPadding {
+  padding-left: 10%; 
+  padding-right: 10%;
+ }
+
+ .loginPageImage {
+  height:500px; 
+  width: 100%; 
+  border-radius: .25rem;
+ }
