@@ -165,3 +165,24 @@
 
 
  /***Sidenav Bar**/
+
+
+ /*****password***/
+
+.accordionMargin {
+  margin-bottom: 0px;
+}
+
+.accordionTable {
+  margin-bottom: 0px;
+}
+
+.accordionCol1Width {
+  width:30%;
+}
+
+.addUrlBtnPadding {
+  padding-left: 10%;
+}
+
+ /****************/

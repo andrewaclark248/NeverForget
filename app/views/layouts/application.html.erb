@@ -8,9 +8,9 @@
 
     <%= javascript_include_tag 'manifest' %>
 
-        <%= javascript_include_tag 'jquery' %>
+    <%= javascript_include_tag 'jquery' %>
 
-            <%= javascript_include_tag 'jquery-mask' %>
+    <%= javascript_include_tag 'jquery-mask' %>
 
     <%= stylesheet_link_tag "bootstrap5" %>
 
@@ -26,7 +26,6 @@
     <%= stylesheet_link_tag "application" %>
     <%= stylesheet_link_tag "loading-bar" %>
 
-
   </head>
   <body class="currentPageColor">
     <%= render 'layouts/sidenav_bar' %>
@@ -35,11 +34,7 @@
       <%= render 'shared/flash' %>
     </div>
     <div class="yieldClass" >
-      <div class="" >
-          <div>
-            <%= yield %>
-          </div>
-      </div>
+      <%= yield %>
     </div>
   </body>
 </html>
