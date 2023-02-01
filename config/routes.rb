@@ -11,6 +11,8 @@ Rails.application.routes.draw do
 	#  }
   	# For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
+	get '/login', to: 'home#index'
+
 	#ajax request
 	get '/ajax/get_new_password', to: 'ajax#get_new_password'
 	get 'ajax/get_password/:id', to: 'ajax#get_password'
