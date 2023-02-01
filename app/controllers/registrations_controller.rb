@@ -7,7 +7,11 @@ class RegistrationsController < Devise::RegistrationsController
 
     def new
         super
-        redirect_to new_login_session_path
+    end
+
+    def create
+        super
+        return redirect_to new_login_session_path
     end
     
     def configure_permitted_parameters
