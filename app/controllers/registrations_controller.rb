@@ -21,6 +21,6 @@ class RegistrationsController < Devise::RegistrationsController
     private
 
     def after_sign_up_path_for(resource)
-        "/logins/sign_in"
-      end
+        new_login_registration_path    
+    end
 end
