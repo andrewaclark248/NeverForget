@@ -21,11 +21,6 @@ class User < ApplicationRecord
   GOLD_USER = "Gold"          #3 phones -> $9
   ADAMANTIUM_USER = "Adamantium"  #4 phones -> $11
 
-  BRONZE_USER = "Bronze"
-  SILVER_USER = "Silver"      
-  GOLD_USER = "Gold"      
-
-
 
   SILVER_PRICE = "price_1LbWYwET8lfOTwqGkD94DDnX"
   PLATNIUM_PRICE = "price_1LftW1ET8lfOTwqGjTjZKC7x"

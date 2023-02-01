@@ -8,10 +8,6 @@ class RegistrationsController < Devise::RegistrationsController
     def new
         super
     end
-
-    def create
-        super
-    end
     
     def configure_permitted_parameters
         devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name, :email])
