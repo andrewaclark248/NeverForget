@@ -11,11 +11,16 @@ class RegistrationsController < Devise::RegistrationsController
 
     def create
         super
-        return redirect_to new_login_session_path
     end
     
     def configure_permitted_parameters
         devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name, :email])
         devise_parameter_sanitizer.permit(:account_update, keys: [:first_name, :last_name, :phone, :email])
     end
+
+    private
+
+    def after_sign_up_path_for(resource)
+        "/logins/sign_in"
+      end
 end
