@@ -44,6 +44,8 @@ Rails.application.routes.draw do
 	#chrome extension api
   	namespace :api do
 		namespace :v1 do
+			resources :password
+
     		get 'get_credentials', to: 'credentials#get_credentials'
 			post 'add_credentials', to: 'credentials#add_credentials'
 			post 'chrome_password_turned_off', to: 'credentials#chrome_password_turned_off'
