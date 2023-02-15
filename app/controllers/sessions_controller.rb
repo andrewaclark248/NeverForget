@@ -22,6 +22,7 @@ class SessionsController < Devise::SessionsController
 				return
 			end
 		end
+		binding.pry
   		add_jwt
   	end
 

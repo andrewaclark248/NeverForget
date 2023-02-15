@@ -17,7 +17,6 @@ module Api
 
 		#get auth token and find user
 		@current_login = Login.find_by(auth_token: auth_token)
-		
 		if @current_login.nil?
 			render json: {error: "Invalid Login"}
 		end
