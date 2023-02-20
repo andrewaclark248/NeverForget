@@ -9,7 +9,7 @@ module Api
 
   	def authenticate
 		#get auth token
-		auth_token = request.headers['Authorization'].split(" ").second
+		auth_token = request&.headers['Authorization']&.split(" ")&.second || params["cookie"]
 		if auth_token.nil?
 			render json: {error: "Invalid Login"}
 			return
