@@ -9,7 +9,7 @@ module Api
 
   	def authenticate
 		#get auth token
-		auth_token = request.headers['Authorization'].split(" ").second
+		auth_token = request&.headers['Authorization']&.split(" ")&.second || params["cookie"]
 		if auth_token.nil?
 			render json: {error: "Invalid Login"}
 			return
@@ -17,7 +17,6 @@ module Api
 
 		#get auth token and find user
 		@current_login = Login.find_by(auth_token: auth_token)
-		
 		if @current_login.nil?
 			render json: {error: "Invalid Login"}
 		end

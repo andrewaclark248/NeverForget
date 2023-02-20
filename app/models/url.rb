@@ -9,10 +9,10 @@ class Url < ApplicationRecord
 
   def parse_url
     #remove www
-    self.name = name.sub(/\Awww\./, '')
+    #self.name = name.sub(/\Awww\./, '')
 
     #remove http
-    self.name = name.sub(/^https?\:\/\/(www.)?/,'')
+    #self.name = name.sub(/^https?\:\/\/(www.)?/,'')
   end
 
 end
