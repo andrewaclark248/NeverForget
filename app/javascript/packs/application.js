@@ -12,3 +12,6 @@ Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
 
+console.log("some change")
+
+//asdfasdfd

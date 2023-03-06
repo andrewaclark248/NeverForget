@@ -85,7 +85,11 @@ gem 'devise-security'
 
 gem 'email_address'
 
+gem 'webpacker'
 
+gem 'react_on_rails'
+
+gem 'mini_racer'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

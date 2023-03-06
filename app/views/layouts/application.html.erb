@@ -26,6 +26,8 @@
     <%= stylesheet_link_tag "application" %>
     <%= stylesheet_link_tag "loading-bar" %>
 
+    <%= javascript_pack_tag 'application' %>
+
   </head>
   <body class="currentPageColor">
     <%= render 'layouts/sidenav_bar' %>
@@ -33,10 +35,12 @@
       <%= render 'layouts/topnav_bar' %>
       <%= render 'shared/flash' %>
     </div>
-    <div class="yieldClass" >
+    <div class="yieldClass" id="root">
       <%= yield %>
     </div>
   </body>
+      <%= javascript_pack_tag 'Root' %>
+
 </html>
 
 
