@@ -6,7 +6,7 @@ import Login from './../components/Login'
 function LoginRoot() {
     return(
         <div>
-            some text
+            <Login/>
         </div>
 
     );
