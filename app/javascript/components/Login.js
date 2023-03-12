@@ -1,12 +1,20 @@
 import React, { Component } from 'react'
+import { Box } from '@mui/material';
 
 
 class Login extends Component {
   render(){
     return(
-      <div style={{top: 100, left: 100, color: "black"}}> 
-        Some text displayed
-      </div>
+        <div>
+                    <Box
+            component="main"
+            sx={{
+            display: 'flex',
+            flex: '1 1 auto'
+        }}
+        >
+        </Box>
+        </div>
 
     )
   }

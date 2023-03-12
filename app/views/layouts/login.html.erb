@@ -6,63 +6,13 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     
-    <%= javascript_include_tag 'fontawesome-kit' %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'bootstrap5' %>
-
-    <%= stylesheet_link_tag "bootstrap5" %>
-
-
-
-    <script src="https://kit.fontawesome.com/8142b3c685.js" crossorigin="anonymous"></script>
-
-
-    <%= javascript_include_tag 'manifest' %>
-    <%= javascript_include_tag 'login' %>
-    <%= stylesheet_link_tag "application" %>
 
 
 
   </head>
-  <body class="my-class site-background bodyPadding" id="root">
-    <div class="container-fluid my-class" >
-      <div class="row pb-5 pt-5">
-        <center><h1>SafeLogins</h1> </center>
-      </div>
-      <div class="card" >
-        <div class="row g-0">
-          <div class="col-6">
-            <%= image_tag "lock", class: 'loginPageImage' %>
-          </div>
-          <div class="col-6">
-            <div class="card-body h-100">
-              <div class="row h-100">
-                <div class="col-1">
-                </div>
-                <div class="col-10">
-                  <% flash.each do |key, value| %>
-                    <%= content_tag :div, value, class: "alert alert-danger alert-dismissible show bg-danger bg-gradient text-dark" %>
-                  <% end %>
-
-                  <%= yield %>
-                </div>
-                <div class="col-1">
-                </div>
-              </div>
-            </div>
-          </div>
-
-
-        </div>
-      </div>
-
-
-
-
-
-
-    </div>
+  <body class="" id="root">
+    <%= javascript_pack_tag 'LoginRoot' %>
   </body>
 
 </html>
