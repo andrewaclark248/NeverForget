@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import { Box, Grid, Paper } from '@mui/material';
 import SecurityPic from './../../assets/images/security-image.png'
+import LoginForm from './LoginForm.js'
 
-class Login extends Component {
-  render(){
+function Login() {
     return(
         <div>
         <Box
@@ -21,7 +21,6 @@ class Login extends Component {
               height: "100%" 
             }}
           >
-
             <Grid
               item
               xs={12}
@@ -30,7 +29,7 @@ class Login extends Component {
                 backgroundColor: 'background.paper',
               }}
             >
-              <span>change this</span>
+              <LoginForm />
             </Grid>
             <Grid
               item
@@ -44,11 +43,11 @@ class Login extends Component {
               }}
             >
 
-            <img
-              alt=""
-              src={SecurityPic}
-              style={{ height: "100%", width: "100%", objectFit: "contain"}}
-            />
+              <img
+                alt=""
+                src={SecurityPic}
+                style={{ height: "100%", width: "100%", objectFit: "contain"}}
+              />
 
             </Grid>
 
@@ -61,7 +60,6 @@ class Login extends Component {
         </div>
 
     )
-  }
 }
 
 
