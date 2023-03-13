@@ -12,6 +12,7 @@ class SessionsController < Devise::SessionsController
 	end
 
   	def create
+		binding.pry
   		super
 		if (Rails.env.production? || Rails.env.staging?) && current_login.enable_tor
 			result = BlockTorIpAddress.call(ip_address: request.remote_ip)
