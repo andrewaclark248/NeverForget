@@ -16,7 +16,7 @@ function LoginForm() {
                 }}
             >
                 <form
-                    onSubmit={() => handleSubmit(email, password)}
+                    onSubmit={(e) => handleSubmit(email, password, e)}
                 >
                     <Stack spacing={3}>
                     <TextField
@@ -49,10 +49,11 @@ function LoginForm() {
     );
 }
 
-function handleSubmit(email, password) {
+async function handleSubmit(email, password, event) {
     console.log("email = " + email)
     console.log("password = " + password)
-
+    console.log("event = ", event)
+    event.preventDefault();
 
     let body = {
         login: {
@@ -67,7 +68,16 @@ function handleSubmit(email, password) {
             body: JSON.stringify(body),
         }
       )
-    .then(response => console.log("response", response));
+    .then((response) => {
+        let result = response.status
+        if (result == 200) {
+            console.log("wass success though")
+            window.location.href = "http://localhost:3000/dashboard";
+        }
+
+    }).catch((e) => {
+        console.log("error", e)
+    });
     
 
 }
