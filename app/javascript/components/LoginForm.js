@@ -55,6 +55,9 @@ async function handleSubmit(email, password, event) {
     console.log("event = ", event)
     event.preventDefault();
 
+
+    let loginUrl = (process.env.NODE_ENV == "development" ? process.env.LOGIN_REDIRECT_URL_DEVELOPMENT : process.env.LOGIN_REDIRECT_URL_STAGING)
+
     let body = {
         login: {
             email: email,
@@ -72,7 +75,7 @@ async function handleSubmit(email, password, event) {
         let result = response.status
         if (result == 200) {
             console.log("wass success though")
-            window.location.href = "http://localhost:3000/dashboard";
+            window.location.href = loginUrl;
         }
 
     }).catch((e) => {

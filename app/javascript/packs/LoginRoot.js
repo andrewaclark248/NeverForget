@@ -1,7 +1,9 @@
+require('dotenv').config()
+
 import React from 'react'
 import ReactDOM from "react-dom";
-
 import Login from './../components/Login'
+
 
 function LoginRoot() {
     return(
