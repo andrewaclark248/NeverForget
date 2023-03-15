@@ -74,8 +74,10 @@ async function handleSubmit(email, password, event) {
     .then((response) => {
         let result = response.status
         if (result == 200) {
-            console.log("wass success though")
-            window.location.href = loginUrl;
+            console.log("wass success though", loginUrl)
+            window.location.replace(loginUrl);
+
+            //window.location.href = loginUrl;
         }
 
     }).catch((e) => {
