@@ -1,28 +1,24 @@
-// Run this example by adding <%= javascript_pack_tag 'hello_react' %> to the head of your layout file,
-// like app/views/layouts/application.html.erb. All it does is render <div>Hello React</div> at the bottom
-// of the page.
+require('dotenv').config()
 
 import React from 'react'
-import ReactDOM from 'react-dom/client'
-import PropTypes from 'prop-types'
-import Login from '../components/Login'
+import ReactDOM from "react-dom";
+import Login from './../components/Login'
 
-/** 
-const Hello = props => (
-  <div>Hello {props.name}!</div>
-)
 
-Hello.defaultProps = {
-  name: 'David'
+function LoginRoot() {
+    return(
+        <div>
+            <Login/>
+        </div>
+
+    );
 }
 
-Hello.propTypes = {
-  name: PropTypes.string
-}***/
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(
-  <React.StrictMode>
-    <Login />
-  </React.StrictMode>
-);
+const container = document.getElementById('root');
+
+// Create a root.
+const root = ReactDOM.createRoot(container);
+
+// Initial render
+root.render(<LoginRoot />);

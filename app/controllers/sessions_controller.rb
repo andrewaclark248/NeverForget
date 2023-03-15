@@ -1,6 +1,8 @@
 require 'jwt'
 
 class SessionsController < Devise::SessionsController
+	skip_before_action :verify_authenticity_token
+
 	layout "login"
 	include AuthenticateWithOtpTwoFactor
 
@@ -12,17 +14,37 @@ class SessionsController < Devise::SessionsController
 	end
 
   	def create
-  		super
-		if (Rails.env.production? || Rails.env.staging?) && current_login.enable_tor
-			result = BlockTorIpAddress.call(ip_address: request.remote_ip)
-			cookies["_never_forget_session"] = ""
-			if result.failure? 
-				flash[:error] = "You have logged in from a invalid device. Please adjust your settings if you would like to fix this."
-				redirect_to root_path
-				return
-			end
+		#if (Rails.env.production? || Rails.env.staging?) && current_login.enable_tor
+		#	result = BlockTorIpAddress.call(ip_address: request.remote_ip)
+		#	cookies["_never_forget_session"] = ""
+		#	if result.failure? 
+		#		flash[:error] = "You have logged in from a invalid device. Please adjust your settings if you would like to fix this."
+		#		redirect_to root_path
+		#		return
+		#	end
+		#end
+		puts "request received 200000"
+
+		user = Login.find_for_authentication(email: params[:login][:email])
+		
+		result = user.valid_password?(params[:login][:password])
+
+
+		if current_login.present?
+		#	add_jwt
+		#	puts "user created hahahaah"
+
+			#render status: 200, json: { success: true }
+
+			redirect_to dashboard_index_path
+		else
+			redirect_to new_login_session_path
+
+		#	puts "bad request"
+
+			#render status: :unauthorized, json: { success: false }
 		end
-  		add_jwt
+	
   	end
 
   	def add_jwt
