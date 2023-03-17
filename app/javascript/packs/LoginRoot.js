@@ -3,12 +3,26 @@ require('dotenv').config()
 import React from 'react'
 import ReactDOM from "react-dom";
 import Login from './../components/Login'
+import { ThemeProvider, createTheme } from "@mui/material/styles";
 
+const theme = createTheme({
+    palette: {
+      primary: {
+        main: "#d32f2f"
+      },
+      secondary: {
+        main: "#0288d1"
+      }
+    }
+  });
 
 function LoginRoot() {
     return(
         <div>
-            <Login/>
+            <ThemeProvider theme={theme}>
+                <Login/>
+            </ThemeProvider>
+
         </div>
 
     );

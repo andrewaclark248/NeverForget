@@ -1,6 +1,6 @@
 import React, { Component, useState } from 'react'
 
-import { TextField, Stack, Button, Box } from '@mui/material';
+import { TextField, Stack, Button, Box, Grid } from '@mui/material';
 
 
 
@@ -39,11 +39,41 @@ function LoginForm() {
                         type="submit"
                         variant="contained"
                     >
-                    Continue
+                        Login
                     </Button>
-                </form>           
+                </form>   
+                <Box sx={{pt: 4}}>
+                    <Grid
+                        container
+                    >
+                        <Grid
+                            item
+                            xs={12}
+                            md={6}
+                            lg={6}
+                            sx={{
+                                backgroundColor: 'background.paper',
+                                pr: 1
+                            }}
+                        >
+                            <Button variant="outlined" fullWidth={true} color="primary">Forgot Your Password?</Button>
+                        </Grid>
+                        <Grid
+                            item
+                            xs={12}
+                            md={6}
+                            lg={6}
+                            sx={{
+                                backgroundColor: 'background.paper',
+                                pl: 1
+                            }}
+                        >
+                            <Button variant="outlined" fullWidth={true}>Register</Button>
+                        </Grid>
+                    </Grid>
+                </Box>
+        
             </Box>
-
 
         </React.Fragment>
     );
