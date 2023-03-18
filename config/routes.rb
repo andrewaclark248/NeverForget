@@ -2,16 +2,15 @@ Rails.application.routes.draw do
 
 	root to: 'home#index'
 
-  	devise_for :logins, controllers: {sessions: "sessions", registrations: 'registrations' }#,
-	  #:path => '',
-	  #:path_names => {
-	#	sign_in: 'login',
-	#	sign_out: 'logout',
-	#	sign_up: 'register'
-	#  }
-  	# For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  	devise_for :logins, controllers: {sessions: "sessions", registrations: 'registrations' }, :path_names => { :sign_in => ""}
 
-	get '/logins', to: 'home#index'
+	#devise_scope :logins do
+	#	get "login" => "devise/sessions#new"
+		#get "/register" => "devise/registrations#new"
+	#end  
+
+
+	#get '/logins', to: 'home#index'
 
 	#ajax request
 	get '/ajax/get_new_password', to: 'ajax#get_new_password'
