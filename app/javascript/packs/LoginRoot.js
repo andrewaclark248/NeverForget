@@ -2,7 +2,7 @@ require('dotenv').config()
 
 import React from 'react'
 import ReactDOM from "react-dom";
-import Login from './../components/Login'
+import LoginLayout from '../components/LoginLayout'
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import LoginForm from './../components/LoginForm'
@@ -25,7 +25,7 @@ function LoginRoot() {
 
                 <BrowserRouter>
                     <Routes>
-                        <Route path="/" element={<Login />}>
+                        <Route path="/" element={<LoginLayout />}>
                             <Route index path="logins" element={<LoginForm />} />
                         </Route>
                     </Routes>
