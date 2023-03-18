@@ -4,6 +4,8 @@ import React from 'react'
 import ReactDOM from "react-dom";
 import Login from './../components/Login'
 import { ThemeProvider, createTheme } from "@mui/material/styles";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import LoginForm from './../components/LoginForm'
 
 const theme = createTheme({
     palette: {
@@ -18,12 +20,21 @@ const theme = createTheme({
 
 function LoginRoot() {
     return(
-        <div>
+        <React.Fragment>
             <ThemeProvider theme={theme}>
-                <Login/>
+
+                <BrowserRouter>
+                    <Routes>
+                        <Route path="/" element={<Login />}>
+                            <Route index path="logins" element={<LoginForm />} />
+                        </Route>
+                    </Routes>
+                </BrowserRouter>
             </ThemeProvider>
 
-        </div>
+
+
+        </React.Fragment>
 
     );
 }

@@ -3,7 +3,7 @@ import { Box, Grid, Paper } from '@mui/material';
 import SecurityPic from './../../assets/images/security-image.png'
 import LoginForm from './LoginForm.js'
 
-function Login() {
+function Login({children}) {
     return(
         <div>
         <Box
@@ -29,6 +29,7 @@ function Login() {
                 backgroundColor: 'background.paper',
               }}
             >
+              {children}
               <LoginForm />
             </Grid>
             <Grid
