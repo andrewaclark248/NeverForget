@@ -1,10 +1,13 @@
 import React, { Component, useState } from 'react'
 
 import { TextField, Stack, Button, Box, Grid } from '@mui/material';
+import { Link } from "react-router-dom";
 
 
 
 function LoginForm() {
+    console.log("went here to logn form")
+
     let [email, setEmail] = useState("");
     let [password, setPassword] = useState("");
     return (
@@ -56,7 +59,8 @@ function LoginForm() {
                                 pr: 1
                             }}
                         >
-                            <Button variant="outlined" fullWidth={true} color="primary">Forgot Your Password?</Button>
+                            <Link to="/new-password">Forgot Your Passwordddd?</Link>
+
                         </Grid>
                         <Grid
                             item
@@ -68,7 +72,7 @@ function LoginForm() {
                                 pl: 1
                             }}
                         >
-                            <Button variant="outlined" fullWidth={true}>Register</Button>
+                            <Button variant="outlined" fullWidth={true} >Register</Button>
                         </Grid>
                     </Grid>
                 </Box>

@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
 	root to: 'home#index'
 
-  	devise_for :logins, controllers: {sessions: "sessions", registrations: 'registrations' }, :path_names => { :sign_in => ""}
+  	devise_for :logins, controllers: {sessions: "sessions", registrations: 'registrations' }, :path_names => { :sign_in => "" }
 
 	#devise_scope :logins do
 	#	get "login" => "devise/sessions#new"

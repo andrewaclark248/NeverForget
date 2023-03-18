@@ -6,6 +6,8 @@ import LoginLayout from '../components/LoginLayout'
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import LoginForm from './../components/LoginForm'
+import ResetPassword from './../components/ResetPassword'
+//import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
 const theme = createTheme({
     palette: {
@@ -21,18 +23,13 @@ const theme = createTheme({
 function LoginRoot() {
     return(
         <React.Fragment>
-            <ThemeProvider theme={theme}>
 
                 <BrowserRouter>
                     <Routes>
-                        <Route path="/" element={<LoginLayout />}>
-                            <Route index path="logins" element={<LoginForm />} />
-                        </Route>
+                        <Route index path="/logins" element={<LoginForm />} />
+                        <Route path="/new-password" element={<ResetPassword />} />
                     </Routes>
                 </BrowserRouter>
-            </ThemeProvider>
-
-
 
         </React.Fragment>
 
