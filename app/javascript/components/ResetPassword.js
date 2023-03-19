@@ -5,9 +5,7 @@ import { Link } from "react-router-dom";
 
 function ResetPassword() {
     console.log("went here borther man douhhhh")
-    let [firstName, setFirstName] = useState("");
-    let [lastName, setLastName] = useState("");
-    let [password, setPassword] = useState("");
+    let [email, setEmail] = useState("");
     let [confirmPassword, setConfirmPassword] = useState("")
 
     return (
@@ -23,7 +21,7 @@ function ResetPassword() {
                     Reset Password
                 </Typography>
                 <form
-                    onSubmit={(e) => handleSubmit(firstName, lastName, password, confirmPassword, e)}
+                    onSubmit={(e) => handleSubmit(email, e)}
                 >
                     <Stack spacing={3}>
                         <TextField
@@ -53,19 +51,16 @@ function ResetPassword() {
 
 //firstName, lastName, password, confirmPassword, e
 
-async function handleSubmit(firstName, lastName, password, confirmPassword, event) {
+async function handleSubmit(email, event) {
     event.preventDefault();
     let loginUrl = (process.env.NODE_ENV == "development" ? process.env.LOGIN_REDIRECT_URL_DEVELOPMENT : process.env.LOGIN_REDIRECT_URL_STAGING)
 
     let body = {
         login: {
-            firstName: firstName,
-            lastName: lastName,
-            password: password, 
-            confirmPassword: confirmPassword
+            email: email
         }
     }
-    fetch('/logins/password/new',
+    fetch('/logins/password',
         {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -73,13 +68,13 @@ async function handleSubmit(firstName, lastName, password, confirmPassword, even
         }
       )
     .then((response) => {
-        let result = response.status
-        if (result == 200) {
-            console.log("wass success though", loginUrl)
-            window.location.replace(loginUrl);
+        //let result = response.status
+       // if (result == 200) {
+            console.log("wass success though", response)
+            //window.location.replace(loginUrl);
 
             //window.location.href = loginUrl;
-        }
+        //}
 
     }).catch((e) => {
         console.log("error", e)
