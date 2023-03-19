@@ -5,4 +5,8 @@ class PasswordsController < Devise::PasswordsController
     def new
         super
     end
+
+    def create
+        binding.pry
+    end
 end

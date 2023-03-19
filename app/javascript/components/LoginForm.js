@@ -1,6 +1,6 @@
 import React, { Component, useState } from 'react'
 
-import { TextField, Stack, Button, Box, Grid } from '@mui/material';
+import { TextField, Stack, Button, Box, Grid, Typography } from '@mui/material';
 
 
 
@@ -12,9 +12,12 @@ function LoginForm() {
             <Box
                 sx={{
                     px: 3,
-                    py: '300px'
+                    py: '100px'
                 }}
             >
+                <Typography variant="h3" component="h3" align="center" sx={{pb: 4}}>
+                    Login
+                </Typography>
                 <form
                     onSubmit={(e) => handleSubmit(email, password, e)}
                 >
@@ -39,7 +42,7 @@ function LoginForm() {
                         type="submit"
                         variant="contained"
                     >
-                    Continue
+                        Sign In
                     </Button>
                 </form>  
 
@@ -57,7 +60,7 @@ function LoginForm() {
                                 pr: 1
                             }}
                         >
-                            <Button variant="outlined" fullWidth={true} href="/logins/password/new">Forgot Your Passwordddd?</Button>
+                            <Button variant="outlined" fullWidth={true} href="/logins/password/new">Forgot Your Password?</Button>
 
                         </Grid>
                         <Grid
@@ -70,7 +73,7 @@ function LoginForm() {
                                 pl: 1
                             }}
                         >
-                            <Button variant="outlined" fullWidth={true} >Register</Button>
+                            <Button variant="outlined" fullWidth={true} href="/logins/sign_up">Register</Button>
                         </Grid>
                     </Grid>
                 </Box>
