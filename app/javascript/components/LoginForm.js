@@ -57,7 +57,7 @@ function LoginForm() {
                                 pr: 1
                             }}
                         >
-                            <Button variant="outlined" fullWidth={true} >Forgot Your Passwordddd?</Button>
+                            <Button variant="outlined" fullWidth={true} href="/logins/password/new">Forgot Your Passwordddd?</Button>
 
                         </Grid>
                         <Grid
