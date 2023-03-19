@@ -3,15 +3,19 @@ import LoginLayout from '../components/LoginLayout'
 import LoginForm from '../components/LoginForm'
 import ReactDOM from "react-dom";
 import { theme } from '../components/CustomStyle'
+import { ThemeProvider, createTheme } from "@mui/material/styles";
 
 
 function LoginPage() {
 
     return (
         <React.Fragment>
-            <LoginLayout>
-                <LoginForm />
-            </LoginLayout>
+            <ThemeProvider theme={theme} >
+                <LoginLayout>
+                    <LoginForm />
+                </LoginLayout>
+            </ThemeProvider>
+
         </React.Fragment>
 
     )
