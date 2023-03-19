@@ -3,9 +3,9 @@ import { TextField, Stack, Button, Box, Grid, Typography } from '@mui/material';
 
 
 function RegisterUser() {
-    console.log("register user compnoent")
     let [firstName, setFirstName] = useState("");
     let [lastName, setLastName] = useState("");
+    let [email, setEmail] = useState("");
     let [password, setPassword] = useState("");
     let [confirmPassword, setConfirmPassword] = useState("")
 
@@ -22,7 +22,7 @@ function RegisterUser() {
                     Create An Account
                 </Typography>
                 <form
-                    onSubmit={(e) => handleSubmit(firstName, lastName, password, confirmPassword, e)}
+                    onSubmit={(e) => handleSubmit(firstName, lastName, email, password, confirmPassword, e)}
                 >
                     <Stack spacing={3}>
                         <TextField
@@ -67,5 +67,44 @@ function RegisterUser() {
         </React.Fragment>
     );
 }
+
+async function handleSubmit(firstName, lastName, email, password, confirmPassword, event) {
+    console.log("email = " + email)
+    console.log("password = " + password)
+    console.log("event = ", event)
+    event.preventDefault();
+
+
+    let loginUrl = (process.env.NODE_ENV == "development" ? process.env.LOGIN_REDIRECT_URL_DEVELOPMENT : process.env.LOGIN_REDIRECT_URL_STAGING)
+
+    let body = {
+        login: {
+            email: email,
+            first_name: firstName,
+            last_name: lastName,
+            password: password
+        }
+    }
+    fetch('/logins',
+        {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(body),
+        }
+      )
+    .then((response) => {
+        //let result = response.status
+        console.log("wass success though", response)
+        window.location.replace(loginUrl)
+
+        //window.location.href = loginUrl;
+
+    }).catch((e) => {
+        console.log("error", e)
+    });
+    
+
+}
+
 
 export default RegisterUser;
