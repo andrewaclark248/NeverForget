@@ -1,11 +1,12 @@
 import React, { Component, useState } from 'react'
-import { TextField, Stack, Button, Box, Grid, Typography } from '@mui/material';
+import { TextField, Stack, Button, Box, Grid, Typography, Alert } from '@mui/material';
 import { Link } from "react-router-dom";
 
 
 function ResetPassword() {
     console.log("went here borther man douhhhh")
     let [email, setEmail] = useState("");
+    let [showAlert, setShowAlert] = useState(false);
     let [confirmPassword, setConfirmPassword] = useState("")
 
     return (
@@ -17,11 +18,14 @@ function ResetPassword() {
                     py: '100px'
                 }}
             >
+                {showAlert && 
+                    <Alert onClose={() => {setShowAlert(false)}}>We just sent you reset password instructions!</Alert>
+                }
                 <Typography variant="h4" component="h4" align="center" sx={{pb: 4}}>
                     Reset Password
                 </Typography>
                 <form
-                    onSubmit={(e) => handleSubmit(email, e)}
+                    onSubmit={(e) => handleSubmit(email, e, setShowAlert)}
                 >
                     <Stack spacing={3}>
                         <TextField
@@ -51,7 +55,7 @@ function ResetPassword() {
 
 //firstName, lastName, password, confirmPassword, e
 
-async function handleSubmit(email, event) {
+async function handleSubmit(email, event, setShowAlert) {
     event.preventDefault();
     let loginUrl = (process.env.NODE_ENV == "development" ? process.env.LOGIN_REDIRECT_URL_DEVELOPMENT : process.env.LOGIN_REDIRECT_URL_STAGING)
 
@@ -71,6 +75,7 @@ async function handleSubmit(email, event) {
         //let result = response.status
        // if (result == 200) {
             console.log("wass success though", response)
+            setShowAlert(true)
             //window.location.replace(loginUrl);
 
             //window.location.href = loginUrl;
