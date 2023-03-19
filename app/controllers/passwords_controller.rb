@@ -3,7 +3,6 @@ class PasswordsController < Devise::PasswordsController
 
 
     def new
-        binding.pry
         super
     end
 end
