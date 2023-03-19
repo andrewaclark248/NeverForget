@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import LoginLayout from '../components/LoginLayout'
 import LoginForm from '../components/LoginForm'
 import ReactDOM from "react-dom";
+import { theme } from '../components/CustomStyle'
+
 
 function LoginPage() {
 
