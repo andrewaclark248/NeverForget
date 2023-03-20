@@ -23,11 +23,11 @@ class App extends Component {
         <CssBaseline />
         <AppBar
           position="fixed"
-          sx={{ height: "64px" }}
+          sx={{ height: "64px", backgroundColor: "#212121" }}
         >
           <Toolbar>
-            <Typography variant="h6" noWrap component="div">
-              Permanent drawer
+            <Typography variant="h6" noWrap component="div" sx={{ fontWeight: 'bold' }}>
+              Safe Logins
             </Typography>
           </Toolbar>
         </AppBar>
@@ -46,8 +46,6 @@ class App extends Component {
           variant="permanent"
           anchor="left"
         >
-          <Toolbar />
-          <Divider />
           <List>
             {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
               <ListItem key={text} disablePadding>
