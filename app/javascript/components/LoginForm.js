@@ -1,6 +1,6 @@
 import React, { Component, useState } from 'react'
 
-import { TextField, Stack, Button, Box } from '@mui/material';
+import { TextField, Stack, Button, Box, Grid, Typography } from '@mui/material';
 
 
 
@@ -12,9 +12,12 @@ function LoginForm() {
             <Box
                 sx={{
                     px: 3,
-                    py: '300px'
+                    py: '100px'
                 }}
             >
+                <Typography variant="h3" component="h3" align="center" sx={{pb: 4}}>
+                    Login
+                </Typography>
                 <form
                     onSubmit={(e) => handleSubmit(email, password, e)}
                 >
@@ -39,9 +42,43 @@ function LoginForm() {
                         type="submit"
                         variant="contained"
                     >
-                    Continue
+                        Sign In
                     </Button>
-                </form>           
+                </form>  
+
+                <Box sx={{pt: 4}}>
+                    <Grid
+                        container
+                    >
+                        <Grid
+                            item
+                            xs={12}
+                            md={6}
+                            lg={6}
+                            sx={{
+                                backgroundColor: 'background.paper',
+                                pr: 1
+                            }}
+                        >
+                            <Button variant="outlined" fullWidth={true} href="/logins/password/new">Forgot Your Password?</Button>
+
+                        </Grid>
+                        <Grid
+                            item
+                            xs={12}
+                            md={6}
+                            lg={6}
+                            sx={{
+                                backgroundColor: 'background.paper',
+                                pl: 1
+                            }}
+                        >
+                            <Button variant="outlined" fullWidth={true} href="/logins/sign_up">Register</Button>
+                        </Grid>
+                    </Grid>
+                </Box>
+
+
             </Box>
 
 
