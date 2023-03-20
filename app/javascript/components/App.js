@@ -23,7 +23,7 @@ class App extends Component {
         <CssBaseline />
         <AppBar
           position="fixed"
-          sx={{ height: "64px", backgroundColor: "#212121" }}
+          sx={{ height: "64px", backgroundColor: "#b71c1c" }}
         >
           <Toolbar>
             <Typography variant="h6" noWrap component="div" sx={{ fontWeight: 'bold' }}>
@@ -40,7 +40,6 @@ class App extends Component {
               width: drawerWidth,
               boxSizing: 'border-box',
               mt: '64px'
-
             }
           }}
           variant="permanent"
@@ -53,7 +52,7 @@ class App extends Component {
                   <ListItemIcon>
                     {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
                   </ListItemIcon>
-                  <ListItemText primary={text} />
+                  <ListItemText primary={text}  />
                 </ListItemButton>
               </ListItem>
             ))}
