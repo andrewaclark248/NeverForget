@@ -28,15 +28,9 @@
 
 
   </head>
-  <body class="currentPageColor">
-    <%= render 'layouts/sidenav_bar' %>
-    <div class="yieldClass" >
-      <%= render 'layouts/topnav_bar' %>
-      <%= render 'shared/flash' %>
-    </div>
-    <div class="yieldClass" id="root">
+  <body class="currentPageColor" id="root">
+      <%= javascript_pack_tag "AppRoot" %>
       <%= yield %>
-    </div>
   </body>
 
 </html>
