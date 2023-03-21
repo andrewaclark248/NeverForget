@@ -16,8 +16,13 @@ import MailIcon from '@mui/icons-material/Mail';
 
 const drawerWidth = 240;
 
-class App extends Component {
-  render(){
+function App() {
+    let linkUrl = {
+      Dashboard: "/dashboard",
+      Passwords: "/user_passwords",
+      Profile: "/profiles"
+    }
+
     return(
       <Box sx={{ display: 'flex' }}>
         <CssBaseline />
@@ -48,7 +53,7 @@ class App extends Component {
           <List>
             {['Dashboard', 'Passwords', 'Keys', 'Profile'].map((text, index) => (
               <ListItem key={text} disablePadding>
-                <ListItemButton>
+                <ListItemButton href={linkUrl[text]}>
                   <ListItemIcon>
                     {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
                   </ListItemIcon>
@@ -76,8 +81,8 @@ class App extends Component {
         </Drawer>
       </Box>
 
-    )
-  }
+    );
+  
 }
 
 
