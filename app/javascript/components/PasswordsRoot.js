@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
-import App from '../components/App'
-import Passwords from '../components/Passwords'
+import App from './App'
+import Passwords from './Passwords'
 import ReactDOM from "react-dom";
-import { theme } from '../components/CustomStyle'
+import { theme } from './CustomStyle'
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 
 
@@ -11,9 +11,11 @@ function PasswordsRoot() {
     return (
         <React.Fragment>
             <ThemeProvider theme={theme} >
-                <Passwords />
-            </ThemeProvider>
+                <App>
+                    <Passwords />
 
+                </App>
+            </ThemeProvider>
         </React.Fragment>
 
     )

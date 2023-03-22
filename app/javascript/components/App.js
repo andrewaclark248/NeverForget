@@ -13,17 +13,29 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
+import { makeStyles } from "@material-ui/core/styles";
 
 const drawerWidth = 240;
 
-function App() {
+
+function App(props) {
     let linkUrl = {
       Dashboard: "/dashboard",
       Passwords: "/user_passwords",
       Profile: "/profiles"
     }
 
+    let myLink = {
+      color: '#fff',
+      ':visited': {
+         color: 'purple'
+      }
+    }
+
+
+
     return(
+
       <Box sx={{ display: 'flex' }}>
         <CssBaseline />
         <AppBar
@@ -53,7 +65,10 @@ function App() {
           <List>
             {['Dashboard', 'Passwords', 'Keys', 'Profile'].map((text, index) => (
               <ListItem key={text} disablePadding>
-                <ListItemButton href={linkUrl[text]}>
+                <ListItemButton 
+                    href={linkUrl[text]} 
+                    sx={{}} 
+                  >
                   <ListItemIcon>
                     {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
                   </ListItemIcon>
@@ -62,6 +77,7 @@ function App() {
               </ListItem>
             ))}
           </List>
+
           <Box sx={{ bottom: 0, position: "fixed", width: drawerWidth}}>
             <Divider />
             <List>

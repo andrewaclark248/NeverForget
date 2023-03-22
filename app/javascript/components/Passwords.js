@@ -23,7 +23,7 @@ function Passwords() {
         },
       }));
       
-      const StyledTableRow = styled(TableRow)(({ theme }) => ({
+    const StyledTableRow = styled(TableRow)(({ theme }) => ({
         '&:nth-of-type(odd)': {
           backgroundColor: theme.palette.action.hover,
         },
@@ -42,10 +42,13 @@ function Passwords() {
         createData('Gingerbread', 356, 16.0, 49, 3.9),
       ];
       
+    //sx={{ width: `calc(100% - ${drawerWidth}px)`, ml: `${drawerWidth}px` }}
 
     return (
-    <TableContainer component={Paper}>
-        <Table sx={{ minWidth: 700 }} aria-label="customized table">
+      <TableContainer 
+        component={Paper}
+        >
+        <Table aria-label="customized table">
           <TableHead>
             <TableRow>
               <StyledTableCell>Dessert (100g serving)</StyledTableCell>
@@ -70,6 +73,7 @@ function Passwords() {
           </TableBody>
         </Table>
       </TableContainer>
+
     );
 
 }
