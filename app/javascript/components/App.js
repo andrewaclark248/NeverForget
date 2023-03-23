@@ -59,8 +59,10 @@ function App(props) {
               '& .MuiDrawer-paper': {
                 width: drawerWidth,
                 boxSizing: 'border-box',
-                mt: "64px"
-              }
+                mt: "64px",
+                backgroundColor: '#111211',
+                color: "#F1F2F1"
+              },
             }}
             variant="permanent"
             anchor="left"
@@ -73,8 +75,8 @@ function App(props) {
                       href={linkUrl[text]} 
                       sx={{}} 
                     >
-                    <ListItemIcon>
-                      {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+                    <ListItemIcon >
+                      {index % 2 === 0 ? <InboxIcon  style={{ color: "white" }} /> : <MailIcon style={{ color: "white" }} />}
                     </ListItemIcon>
                     <ListItemText primary={text}  />
                   </ListItemButton>
