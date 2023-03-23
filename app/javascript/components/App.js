@@ -73,7 +73,11 @@ function App(props) {
                 <ListItem key={text} disablePadding>
                   <ListItemButton 
                       href={linkUrl[text]} 
-                      sx={{}} 
+                      sx={{ 
+                        '&:hover': {
+                          backgroundColor: '#262726'
+                        }
+                      }} 
                     >
                     <ListItemIcon >
                       {index % 2 === 0 ? <InboxIcon  style={{ color: "white" }} /> : <MailIcon style={{ color: "white" }} />}
