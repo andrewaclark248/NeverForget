@@ -9,7 +9,6 @@ export const theme = createTheme({
       secondary: {
         main: "#0288d1"
       },
-      mode: "dark"
     }
   });
 

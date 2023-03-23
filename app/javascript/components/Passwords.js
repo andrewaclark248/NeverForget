@@ -7,7 +7,9 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-
+import {Box, Typography, Button, Grid} from '@mui/material';
+import { ThemeProvider, createTheme } from "@mui/material/styles";
+import { theme } from '../components/CustomStyle'
 
 
 
@@ -45,34 +47,75 @@ function Passwords() {
     //sx={{ width: `calc(100% - ${drawerWidth}px)`, ml: `${drawerWidth}px` }}
 
     return (
-      <TableContainer 
-        component={Paper}
+      <ThemeProvider theme={theme} >
+
+      <Box sx={{mt: 15, ml: 5, mr: 5}}>
+        <Grid
+          container
         >
-        <Table aria-label="customized table">
-          <TableHead>
-            <TableRow>
-              <StyledTableCell>Dessert (100g serving)</StyledTableCell>
-              <StyledTableCell align="right">Calories</StyledTableCell>
-              <StyledTableCell align="right">Fat&nbsp;(g)</StyledTableCell>
-              <StyledTableCell align="right">Carbs&nbsp;(g)</StyledTableCell>
-              <StyledTableCell align="right">Protein&nbsp;(g)</StyledTableCell>
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            {rows.map((row) => (
-              <StyledTableRow key={row.name}>
-                <StyledTableCell component="th" scope="row">
-                  {row.name}
-                </StyledTableCell>
-                <StyledTableCell align="right">{row.calories}</StyledTableCell>
-                <StyledTableCell align="right">{row.fat}</StyledTableCell>
-                <StyledTableCell align="right">{row.carbs}</StyledTableCell>
-                <StyledTableCell align="right">{row.protein}</StyledTableCell>
-              </StyledTableRow>
-            ))}
-          </TableBody>
-        </Table>
-      </TableContainer>
+        <Grid
+            item
+            xs={12}
+            md={6}
+            lg={6}
+          >
+            <Typography variant="h4" noWrap component="div" sx={{ fontWeight: 'bold', mb: 5 }}>
+              Passwords
+            </Typography>
+          </Grid>
+          <Grid
+            item
+            xs={12}
+            md={6}
+            lg={6}
+          >
+            <Button fullWidth={true}  variant="contained"><strong>Add Password</strong></Button>
+
+          </Grid>
+          <Grid
+            item
+            xs={12}
+            md={12}
+            lg={12}
+          >
+
+            <TableContainer 
+              component={Paper}
+            >
+              <Table aria-label="customized table">
+                <TableHead>
+                  <TableRow>
+                    <StyledTableCell>Dessert (100g serving)</StyledTableCell>
+                    <StyledTableCell align="right">Calories</StyledTableCell>
+                    <StyledTableCell align="right">Fat&nbsp;(g)</StyledTableCell>
+                    <StyledTableCell align="right">Carbs&nbsp;(g)</StyledTableCell>
+                    <StyledTableCell align="right">Protein&nbsp;(g)</StyledTableCell>
+                  </TableRow>
+                </TableHead>
+                <TableBody>
+                  {rows.map((row) => (
+                    <StyledTableRow key={row.name}>
+                      <StyledTableCell component="th" scope="row">
+                        {row.name}
+                      </StyledTableCell>
+                      <StyledTableCell align="right">{row.calories}</StyledTableCell>
+                      <StyledTableCell align="right">{row.fat}</StyledTableCell>
+                      <StyledTableCell align="right">{row.carbs}</StyledTableCell>
+                      <StyledTableCell align="right">{row.protein}</StyledTableCell>
+                    </StyledTableRow>
+                  ))}
+                </TableBody>
+              </Table>
+            </TableContainer>
+
+          </Grid>
+        </Grid>
+
+
+
+      </Box>
+      </ThemeProvider>
+
 
     );
 
