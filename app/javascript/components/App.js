@@ -43,11 +43,11 @@ function App(props) {
           <AppBar
             sx={{ 
               height: "64px", 
-              backgroundColor: "#424242"
+              backgroundColor: "#bad000d"
             }}
           >
             <Toolbar>
-              <Typography variant="h6" noWrap component="div" sx={{ fontWeight: 'bold', color: "#d50000" }}>
+              <Typography variant="h6" noWrap component="div" sx={{ fontWeight: 'bold' }}>
                 SafeLogins
               </Typography>
             </Toolbar>
