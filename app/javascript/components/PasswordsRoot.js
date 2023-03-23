@@ -13,7 +13,6 @@ function PasswordsRoot() {
             <ThemeProvider theme={theme} >
                 <App>
                     <Passwords />
-
                 </App>
             </ThemeProvider>
         </React.Fragment>

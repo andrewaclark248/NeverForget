@@ -76,6 +76,9 @@ function App(props) {
                       sx={{ 
                         '&:hover': {
                           backgroundColor: '#262726'
+                        },
+                        '& .MuiTypography-root': {
+                          color: "white"
                         }
                       }} 
                     >
