@@ -149,7 +149,7 @@ async function handleSubmit(username, password, urls, event) {
         password: {
             username: username,
             password: password,
-            urls: urls
+            urls_attributes: urls
         }
     }
     fetch('/user_passwords',
@@ -163,7 +163,7 @@ async function handleSubmit(username, password, urls, event) {
         let result = response.status
         if (result == 200) {
             console.log("wass success though", loginUrl)
-            window.location.replace(loginUrl);
+            //window.location.replace(loginUrl);
         }
 
     }).catch((e) => {
