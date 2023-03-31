@@ -14,6 +14,7 @@ class UserPasswordsController < ApplicationController
 	end
 
 	def create
+		binding.pry
 		password = Password.new(password_params)
 		password.user = current_login.user
 

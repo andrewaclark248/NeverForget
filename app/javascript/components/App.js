@@ -43,7 +43,7 @@ function App(props) {
           <AppBar
             sx={{ 
               height: "64px", 
-              backgroundColor: "#bad000d"
+              backgroundColor: "#424242"
             }}
           >
             <Toolbar>

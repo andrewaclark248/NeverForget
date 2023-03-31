@@ -64,8 +64,8 @@ const rows = [
 
 
 
-function Passwords() {
-
+function Passwords(props) {
+  console.log("passwords", props)
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
 
@@ -101,7 +101,7 @@ function Passwords() {
               md={6}
               lg={6}
             >
-              <Button fullWidth={true}  variant="contained"><strong>Add Password</strong></Button>
+              <Button fullWidth={true}  variant="contained" href="/user_passwords/new" ><strong>Add Password</strong></Button>
 
             </Grid>
             <Grid
