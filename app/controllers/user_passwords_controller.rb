@@ -14,16 +14,13 @@ class UserPasswordsController < ApplicationController
 	end
 
 	def create
-		binding.pry
 		password = Password.new(password_params)
 		password.user = current_login.user
 
 		if password.save
-			flash[:notice] = "Password was created."
-			redirect_to user_passwords_path
+			render status: :ok, json: { success: true }
 		else
-      		flash[:error] = password.errors.full_messages.to_sentence
-			  redirect_to new_user_password_path
+			render status: :unprocessable_entity, json: { error: password.errors.full_messages.to_sentence }
 		end
 	end
 

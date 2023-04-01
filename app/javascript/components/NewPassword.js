@@ -1,4 +1,4 @@
-import { TextField, Stack, Button , Box, Divider, Typography, Grid, IconButton, Input} from '@mui/material';
+import { TextField, Stack, Button , Box, Divider, Typography, Grid, IconButton, Alert} from '@mui/material';
 import React, { useState } from 'react';
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import { theme } from '../components/CustomStyle'
@@ -9,14 +9,17 @@ function NewPassword() {
     let [username, setUsername] = useState("");
     let [password, setPassword] = useState("");
     let [urls, setUrls] = useState([{"name": ""}])
-    console.log("urls", urls)
+    let [alert, setAlert] = useState({"showAlert": false, "alertMessage": ""})
 
+    console.log("alert", alert);
     return (
         <ThemeProvider theme={theme} >
             <Box sx={{mt: 15, ml: 5, mr: 5}}>
-
+            {alert.showAlert &&
+                <Alert variant="filled" severity="error">{alert.alertMessage}</Alert>
+            }
                 <form
-                    onSubmit={(e) => handleSubmit(username, password, urls, e)}
+                    onSubmit={(e) => handleSubmit(username, password, urls, alert, setAlert, e)}
                     style={{width: "100%"}}
                 >
                         <Stack spacing={3}>
@@ -73,7 +76,6 @@ function NewPassword() {
                         </Grid>
                         {
                             urls.map((url, index) => {
-                                console.log("name = " + url["name"])
                                 return (
                                             <div style={{display: "flex" }} key={`password-input-${index+1}`} id={`password-input-${index+1}`}>
                                                 <React.Fragment >
@@ -136,14 +138,10 @@ function addUrl(urls, setUrls) {
     let newUrl = {name: ""}
     setUrls([...urls, newUrl])
 }
-
-async function handleSubmit(username, password, urls, event) {
-    console.log("username = " + username)
-    console.log("password = " + password)
-    console.log("urls", urls)
+                        // (username, password, urls, alert, setAlert, e)
+async function handleSubmit(username, password, urls, alert, setAlert, event) {
     event.preventDefault();
-
-    let loginUrl = (process.env.NODE_ENV == "development" ? process.env.LOGIN_REDIRECT_URL_DEVELOPMENT : process.env.LOGIN_REDIRECT_URL_STAGING)
+    //let loginUrl = (process.env.NODE_ENV == "development" ? process.env.LOGIN_REDIRECT_URL_DEVELOPMENT : process.env.LOGIN_REDIRECT_URL_STAGING)
 
     let body = {
         password: {
@@ -152,23 +150,23 @@ async function handleSubmit(username, password, urls, event) {
             urls_attributes: urls
         }
     }
-    fetch('/user_passwords',
+
+    let result = await fetch('/user_passwords',
         {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(body),
         }
     )
-    .then((response) => {
-        let result = response.status
-        if (result == 200) {
-            console.log("wass success though", loginUrl)
-            //window.location.replace(loginUrl);
-        }
 
-    }).catch((e) => {
-        console.log("error", e)
-    });
+    if(result.ok) {
+        let result = response.json();
+        console.log("result", result)
+    }
+    else {
+        const data = await result.json();
+        setAlert({"showAlert": true, "alertMessage": data.error})
+     }
 }
 
 
