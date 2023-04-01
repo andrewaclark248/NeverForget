@@ -7,7 +7,43 @@
     <%= csp_meta_tag %>
 
   </head>
-  <body class="" id="root" style="margin: 0;">
-      <%= yield %>
+  <body class="my-class site-background bodyPadding">
+    <div class="container-fluid my-class" >
+      <div class="row pb-5 pt-5">
+        <center><h1>SafeLogins</h1> </center>
+      </div>
+      <div class="card" >
+        <div class="row g-0">
+          <div class="col-6">
+            <%= image_tag "lock", class: 'loginPageImage' %>
+          </div>
+          <div class="col-6">
+            <div class="card-body h-100">
+              <div class="row h-100">
+                <div class="col-1">
+                </div>
+                <div class="col-10">
+                  <% flash.each do |key, value| %>
+                    <%= content_tag :div, value, class: "alert alert-danger alert-dismissible show bg-danger bg-gradient text-dark" %>
+                  <% end %>
+
+                  <%= yield %>
+                </div>
+                <div class="col-1">
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+
+
+
+
+
+
+    </div>
   </body>
 </html>
