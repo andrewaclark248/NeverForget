@@ -9,12 +9,11 @@ module Api
         end
 
         def create
-            password = Password.new(password: params["password"], username: params["username"], user: @current_login.user)
+            password = Password.new(password: params["password"]["password"], username: params["password"]["username"], user: @current_login.user)
             password.save
-            url = Url.new(name: params["domain"], password: password)
+            url = Url.new(name: params["password"]["domain"], password: password)
             url.save
-            render json: {success: "success"}
-
+            render json: {success: true}
         end
 
     end

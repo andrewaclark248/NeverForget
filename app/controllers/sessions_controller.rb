@@ -31,18 +31,10 @@ class SessionsController < Devise::SessionsController
 
 
 		if current_login.present?
-		#	add_jwt
-		#	puts "user created hahahaah"
-
-			#render status: 200, json: { success: true }
-
+			add_jwt
 			redirect_to dashboard_index_path
 		else
 			redirect_to new_login_session_path
-
-		#	puts "bad request"
-
-			#render status: :unauthorized, json: { success: false }
 		end
 	
   	end
