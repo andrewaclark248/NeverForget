@@ -18,16 +18,14 @@ module Api
 		#get auth token and find user
 		@current_login = Login.find_by(auth_token: auth_token)
 		if @current_login.nil?
-			render json: {error: "Invalid Login"}
+			render json: {error: "Invalid Login"} and return
 		end
 
 		#validate JWT via for not expired
 		begin
 			decoded_token = JWT.decode auth_token, nil, true, { algorithm: 'none' }
 		rescue JWT::ExpiredSignature
-			render json: {error: "Need to login again!"}
-
-			# Handle expired token, e.g. logout user or deny access
+			render json: {error: "Need to login again!"}  and return
 		end
   	end
 
