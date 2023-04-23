@@ -25,7 +25,7 @@ function KeyValue() {
                     md={12}
                     lg={12}
                 >
-                        <Typography variant="h5" sx={{fontWeight: 'bold'}}>
+                        <Typography variant="h5" sx={{fontWeight: 'bold', color: "#212B35"}}>
                             New Key
                         </Typography>
                 </Grid>
@@ -50,7 +50,7 @@ function KeyValue() {
                                 <td className="cell column-label" style={{verticalAlign: "middle"}} >
                                     <span  >
                                     <center>
-                                    <Typography variant="h6">Key</Typography>
+                                    <Typography variant="h6" sx={{color: "#212B35"}}>Key</Typography>
                                     </center>
                                     </span>
 
@@ -76,7 +76,7 @@ function KeyValue() {
                             <tr className="safe-card-row" style={{width: "100%", height: "80px"}} >
                                 <td className="cell column-label" style={{verticalAlign: "middle"}}>
                                     <center>
-                                    <Typography variant="h6">Value</Typography>
+                                    <Typography variant="h6" sx={{color: "#212B35"}}>Value</Typography>
                                     </center>
                                 </td>
                                 <td className="cell column-value" style={{verticalAlign: "middle"}}>
@@ -110,7 +110,7 @@ function KeyValue() {
                     md={12}
                     lg={12}
                 >
-                    <Button variant="contained" fullWidth sx={{fontWeight: "medium"}}>Create Key</Button>
+                    <Button variant="contained" fullWidth sx={{fontWeight: "medium"}} onClick={handleSubmit}>Create Key</Button>
 
                 </Grid>
 
@@ -120,6 +120,20 @@ function KeyValue() {
         </Box>
 
     );
+}
+
+function handleSubmit() {
+    let body = {
+        key: "somekey",
+        value: "somevalue"
+    }
+    fetch('/keys',
+    {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(body),
+    }
+  )
 }
 
 export default KeyValue;

@@ -27,14 +27,16 @@ class KeysController < ApplicationController
 	end
 
 	def create
-		key = Key.new(key: params[:key][:key], value: params[:key][:value], user: current_user)
-		if key.save!
-			flash[:notice] = "Key was created."
-			redirect_to keys_path
-		else
-      		flash[:error] = key.errors.full_messages.to_sentence
-			  redirect_to edit_key_path(key)  
-		end
+		binding.pry
+		redirect_to keys_path
+		#key = Key.new(key: params[:key][:key], value: params[:key][:value], user: current_user)
+		#if key.save!
+		#	flash[:notice] = "Key was created."
+		#	redirect_to keys_path
+		#else
+      	#	flash[:error] = key.errors.full_messages.to_sentence
+		#	  redirect_to edit_key_path(key)  
+		#end
 	end
 
 
