@@ -1,8 +1,6 @@
-<nav class="navbar navbar-expand-sm bg-white border-bottom border-dark" >
+<nav class="navbar navbar-expand-sm " style="background-color: #F8FAFB; padding-bottom: 40px;">
   <div class="container-fluid">
   	<%= link_to logo_text, dashboard_index_path, class: 'navbar-brand navbar-text' %>
-	<%= image_tag "lock-nav-bar", class: "rounded-1" %>
-
 
 	<div class="navbar-nav ms-auto">
 	    <%= link_to 'Log Out', destroy_login_session_path, :method => :delete,  class: 'nav-item nav-link active navbar-text fw-bold text-dark fs-5'%>
