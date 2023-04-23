@@ -6,64 +6,7 @@
 	</div>
 </div>
 
-<%= simple_form_for @key, url: keys_path(@key), method: :post do |f| %>
 
-    <div class="accordion border-bottom border-dark" id="accordionExample">
-        <div class="accordion-item border-top-0 border-end-0 border-start-0">
-            <h2 class="accordionMargin " id="" >
-            <button class="accordion-button bg-danger collapsed rounded-0 " type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                <span class="text-dark fw-bold">Credentials</span>
-            </button>
-            </h2>
-            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-
-				<table class="table border-1 table-bordered accordionTable">
-
-					<tbody>
-						<tr class="border-top-0">
-							<td  class="border-start-0 align-middle table-row-height accordionCol1Width">
-								<span class="fw-bold " >Key</span>
-							</td>
-							<td class="align-middle border-end-0">
-								<div class="row ">
-								<div class="col-1"></div>
-								<div class="col-8 ">
-									<%= f.input :key, wrapper_html: {class: ""}, as: :string, label: false, placeholder: "name@example.com" %>
-								</div>
-								</div>
-							</td>
-						</tr>
-						<tr class="border-top-0">
-							<td  class="border-start-0 align-middle table-row-height accordionCol1Width">
-								<span class="fw-bold " >Value</span>
-							</td>
-							<td class="align-middle border-end-0">
-								<div class="row ">
-								<div class="col-1"></div>
-								<div class="col-8 ">
-									<%= f.input :value, wrapper_html: {class: ""}, as: :string, label: false, placeholder: "name@example.com" %>
-								</div>
-								</div>
-							</td>
-						</tr>
+      <%= javascript_pack_tag 'KeyValueRoot' %>
 
 
-					</tbody>
-				</table>
-
-
-            </div>
-        </div>
-    </div>
-    <div class="row pb-4 pt-4 ">
-        <div class="col-2"></div>
-        <div class="col-8 ">
-            <center>
-                <div class="d-grid gap-2">
-					<%=f.submit "Create Key",class: "btn btn-danger"%>
-                </div>
-            </center>
-        </div>
-        <div class="col-2"></div>
-    </div>
-<% end %>
