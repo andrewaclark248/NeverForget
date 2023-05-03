@@ -26,10 +26,30 @@
 							</td>
 							<td class="align-middle border-end-0">
 								<div class="row ">
-								<div class="col-1"></div>
-								<div class="col-8 ">
-									<%= f.input :key, wrapper_html: {class: ""}, as: :string, label: false, placeholder: "name@example.com" %>
+									<div class="col-1"></div>
+									<div class="col-8 ">
+
+										<div class="dropdown d-grid gap-2" >
+											<button class="btn btn-secondary dropdown-toggle bg-dark keyValueDropdownLabel" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
+												Suggested Keys
+											</button>
+											<ul class="dropdown-menu dropdown-menu-dark bg-dark keyValueDropdown" aria-labelledby="dropdownMenuButton2" style="width: 100%;">
+												<li><a class="dropdown-item " href="#">ATM PIN</a></li>
+												<li><a class="dropdown-item" href="#">SSN</a></li>
+												<li><a class="dropdown-item" href="#">MISC PIN Code</a></li>
+												<li><a class="dropdown-item" href="#">WIFI Password</a></li>
+												<li><hr class="dropdown-divider"></li>
+												<li><a class="dropdown-item" href="#">Custom Name</a></li>
+											</ul>
+										</div>
+
+									</div>
 								</div>
+								<div class="row pt-3 d-none key-input-field">
+									<div class="col-1"></div>
+									<div class="col-8 ">
+										<%= f.input :key, wrapper_html: {class: ""}, as: :string, label: false, placeholder: "Anything!" %>
+									</div>
 								</div>
 							</td>
 						</tr>
@@ -41,7 +61,7 @@
 								<div class="row ">
 								<div class="col-1"></div>
 								<div class="col-8 ">
-									<%= f.input :value, wrapper_html: {class: ""}, as: :string, label: false, placeholder: "name@example.com" %>
+									<%= f.input :value, wrapper_html: {class: ""}, as: :string, label: false, placeholder: "Anything!" %>
 								</div>
 								</div>
 							</td>
