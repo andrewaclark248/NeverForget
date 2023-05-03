@@ -68,4 +68,8 @@ module ApplicationHelper
         end
     end
 
+    def list_of_key_value
+        ["ATM PIN", "SSN", "MISC PIN Code", "WIFI Password"]
+    end
+
 end
