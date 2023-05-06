@@ -119,7 +119,7 @@
  
 /***Sidenav Bar**/
  .sidenav {
-   padding-top: 20px;
+  padding-top: 30px;
    height: 100%;
    position: fixed;
    left: 0;
@@ -227,4 +227,6 @@
 
 #expandNavbar {
   text-decoration: none;
+  height: 80px !important;
+
 }
