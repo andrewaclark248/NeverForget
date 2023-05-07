@@ -157,14 +157,13 @@
  }
 
  .yieldClassSmall {
-   position: fixed;
-   margin-left: 70px;
+   margin-left: 70px !important;
+   transition: margin-left 0.5s;
  }
 
  .yieldClassLarge {
-  width: 100%;
-  position: fixed;
   margin-left: 160px;
+  transition: margin-left 0.5s;
  }
 
  .flashMargin {

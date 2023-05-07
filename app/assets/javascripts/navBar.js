@@ -57,12 +57,20 @@ $(document).ready(function(){
             $(".sidenav").removeClass("navBarSmall");
             $(".sidenav").addClass("navBarLarge");
 
+            //update yield class
+            $(".yieldSection").removeClass("yieldClassSmall")
+            $(".yieldSection").addClass("yieldClassLarge")
+
         } else {
 
             $(".navbarBackIconLeft").addClass("hideNavbarIcon")
             $(".navbarBackIconRight").removeClass("hideNavbarIcon")
             $(".sidenav").removeClass("navBarLarge");
             $(".sidenav").addClass("navBarSmall");
+
+            //update yield class
+            $(".yieldSection").removeClass("yieldClassLarge")
+            $(".yieldSection").addClass("yieldClassSmall")
 
         }
 
@@ -89,3 +97,4 @@ $(document).ready(function(){
 
   });
 
+//            yieldClassSmall
