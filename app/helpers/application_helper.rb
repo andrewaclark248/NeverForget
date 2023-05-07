@@ -25,7 +25,17 @@ module ApplicationHelper
 
     def is_active?(path)
         if request.path.include?(path)
-            "text-dark"
+            "activeNavPage"
+        else 
+            "inActiveNavPage"
+        end
+    end
+
+    def is_active_svg?(path)
+        if request.path.include?(path)
+            "white"
+        else 
+            "#63666A"
         end
     end
 
@@ -70,6 +80,14 @@ module ApplicationHelper
 
     def list_of_key_value
         ["ATM PIN", "SSN", "MISC PIN Code", "WIFI Password"]
+    end
+
+    def activeTabColor path
+        if request.path.include?(path)
+            "expandNavbarHover"
+        else 
+            "expandNavbar"
+        end
     end
 
 end

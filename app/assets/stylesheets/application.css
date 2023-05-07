@@ -119,13 +119,11 @@
  
 /***Sidenav Bar**/
  .sidenav {
+  padding-top: 30px;
    height: 100%;
-   width: 200px;
    position: fixed;
-   top: 0;
    left: 0;
    overflow-x: hidden;
-   padding-top: 130px;
    overflow: hidden; 
  }
  
@@ -133,11 +131,10 @@
  
  .list-nav {
    list-style-type: none;
-   margin-right: 10%;
-   padding: 0;
    width: 100%;
    height: 100%;
    overflow: auto;
+   padding: 0px;
  }
  
  li a {
@@ -159,8 +156,14 @@
    margin-left: 200px;
  }
 
- .yieldClass {
-   margin-left: 200px;
+ .yieldClassSmall {
+   margin-left: 70px !important;
+   transition: margin-left 0.5s;
+ }
+
+ .yieldClassLarge {
+  margin-left: 160px;
+  transition: margin-left 0.5s;
  }
 
  .flashMargin {
@@ -207,3 +210,62 @@
   border-radius: .25rem;
  }
  
+
+ .navBarSmall {
+   width: 70px;
+   transition: width 0.5s;
+
+ }
+
+ .navBarLarge {
+   width: 160px;
+   transition: width 0.5s;
+
+ }
+
+ .hideNavbarIcon {
+   display: none;
+ }
+
+ .vertical-center {
+  margin: 0;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+
+
+.hideNavBarText {
+  display: none;
+}
+
+.navBarIconTextChangeWhite {
+  color: white;
+}
+
+.navBarIconTextChangeGrey {
+  color: #48494A;
+}
+
+
+#expandNavbar {
+  text-decoration: none;
+  height: 80px !important;
+
+}
+
+.expandNavbarHover {
+  background-color: #4C4E52 !important;
+}
+
+.inActiveNavPage {
+  color: #63666A;
+}
+
+.activeNavPage {
+  color: white;
+}
+
+
+/** 6F7378 **/
