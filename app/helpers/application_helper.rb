@@ -25,7 +25,7 @@ module ApplicationHelper
 
     def is_active?(path)
         if request.path.include?(path)
-            "text-dark"
+            "white"
         end
     end
 

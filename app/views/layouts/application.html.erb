@@ -30,14 +30,15 @@
     <%= stylesheet_link_tag "loading-bar" %>
       <%= javascript_pack_tag 'application' %>
 
-  <body class="currentPageColor">
-    <%= render 'layouts/sidenav_bar' %>
-    <div class="yieldClass" >
+  <body class="currentPageColor " style="position: fixed; min-width: 100%;">
+      <%= render "layouts/sidenav_bar" %>
+
       <%= render 'layouts/topnav_bar' %>
-      <%= render 'shared/flash' %>
-    </div>
-    <div class="yieldClass" >
+      <div style="margin-left: 70px;">
       <%= yield %>
+      </div>
+    <div>
+      <p>asdfasdf</p>
     </div>
   </body>
 

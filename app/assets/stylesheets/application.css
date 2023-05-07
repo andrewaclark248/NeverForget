@@ -156,8 +156,15 @@
    margin-left: 200px;
  }
 
- .yieldClass {
-   margin-left: 200px;
+ .yieldClassSmall {
+   position: fixed;
+   margin-left: 70px;
+ }
+
+ .yieldClassLarge {
+  width: 100%;
+  position: fixed;
+  margin-left: 160px;
  }
 
  .flashMargin {
