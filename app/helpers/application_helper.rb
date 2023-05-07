@@ -25,7 +25,17 @@ module ApplicationHelper
 
     def is_active?(path)
         if request.path.include?(path)
+            "activeNavPage"
+        else 
+            "inActiveNavPage"
+        end
+    end
+
+    def is_active_svg?(path)
+        if request.path.include?(path)
             "white"
+        else 
+            "#63666A"
         end
     end
 

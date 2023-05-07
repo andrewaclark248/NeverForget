@@ -256,5 +256,16 @@
 }
 
 .expandNavbarHover {
-  background-color: #333333 !important;
+  background-color: #4C4E52 !important;
 }
+
+.inActiveNavPage {
+  color: #63666A;
+}
+
+.activeNavPage {
+  color: white;
+}
+
+
+/** 6F7378 **/
