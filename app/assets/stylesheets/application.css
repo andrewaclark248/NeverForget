@@ -134,7 +134,7 @@
    width: 100%;
    height: 100%;
    overflow: auto;
-   padding-left: 20px;
+   padding: 0px;
  }
  
  li a {
@@ -228,12 +228,27 @@
   transform: translateY(-50%);
 }
 
+
+
+.hideNavBarText {
+  display: none;
+}
+
+.navBarIconTextChangeWhite {
+  color: white;
+}
+
+.navBarIconTextChangeGrey {
+  color: #48494A;
+}
+
+
 #expandNavbar {
   text-decoration: none;
   height: 80px !important;
 
 }
 
-.hideNavBarText {
-  display: none;
+.expandNavbarHover {
+  background-color: #333333;
 }
