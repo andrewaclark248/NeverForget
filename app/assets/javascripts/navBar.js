@@ -36,17 +36,12 @@ $(document).ready(function(){
             $(".sidenav").removeClass("navBarSmall");
             $(".sidenav").addClass("navBarLarge");
 
-
-
-
-
         } else {
 
             $(".navbarBackIconLeft").addClass("hideNavbarIcon")
             $(".navbarBackIconRight").removeClass("hideNavbarIcon")
             $(".sidenav").removeClass("navBarLarge");
             $(".sidenav").addClass("navBarSmall");
-
 
         }
 
@@ -64,8 +59,9 @@ $(document).ready(function(){
             $(".navbarText").removeClass("hideNavBarText")
         } else if (navBarWidth <= 160) {
             $(".navbarText").addClass("hideNavBarText")
-
         }
+
+
       });
       
       resizeObserver.observe(sidenav);
