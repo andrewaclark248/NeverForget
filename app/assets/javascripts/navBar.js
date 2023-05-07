@@ -9,7 +9,7 @@ $(document).ready(function(){
 
 
 
-        //
+        /**
         $(".expandNavbar").hover(function(e){
 
 
@@ -39,7 +39,7 @@ $(document).ready(function(){
                     $(e.target.parentElement).removeClass("expandNavbarHover");
                 }
 
-            });
+            }); */
 
 
     

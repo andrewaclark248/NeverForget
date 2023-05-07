@@ -82,4 +82,12 @@ module ApplicationHelper
         ["ATM PIN", "SSN", "MISC PIN Code", "WIFI Password"]
     end
 
+    def activeTabColor path
+        if request.path.include?(path)
+            "expandNavbarHover"
+        else 
+            "expandNavbar"
+        end
+    end
+
 end

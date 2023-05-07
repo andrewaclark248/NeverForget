@@ -20,21 +20,20 @@
 		<% end %>
 		
 		<%= link_to dashboard_index_path, id: "expandNavbar", class: "expandNavbar" do %>
+			<li class="pb-2 <%= activeTabColor(dashboard_index_path) %>" style="padding-top: 10px; padding-bottom: 10px !important; padding-left: 20px;">
+				<div style="padding-bottom: 10px;">
+					<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="<%= is_active_svg?(dashboard_index_path) %>" class="bi bi-speedometer2 navbarIconColorChange" viewBox="0 0 16 16">
+						<path d="M8 4a.5.5 0 0 1 .5.5V6a.5.5 0 0 1-1 0V4.5A.5.5 0 0 1 8 4zM3.732 5.732a.5.5 0 0 1 .707 0l.915.914a.5.5 0 1 1-.708.708l-.914-.915a.5.5 0 0 1 0-.707zM2 10a.5.5 0 0 1 .5-.5h1.586a.5.5 0 0 1 0 1H2.5A.5.5 0 0 1 2 10zm9.5 0a.5.5 0 0 1 .5-.5h1.5a.5.5 0 0 1 0 1H12a.5.5 0 0 1-.5-.5zm.754-4.246a.389.389 0 0 0-.527-.02L7.547 9.31a.91.91 0 1 0 1.302 1.258l3.434-4.297a.389.389 0 0 0-.029-.518z"/>
+						<path fill-rule="evenodd" d="M0 10a8 8 0 1 1 15.547 2.661c-.442 1.253-1.845 1.602-2.932 1.25C11.309 13.488 9.475 13 8 13c-1.474 0-3.31.488-4.615.911-1.087.352-2.49.003-2.932-1.25A7.988 7.988 0 0 1 0 10zm8-7a7 7 0 0 0-6.603 9.329c.203.575.923.876 1.68.63C4.397 12.533 6.358 12 8 12s3.604.532 4.923.96c.757.245 1.477-.056 1.68-.631A7 7 0 0 0 8 3z"/>
+					</svg>
+					<span class="navbarText hideNavBarText <%= is_active?(dashboard_index_path) %>" style="padding-left: 10px;" style=""><strong>Dashboard</strong></span>
 
-		<li class="pb-2" style="padding-top: 10px; padding-bottom: 10px !important; padding-left: 20px;">
-			<div style="padding-bottom: 10px;">
-				<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="<%= is_active_svg?(dashboard_index_path) %>" class="bi bi-speedometer2 navbarIconColorChange" viewBox="0 0 16 16">
-					<path d="M8 4a.5.5 0 0 1 .5.5V6a.5.5 0 0 1-1 0V4.5A.5.5 0 0 1 8 4zM3.732 5.732a.5.5 0 0 1 .707 0l.915.914a.5.5 0 1 1-.708.708l-.914-.915a.5.5 0 0 1 0-.707zM2 10a.5.5 0 0 1 .5-.5h1.586a.5.5 0 0 1 0 1H2.5A.5.5 0 0 1 2 10zm9.5 0a.5.5 0 0 1 .5-.5h1.5a.5.5 0 0 1 0 1H12a.5.5 0 0 1-.5-.5zm.754-4.246a.389.389 0 0 0-.527-.02L7.547 9.31a.91.91 0 1 0 1.302 1.258l3.434-4.297a.389.389 0 0 0-.029-.518z"/>
-					<path fill-rule="evenodd" d="M0 10a8 8 0 1 1 15.547 2.661c-.442 1.253-1.845 1.602-2.932 1.25C11.309 13.488 9.475 13 8 13c-1.474 0-3.31.488-4.615.911-1.087.352-2.49.003-2.932-1.25A7.988 7.988 0 0 1 0 10zm8-7a7 7 0 0 0-6.603 9.329c.203.575.923.876 1.68.63C4.397 12.533 6.358 12 8 12s3.604.532 4.923.96c.757.245 1.477-.056 1.68-.631A7 7 0 0 0 8 3z"/>
-				</svg>
-				<span class="navbarText hideNavBarText <%= is_active?(dashboard_index_path) %>" style="padding-left: 10px;" style=""><strong>Dashboard</strong></span>
-
-			</div>
-		</li>
+				</div>
+			</li>
 		<% end %>
 		<%= link_to user_passwords_path, id: "expandNavbar", class: "expandNavbar" do %>
 
-		<li class="pb-2" style="padding-top: 10px; padding-bottom: 10px !important; padding-left: 20px;">
+		<li class="pb-2 <%= activeTabColor(user_passwords_path) %>" style="padding-top: 10px; padding-bottom: 10px !important; padding-left: 20px;">
 			<div style="padding-top: 10px; padding-bottom: 10px;">
 				<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="<%= is_active_svg?(user_passwords_path) %>" class="bi bi-file-lock2" viewBox="0 0 16 16">
 					<path d="M8 5a1 1 0 0 1 1 1v1H7V6a1 1 0 0 1 1-1zm2 2.076V6a2 2 0 1 0-4 0v1.076c-.54.166-1 .597-1 1.224v2.4c0 .816.781 1.3 1.5 1.3h3c.719 0 1.5-.484 1.5-1.3V8.3c0-.627-.46-1.058-1-1.224z"/>
@@ -46,7 +45,7 @@
 		</li>
 		<% end %>
 		<%= link_to keys_path, id: "expandNavbar", class: "expandNavbar" do %>
-			<li class="pb-2" style="padding-top: 10px; padding-bottom: 10px !important; padding-left: 20px;">
+			<li class="pb-2 <%= activeTabColor(keys_path) %>" style="padding-top: 10px; padding-bottom: 10px !important; padding-left: 20px;">
 				<div style="padding-top: 10px; padding-bottom: 10px;">
 					<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="<%= is_active_svg?(keys_path) %>" class="bi bi-journal-plus" viewBox="0 0 16 16">
 						<path fill-rule="evenodd" d="M8 5.5a.5.5 0 0 1 .5.5v1.5H10a.5.5 0 0 1 0 1H8.5V10a.5.5 0 0 1-1 0V8.5H6a.5.5 0 0 1 0-1h1.5V6a.5.5 0 0 1 .5-.5z"/>
@@ -61,7 +60,7 @@
 
 		<%= link_to profiles_path, id: "expandNavbar", class: "expandNavbar" do %>
 
-		<li class="pb-2" style="padding-top: 10px; padding-bottom: 10px !important; padding-left: 20px;">
+		<li class="pb-2 <%= activeTabColor(profiles_path) %>" style="padding-top: 10px; padding-bottom: 10px !important; padding-left: 20px;">
 			<div style="padding-top: 10px; padding-bottom: 10px;">
 				<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="<%= is_active_svg?(profiles_path) %>" class="bi bi-person-fill" viewBox="0 0 16 16">
 					<path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"/>
