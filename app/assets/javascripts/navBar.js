@@ -28,10 +28,17 @@ $(document).ready(function(){
         let isSmallNavbar = $(".sidenav").hasClass("navBarSmall")
 
         if (isSmallNavbar) {
+            //change icon
             $(".navbarBackIconRight").addClass("hideNavbarIcon")
             $(".navbarBackIconLeft").removeClass("hideNavbarIcon")
+
+            //change navbar width
             $(".sidenav").removeClass("navBarSmall");
             $(".sidenav").addClass("navBarLarge");
+
+
+
+
 
         } else {
 
@@ -39,8 +46,29 @@ $(document).ready(function(){
             $(".navbarBackIconRight").removeClass("hideNavbarIcon")
             $(".sidenav").removeClass("navBarLarge");
             $(".sidenav").addClass("navBarSmall");
+
+
         }
 
     });
 
+
+    const sidenav = document.querySelector('.sidenav');
+
+
+    const resizeObserver = new ResizeObserver((entries) => {
+        let navBarWidth = $(".sidenav").width()
+        
+        if (navBarWidth == 160) {
+            console.log("widht is 160")
+            $(".navbarText").removeClass("hideNavBarText")
+        } else if (navBarWidth <= 160) {
+            $(".navbarText").addClass("hideNavBarText")
+
+        }
+      });
+      
+      resizeObserver.observe(sidenav);
+
   });
+

@@ -208,10 +208,14 @@
 
  .navBarSmall {
    width: 70px;
+   transition: width 0.5s;
+
  }
 
  .navBarLarge {
    width: 160px;
+   transition: width 0.5s;
+
  }
 
  .hideNavbarIcon {
@@ -229,4 +233,8 @@
   text-decoration: none;
   height: 80px !important;
 
+}
+
+.hideNavBarText {
+  display: none;
 }
