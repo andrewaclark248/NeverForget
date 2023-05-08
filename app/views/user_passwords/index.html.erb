@@ -23,8 +23,9 @@
 	<div class="list-group-item " style="background-color: #F8F8F8;" >
 		<div class="row pb-3 pt-2">
 			<div class="col-12">
+				<div class="input-group-sm">
 					<input type="radio" class="btn-check" name="options-outlined" id="success-outlined" autocomplete="off" checked>
-					<label class="btn btn-outline-primary" for="success-outlined">Name</label>
+					<label class="btn btn-outline-primary " for="success-outlined">Name</label>
 
 					<input type="radio" class="btn-check" name="options-outlined" id="danger-outlined" autocomplete="off">
 					<label class="btn btn-outline-primary" for="danger-outlined">Url's</label>
@@ -40,21 +41,26 @@
 
 					<input type="radio" class="btn-check" name="options-outlined" id="compromised-password" autocomplete="off" disabled>
 					<label class="btn btn-outline-danger" for="compromised-password">Compromised Passwords</label>
-
+					
 					<input type="radio" class="btn-check" name="options-outlined" id="compromised-password" autocomplete="off" disabled>
 					<label class="btn btn-outline-danger" for="compromised-password">Compromised Usernames</label>
+				</div>
 			</div>
 		</div>
 
 		<div class="row pb-2">
-			<div class="col-8">
-    			<input class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-			</div>
-			<div class="col-4">
-				<div class="d-grid gap-2">
-					<button type="button" class="btn btn-danger">Search</button>
+				<div class="col-8">
+					<small>
+					<div class="input-group-sm">
+					<input class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+					</div>
+					</small>
 				</div>
-			</div>
+				<div class="col-4">
+					<div class="d-grid gap-2">
+						<button type="button" class="btn btn-danger btn-sm">Search</button>
+					</div>
+				</div>
 		</div>
 
 	</div>
