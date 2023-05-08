@@ -1,4 +1,4 @@
-<div class="row  pb-5 pt-4 pe-3 ps-3 currentPageColor border-bottom border-dark" >
+<div class="row  pb-5 pt-4 pe-3 ps-3 border-bottom border-secondary" >
 	<div class="col-6">
 		<div>
 		<span class="fs-5 fw-bold"><%= @current_user.first %>'s Passwords</span>
@@ -8,7 +8,7 @@
 		<div class="float-end">
 			<%= link_to new_user_password_path do %>
 				<div>
-				<button class="btn btn-danger ">
+				<button class="btn btn-danger fw-bold">
 					<i class="fa-solid fa-plus pe-2 text-dark"></i><span class="text-dark fw-bold">New Password</span>
 				</button>
 				</div>
@@ -18,9 +18,9 @@
 </div>
 
 
-<div class="list-group rounded-0 border-bottom border-dark" >
+<div class="list-group rounded-0 border-bottom border-secondary" >
 
-	<div class="list-group-item bg-danger " >
+	<div class="list-group-item accordion-bg" >
 		<div class="row pb-1 pt-1">
 			<div class="col-5">
 				<span class="fw-bold ps-3">Username</span>

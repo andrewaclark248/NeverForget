@@ -1,4 +1,4 @@
-<div class="row pb-5 pt-4 pe-3 ps-3 currentPageColor border-bottom border-dark">
+<div class="row pb-5 pt-4 pe-3 ps-3 currentPageColor border-bottom border-secondary">
 	<div class="col-6">
 		<span class="fs-5 fw-bold">New Key</span>
 	</div>
@@ -8,10 +8,10 @@
 
 <%= simple_form_for @key, url: keys_path(@key), method: :post do |f| %>
 
-    <div class="accordion border-bottom border-dark" id="accordionExample">
+    <div class="accordion border-bottom border-secondary" id="accordionExample">
         <div class="accordion-item border-top-0 border-end-0 border-start-0">
             <h2 class="accordionMargin " id="" >
-            <button class="accordion-button bg-danger collapsed rounded-0 " type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+            <button class="accordion-button accordion-bg collapsed rounded-0 " type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                 <span class="text-dark fw-bold">Credentials</span>
             </button>
             </h2>
@@ -75,15 +75,13 @@
             </div>
         </div>
     </div>
-    <div class="row pb-4 pt-4 ">
-        <div class="col-2"></div>
-        <div class="col-8 ">
+    <div class="row">
+        <div class="col-12 ">
             <center>
                 <div class="d-grid gap-2">
-					<%=f.submit "Create Key",class: "btn btn-danger"%>
+					<%=f.submit "Create Key", class: "btn btn-danger rounded-0 fw-bold", style: "height: 70px"%>
                 </div>
             </center>
         </div>
-        <div class="col-2"></div>
     </div>
 <% end %>
