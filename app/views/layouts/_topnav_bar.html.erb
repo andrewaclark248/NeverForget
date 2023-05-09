@@ -1,5 +1,5 @@
 
-<nav class="navbar navbar-expand-sm  border-bottom border-secondary" style=" ">
+<nav class="navbar navbar-expand-sm  bg-light border-bottom border-secondary" style="height: 70px; ">
   <div class="container-fluid">
 
   	<div class="vstack gap-3" style="max-width: 200px; margin-left: 10px;">
@@ -7,12 +7,12 @@
 			<%= link_to logo_text, dashboard_index_path, class: 'navbar-brand navbar-text' %>
 		</div>
 		<div class="">
-			<span class='' style="font-size: 20px; color: #CF1020; font-family: 'Brush Script MT'"><strong>Simple, Safe & Secure</strong></span>
+			<span class='text-dark' style="font-size: 20px; font-family: 'Brush Script MT'"><strong>Simple, Safe & Secure</strong></span>
 		</div>
 	</div>
-<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="#332D2D" class="bi bi-lock-fill" viewBox="0 0 16 16">
-  <path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"/>
-</svg>
+	<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="#332D2D" class="bi bi-lock-fill" viewBox="0 0 16 16">
+		<path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"/>
+	</svg>
 
 	<div class="navbar-nav ms-auto">
 	    <%= link_to 'Log Out', destroy_login_session_path, :method => :delete,  class: 'nav-item nav-link active navbar-text fw-bold text-dark fs-5'%>
