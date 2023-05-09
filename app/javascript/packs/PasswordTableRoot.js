@@ -1,6 +1,6 @@
 import PasswordTable from './../components/PasswordTable'
 import React, { Component, useState } from 'react'
-import ReactDOM from "react-dom";
+import ReactDOM from "react-dom/client";
 
 function PasswordTableRoot() {
 
@@ -10,7 +10,7 @@ function PasswordTableRoot() {
 
 }
 
-const container = document.getElementById('root');
+const container = document.getElementById('password-table');
 
 // Create a root.
 const root = ReactDOM.createRoot(container);

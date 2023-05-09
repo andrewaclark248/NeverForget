@@ -379,6 +379,6 @@ function copy_input( $input ) {
     try {  
         var successful = document.execCommand('copy');  
     } catch(err) {  
-        console.error('Unable to copy'); 
+        console.error('Unable to copysss'); 
     }		
 }
