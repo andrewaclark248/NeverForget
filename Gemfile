@@ -85,8 +85,6 @@ gem 'devise-security'
 
 gem 'email_address'
 
-gem 'webpacker'
-
 #gem 'react_on_rails'
 
 gem 'mini_racer'
