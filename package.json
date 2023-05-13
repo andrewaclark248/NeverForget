@@ -14,12 +14,16 @@
     "@rails/ujs": "^6.0.0",
     "@rails/webpacker": "5.4.3",
     "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
+    "css-loader": "^6.7.3",
+    "css-minimizer-webpack-plugin": "^5.0.0",
     "dotenv": "^16.0.3",
+    "mini-css-extract-plugin": "^2.7.5",
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-on-rails": "^13.3.2",
-    "react_ujs": "^2.6.2",
+    "react_ujs": "^2.7.0",
+    "style-loader": "^3.3.2",
     "styled-components": "^5.3.8",
     "turbolinks": "^5.2.0",
     "webpack": "^4.46.0",
@@ -28,5 +32,12 @@
   "version": "0.1.0",
   "devDependencies": {
     "webpack-dev-server": "^3"
+  },
+  "babel": {
+    "presets": [
+     "./node_modules/shakapacker/package/babel/preset.js",
+     "./node_modules/shakapacker/package/babel/preset.js",
+     "@babel/preset-react"
+    ]
   }
 }
