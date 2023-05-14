@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  get 'hello_world', to: 'hello_world#index'
 	root to: 'home#index'
 
   	devise_for :logins, controllers: {sessions: "sessions", registrations: 'registrations', passwords: 'passwords' }
