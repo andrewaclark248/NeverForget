@@ -90,7 +90,7 @@
 	</div>
 
 	<% @passwords&.each_with_index do |password, index| %>
-		<div class="list-group-item border border-1 active-password-table bg-white">
+		<div class="list-group-item border border-1 active-password-table bg-white" style="height: 50px;">
 			<div class="row ">
 				<div class="col-5">
 					<span class="fw-bold ps-3"><%= password.username %></span>
@@ -103,13 +103,13 @@
 				</div>
 				<div class="col-1">
 					<%= link_to edit_user_password_path(password) do %>
-						<button class="btn btn-light bg-dark text-white">
-							<i class="fa fa-pen-to-square"></i>
+						<button class="btn btn-light bg-dark text-white btn-sm">
+							<i class="fa fa-pen-to-square" ></i>
 						</button>
 					<% end %>
 				</div>
 				<div class="col-1">
-                    <a type="button" name="someDamnName" class="btn btn-danger delete-password" data-bs-toggle="modal" data-bs-target="#myModal" value=<%=password.id%>>
+                    <a type="button" name="someDamnName" class="btn btn-danger delete-password btn-sm" data-bs-toggle="modal" data-bs-target="#myModal" value=<%=password.id%>>
                         <i class="fa fa-trash-can text-white"></i>
                     </a> 				
 				</div>
@@ -117,7 +117,23 @@
 		</div>
     <% end %>
 </div>
+<div class="row">
+	<div class="col-12">
+		<nav aria-label="Page navigation example">
+		<ul class="pagination ">
+			<li class="page-item "><a class="page-link rounded-0 text-dark" href="#">Previous</a></li>
+			<% (1..@number_of_pages).each do |index| %>
+				<li class="page-item">
+					<%= link_to "#{index}", user_passwords_path(page: index), class: "page-link text-dark"%>
+				</li>
+			<% end %>
+			<li class="page-item"><a class="page-link text-dark rounded-0" href="#">Next</a></li>
+		</ul>
+		</nav>
+	</div>
+</div>
 
+<%= will_paginate @passwords %>
 
 
 <%= render "delete_password" %>

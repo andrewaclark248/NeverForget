@@ -4,7 +4,10 @@ class UserPasswordsController < ApplicationController
 
 
 	def index
-		@passwords = current_login.user&.passwords
+		binding.pry
+		@passwords = current_login.user&.passwords.paginate(page: params[:page], per_page: 8)
+
+		@number_of_pages = (@passwords.count/8.to_f).ceil
 		@current_user = current_user
 	end
 
