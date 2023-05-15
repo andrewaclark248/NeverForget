@@ -17,11 +17,106 @@
 	</div>
 </div>
 
-<div id="password-table">
-<%= react_component("PasswordTableRoot", {title: "Hello World"}) %>
+<div class="list-group rounded-0 border-top border-secondary" >
 
+	<div class="list-group-item border-0" style="background-color: #F8F8F8; " >
+		<div class=" pb-3 pt-2" style="display: flex;">
+			<div class="" style="margin-right: 20px;">
+				<span class="fw-bold">Search Credentials By:</span>
+			</div>
+			<div class="">
+				<div class="input-group-sm">
+					<input type="radio" class="btn-check" name="options-outlined" id="success-outlined" autocomplete="off" checked>
+					<label class="btn btn-outline-primary " for="success-outlined">Name</label>
+
+					<input type="radio" class="btn-check" name="options-outlined" id="danger-outlined" autocomplete="off">
+					<label class="btn btn-outline-primary" for="danger-outlined">Url's</label>
+				
+					<input type="radio" class="btn-check" name="options-outlined" id="usernmae" autocomplete="off">
+					<label class="btn btn-outline-primary" for="usernmae">Username</label>
+				
+					<input type="radio" class="btn-check" name="options-outlined" id="password" autocomplete="off">
+					<label class="btn btn-outline-primary" for="password">Password</label>
+
+					<input type="radio" class="btn-check" name="options-outlined" id="insecure-password" autocomplete="off">
+					<label class="btn btn-outline-warning" for="insecure-password">Insecure Passwords</label>
+
+					<input type="radio" class="btn-check" name="options-outlined" id="compromised-password" autocomplete="off" >
+					<label class="btn btn-outline-danger" for="compromised-password">Compromised Passwords</label>
+					
+					<input type="radio" class="btn-check" name="options-outlined" id="compromised-usernames" autocomplete="off" >
+					<label class="btn btn-outline-danger" for="compromised-usernames">Compromised Usernames</label>
+				</div>
+			</div>
+		</div>
+
+		<div class="row pb-2">
+				<div class="col-8">
+					<small>
+					<div class="input-group-sm">
+						<input class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Search">
+					</div>
+					</small>
+				</div>
+				<div class="col-4">
+					<div class="d-grid gap-2">
+					<button type="button" class="btn btn-dark btn-sm">Search</button>
+
+					</div>
+				</div>
+		</div>
+
+	</div>
+
+
+	<div class="list-group-item accordion-bg" >
+		<div class="row pb-1 pt-1">
+			<div class="col-5">
+				<span class="fw-bold ps-3">Username</span>
+			</div>
+			<div class="col-2">
+				<span class="fw-bold">URL's</span>
+			</div>
+			<div class="col-3">
+				<span class="fw-bold">Password Strength</span>
+			</div>
+			<div class="col-1">
+				<span class="fw-bold">Edit</span>
+			</div>
+			<div class="col-1">
+				<span class="fw-bold">Delete</span>
+			</div>
+		</div>
+	</div>
+
+	<% @passwords&.each_with_index do |password, index| %>
+		<div class="list-group-item border border-1 active-password-table bg-white">
+			<div class="row ">
+				<div class="col-5">
+					<span class="fw-bold ps-3"><%= password.username %></span>
+				</div>
+				<div class="col-2">
+					<span class="fw-bold"><%= password.urls.pluck(:name).join(", ") %></span>
+				</div>
+				<div class="col-3">
+					<span class="badge <%= get_pwd_color(password.pwd_strength) %>"><%= password.pwd_strength&.upcase %></span>
+				</div>
+				<div class="col-1">
+					<%= link_to edit_user_password_path(password) do %>
+						<button class="btn btn-light bg-dark text-white">
+							<i class="fa fa-pen-to-square"></i>
+						</button>
+					<% end %>
+				</div>
+				<div class="col-1">
+                    <a type="button" name="someDamnName" class="btn btn-danger delete-password" data-bs-toggle="modal" data-bs-target="#myModal" value=<%=password.id%>>
+                        <i class="fa fa-trash-can text-white"></i>
+                    </a> 				
+				</div>
+			</div>
+		</div>
+    <% end %>
 </div>
-
 
 
 
