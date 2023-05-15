@@ -121,19 +121,22 @@
 	<div class="col-12">
 		<nav aria-label="Page navigation example">
 		<ul class="pagination ">
-			<li class="page-item "><a class="page-link rounded-0 text-dark" href="#">Previous</a></li>
+			<li class="page-item <%= @previous_page_disabled["link-disabled"] %>">
+				<%= link_to "Previous", user_passwords_path(page: @previous_page), class: "page-link rounded-0 #{@previous_page_disabled["text-color"]}" %>
+			</li>
 			<% (1..@number_of_pages).each do |index| %>
 				<li class="page-item">
 					<%= link_to "#{index}", user_passwords_path(page: index), class: "page-link text-dark"%>
 				</li>
 			<% end %>
-			<li class="page-item"><a class="page-link text-dark rounded-0" href="#">Next</a></li>
+			<li class="page-item <%= @next_page_disabled["link-disabled"] %>">
+				<%= link_to "Next", user_passwords_path(page: @next_page), class: "page-link rounded-0 #{@next_page_disabled["text-color"]}" %>
+			</li>
 		</ul>
 		</nav>
 	</div>
 </div>
 
-<%= will_paginate @passwords %>
 
 
 <%= render "delete_password" %>

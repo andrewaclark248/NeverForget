@@ -4,11 +4,7 @@ class UserPasswordsController < ApplicationController
 
 
 	def index
-		binding.pry
-		@passwords = current_login.user&.passwords.paginate(page: params[:page], per_page: 8)
-
-		@number_of_pages = (@passwords.count/8.to_f).ceil
-		@current_user = current_user
+		add_pagination
 	end
 
 	def new
@@ -103,6 +99,33 @@ class UserPasswordsController < ApplicationController
 	end
 
 	private
+
+		def add_pagination
+			@current_page = params[:page].present? ? params[:page] : "1"
+			@passwords = current_login.user&.passwords.paginate(page: @current_page, per_page: 8)
+			@number_of_pages = (@passwords.count/8.to_f).ceil
+			@current_user = current_user
+			@next_page = @current_page.to_i + 1
+			@previous_page = @current_page.to_i - 1
+	
+			@previous_page_disabled = {}
+			if @previous_page <=0 
+				@previous_page_disabled["link-disabled"] = "disabled"
+				@previous_page_disabled["text-color"] = "text-secondary"
+			else
+				@previous_page_disabled["link_disabled"] = ""
+				@previous_page_disabled["text-color"] = "text-dark"
+			end
+	
+			@next_page_disabled = {}
+			if @next_page > @number_of_pages
+				@next_page_disabled["link-disabled"] = "disabled"
+				@next_page_disabled["text-color"] = "text-secondary"
+			else
+				@next_page_disabled["link-disabled"] = ""
+				@next_page_disabled["text-color"] = "text-dark"
+			end
+		end
 
 		def password_params
 			params.require(:password).permit(:password, :username, :pwd_strength, urls_attributes: [:name, :id, :_destroy])
