@@ -1,11 +1,11 @@
 class UserPasswordsController < ApplicationController
 
 	before_action :authenticate_user!
+	before_action :search, only: [:index]
+
 
 
 	def index
-		@passwords = current_login.user&.passwords
-		@current_user = current_user
 	end
 
 	def new
@@ -63,6 +63,18 @@ class UserPasswordsController < ApplicationController
 	  end
 	end
 
+	def search
+		if params["password-search"].blank?
+			@password_search = Filter::Password.new
+			passwords = current_login.user&.passwords
+			add_pagination(passwords)
+		else
+			model_atr = {"#{params["password-search"]}": "#{params["filter_password"]["radio_btn_value"]}", user: current_user}
+			@password_search = Filter::Password.new(model_atr)
+			add_pagination(@password_search.search)
+		end
+	end
+
 	def send_password_to_contact
 		@client = Twilio::REST::Client.new("ACe94efa4a5bccafbcd7bf3d2d2f9166df", "829e5fa9183a5cce3c9b54c25aab5058")
 
@@ -100,6 +112,33 @@ class UserPasswordsController < ApplicationController
 	end
 
 	private
+
+		def add_pagination passwords
+			@current_page = params[:page].present? ? params[:page] : "1"
+			@passwords = passwords.paginate(page: @current_page, per_page: 8)
+			@number_of_pages = (@passwords.count/8.to_f).ceil
+			@current_user = current_user
+			@next_page = @current_page.to_i + 1
+			@previous_page = @current_page.to_i - 1
+	
+			@previous_page_disabled = {}
+			if @previous_page <=0 
+				@previous_page_disabled["link-disabled"] = "disabled"
+				@previous_page_disabled["text-color"] = "text-secondary"
+			else
+				@previous_page_disabled["link_disabled"] = ""
+				@previous_page_disabled["text-color"] = "text-dark"
+			end
+	
+			@next_page_disabled = {}
+			if @next_page > @number_of_pages
+				@next_page_disabled["link-disabled"] = "disabled"
+				@next_page_disabled["text-color"] = "text-secondary"
+			else
+				@next_page_disabled["link-disabled"] = ""
+				@next_page_disabled["text-color"] = "text-dark"
+			end
+		end
 
 		def password_params
 			params.require(:password).permit(:password, :username, :pwd_strength, urls_attributes: [:name, :id, :_destroy])

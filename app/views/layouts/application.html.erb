@@ -29,12 +29,14 @@
     <%= stylesheet_link_tag "application" %>
     <%= stylesheet_link_tag "loading-bar" %>
 
-  <body class="currentPageColor " style="position: fixed; min-width: 100%;">
+
+  <body class="" style="position: fixed; min-width: 100%; background-color: #F8F8F8;">
       <%= render "layouts/sidenav_bar" %>
 
 
       <div class="yieldClassSmall yieldSection">
         <%= render 'layouts/topnav_bar' %>
+        <%= render "shared/flash" %>
         <%= yield %>
       </div>
 
