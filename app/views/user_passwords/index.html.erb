@@ -1,4 +1,4 @@
-<div class="row  pb-5 pt-4 pe-3 ps-3 currentPageColor border-bottom border-dark" >
+<div class="row  pb-3 pt-3 pe-3 ps-3 border-0 border-secondary" >
 	<div class="col-6">
 		<div>
 		<span class="fs-5 fw-bold"><%= @current_user.first %>'s Passwords</span>
@@ -8,8 +8,8 @@
 		<div class="float-end">
 			<%= link_to new_user_password_path do %>
 				<div>
-				<button class="btn btn-danger ">
-					<i class="fa-solid fa-plus pe-2 text-dark"></i><span class="text-dark fw-bold">New Password</span>
+				<button class="btn btn-danger fw-bold">
+					<span class="">New Password</span>
 				</button>
 				</div>
 			<% end %>
@@ -17,7 +17,127 @@
 	</div>
 </div>
 
+<div class="list-group rounded-0 border-top border-secondary" >
+	<%= simple_form_for @password_search, url: user_passwords_path, defaults: { wrapper: false }, method: :post do |f| %>
 
-  <%= react_component("HelloWorld", props: { name: "Stranger" }) %>
+		<div class="list-group-item border-0" style="background-color: #F8F8F8; " >
+			<div class=" pb-3 pt-2" style="display: flex;">
+				<div class="" style="margin-right: 20px;">
+					<span class="fw-bold">Search Credentials By:</span>
+				</div>
+				<div class="">
+						<div class="input-group-sm">
+							<input type="radio" class="btn-check" name="password-search" id="success-outlined" autocomplete="off" disabled>
+							<label class="btn btn-outline-primary " for="success-outlined">Name</label>
 
-<%= javascript_pack_tag "hello-world-bundle" %>
+							<%= f.input :url, label: false, input_html: { type: "radio", class: "btn-check", name: "password-search", id: "url", value: "url"} %>
+							<label class="btn btn-outline-primary" for="url">Url's</label>
+						
+							<%= f.input :username, label: false, input_html: { type: "radio", class: "btn-check", name: "password-search", id: "username", value: "username"} %>
+							<label class="btn btn-outline-primary" for="username">Username</label>
+						
+							<%= f.input :password, label: false, input_html: { type: "radio", class: "btn-check", name: "password-search", id: "password", value: "password"} %>
+							<label class="btn btn-outline-primary" for="password">Password</label>
+
+							<%= f.input :insecure_pwds, label: false, input_html: { type: "radio", class: "btn-check", name: "password-search", id: "insecure_pwds", value: "insecure_pwds", disabled: true} %>
+							<label class="btn btn-outline-warning" for="insecure_pwds">Insecure Passwords</label>
+
+							<%= f.input :compromised_pwds, label: false, input_html: { type: "radio", class: "btn-check", name: "password-search", id: "compromised_pwds", value: "compromised_pwds", disabled: true} %>
+							<label class="btn btn-outline-danger" for="compromised_pwds">Compromised Passwords</label>
+							
+							<%= f.input :compromised_usernames, label: false, input_html: { type: "radio", class: "btn-check", name: "password-search", id: "compromised_usernames", value: "compromised_usernames", disabled: true} %>
+							<label class="btn btn-outline-danger" for="compromised_usernames">Compromised Usernames</label>
+						</div>
+				</div>
+			</div>
+			<div class="row pb-2">
+					<div class="col-8">
+						<small>
+						<div class="input-group-sm">
+							<%= f.input :radio_btn_value, label: false, input_html: {placeholder: "Search"} %>
+						</div>
+						</small>
+					</div>
+					<div class="col-4">
+						<div class="d-grid gap-2">
+							<%= f.submit "Search", class: "btn btn-dark btn-sm" %>
+						</div>
+					</div>
+			</div>
+		<% end %>
+
+	</div>
+
+
+	<div class="list-group-item accordion-bg" >
+		<div class="row pb-1 pt-1">
+			<div class="col-5">
+				<span class="fw-bold ps-3">Username</span>
+			</div>
+			<div class="col-2">
+				<span class="fw-bold">URL's</span>
+			</div>
+			<div class="col-3">
+				<span class="fw-bold">Password Strength</span>
+			</div>
+			<div class="col-1">
+				<span class="fw-bold">Edit</span>
+			</div>
+			<div class="col-1">
+				<span class="fw-bold">Delete</span>
+			</div>
+		</div>
+	</div>
+
+	<% @passwords&.each_with_index do |password, index| %>
+		<div class="list-group-item border border-1 active-password-table bg-white" style="height: 50px;">
+			<div class="row ">
+				<div class="col-5">
+					<span class="fw-bold ps-3"><%= password.username %></span>
+				</div>
+				<div class="col-2">
+					<span class="fw-bold"><%= password.urls.pluck(:name).join(", ") %></span>
+				</div>
+				<div class="col-3">
+					<span class="badge <%= get_pwd_color(password.pwd_strength) %>"><%= password.pwd_strength&.upcase %></span>
+				</div>
+				<div class="col-1">
+					<%= link_to edit_user_password_path(password) do %>
+						<button class="btn btn-light bg-dark text-white btn-sm">
+							<i class="fa fa-pen-to-square" ></i>
+						</button>
+					<% end %>
+				</div>
+				<div class="col-1">
+                    <a type="button" name="someDamnName" class="btn btn-danger delete-password btn-sm" data-bs-toggle="modal" data-bs-target="#myModal" value=<%=password.id%>>
+                        <i class="fa fa-trash-can text-white"></i>
+                    </a> 				
+				</div>
+			</div>
+		</div>
+    <% end %>
+</div>
+<div class="row">
+	<div class="col-12">
+		<nav aria-label="Page navigation example">
+		<ul class="pagination ">
+			<li class="page-item <%= @previous_page_disabled["link-disabled"] %>">
+				<%= link_to "Previous", user_passwords_path(page: @previous_page), class: "page-link rounded-0 #{@previous_page_disabled["text-color"]}" %>
+			</li>
+			<% (1..@number_of_pages).each do |index| %>
+				<li class="page-item">
+					<%= link_to "#{index}", user_passwords_path(page: index), class: "page-link text-dark"%>
+				</li>
+			<% end %>
+			<li class="page-item <%= @next_page_disabled["link-disabled"] %>">
+				<%= link_to "Next", user_passwords_path(page: @next_page), class: "page-link rounded-0 #{@next_page_disabled["text-color"]}" %>
+			</li>
+		</ul>
+		</nav>
+	</div>
+</div>
+
+
+
+<%= render "delete_password" %>
+

@@ -98,9 +98,7 @@ gem 'bootstrap-icons', '~> 1.0', '>= 1.0.13'
 
 gem 'bootstrap-icons-helper', '~> 2.0', '>= 2.0.1'
 
-gem "react_on_rails", "13.3.1" # Use the latest and the exact version
-
-gem "shakapacker", "6.5.5"
+gem 'will_paginate', '~> 3.3'
 
 
 

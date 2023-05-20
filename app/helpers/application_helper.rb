@@ -3,9 +3,9 @@ module ApplicationHelper
     def flash_class(level)
         
         if level == "notice"
-            return "alert alert-success bg-success bg-gradient"
+            return "alert alert-success bg-success"
         elsif level == "error"
-            return "alert alert-danger bg-danger bg-gradient"
+            return "alert alert-danger bg-danger"
          end
     end
 
@@ -44,7 +44,7 @@ module ApplicationHelper
     end
 
     def logo_text
-        "<h3><span class='text-dark'>Safe</span><span class='text-danger'>Logins</span></h3>".html_safe
+        "<h3><span class='text-dark'>SafeLogins</span></h3>".html_safe
     end
 
     def striped_table index

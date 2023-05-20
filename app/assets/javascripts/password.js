@@ -1,7 +1,6 @@
 $(document).ready(function(){
 
-    //
-    $('.active-password-table').mouseenter(function (e) {
+    /****    $('.active-password-table').mouseenter(function (e) {
         $(e.currentTarget).removeClass("bg-light")
         $(e.currentTarget).addClass("active-tab")
     })
@@ -55,7 +54,7 @@ $(document).ready(function(){
         //},50)
         //copyInternval();
         //clearInterval(copyInternval);
-      });**/
+      });
 
 
 
@@ -104,7 +103,6 @@ $(document).ready(function(){
         }
     });
 
-    /****
     $(".eyeIconCursor").on({
         mouseenter: function () {
             $(".eyeIconCursor").removeClass("text-secondary")
@@ -114,6 +112,8 @@ $(document).ready(function(){
             $(".eyeIconCursor").removeClass("text-dark")
             $(".eyeIconCursor").addClass("text-secondary")
         }
-    }); */
+    }); 
+    *****/
+
 
 });
