@@ -85,8 +85,6 @@ gem 'devise-security'
 
 gem 'email_address'
 
-gem 'webpacker'
-
 #gem 'react_on_rails'
 
 gem 'mini_racer'
@@ -101,6 +99,7 @@ gem 'bootstrap-icons', '~> 1.0', '>= 1.0.13'
 gem 'bootstrap-icons-helper', '~> 2.0', '>= 2.0.1'
 
 gem 'will_paginate', '~> 3.3'
+
 
 
 group :development, :test do
