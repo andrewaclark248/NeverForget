@@ -18,53 +18,53 @@
 </div>
 
 <div class="list-group rounded-0 border-top border-secondary" >
+	<%= simple_form_for @password_search, url: search_user_passwords_path, defaults: { wrapper: false }, method: :post do |f| %>
 
-	<div class="list-group-item border-0" style="background-color: #F8F8F8; " >
-		<div class=" pb-3 pt-2" style="display: flex;">
-			<div class="" style="margin-right: 20px;">
-				<span class="fw-bold">Search Credentials By:</span>
-			</div>
-			<div class="">
-				<div class="input-group-sm">
-					<input type="radio" class="btn-check" name="options-outlined" id="success-outlined" autocomplete="off" checked>
-					<label class="btn btn-outline-primary " for="success-outlined">Name</label>
+		<div class="list-group-item border-0" style="background-color: #F8F8F8; " >
+			<div class=" pb-3 pt-2" style="display: flex;">
+				<div class="" style="margin-right: 20px;">
+					<span class="fw-bold">Search Credentials By:</span>
+				</div>
+				<div class="">
+						<div class="input-group-sm">
+							<input type="radio" class="btn-check" name="password-search" id="success-outlined" autocomplete="off" disabled>
+							<label class="btn btn-outline-primary " for="success-outlined">Name</label>
 
-					<input type="radio" class="btn-check" name="options-outlined" id="danger-outlined" autocomplete="off">
-					<label class="btn btn-outline-primary" for="danger-outlined">Url's</label>
-				
-					<input type="radio" class="btn-check" name="options-outlined" id="usernmae" autocomplete="off">
-					<label class="btn btn-outline-primary" for="usernmae">Username</label>
-				
-					<input type="radio" class="btn-check" name="options-outlined" id="password" autocomplete="off">
-					<label class="btn btn-outline-primary" for="password">Password</label>
+							<%= f.input :url, label: false, input_html: { type: "radio", class: "btn-check", name: "password-search", id: "url", value: "url"} %>
+							<label class="btn btn-outline-primary" for="url">Url's</label>
+						
+							<%= f.input :username, label: false, input_html: { type: "radio", class: "btn-check", name: "password-search", id: "username", value: "username"} %>
+							<label class="btn btn-outline-primary" for="username">Username</label>
+						
+							<%= f.input :password, label: false, input_html: { type: "radio", class: "btn-check", name: "password-search", id: "password", value: "password"} %>
+							<label class="btn btn-outline-primary" for="password">Password</label>
 
-					<input type="radio" class="btn-check" name="options-outlined" id="insecure-password" autocomplete="off">
-					<label class="btn btn-outline-warning" for="insecure-password">Insecure Passwords</label>
+							<%= f.input :insecure_pwds, label: false, input_html: { type: "radio", class: "btn-check", name: "password-search", id: "insecure_pwds", value: "insecure_pwds", disabled: true} %>
+							<label class="btn btn-outline-warning" for="insecure_pwds">Insecure Passwords</label>
 
-					<input type="radio" class="btn-check" name="options-outlined" id="compromised-password" autocomplete="off" >
-					<label class="btn btn-outline-danger" for="compromised-password">Compromised Passwords</label>
-					
-					<input type="radio" class="btn-check" name="options-outlined" id="compromised-usernames" autocomplete="off" >
-					<label class="btn btn-outline-danger" for="compromised-usernames">Compromised Usernames</label>
+							<%= f.input :compromised_pwds, label: false, input_html: { type: "radio", class: "btn-check", name: "password-search", id: "compromised_pwds", value: "compromised_pwds", disabled: true} %>
+							<label class="btn btn-outline-danger" for="compromised_pwds">Compromised Passwords</label>
+							
+							<%= f.input :compromised_usernames, label: false, input_html: { type: "radio", class: "btn-check", name: "password-search", id: "compromised_usernames", value: "compromised_usernames", disabled: true} %>
+							<label class="btn btn-outline-danger" for="compromised_usernames">Compromised Usernames</label>
+						</div>
 				</div>
 			</div>
-		</div>
-
-		<div class="row pb-2">
-				<div class="col-8">
-					<small>
-					<div class="input-group-sm">
-						<input class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Search">
+			<div class="row pb-2">
+					<div class="col-8">
+						<small>
+						<div class="input-group-sm">
+							<%= f.input :radio_btn_value, label: false, input_html: {placeholder: "Search"} %>
+						</div>
+						</small>
 					</div>
-					</small>
-				</div>
-				<div class="col-4">
-					<div class="d-grid gap-2">
-					<button type="button" class="btn btn-dark btn-sm">Search</button>
-
+					<div class="col-4">
+						<div class="d-grid gap-2">
+							<%= f.submit "Search", class: "btn btn-dark btn-sm" %>
+						</div>
 					</div>
-				</div>
-		</div>
+			</div>
+		<% end %>
 
 	</div>
 

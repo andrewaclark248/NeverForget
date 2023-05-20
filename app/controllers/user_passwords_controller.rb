@@ -4,6 +4,7 @@ class UserPasswordsController < ApplicationController
 
 
 	def index
+		@password_search = Filter::Password.new
 		add_pagination
 	end
 
@@ -60,6 +61,15 @@ class UserPasswordsController < ApplicationController
 			flash[:error] = password.errors.full_messages.to_sentence
 			redirect_to edit_user_password_path
 	  end
+	end
+
+	def search
+		model_atr = {"#{params["password-search"]}": "#{params["filter_password"]["radio_btn_value"]}", user: current_user}
+		binding.pry
+		password = Filter::Password.new(model_atr)
+
+		@passwords = password.search
+		redirect_to user_passwords_path
 	end
 
 	def send_password_to_contact
@@ -129,6 +139,10 @@ class UserPasswordsController < ApplicationController
 
 		def password_params
 			params.require(:password).permit(:password, :username, :pwd_strength, urls_attributes: [:name, :id, :_destroy])
+		end
+
+		def search_params
+			params.fetch(f)
 		end
 
 end

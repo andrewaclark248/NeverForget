@@ -25,6 +25,9 @@ Rails.application.routes.draw do
 	resources :billing_portal, only: [:index]
 	resources :keys
 	resources :user_passwords do
+		collection do
+			post "search", to: "user_passwords#search"
+		end
 		member do
 			get "send_password_to_contact", to: "user_passwords#send_password_to_contact" 
 			post "send_password_to_contact_via_email", to: "user_passwords#send_password_to_contact_via_email"
