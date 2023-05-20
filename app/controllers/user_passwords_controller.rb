@@ -1,11 +1,11 @@
 class UserPasswordsController < ApplicationController
 
 	before_action :authenticate_user!
+	before_action :search, only: [:index]
+
 
 
 	def index
-		@password_search = Filter::Password.new
-		add_pagination
 	end
 
 	def new
@@ -64,12 +64,15 @@ class UserPasswordsController < ApplicationController
 	end
 
 	def search
-		model_atr = {"#{params["password-search"]}": "#{params["filter_password"]["radio_btn_value"]}", user: current_user}
-		binding.pry
-		password = Filter::Password.new(model_atr)
-
-		@passwords = password.search
-		redirect_to user_passwords_path
+		if params["password-search"].blank?
+			@password_search = Filter::Password.new
+			passwords = current_login.user&.passwords
+			add_pagination(passwords)
+		else
+			model_atr = {"#{params["password-search"]}": "#{params["filter_password"]["radio_btn_value"]}", user: current_user}
+			@password_search = Filter::Password.new(model_atr)
+			add_pagination(@password_search.search)
+		end
 	end
 
 	def send_password_to_contact
@@ -110,9 +113,9 @@ class UserPasswordsController < ApplicationController
 
 	private
 
-		def add_pagination
+		def add_pagination passwords
 			@current_page = params[:page].present? ? params[:page] : "1"
-			@passwords = current_login.user&.passwords.paginate(page: @current_page, per_page: 8)
+			@passwords = passwords.paginate(page: @current_page, per_page: 8)
 			@number_of_pages = (@passwords.count/8.to_f).ceil
 			@current_user = current_user
 			@next_page = @current_page.to_i + 1
@@ -139,10 +142,6 @@ class UserPasswordsController < ApplicationController
 
 		def password_params
 			params.require(:password).permit(:password, :username, :pwd_strength, urls_attributes: [:name, :id, :_destroy])
-		end
-
-		def search_params
-			params.fetch(f)
 		end
 
 end

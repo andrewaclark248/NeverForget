@@ -24,9 +24,12 @@ Rails.application.routes.draw do
 	resources :payments, only: [:new, :create]
 	resources :billing_portal, only: [:index]
 	resources :keys
-	resources :user_passwords do
+	resources :user_passwords, only: [:update, :new, :edit, :destroy]  do
 		collection do
-			post "search", to: "user_passwords#search"
+			get "/", to: "user_passwords#index"
+			post "/", to: "user_passwords#index"
+
+			post "/create", to: "user_passwords#create"
 		end
 		member do
 			get "send_password_to_contact", to: "user_passwords#send_password_to_contact" 

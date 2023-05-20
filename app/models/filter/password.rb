@@ -19,7 +19,8 @@ module Filter
         end
         
         def search_password
-            passwords.filter {|p| p.password.downcase.include?(password.downcase)} #ignorecase
+            array_of_passwords = passwords.filter {|p| p.password.downcase.include?(password.downcase)} #ignorecase
+            ::Password.where(id: array_of_passwords.pluck(:id))
         end
 
         def search_urls
@@ -27,7 +28,7 @@ module Filter
         end
 
         def search_username
-            password.where(Password.arel_table["username"].matches("%#{username.downcase}%"))
+            passwords.where(::Password.arel_table["username"].matches("%#{username.downcase}%"))
         end
 
 
