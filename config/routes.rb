@@ -24,7 +24,14 @@ Rails.application.routes.draw do
 	resources :dashboard
 	resources :payments, only: [:new, :create]
 	resources :billing_portal, only: [:index]
-	resources :keys
+	resources :keys, only: [:update, :new, :edit, :destroy]  do
+		collection do
+			get "/", to: "keys#index"
+			post "/", to: "keys#index"
+
+			post "/create", to: "keys#create"
+		end
+	end
 	resources :user_passwords, only: [:update, :new, :edit, :destroy]  do
 		collection do
 			get "/", to: "user_passwords#index"
