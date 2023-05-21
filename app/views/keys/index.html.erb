@@ -60,7 +60,7 @@
 			<div class="col-5">
 				<span class="fw-bold ps-3">Key</span>
 			</div>
-			<div class="col-2">
+			<div class="col-5">
 				<span class="fw-bold">Value</span>
 			</div>
 			<div class="col-1">
@@ -78,7 +78,7 @@
 				<div class="col-5">
 					<span class="fw-bold ps-3"><%= key.key %></span>
 				</div>
-				<div class="col-2">
+				<div class="col-5">
 					<span class="fw-bold"><%= key.value %></span>
 				</div>
 				<div class="col-1">
@@ -89,7 +89,7 @@
 					<% end %>
 				</div>
 				<div class="col-1">
-                    <a type="button" name="someDamnName" class="btn btn-danger delete-password btn-sm" data-bs-toggle="modal" data-bs-target="#myModal" value=<%=key.id%>>
+                    <a type="button" name="someDamnName" class="btn btn-danger delete-key-value btn-sm" data-bs-toggle="modal" data-bs-target="#myModal" value=<%=key.id%>>
                         <i class="fa fa-trash-can text-white"></i>
                     </a> 				
 				</div>
@@ -118,3 +118,4 @@
 	</div>
 </div>
 
+<%= render "delete_key_modal" %>

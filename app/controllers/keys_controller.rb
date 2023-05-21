@@ -56,7 +56,6 @@ class KeysController < ApplicationController
 			keys = current_login.user&.keys
 			add_pagination(keys)
 		else
-			binding.pry
 			model_atr = {"#{params["key-search"]}": "#{params["filter_key"]["radio_btn_value"]}", user: current_user}
 			@key_search = Filter::Key.new(model_atr)
 			add_pagination(@key_search.search) #@password_search.search
