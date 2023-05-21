@@ -28,10 +28,10 @@
 				<div class="">
 						<div class="input-group-sm">
 							<%= f.input :key, label: false, input_html: { type: "radio", class: "btn-check", name: "key-search", id: "key", value: "key"} %>
-							<label class="btn btn-outline-primary" for="key">Url's</label>
+							<label class="btn btn-outline-primary" for="key">Key</label>
 						
 							<%= f.input :value, label: false, input_html: { type: "radio", class: "btn-check", name: "key-search", id: "value", value: "value"} %>
-							<label class="btn btn-outline-primary" for="value">Username</label>
+							<label class="btn btn-outline-primary" for="value">Value</label>
 						
 						</div>
 				</div>
@@ -98,5 +98,23 @@
     <% end %>
 </div>
 
-
+<div class="row">
+	<div class="col-12">
+		<nav aria-label="Page navigation example">
+		<ul class="pagination ">
+			<li class="page-item <%= @previous_page_disabled["link-disabled"] %>">
+				<%= link_to "Previous", keys_path(page: @previous_page), class: "page-link rounded-0 #{@previous_page_disabled["text-color"]}" %>
+			</li>
+			<% (1..@number_of_pages).each do |index| %>
+				<li class="page-item">
+					<%= link_to "#{index}", keys_path(page: index), class: "page-link text-dark"%>
+				</li>
+			<% end %>
+			<li class="page-item <%= @next_page_disabled["link-disabled"] %>">
+				<%= link_to "Next", keys_path(page: @next_page), class: "page-link rounded-0 #{@next_page_disabled["text-color"]}" %>
+			</li>
+		</ul>
+		</nav>
+	</div>
+</div>
 
