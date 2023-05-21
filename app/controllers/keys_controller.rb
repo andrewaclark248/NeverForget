@@ -51,14 +51,15 @@ class KeysController < ApplicationController
 	private 
 
 	def search
-		if params["password-search"].blank?
+		if params["key-search"].blank?
 			@key_search = Filter::Key.new
 			keys = current_login.user&.keys
 			add_pagination(keys)
 		else
-			model_atr = {"#{params["password-search"]}": "#{params["filter_password"]["radio_btn_value"]}", user: current_user}
+			binding.pry
+			model_atr = {"#{params["key-search"]}": "#{params["filter_key"]["radio_btn_value"]}", user: current_user}
 			@key_search = Filter::Key.new(model_atr)
-			add_pagination(current_login.user&.keys) #@password_search.search
+			add_pagination(@key_search.search) #@password_search.search
 		end
 	end
 
