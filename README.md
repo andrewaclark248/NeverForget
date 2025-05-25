@@ -2,6 +2,7 @@
 API and Web app that stores passwords. 
 
 # Features
+- Login via devise
 - Adding/Editing Passwords 
     - check for password strength
     - add urls associated with password
@@ -14,7 +15,7 @@ API and Web app that stores passwords.
  - MFA
 
 
-
+<img width="1278" alt="image" src="https://github.com/user-attachments/assets/3d346947-9fed-490d-a8fd-317f93b8c5d6" />
 <img width="1328" alt="image" src="https://github.com/user-attachments/assets/851074f2-5117-47da-b801-4c0eb13f2a85" />
 <img width="1281" alt="image" src="https://github.com/user-attachments/assets/a97dd039-cbaa-4f4f-a3ff-a1c5bcf98d0d" />
 <img width="1221" alt="image" src="https://github.com/user-attachments/assets/6708c458-1c0e-484c-89bd-13efe9138f9a" />
