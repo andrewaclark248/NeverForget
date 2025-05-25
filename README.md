@@ -1,6 +1,15 @@
 # SafeLogins
 API and Web app that stores passwords. 
 
+# SafeLogins
+- run
+    - bundle
+    - create database
+        - user: aclark
+        - password: null
+        - database name: never_forget_development
+        - type: postgresql
+
 # Features
 - Login via devise
 - Adding/Editing Passwords 
